@@ -1,0 +1,73 @@
+.text-hover-primary:hover {
+    color: #5e3d9f;
+}
+
+.required:after {
+    content: "*";
+    position: relative;
+    font-size: inherit;
+    color: #f1416c;
+    padding-left: 0.25rem;
+    font-weight: 700;
+}
+
+.select2-container {
+    margin-top: 9px;
+}
+
+.border-b-primary {
+    --tw-border-opacity: 1;
+    border-bottom-color: rgb(var(--color-primary) / var(--tw-border-opacity));
+}
+
+/* Datatable shorting icon */
+.border-b-2.whitespace-no-wrap.fs-5.uppercase.sorting{
+    background: url('http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/images/sort_both.png') no-repeat center left;
+}
+
+.border-b-2.whitespace-no-wrap.fs-5.uppercase.sorting.sorting_desc{
+    background: url('http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/images/sort_desc.png') no-repeat center left;
+}
+
+.border-b-2.whitespace-no-wrap.fs-5.uppercase.sorting.sorting_asc{
+    background: url('http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/images/sort_asc.png') no-repeat center left;
+}
+/* Datatable shorting icon end */
+
+
+.side-nav .side-menu .side-menu__icon {
+    width: 30px;
+    text-align: center;
+}
+
+.tab-color .tabing.active {
+    border-bottom: 2px solid #0000ff;
+    padding-right: 13px;
+    padding-left: 13px;
+}
+
+.fa-user-pen:before {
+    margin-right: 9px;
+    font-size: 17px;
+}
+
+.fa-file-video:before {
+    font-size: 30px;
+}
+
+.note-editor .note-toolbar .note-dropdown-menu {
+    height: 113px;
+    overflow: auto;
+}
+
+.modal.modal__overlap,
+.removeModal {
+    background: transparent;
+}
+
+.side-nav ol,
+.side-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
