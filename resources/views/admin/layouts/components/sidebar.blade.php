@@ -13,7 +13,7 @@
     <a href="{{ route('admin.dashboard') }}" class="intro-x flex items-center pl-5 pt-4">
         <img alt="" class="w-6"
             src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : $logo_img }}"
-           >
+            style="width: 100%;border-radius:5px">
         {{-- <span class="hidden xl:block text-white text-lg ml-3">{{ $global_setting_data['site_name'] }} </span> --}}
     </a>
     <div class="side-nav__devider my-6"></div>
