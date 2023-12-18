@@ -1,7 +1,7 @@
 /* stylesheet */
 :root{
     --primary-color:#797979;
-    --secondary-color:#5E3D9F;
+    --secondary-color:#8cbc50;
     --dark-color1:#111111;
     --dark-color2:#17384e;
     --white-color:#ffffff;
@@ -155,7 +155,7 @@ a,a:hover,a:focus,a:visited{
 .as_btn,.as_btn:focus,.as_btn:visited{
     height: 45px;
     background-image: -moz-linear-gradient( 0deg, rgb(244,170,54) 0%, rgb(243,115,53) 100%);
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
     background-image: -ms-linear-gradient( 0deg, rgb(244,170,54) 0%, rgb(243,115,53) 100%);
     font-size: 14px;
     text-transform: capitalize;
@@ -181,9 +181,9 @@ a,a:hover,a:focus,a:visited{
     bottom:0;
     left:100%;
     right:0;
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
 }
 .as_btn:hover:after{
     left:0
@@ -344,7 +344,7 @@ a,a:hover,a:focus,a:visited{
 }
 /* header css start */ 
 .as_header_wrapper {
-    background-color: #5E3D9F;
+    background-color: #8cbc50;
     position: fixed;
     top:0;
     left: 0;
@@ -776,7 +776,7 @@ a,a:hover,a:focus,a:visited{
     display: none;
 }
 .as_banner_slider .slick-arrow.as_btn:hover{
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
 }
 .as_banner_slider .slick-arrow>span {
     display: inline-flex;
@@ -889,7 +889,7 @@ a,a:hover,a:focus,a:visited{
 /* about css end */
 /* horoscope css start */
 .as_horoscope_wrapper{
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
 }
 .as_horoscope_wrapper h2,
 .as_horoscope_wrapper p{
@@ -966,7 +966,7 @@ a,a:hover,a:focus,a:visited{
     z-index: -1;
 }
 .as_service_box:hover{
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
 }
 .as_service_box .as_icon svg{
     fill: var(--secondary-color);
@@ -1179,7 +1179,7 @@ a,a:hover,a:focus,a:visited{
   
 .as_customer_box {
     border-radius: 30px;
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
     padding: 54px 50px;
     position: relative;
     color: #ffffff;
@@ -1304,9 +1304,9 @@ a,a:hover,a:focus,a:visited{
     color: #ffffff;
 }
 .as_sign_box:hover {
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
-    background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
+    background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%);
     border-color: rgb(231, 231, 231);
 } 
 
@@ -1451,8 +1451,8 @@ a,a:hover,a:focus,a:visited{
 /* blog css end */
 /* product css start */
 .as_product_wrapper{
-   /* background-image: -webkit-linear-gradient( 0deg, #5E3D9FB3 0%, rgb(94 61 159) 100%); */
-   background-color:#5E3D9F;
+   /* background-image: -webkit-linear-gradient( 0deg, #8cbc50B3 0%, rgb(94 61 159) 100%); */
+   background-color:#8cbc50;
 }
 .as_shopsingle_page .as_product_wrapper{
     background: #f6f6f6;

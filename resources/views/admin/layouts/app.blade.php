@@ -20,7 +20,7 @@
     <link href="{{ asset('admin/dist/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 <style>
     html {
-        background: #5e3d9f !importent;
+        background: #8cbc50 !importent;
     }
     
 </style>
