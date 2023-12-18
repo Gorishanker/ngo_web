@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProjectRequest;
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\Project;
 use App\Models\ProjectDoc;
@@ -66,8 +67,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $clients = Client::where('is_active', 1)->pluck('name', 'id');
-        return view($this->create_view, compact('clients'));
+        $categories = Category::where('is_active', 1)->pluck('category_name', 'id');
+        return view($this->create_view, compact('categories'));
     }
 
     /**
@@ -88,11 +89,11 @@ class ProjectController extends Controller
 
         $brochure_pdf = FileService::imageUploader($request, 'brochure_pdf', $this->image_directory);
         if ($brochure_pdf != null) {
-            ProjectDoc::create(['type' => 1, 'file' => $brochure_pdf, 'service_id' => $project->id]);
+            ProjectDoc::create(['type' => 1, 'file' => $brochure_pdf, 'project_id' => $project->id]);
         }
         $brochure_doc = FileService::imageUploader($request, 'brochure_doc', $this->image_directory);
         if ($brochure_doc != null) {
-            ProjectDoc::create(['type' => 2, 'file' => $brochure_doc, 'service_id' => $project->id]);
+            ProjectDoc::create(['type' => 2, 'file' => $brochure_doc, 'project_id' => $project->id]);
         }
 
         $side_images = [];
@@ -119,7 +120,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-
         return  view($this->detail_view, compact('project'));
     }
 
@@ -131,8 +131,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $clients = Client::where('is_active', 1)->pluck('name', 'id');
-        return view($this->edit_view, compact('project', 'clients'));
+        $categories = Category::where('is_active', 1)->pluck('category_name', 'id');
+        return view($this->edit_view, compact('project','categories'));
     }
 
     /**

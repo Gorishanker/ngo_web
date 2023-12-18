@@ -123,23 +123,24 @@ class FileService
      */
     public static function imageUploader(Request $request, $key, $url, $name = '')
     {
+        $filesystem_disk = config()->get('services.env.filesystem_disk');
         $image_name = "";
         if ($request->hasFile($key)) {
             $image = $request->file($key);
             $ext = $image->getClientOriginalExtension() !== "" ? $image->getClientOriginalExtension() : $image->extension();
-            
+
             if ($name) {
                 $image_name = $name;
             } else {
                 $image_name = $name . time() . '_' . uniqid() . '.' . $ext;
             }
-            
             self::fileUploadToStorage($image, $image_name, $url);
             return $image_name;
         } else {
             return null;
         }
     }
+    
 
     public static function imageUploaderWithArray($image, $url, $name = '')
     {
@@ -333,10 +334,12 @@ class FileService
 
     public static function fileUploadToStorage($image, $image_name_str, $url)
     {
+        $filesystem_disk = config()->get('services.env.filesystem_disk');
+        // Log::debug('$filesystem_disk: ' . $filesystem_disk);
+
         if (config('services.env.img_compression')) {
             self::fileUploadWithCompression($image, $image_name_str, $url);
         } else {
-           
             self::fileUploadWithoutCompression($image, $image_name_str, $url);
         }
         return true;
@@ -368,13 +371,15 @@ class FileService
     {
         $filesystem_disk = config()->get('services.env.filesystem_disk');
         try {
-            $img = Storage::disk($filesystem_disk)->put('public/' . $url . '/' .  $image_name_str, $image_name_str);
-        } catch (Exception $e) {    
+            // $img = Storage::disk($filesystem_disk)->put('public/' . $url . '/' .  $image_name_str, $image_name_str);
+            $img = Storage::disk($filesystem_disk)->putFileAs('public/' . $url, $image, $image_name_str, 'public');
+            // Log::debug('Image uploading is working. Image uploading status: ' . $img);
+        } catch (Exception $e) {
             Log::error('Compression Not applied & the file not working. Request is Error: - ' . $e);
         }
-       
         return true;
     }
+
 
     public static function uploadPdfFile($pdf, $file_name, $url)
     {

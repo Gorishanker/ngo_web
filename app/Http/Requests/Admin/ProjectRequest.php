@@ -25,18 +25,18 @@ class ProjectRequest extends FormRequest
     {
         if (!request()->is('admin/blogs/create')) {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150',
+                'title' => 'required|alpha_spaces|min:10|max:150|unique:projects,title,' .request()->id,
                 'image' => 'nullable|image',
                 'client_id' => 'nullable',
                 'category_id' => 'nullable',
                 'is_active' => 'required',
-                'side_images' => 'required|max:3',
+                'side_images' => 'nullable|max:3',
                 'brochure_pdf' => 'nullable|file|mimes:pdf',
                 'brochure_doc' => 'nullable|file',
             ];
         } else {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150',
+                'title' => 'required|alpha_spaces|min:10|max:150|unique:projects,title,except,id',
                 'image' => 'required|image',
                 'client_id' => 'nullable',
                 'category_id' => 'nullable',

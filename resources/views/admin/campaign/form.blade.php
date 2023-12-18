@@ -25,10 +25,11 @@
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.tags', 1) }}</label>
-        {!! Form::select('tags[]', $tags, isset($campaign->pluck_campaign_tags) ? $campaign->pluck_campaign_tags : null, [
+        {!! Form::select('tags[]', $tags, isset($selected_tags) ? $selected_tags : null, [
             'placeholder' => trans_choice('content.please_select', 1),
             'data-control' => 'select2',
-            'class' => 'input w-full border bg-gray-100 mt-2',
+            'multiple' => true,
+            'class' => 'input w-full select2 border bg-gray-100 mt-2',
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">

@@ -39,25 +39,6 @@
     <div class="intro-y col-span-12 lg:col-span-6">
         <div class="intro-y box p-5">
             <div>
-                <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.language', 1) }}
-                    : </label>
-                    @if (isset($faq->language))
-                    @if ($faq->language == 'en')
-                        English
-                    @elseif($faq->language == 'hi')
-                    हिंदी
-                    @else
-                   {{$faq->language}}
-                    @endif
-                @else
-                    N/a
-                @endif
-            </div>
-        </div>
-    </div>
-    <div class="intro-y col-span-12 lg:col-span-6">
-        <div class="intro-y box p-5">
-            <div>
                 <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.created_at', 1) }}
                     : </label>
                 {{ isset($faq->created_at) ? get_default_format($faq->created_at) : 'N/A' }}

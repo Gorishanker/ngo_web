@@ -139,4 +139,12 @@ return [
     'news' => 'News',
     'status' => 'Status',
     'tag' => 'Tag|Tags',
+    'page_content' => 'Page content|Page contents',
+    'faq' => "Faq|Faq's",
+    'contact_us' => 'Contact us',
+    'general' => 'General',
+    'side_images' => 'Side Images',
+    'tags' => 'Tag|Tags',
+    'question' => 'Question|Questions',
+    'answer' => 'Answer|Answers',
 ];

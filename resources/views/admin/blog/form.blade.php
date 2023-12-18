@@ -45,7 +45,7 @@
             'class' => 'input w-full border bg-gray-100 mt-2',
         ]) !!}
     </div>
-    <div class="col-span-12 form-group xl:col-span-6">
+    <div class="col-span-12 form-group xl:col-span-4">
         <label class="required">{{ trans_choice('content.image', 1) }}</label>
         {!! Form::file('image', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -55,7 +55,7 @@
             'placeholder' => __('Upload Image '),
         ]) !!}
     </div>
-    <div class="col-span-12 xl:col-span-6 mt-4">
+    <div class="col-span-12 xl:col-span-2 mt-4">
         @if (isset($blog->image))
             <img id="backImage_image" width="80px" height="80px" src="{{ $blog->image }}" title="Image">
             @else

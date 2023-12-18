@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Services\FileService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Gallery extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,10 +19,9 @@ class Gallery extends Model
     protected $fillable = [
         'file',
         'category_id',
-        'is_active',
     ];
 
-    public function getImageAttribute($value)
+    public function getFileAttribute($value)
     {
         if ($value) {
             return  FileService::getFileUrl('files/galleries/', $value);
@@ -30,4 +30,8 @@ class Gallery extends Model
         }
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

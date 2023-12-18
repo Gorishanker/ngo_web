@@ -28,18 +28,18 @@ class ServiceRequest extends FormRequest
                 'title' => 'required|alpha_spaces|min:10|max:150',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
-                'image' => 'nullable|image',
-                'brochure_pdf' => 'nullable|file|mimes:pdf',
-                'brochure_doc' => 'nullable|file',
+                'image' => 'nullable|image|max:3072',
+                'brochure_pdf' => 'nullable|file|mimes:pdf|max:3072',
+                'brochure_doc' => 'nullable|file|max:3072',
             ];
         } else {
             return [
                 'title' => 'required|alpha_spaces|min:10|max:150',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
-                'image' => 'required|image',
-                'brochure_pdf' => 'required|file|mimes:pdf',
-                'brochure_doc' => 'required|file',
+                'image' => 'required|image|max:3072',
+                'brochure_pdf' => 'required|file|mimes:pdf|max:3072',
+                'brochure_doc' => 'required|file|max:3072',
             ];
         }
     }

@@ -135,7 +135,7 @@ Breadcrumbs::resource('users', $mls->messageLanguage('only_name', 'user', 2));
 /*------------- Admin Categories ------------------------*/
 Breadcrumbs::resource('categories', 'Categories');
 
-Breadcrumbs::resource('page_contents','Page Content');
+Breadcrumbs::resource('page_contents', 'Page Content');
 /*------------- Admin faqs ------------------------*/
 Breadcrumbs::resource('faqs', "Faq's");
 /*------------- Admin projects ------------------------*/
@@ -157,3 +157,7 @@ Breadcrumbs::resource('banners', "Banners");
 /*------------- Admin tags ------------------------*/
 Breadcrumbs::resource('tags', "tags");
 
+// /*------------- Admin contact us ------------------------*/
+Breadcrumbs::resource('contact_us', 'Contact us');
+// /*------------- Admin gallery ------------------------*/
+Breadcrumbs::resource('galleries', 'Gallery');

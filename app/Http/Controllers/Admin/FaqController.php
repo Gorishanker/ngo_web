@@ -63,32 +63,13 @@ class FaqController extends Controller
     public function store(FaqRequest $request)
     {
         $input = $request->validated();
-        $hi_input = [
-            'question' => $request->question_h,
-            'answer' => $request->answer_h,
-            'is_active' => $request->is_active_h,
-            'language' => 'hi',
-        ];
-        $en_input = [
-            'question' => $request->question,
-            'answer' => $request->answer,
-            'is_active' => $request->is_active,
-            'language' => 'en',
-        ];
-        $en_data =$this->categoryService->create($en_input);
-        $hi_data =$this->categoryService->create($hi_input);
-        if (isset($en_data) && isset($hi_data)) {
+        $faq =$this->categoryService->create($input);
+        if (isset($faq)) {
             return response()->json([
                 'status' => true,
                 'message' => 'Faq created successfully.',
             ], 200);
         } else {
-            if (isset($en_data)) {
-                $en_data->delete();
-            }
-            if (isset($hi_data)) {
-                $hi_data->delete();
-            }
             return response()->json([
                 'status' => false,
                 'message' => 'Error! while creating Faq.',
@@ -136,15 +117,6 @@ class FaqController extends Controller
     public function update(FaqRequest $request, Faq $faq)
     {
         $input = $request->validated();
-        if ($faq->language == 'hi') {
-            $input = [
-                'question' => $request->question_h,
-                'answer' => $request->answer_h,
-                'is_active' => $request->is_active_h,
-                'language' => 'hi',
-            ];
-        }
-
         $data = $faq->update($input);
         if (isset($data)) {
             return response()->json([
@@ -187,7 +159,7 @@ class FaqController extends Controller
 
     public function status($id, $status)
     {
-        $status = ($status =="true") ? false : true;
+        $status = ($status == 1) ? 0 : 1;
         $result = FaqService::status(['is_active' => $status], $id);
         if ($result) {
             return response()->json([

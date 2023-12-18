@@ -18,6 +18,7 @@
                             'class' => 'form',
                             'enctype' => 'multipart/form-data',
                         ]) !!}
+                        <input type="hidden" name="id" value="{{ $tag->id }}">
                         @include('admin.tag.form')
 
                         <div class="grid grid-cols-12 gap-5 mt-6">

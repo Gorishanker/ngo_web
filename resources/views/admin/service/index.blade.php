@@ -9,7 +9,7 @@
             'status' => true,
             'route' => route('admin.services.create'),
             'name' => __('messages.create', [
-                'name' => trans_choice('content.service', 2),
+                'name' => trans_choice('content.service', 1),
             ]),
         ],
     ])

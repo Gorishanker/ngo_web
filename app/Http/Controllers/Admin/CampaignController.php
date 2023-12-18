@@ -86,13 +86,12 @@ class CampaignController extends Controller
         }
         $campaign =  $this->bannerService->create($input);
 
-        if ($request->hasFile('tags')) {
+        if ($request->tags) {
             $campaign_tags = [];
             foreach ($request->tags as $key => $tag) {
                 $campaign_tags[$key]['campagin_id'] = $campaign->id;
                 $campaign_tags[$key]['tag_id'] = $tag;
             }
-
             CampaignTag::insert($campaign_tags);
         }
 
@@ -120,7 +119,8 @@ class CampaignController extends Controller
     public function edit(Campaign $campaign)
     {
         $tags = Tag::where('is_active', 1)->pluck('name', 'id');
-        return view($this->edit_view, compact('campaign', 'tags'));
+        $selected_tags = $campaign->hasMany(CampaignTag::class,'campagin_id')->pluck('tag_id');
+        return view($this->edit_view, compact('campaign', 'tags','selected_tags'));
     }
 
     /**
@@ -144,7 +144,7 @@ class CampaignController extends Controller
         $campaign->update($input);
         CampaignTag::where('campagin_id', $campaign->id)->delete();
 
-        if ($request->hasFile('tags')) {
+        if ($request->tags) {
             $campaign_tags = [];
             foreach ($request->tags as $key => $tag) {
                 $campaign_tags[$key]['campagin_id'] = $campaign->id;

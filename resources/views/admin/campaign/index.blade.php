@@ -93,7 +93,7 @@
                         name: 'target_amount',
                         render: function(data, type, row, meta) {
                             if (data) {
-                                return `<span class="badge badge-primary">{{currencyIcon()}}$${setStringLength(data)}</span>`;
+                                return `<span class="badge badge-primary">{{currencyIcon()}}${setStringLength(data)}</span>`;
                             } else {
                                 return `<div class="font-medium whitespace-no-wrap">Na</div>`;
                             }

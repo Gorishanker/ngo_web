@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactUsController extends Controller
 {
     protected $mls;
-    protected $index_view,$detail_view;
+    protected $index_view, $detail_view;
     protected $utilityService;
 
     public function __construct()
@@ -38,36 +38,17 @@ class ContactUsController extends Controller
      */
     public function index(Request $request)
     {
-        
+
         if ($request->ajax()) {
-            $items = ContactUs::leftJoin('users', 'users.id', 'contact_us.user_id')
-            ->leftJoin('gurujis', 'gurujis.id', 'contact_us.user_id')
-                    ->select(
-                        'users.name as user_name',
-                        'gurujis.name as guruji_name',
-                        'users.email as user_email',
-                        'gurujis.email as guruji_email',
-                        'user_type',
-                        'contact_us.id',
-                        'message',
-                        'contact_us.status',
-                        'contact_us.created_at',
-                    );
-                    if (isset($request->date_range)) {
-                        list($startDate, $endDate) = explode(" - ", $request->date_range);
-                        $items = $items->whereDate('contact_us.created_at', '>=', $startDate)
-                                        ->whereDate('contact_us.created_at', '<', $endDate);
-                    }
-                    if(isset($request->status_f)){
-                        if($request->status_f == 'pending'){
-                            $items = $items->where('contact_us.status', $request->status_f)->orWhere('contact_us.status',null);
-                        }else{
-                            $items = $items->where('contact_us.status', $request->status_f);
-                        }
-                    }
-                    if(isset($request->user_type)){
-                        $items = $items->where('contact_us.user_type', $request->user_type);
-                    }
+            $items = ContactUs::query();
+            if (isset($request->date_range)) {
+                list($startDate, $endDate) = explode(" - ", $request->date_range);
+                $items = $items->whereDate('contact_us.created_at', '>=', $startDate)
+                    ->whereDate('contact_us.created_at', '<', $endDate);
+            }
+            if (isset($request->status_f)) {
+                    $items = $items->where('contact_us.status', $request->status_f);
+            }
             return dataTables()->eloquent($items)->toJson();
         } else {
             return view($this->index_view);
@@ -90,7 +71,7 @@ class ContactUsController extends Controller
         ]);
     }
 
-   
+
     public function status($id, $status)
     {
         $result =  ContactUs::find($id)->update(['status' => $status]);
@@ -135,7 +116,6 @@ class ContactUsController extends Controller
 
     public function export(Request $request)
     {
-        // dd($request->all());
         return (new ContactUsExport($request))->download('contact_us.xlsx');
     }
 }

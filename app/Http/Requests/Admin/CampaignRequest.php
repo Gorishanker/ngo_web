@@ -25,7 +25,7 @@ class CampaignRequest extends FormRequest
     {
         if (!request()->is('admin/campaigns/create')) {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150',
+                'title' => 'required|max:150',
                 'image' => 'nullable|image',
                 'tags' => 'nullable',
                 'target_amount' => 'required|integer|max:15000000',
@@ -34,7 +34,7 @@ class CampaignRequest extends FormRequest
             ];
         } else {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150',
+                'title' => 'required|max:150',
                 'image' => 'required|image',
                 'tags' => 'nullable',
                 'target_amount' => 'required|integer|max:15000000',

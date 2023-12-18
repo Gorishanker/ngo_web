@@ -39,20 +39,20 @@
                 <div class="side-menu__title"> {{ trans_choice('content.team', 1) }} </div>
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a class="side-menu {{ checkActiveSideBar(['news']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.news.index') }}">
                 <div class="side-menu__icon"> <i data-feather="home"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.news', 1) }} </div>
             </a>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="side-menu {{ checkActiveSideBar(['events']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.events.index') }}">
                 <div class="side-menu__icon"> <i data-feather="home"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.event', 1) }} </div>
             </a>
-        </li>
+        </li> --}}
         <li>
             <a class="side-menu {{ checkActiveSideBar(['projects']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.projects.index') }}">
@@ -75,12 +75,20 @@
             </a>
         </li>
         <li>
-            <div class="side-menu {{ checkActiveSideBar(['categories', 'banners','tags']) ? 'side-menu--active' : '' }}">
+            <a class="side-menu {{ checkActiveSideBar(['Gallery']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.galleries.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title">Gallery </div>
+            </a>
+        </li>
+        <li>
+            <div
+                class="side-menu {{ checkActiveSideBar(['categories', 'banners', 'tags']) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.sidebar.masters', 2) }} <i
                         data-feather="chevron-down" class="side-menu__sub-icon" style="margin-right:11px"></i> </div>
             </div>
-            <ul class="{{ checkActiveSideBar(['categories', 'banners','tags']) ? 'side-menu__sub-open' : '' }}">
+            <ul class="{{ checkActiveSideBar(['categories', 'banners', 'tags']) ? 'side-menu__sub-open' : '' }}">
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.categories.index') }}">
@@ -165,6 +173,14 @@
                 </li>
             </ul>
         </li>
+        {{-- Contact us  --}}
+        <a class="side-menu {{ checkActiveSideBar(['contact_us']) ? 'side-menu--active' : '' }}"
+            href="{{ route('admin.contact_us.index') }}">
+            <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+            <div class="side-menu__title"> {{ trans_choice('content.contact_us', 1) }} </div>
+        </a>
+        </li>
+        {{-- Contact us  --}}
         <li>
             <div
                 class="side-menu {{ request()->is('*admin/settings/general*') || request()->is('*admin/settings/social-login*') ? 'side-menu--active' : '' }}">

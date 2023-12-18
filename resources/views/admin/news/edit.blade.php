@@ -16,6 +16,7 @@
                                 'class' => 'form',
                                 'enctype' => 'multipart/form-data',
                             ]) !!}
+                             <input type="hidden" name="id" value="{{ $news->id }}">
                             @include('admin.news.form')
                             {!! Form::close() !!}
                         </div>

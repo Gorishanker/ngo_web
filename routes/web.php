@@ -97,6 +97,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::post('/contact_us/{contact_u}/replay', 'replay');
             Route::post('/contact_us/download', 'export')->name('contact_us.download');
         });
+        Route::resource('/contact_us', ContactUsController::class);
 
         //Banner routes
         Route::controller(BannerController::class)->group(function () {
@@ -160,6 +161,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         });
         Route::resource('/tags', TagController::class);
         //end::tag routes
+
+        Route::resource('/galleries', GalleryController::class)->only('index', 'store', 'destroy');
 
     });
 });

@@ -38,14 +38,8 @@ class Campaign extends Model
 
     public function campaign_tags()
     {
-        return $this->hasMany(CampaignTag::class);
+        return $this->hasMany(CampaignTag::class,'campagin_id');
     }
-
-    public function pluck_campaign_tags()
-    {
-        return $this->hasMany(CampaignTag::class)->pluck('tag_id');
-    }
-
     public function sluggable(): array
     {
         return [

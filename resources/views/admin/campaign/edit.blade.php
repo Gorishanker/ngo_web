@@ -16,6 +16,7 @@
                                 'class' => 'form',
                                 'enctype' => 'multipart/form-data',
                             ]) !!}
+                               <input type="hidden" name="id" value="{{ $campaign->id }}">
                             @include('admin.campaign.form')
                             {!! Form::close() !!}
                         </div>

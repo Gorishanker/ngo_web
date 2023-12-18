@@ -31,28 +31,28 @@
             'placeholder' => trans_choice('content.content', 1),
         ]) !!}
     </div>
-    <div class="col-span-12 form-group xl:col-span-6">
+    {{-- <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.client', 1) }}</label>
          {!! Form::select('client_id', $clients, null, [
             'placeholder' => trans_choice('content.please_select', 1),
             'class' => 'input w-full border bg-gray-100 mt-2',
         ]) !!}
-    </div>
+    </div> --}}
     <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.category', 1) }}</label>
-         {!! Form::select('category_id', $clients, null, [
+        {!! Form::select('category_id', $categories, null, [
             'placeholder' => trans_choice('content.please_select', 1),
             'class' => 'input w-full border bg-gray-100 mt-2',
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.is_active', 1) }}</label>
-         {!! Form::select('is_active', statusArray(), null, [
+        {!! Form::select('is_active', statusArray(), null, [
             'placeholder' => trans_choice('content.please_select', 1),
             'class' => 'input w-full border bg-gray-100 mt-2',
         ]) !!}
     </div>
-    <div class="col-span-12 form-group xl:col-span-{{isset($doc_url) ? 4 : 6}}">
+    <div class="col-span-12 form-group xl:col-span-{{ isset($doc_url) ? 4 : 6 }}">
         <label class="required">{{ trans_choice('content.brochure_doc', 1) }}</label>
         {!! Form::file('brochure_doc', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -69,7 +69,7 @@
             </a>
         </div>
     @endif
-    <div class="col-span-12 form-group xl:col-span-{{isset($pdf_url) ? 4 : 6}}">
+    <div class="col-span-12 form-group xl:col-span-{{ isset($pdf_url) ? 4 : 6 }}">
         <label class="required">{{ trans_choice('content.brochure_pdf', 1) }}</label>
         {!! Form::file('brochure_pdf', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -87,13 +87,6 @@
             </a>
         </div>
     @endif
-   
-    <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.side_images', 1) }}</label>
-          <input type="file" name="side_images[]"
-          class="input w-full border bg-gray-100 mt-2"
-          placeholder={{  __('Upload Image ') }} multiple="true" accept="image/*">
-    </div>
     {{-- <div class="col-span-12 xl:col-span-6 mt-4">
         @if (isset($project->image))
             <img id="backImage_image" width="80px" height="80px" src="{{ $project->image }}" title="Image">
@@ -101,7 +94,7 @@
             <img id="backImage_image" src="{{blankImageUrl()}}" width="80px" height="80px" title="Image">
         @endif
     </div> --}}
-    <div class="col-span-12 form-group xl:col-span-6">
+    <div class="col-span-12 form-group xl:col-span-4">
         <label class="required">{{ trans_choice('content.image', 1) }}</label>
         {!! Form::file('image', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -111,12 +104,29 @@
             'placeholder' => __('Upload Image '),
         ]) !!}
     </div>
-    <div class="col-span-12 xl:col-span-6 mt-4">
+    <div class="col-span-12 xl:col-span-2 mt-4">
         @if (isset($project->image))
             <img id="backImage_image" width="80px" height="80px" src="{{ $project->image }}" title="Image">
-            @else
-            <img id="backImage_image" src="{{blankImageUrl()}}" width="80px" height="80px" title="Image">
+        @else
+            <img id="backImage_image" src="{{ blankImageUrl() }}" width="80px" height="80px" title="Image">
         @endif
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">{{ trans_choice('content.side_images', 1) }}</label>
+        <input type="file" name="side_images[]" class="input w-full border bg-gray-100 mt-2"
+            placeholder={{ __('Upload Image ') }} multiple="true" accept="image/*">
+    </div> 
+    <div class="col-span-12 form-group xl:col-span-12" style="display: flex;">
+            @if (!empty($project->project_docs))
+                @foreach ($project->project_docs as $project_doc)
+                @if ($project_doc->type == 3)
+                    <a href="{{ $project_doc->file }}" target="_blank">
+                       <img style="margin: 5px;" data-id="{{ $project_doc->id}}" width="80px" height="80px" src="{{ $project_doc->file }}" title="Image"></a>
+                    @else
+                        @continue
+                    @endif
+                @endforeach
+            @endif
     </div>
     <div class="col-span-12 form-group xl:col-span-12">
         <label class="required">{{ trans_choice('content.content', 1) }}</label>
@@ -129,13 +139,11 @@
 </div>
 <div class="text-right mt-6">
     <div class="mr-6">
-        <a href="{{route('admin.projects.index')}}">
-        <button type="button"
-            class="button mr-2 bg-theme-1 text-white">
-            Back</button></a>
+        <a href="{{ route('admin.projects.index') }}">
+            <button type="button" class="button mr-2 bg-theme-1 text-white">
+                Back</button></a>
 
-        <button type="submit"
-            class="button w-24 bg-theme-1 text-white">Save</button>
+        <button type="submit" class="button w-24 bg-theme-1 text-white">Save</button>
     </div>
 </div>
 

@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Services\FileService;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -48,9 +49,14 @@ class Project extends Model
         ];
     }
 
+
     public function project_docs()
     {
         return $this->hasMany(ProjectDoc::class);
     }
-
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
