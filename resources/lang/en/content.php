@@ -147,4 +147,9 @@ return [
     'tags' => 'Tag|Tags',
     'question' => 'Question|Questions',
     'answer' => 'Answer|Answers',
+    'old_password_title' => 'Old password',
+    'change_password' => 'Change password',
+    'new_password_title' => 'New password',
+    'confirm_new_password_title' => 'Confirm new password',
+    'email_title' => 'Email',
 ];

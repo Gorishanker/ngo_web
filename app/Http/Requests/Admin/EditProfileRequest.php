@@ -25,8 +25,8 @@ class EditProfileRequest extends FormRequest
     {
         return [
             'name' => 'required|alpha_spaces|max:30',
-            'mobile_no' => 'required|phone:IN,mobile|max:15|unique:users,mobile_no,' . request()->id,
-            'email' => 'required|email:rfc|max:30|unique:users,email,' . request()->id,
+            'mobile_no' => 'required|phone:IN,mobile|max:15|unique:admins,mobile_no,' . request()->id,
+            'email' => 'required|email:rfc|max:30|unique:admins,email,' . request()->id,
         ];
     }
     public function messages()

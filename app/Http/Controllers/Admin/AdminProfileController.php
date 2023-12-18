@@ -111,12 +111,12 @@ class AdminProfileController extends Controller
 
     public function updateProfile(EditProfileRequest $request, Admin $user)
     {
-        $input = $request->except(['_token', 'id', '_method', 'proengsoft_jsvalidation']);
+        $input = $request->except(['_token', 'id', '_method', 'proengsoft_jsvalidation','image']);
         $image = null;
-        if ($request->image) {
+        if (isset($request->image)) {
             $image = FileService::imageUploader($request, 'image', 'admin/image');
+            $input['image'] = 'admin/image/'.$image;
         }
-        $input['image'] = 'admin/image/'.$image;
         $user->update($input);
         return redirect()->back()->with('success', 'Profile Updated Successfully');
     }
