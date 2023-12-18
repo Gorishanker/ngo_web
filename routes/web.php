@@ -97,6 +97,69 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::post('/contact_us/{contact_u}/replay', 'replay');
             Route::post('/contact_us/download', 'export')->name('contact_us.download');
         });
-  
+
+        //Banner routes
+        Route::controller(BannerController::class)->group(function () {
+            Route::get('/banners/status/{id}/{status}', 'status');
+        });
+        Route::resource('/banners', BannerController::class);
+        //end::Banner routes
+
+        //project routes
+        Route::controller(ProjectController::class)->group(function () {
+            Route::get('/projects/status/{id}/{status}', 'status');
+        });
+        Route::resource('/projects', ProjectController::class);
+        //end::project routes
+
+        //campaign routes
+        Route::controller(CampaignController::class)->group(function () {
+            Route::get('/campaigns/status/{id}/{status}', 'status');
+        });
+        Route::resource('/campaigns', CampaignController::class);
+        //end::campaign routes
+
+        //service routes
+        Route::controller(ServiceController::class)->group(function () {
+            Route::get('/services/status/{id}/{status}', 'status');
+        });
+        Route::resource('/services', ServiceController::class);
+        //end::service routes
+
+        //blog routes
+        Route::controller(BlogController::class)->group(function () {
+            Route::get('/blogs/status/{id}/{status}', 'status');
+        });
+        Route::resource('/blogs', BlogController::class);
+        //end::blog routes
+
+        //news routes
+        Route::controller(NewsController::class)->group(function () {
+            Route::get('/news/status/{id}/{status}', 'status');
+        });
+        Route::resource('/news', NewsController::class);
+        //end::news routes
+
+        //event routes
+        Route::controller(EventController::class)->group(function () {
+            Route::get('/events/status/{id}/{status}', 'status');
+        });
+        Route::resource('/events', EventController::class);
+        //end::event routes
+
+         //team routes
+         Route::controller(TeamController::class)->group(function () {
+            Route::get('/teams/status/{id}/{status}', 'status');
+        });
+        Route::resource('/teams', TeamController::class);
+        //end::team routes
+
+         //tag routes
+         Route::controller(TagController::class)->group(function () {
+            Route::get('/tags/status/{id}/{status}', 'status');
+        });
+        Route::resource('/tags', TagController::class);
+        //end::tag routes
+
     });
 });

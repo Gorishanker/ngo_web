@@ -130,44 +130,30 @@ Breadcrumbs::macro('subresource', function ($main, $main_title, $sub = '', $sub_
 
 /*------------- Admin Users ------------------------*/
 Breadcrumbs::resource('users', $mls->messageLanguage('only_name', 'user', 2));
-/*------------- Admin Roles ------------------------*/
-Breadcrumbs::resource('roles', $mls->messageLanguage('only_name', 'role', 2));
-/*------------- Admin Permissions ------------------------*/
-Breadcrumbs::resource('permissions', $mls->messageLanguage('only_name', 'permission', 2));
 
-/*------------- Admin Customers ------------------------*/
-Breadcrumbs::resource('customers', $mls->messageLanguage('only_name', 'customer', 2));
 
-/*------------- Admin Guruji ------------------------*/
-Breadcrumbs::resource('gurujis', "Guruji's");
-
-/*------------- Admin Gems ------------------------*/
-Breadcrumbs::resource('gems', 'Gems');
 /*------------- Admin Categories ------------------------*/
 Breadcrumbs::resource('categories', 'Categories');
-/*------------- Admin Milestone Categories ------------------------*/
-Breadcrumbs::resource('milestone_categories', 'Milestone Categories');
-/*------------- Admin Milestone Sub Categories ------------------------*/
-Breadcrumbs::resource('milestone_sub_categories', 'Milestone Sub Categories');
-/*------------- Admin Milestone Sub Categories ------------------------*/
-Breadcrumbs::resource('milestone_sub_sub_categories', 'Milestone Sub Sub Categories');
-/*------------- Admin Milestone Sub Categories ------------------------*/
-Breadcrumbs::resource('questions', 'Questions');
-/*------------- Admin Pagecontent ------------------------*/
+
 Breadcrumbs::resource('page_contents','Page Content');
 /*------------- Admin faqs ------------------------*/
 Breadcrumbs::resource('faqs', "Faq's");
-/*------------- Admin colors ------------------------*/
-Breadcrumbs::resource('colors', 'Colors');
-/*------------- Admin tarot cards ------------------------*/
-Breadcrumbs::resource('tarot_cards', 'Tarot cards');
-// /*------------- Admin contact us ------------------------*/
-Breadcrumbs::resource('contact_us', 'Contact us');
-// /*------------- Admin PushNotifications------------------------*/
-Breadcrumbs::resource('pushNotifications', 'Push notifications');
-Breadcrumbs::resource('wallets', 'Wallets');
-Breadcrumbs::resource('guruji-reviews', 'Guruji reviews');
-Breadcrumbs::resource('is-withdrawal', 'Is withdrawal');
-Breadcrumbs::resource('payment-histories', 'Payment histories');
-Breadcrumbs::resource('abuse-languages', 'Abuse languages');
-Breadcrumbs::resource('emailTemplates', 'Email templates');
+/*------------- Admin projects ------------------------*/
+Breadcrumbs::resource('projects', "Projects");
+/*------------- Admin blogs ------------------------*/
+Breadcrumbs::resource('blogs', "Blogs");
+/*------------- Admin services ------------------------*/
+Breadcrumbs::resource('services', "Services");
+/*------------- Admin campaigns ------------------------*/
+Breadcrumbs::resource('campaigns', "Campaigns");
+/*------------- Admin teams ------------------------*/
+Breadcrumbs::resource('teams', "Teams");
+/*------------- Admin events ------------------------*/
+Breadcrumbs::resource('events', "Events");
+/*------------- Admin news ------------------------*/
+Breadcrumbs::resource('news', "News");
+/*------------- Admin banners ------------------------*/
+Breadcrumbs::resource('banners', "Banners");
+/*------------- Admin tags ------------------------*/
+Breadcrumbs::resource('tags', "tags");
+

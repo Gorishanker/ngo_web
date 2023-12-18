@@ -26,14 +26,61 @@
             </a>
         </li>
         <li>
-            <div
-                class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}">
+            <a class="side-menu {{ checkActiveSideBar(['services']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.services.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.service', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <a class="side-menu {{ checkActiveSideBar(['teams']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.teams.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.team', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <a class="side-menu {{ checkActiveSideBar(['news']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.news.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.news', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <a class="side-menu {{ checkActiveSideBar(['events']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.events.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.event', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <a class="side-menu {{ checkActiveSideBar(['projects']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.projects.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.project', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <a class="side-menu {{ checkActiveSideBar(['campaigns']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.campaigns.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.campaign', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <a class="side-menu {{ checkActiveSideBar(['blogs']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.blogs.index') }}">
+                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.blog', 1) }} </div>
+            </a>
+        </li>
+        <li>
+            <div class="side-menu {{ checkActiveSideBar(['categories', 'banners','tags']) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.sidebar.masters', 2) }} <i
                         data-feather="chevron-down" class="side-menu__sub-icon" style="margin-right:11px"></i> </div>
             </div>
-            <ul
-                class="{{ checkActiveSideBar(['categories']) ? 'side-menu__sub-open' : '' }}">
+            <ul class="{{ checkActiveSideBar(['categories', 'banners','tags']) ? 'side-menu__sub-open' : '' }}">
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.categories.index') }}">
@@ -50,10 +97,42 @@
                         <div class="side-menu__title">{{ trans_choice('content.sidebar.category', 2) }}</div>
                     </a>
                 </li>
+                <li>
+                    <a class="side-menu {{ checkActiveSideBar(['tags']) ? 'side-menu--active' : '' }}"
+                        href="{{ route('admin.tags.index') }}">
+                        <div class="side-menu__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-codepen mx-auto">
+                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
+                            </svg> </div>
+                        <div class="side-menu__title">{{ trans_choice('content.tag', 2) }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="side-menu {{ checkActiveSideBar(['banners']) ? 'side-menu--active' : '' }}"
+                        href="{{ route('admin.banners.index') }}">
+                        <div class="side-menu__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-codepen mx-auto">
+                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
+                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
+                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
+                            </svg> </div>
+                        <div class="side-menu__title">{{ trans_choice('content.banner', 2) }}</div>
+                    </a>
+                </li>
             </ul>
         </li>
 
-         <li>
+        <li>
             <div class="side-menu {{ checkActiveSideBar(['page_contents', 'faqs']) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -86,21 +165,6 @@
                 </li>
             </ul>
         </li>
-
-        {{-- <li>
-            <a class="side-menu {{ checkActiveSideBar(['contact_us']) ? 'side-menu--active' : '' }}"
-                href="{{ route('admin.contact_us.index') }}">
-                <div class="side-menu__icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
-                        <path
-                            d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                        </path>
-                    </svg> </div>
-                <div class="side-menu__title">{{ trans_choice('content.contact_us', 2) }}</div>
-            </a>
-        </li> --}}
-
         <li>
             <div
                 class="side-menu {{ request()->is('*admin/settings/general*') || request()->is('*admin/settings/social-login*') ? 'side-menu--active' : '' }}">
@@ -118,6 +182,6 @@
                     </a>
                 </li>
             </ul>
-        </li> 
+        </li>
     </ul>
 </nav>

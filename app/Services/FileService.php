@@ -45,13 +45,10 @@ class FileService
     public static function file_exists_storage_path($url, $type = null)
     {
         $filesystem_disk = config()->get('services.env.filesystem_disk');
-        // dd($filesystem_disk);
         if ($filesystem_disk == 's3') {
             $path = config()->get('services.s3.image_url') . $url;
         } else {
-            // dd(Storage::disk('public')->exists($url), Storage::disk('local')->url($url));
             if (Storage::disk('public')->exists($url)) {
-                // $path = Storage::disk('local')->url($url);
                 $path = config()->get('services.img.local_img_url') . $url;
             } else {
                 if ($type == 'user') {
@@ -126,7 +123,6 @@ class FileService
      */
     public static function imageUploader(Request $request, $key, $url, $name = '')
     {
-        $filesystem_disk = config()->get('services.env.filesystem_disk');
         $image_name = "";
         if ($request->hasFile($key)) {
             $image = $request->file($key);
@@ -337,7 +333,6 @@ class FileService
 
     public static function fileUploadToStorage($image, $image_name_str, $url)
     {
-        $filesystem_disk = config()->get('services.env.filesystem_disk');
         if (config('services.env.img_compression')) {
             self::fileUploadWithCompression($image, $image_name_str, $url);
         } else {
@@ -374,7 +369,7 @@ class FileService
         $filesystem_disk = config()->get('services.env.filesystem_disk');
         try {
             $img = Storage::disk($filesystem_disk)->put('public/' . $url . '/' .  $image_name_str, $image_name_str);
-        } catch (Exception $e) {
+        } catch (Exception $e) {    
             Log::error('Compression Not applied & the file not working. Request is Error: - ' . $e);
         }
        

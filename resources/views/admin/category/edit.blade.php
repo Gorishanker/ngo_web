@@ -12,7 +12,7 @@
 
                     <div class="p-5">
                         {!! Form::model($category, [
-                            'route' => ['admin.gems.update', $category->id],
+                            'route' => ['admin.categories.update', $category->id],
                             'id' => 'CategoryFormUpdate',
                             'method' => 'PATCH',
                             'class' => 'form',

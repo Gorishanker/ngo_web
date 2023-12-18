@@ -82,28 +82,6 @@
                 </a>`;
     }
 
-    function actionEditWithModal(attr, statusclass = "clsEditModal") {
-
-        let html_data_retun =
-            `<a class="button px-2 mr-1 mb-2 mt-2 bg-theme-1 text-white ml-3 ${statusclass}"  ${attr} title="Edit">
-                    <span class="w-5 h-5 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit w-4 h-4"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></span>
-                </a>`;
-
-        return html_data_retun;
-    }
-
-    function actionShowWithModal(attr, statusclass = "clsShowModal") {
-
-        let html_data_retun =
-            `<a class="button px-2 mr-1 mb-2 mt-2 bg-theme-5 text-purple-900 ml-3 ${statusclass}"  ${attr}" title="Show">
-                <span class="w-5 h-5 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye w-4 h-4"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                </span>
-            </a>`;
-
-        return html_data_retun;
-    }
-
     function actionShowButton(url) {
         // return `<a class="btn btn-sm btn-clean btn-icon btn-icon-md" target="_blank" href="`+url+`" title="Show"><i class="si si-eye text-primary"  ></i></a>`;
         return `<a class="button px-2 mr-1 mb-2 mt-2 bg-theme-5 text-purple-900" href="` + url + `" title="Show">
@@ -141,94 +119,6 @@
     }
     
 
-    function getModalEditData(id, url) {
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            // dataType: 'json',
-            cache: false,
-            contentType: false,
-            processData: false,
-            beforeSend: function() {
-                 $('.clsEditModal').css('pointer-events','none');
-            },
-            success: function(response) {
-                $('#form_modal_body').html(response.data);
-                $('#editDataModal').modal('show');
-                  $('.clsEditModal').css('pointer-events','');
-                  if ($('.select2').length > 0) {
-                        $('.select2').select2();
-                    } 
-            },
-            error:function() {
-                    $('.clsEditModal').css('pointer-events','');
-            },
-        })
-    }
-
-    function getModalShowData(id, url) {
-        $.ajax({
-            url: url,
-            type: "GET",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            // dataType: 'json',
-            cache: false,
-            contentType: false,
-            processData: false,
-            beforeSend: function() {
-                $('.clsShowModal').css('pointer-events','none');
-            },
-            success: function(response) {
-                $('#details_modal_body').html(response.data);
-                $('#viewDataModal').modal('show');
-                $('.clsShowModal').css('pointer-events','');
-            },
-            error:function() {
-                    $('.clsShowModal').css('pointer-events','');
-            },
-        })
-    }
-
-    $(document).on('click', '#btnClosePopupEdit', function(e) {
-        $("#editDataModal").modal('hide');
-    });
-
-    // function createModalData(url, form_id) {
-    //     $.ajaxSetup({
-    //         headers: {
-    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //         }
-    //     });
-
-    //     $(form_id).submit(function(e) {
-    //         e.preventDefault();
-    //         let formData = new FormData(this);
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: url,
-    //             data: formData,
-    //             contentType: false,
-    //             processData: false,
-    //             success: (response) => {
-    //                 if (response.status == 1) {
-    //                     this.reset();
-    //                     $('#addNewModal').modal("hide");
-    //                     oTable.draw();
-    //                     Swal.fire('Created!', 'Form submit successfull.', 'success');
-    //                 } else {
-    //                     Swal.fire('Oops...', 'Something went wrong with ajax !',
-    //                         'error');
-    //                 }
-    //             },
-    //         });
-    //     });
-    // }
-
     function actionShowTitle(url, stringTitle) {
         return `<a class="btn btn-sm btn-clean" href="` + url + `" title="` + stringTitle + `">` + stringTitle + `</a>`;
     }
@@ -237,41 +127,6 @@
         return `<a class="button px-2 mr-1 mb-2 mt-2 bg-theme-6 text-white ml-3 ${deleteclass}" data-id="${id}" href="javascript:;" >
                     <span class="w-5 h-5 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2 w-4 h-4"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></span>
                 </a>`
-    }
-
-    function doc_status_dropdown(data, attr, drclass, reason = null) {
-        var approve = null;
-        var pending = null;
-        var decline = null;
-        if (data == 0 || data == null) {
-            pending = 'selected';
-        }
-        if (data == 1) {
-            approve = 'selected';
-        }
-        if (data == 2) {
-            decline = 'selected';
-        }
-        if (reason) {
-            return `<div style="position: relative;margin: 0 -8px 0 0;">
-                                    <select class='${drclass}' ${attr} style="padding: 3px 10px;border-radius: 8px;">
-                                        <option value='0' ${pending}>Pending</option>
-                                            <option value='1' ${approve}>Approve</option>
-                                            <option value='2' ${decline}>Decline</option>
-                                    </select> 
-                                    <span class="ml-2" title="${reason}"><svg style="float: right;margin: -5px 3px 1px -19px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                                    </svg></span>
-                                </div>`;
-        }
-        return `<div style="position: relative;">
-                                    <select class='${drclass}' ${attr} style="padding: 3px 10px;border-radius: 8px;">
-                                        <option value='0' ${pending}>Pending</option>
-                                            <option value='1' ${approve}>Approve</option>
-                                            <option value='2' ${decline}>Decline</option>
-                                    </select>
-                                </div>`;
     }
 
     function contact_status_dropdown(data, id) {
@@ -316,18 +171,6 @@
                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                 </svg>
                 <span  class="cursor-pointer ${statusclass}"  ${attr} >Inactive </span>
-            </div>`;
-        }
-    }
-
-    function actionOnlineButton(data) {
-        if (data) {
-            return `<div class="flex items-center sm:justify-center text-theme-9">
-                <span class="cursor-pointer">Online</span>
-            </div>`;
-        } else {
-            return `<div class="flex items-center sm:justify-center text-theme-6">
-                <span  class="cursor-pointer">Offline </span>
             </div>`;
         }
     }
@@ -728,27 +571,4 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-    // toastr.options = {
-    //     timeOut: 0,
-    //     extendedTimeOut: 0,
-    //     tapToDismiss: false
-    // };
-
-    // toastr.options = {
-    //     "closeButton": true,
-    //     "debug": true,
-    //     "newestOnTop": true,
-    //     "progressBar": true,
-    //     "positionClass": "toast-top-right",
-    //     "preventDuplicates": false,
-    //     "onclick": null,
-    //     "showDuration": "300",
-    //     "hideDuration": "1000",
-    //     "timeOut": "4000",
-    //     "extendedTimeOut": "1000",
-    //     "showEasing": "swing",
-    //     "hideEasing": "linear",
-    //     "showMethod": "fadeIn",
-    //     "hideMethod": "fadeOut"
-    // };
 </script>

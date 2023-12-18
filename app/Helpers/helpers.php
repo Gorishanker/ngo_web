@@ -30,6 +30,15 @@ function roleName($key)
     return $role[$key];
 }
 
+function statusArray()
+{
+    $data = [
+        0 => 'Inactve',
+        1 => 'Active',
+    ];
+    return $data;
+}
+
 function roleId($key)
 {
     $role = [
@@ -257,4 +266,12 @@ function blankUserUrl()
 function faviconUrl()
 {
     return  url('/') . '/virtue/images/favicon.ico';
+}
+
+function currencyIcon()
+{
+    if (env('CURRENCY_ICON')) {
+        return env('CURRENCY_ICON');
+    }
+    return '₹';
 }

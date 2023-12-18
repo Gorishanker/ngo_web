@@ -45,8 +45,8 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         
+        $items = $this->categoryService->dataTable();
         if ($request->ajax()) {
-            $items = $this->categoryService->dataTable();
             return dataTables()->eloquent($items)->toJson();
         } else {
             return view($this->index_view);
@@ -63,30 +63,13 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $input = $request->validated();
-        $hi_input = [
-            'category_name' => $request->category_name_h,
-            'is_active' => $request->is_active_h,
-            'language' => 'hi',
-        ];
-        $en_input = [
-            'category_name' => $request->category_name,
-            'is_active' => $request->is_active,
-            'language' => 'en',
-        ];
-        $en_data = Category::create($en_input);
-        $hi_data = Category::create($hi_input);
-        if (isset($en_data) && isset($hi_data)) {
+        $category = Category::create($input);
+        if (isset($category)) {
             return response()->json([
                 'status' => true,
                 'message' => 'Category created successfully.',
             ], 200);
         } else {
-            if (isset($en_data)) {
-                $en_data->delete();
-            }
-            if (isset($hi_data)) {
-                $hi_data->delete();
-            }
             return response()->json([
                 'status' => false,
                 'message' => 'Error! while creating categories.',
@@ -184,7 +167,7 @@ class CategoryController extends Controller
 
     public function status($id, $status)
     {
-        $status = ($status =="true") ? false : true;
+        $status = ($status ==1) ? 0 : 1;
         $result = CategoryService::status(['is_active' => $status], $id);
         if ($result) {
             return response()->json([
