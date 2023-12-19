@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Rules\ValidYouTubeURL;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SettingRequest extends FormRequest
@@ -31,6 +32,7 @@ class SettingRequest extends FormRequest
             'data.favicon' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'data.email' => 'required|email:rfc|max:150',
             'data.contact_number' => 'required|min:10|max:15',
+            'data.letest_campaign_video_url' => 'required|url|max:150',
             'data.about_company' => 'required|max:300',
             'data.address' => 'required|max:70',
             'data.available_time' => 'required|max:50',
@@ -40,10 +42,10 @@ class SettingRequest extends FormRequest
     public function messages()
     {
         return [
-            'data.site_name.required' => __('validation.required', ['attribute' => 'Site Name']),
-            'data.site_name.min' => __('validation.min', ['attribute' => 'Site Name']),
-            'data.site_name.max' => __('validation.max', ['attribute' => 'Site Name']),
-            'data.site_name.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Site Name']),
+            'data.site_name.required' => __('validation.required', ['attribute' => 'Site name']),
+            'data.site_name.min' => __('validation.min', ['attribute' => 'Site name']),
+            'data.site_name.max' => __('validation.max', ['attribute' => 'Site name']),
+            'data.site_name.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Site name']),
 
             'data.web_site_name.required' => __('validation.required', ['attribute' => 'Meta title']),
             'data.web_site_name.min' => __('validation.min', ['attribute' => 'Meta title']),
@@ -64,24 +66,28 @@ class SettingRequest extends FormRequest
 
 
             'data.copyright_text.required' => __('validation.required', ['attribute' => 'Copyright text']),
-            'data.contact_number.required' => __('validation.required', ['attribute' => 'Contact Number']),
-            'data.home_page_title.required' => __('validation.required', ['attribute' => 'Home Page Title']),
-            'data.company_full_name.required' => __('validation.required', ['attribute' => 'Company Full Name']),
+            'data.contact_number.required' => __('validation.required', ['attribute' => 'Contact number']),
+            'data.home_page_title.required' => __('validation.required', ['attribute' => 'Home page title']),
+            'data.company_full_name.required' => __('validation.required', ['attribute' => 'Company full name']),
             'data.email.required' => __('validation.required', ['attribute' => 'Email']),
             'data.email.email' => __('validation.email', ['attribute' => 'Email']),
             'data.email.max' => __('validation.max', ['attribute' => 'Email']),
-            'data.contact_number.required' => __('validation.required', ['attribute' => 'Contact No']),
+            'data.contact_number.required' => __('validation.required', ['attribute' => 'Contact no']),
             'data.contact_number.max' => __('validation.max', ['attribute' => 'Contact No']),
             'data.contact_number.min' => __('validation.min', ['attribute' => 'Contact No']),
             'data.contact_number.phone' => __('validation.phone', ['attribute' => 'Contact No']),
-            'data.about_company.required' => __('validation.required', ['attribute' => 'About Company']),
-            'data.about_company.max' => __('validation.max', ['attribute' => 'About Company']),
+            'data.about_company.required' => __('validation.required', ['attribute' => 'About company']),
+            'data.about_company.max' => __('validation.max', ['attribute' => 'About company']),
 
             'data.address.max' => __('validation.max', ['attribute' => 'Address']),
             'data.address.required' => __('validation.required', ['attribute' => 'Address']),
 
             'data.available_time.max' => __('validation.max', ['attribute' => 'Time']),
             'data.available_time.required' => __('validation.required', ['attribute' => 'Time']),
+
+            'data.letest_campaign_video_url.required' => __('validation.required', ['attribute' => 'Letest campaign video url']),
+            'data.letest_campaign_video_url.max' => __('validation.max', ['attribute' => 'Letest campaign video url']),
+            'data.letest_campaign_video_url.url' => __('validation.url', ['attribute' => 'Letest campaign video url']),
           
         ];
     }

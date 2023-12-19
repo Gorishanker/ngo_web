@@ -197,7 +197,7 @@ $setting_data = Setting::pluck('value', 'slug');
             $view->with('favicon_img', isset($setting_data['favicon']) ? asset('files/settings/' . $setting_data['favicon'] . '') : url('/') . 'blank.png');
             $view->with('page_title',  isset($setting_data['site_name']) ? $setting_data['site_name'] : config('services.app_details.app_name'));
             $view->with('site_name',  isset($setting_data['site_name']) ? $setting_data['site_name'] : config('services.app_details.app_name'));
-            $view->with('web_site_name',  isset($setting_data['web_site_name']) ? $setting_data['web_site_name'] : 'Staarae');
+            $view->with('web_site_name',  isset($setting_data['web_site_name']) ? $setting_data['web_site_name'] : 'GREEN FOREST');
         });
     }
 

@@ -47,7 +47,7 @@
             <div
                 class="my-auto mx-auto xl:ml-20 bg-white xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
                 <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
-                    Sign In to Staarae
+                    Sign In to GREEN FOREST
                 </h2>
 
                 <form class="" id="kt_sign_in_form" method="POST" action="{{ route('admin.login') }}">

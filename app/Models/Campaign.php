@@ -19,10 +19,10 @@ class Campaign extends Model
     protected $fillable = [
         'title',
         'target_amount',
+        'raise_amount',
         'slug',
         'image',
         'author',
-        'schedule_datetime',
         'content',
         'is_active',
     ];

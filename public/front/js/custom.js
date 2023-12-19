@@ -1,278 +1,390 @@
-$(document).ready(function(){
-    // login slider
-    $('.as_login_slider').slick({
-        dots: true,
-        arrows:false,
-        speed:800,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    });
-    // banner slider
-    $('.as_banner_slider').slick({
-        dots: false,
-        speed:800,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        prevArrow:'<button type="button" class="slick-prev as_btn"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="15" viewBox="0 0 8 15"> <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAPCAMAAADu1H4BAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAaVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAAD8pYtkAAAAIXRSTlMA1ea/6671JJ/9LZA7gUx28linaftidVeLPJczoSy1+sniUnu2AAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAE1JREFUCNcly0USwDAMBEE77DA4jPP/T6Zk6dJzWBkTzkZqTBJMyXKxwJViBbXYQCt29EMYwqifE37WWmDV2mDXOnCn1oW/tR5eDfPZHwl7BIGPaP/tAAAAAElFTkSuQmCC" width="8" height="15"/> </svg></span></button>',
-        nextArrow:'<button type="button" class="slick-next as_btn"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="15" viewBox="0 0 8 15"> <image xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAPCAMAAADu1H4BAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAflBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAADvEKCAAAAAKHRSTlMAwukcx+QNCdLUAwjfyRbuuyX4qzDhmWw27Iwt/p73uREP2svRBLXYnrw30wAAAAFiS0dEAIgFHUgAAAAJcEhZcwAALiMAAC4jAXilP3YAAABVSURBVAjXJctVEsAwCEXRpC6pu6epvf2vsBPg554ZQEjHFTQe/IAQRogTUqqQ8TIvULKqGg2r7dCzBoA6TphtlxUbfe04bLWCtD0NLjq8YR7C+2nqDzu8BZoG2fHJAAAAAElFTkSuQmCC" width="8" height="15"/> </svg></span></button>'
-    });
+(function($) {
 
-    // product slider
-    $('.as_product_slider').slick({
-        arrows: false,
-        infinite:true,
-        speed:800,
-        dots:true,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        responsive: [
-            {
-              breakpoint: 1199,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                dots: true,
-                arrows:false
-              }
-            },
-            {
-              breakpoint: 991,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                dots: true,
-                arrows:false
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                dots: true,
-                arrows:false
-              }
-            },
-          ]
-       
-    });
-    
-    // overview slider
-    $('.as_overview_slider').slick({
-        infinite:true,
-        speed:800,
-        dots:true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        prevArrow:'<button type="button" class="slick-prev as_btn"><span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="12" height="16" viewBox="0 0 12 16"> <path d="M12.003,15.996 L-0.000,7.997 L12.002,-0.001 L10.062,7.997 L12.003,15.996 ZM10.102,2.762 L2.246,7.997 L10.102,13.233 L8.832,7.997 L10.102,2.762 ZM3.824,7.997 L8.256,5.043 L7.539,7.997 L8.256,10.951 L3.824,7.997 Z" class="cls-1"/> </svg></span> Prev</button>',
-        nextArrow:'<button type="button" class="slick-next as_btn">next <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="8" height="12" viewBox="0 0 8 12"><path d="M8.000,5.998 L-0.002,11.997 L1.292,5.998 L-0.002,-0.001 L8.000,5.998 ZM1.265,9.924 L6.502,5.998 L1.265,2.071 L2.112,5.998 L1.265,9.924 ZM5.451,5.998 L2.496,8.213 L2.974,5.998 L2.496,3.783 L5.451,5.998 Z" class="cls-1"/> </svg></span></button>' ,
-        responsive: [
-            {
-              breakpoint: 991,
-              settings: {
-                arrows:false
-              }
-            },
-          ]
-    });
-    //  shop single slider
-    $('.as_shopsingle_for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite:false,
-        speed:800,
-        arrows: false,
-        fade: true,
-        asNavFor: '.as_shopsingle_nav'
-    });
-    $('.as_shopsingle_nav').slick({
-      slidesToShow: 3,
-      arrows: false,
-      slidesToScroll: 1,
-      asNavFor: '.as_shopsingle_for',
-      dots: false,
-      focusOnSelect: true
-    });
-    // customer slider
-    $('.as_customer_for').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite:true,
-      speed:800,
-      dots:false,
-      arrows: false,
-      fade: true,
-      asNavFor: '.as_customer_nav'
-  });
-  $('.as_customer_nav').slick({
-      slidesToShow: 6,
-      arrows: false,
-      slidesToScroll: 1,
-      asNavFor: '.as_customer_for',
-      dots: false,
-      centerMode: true,
-      focusOnSelect: true
-    });
-    // card slider
-    $('.as_card_slider').slick({
-        infinite:true,
-        speed:800,
-        dots:false,
-        arrows:false,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        autoplay: true,
-        autoplaySpeed: 4000,
-        responsive: [
-          {
-            breakpoint: 1199,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
+ 	"use strict";
+	$(document).ready(function() {
+	 
+		//jQuery for page scrolling feature - requires jQuery Easing plugin
+		$('a.page-scroll').on('click', function(event) {
+			var $anchor = $(this);
+			$('html, body').stop().animate({
+				scrollTop: $($anchor.attr('href')).offset().top
+			}, 1500, 'easeInOutExpo');
+			event.preventDefault();
+		});
+
+
+		// ul child item
+        $(".main-menu-area ul>li>ul").parent("li").addClass("menu-item-has-children");
+		$('.main-menu-area ul li a').on('click', function (e) {
+            var element = $(this).parent('li');
+            if (element.hasClass('open')) {
+                element.removeClass('open');
+                element.find('li').removeClass('open');
+                element.find('ul').slideUp(300, "swing");
+            } else {
+                element.addClass('open');
+                element.children('ul').slideDown(300, "swing");
+                element.siblings('li').children('ul').slideUp(300, "swing");
+                element.siblings('li').removeClass('open');
+                element.siblings('li').find('li').removeClass('open');
+                element.siblings('li').find('ul').slideUp(300, "swing");
             }
-          },
-          {
-            breakpoint: 991,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-            }
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            }
-          }
-        ]
-    });
-    
-    // datepicker
-    $('.as_datepicker').datepicker({
-        language: 'en'
-    });
+        })
+		
+		//LightCase
+		
+			$('a[data-rel^=lightcase]').lightcase();
+		
 
-    // timepicker
-    $('.as_timepicker').datepicker({
-        dateFormat: ' ',
-        timepicker: true,
-        classes: 'only-timepicker',
-        language: 'en' 
-    });
+		//Js code for search box 
+		
+			$(".first_click").on("click", function(){
+				$(".menu-right-option").addClass("search_box");	 
+			});
+			$(".second_click").on("click", function(){
+				$(".menu-right-option").removeClass("search_box"); 
+			});	
+			
+		
+		//countdown 
+        // $('.counter').counterUp({
+        //     delay: 10,
+        //     time: 1000
+        // });
+        $(window).on('scroll', function () {
+			$('.counter').data('countToOptions', {
+				formatter: function (value, options) {
+					return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+				}
+			});
+			// start all the timers
+			$('.counter').each(count);  
+			function count(options) {
+				var $this = $(this);
+				options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+				$this.countTo(options);
+			}
+		});
+		
+		
+			
+		
+		//Sponsors swiper
+		
+		var swiper = new Swiper('.sponsors-container', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 4,
+			spaceBetween: 20,
+			// autoplay: 3000,
+			paginationClickable: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			 breakpoints: {
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 20
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 30
+				},
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				400: {
+					slidesPerView: 1,
+					spaceBetween: 10
+				}
+			}
+		});
+		
+		
+		//testimonial swiper
+		
+		var swiper = new Swiper('.testimonial-container', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 3,
+			spaceBetween: 20,
+			autoplay: 3000,
+			paginationClickable: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			 breakpoints: {
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 20
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 30
+				},
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				400: {
+					slidesPerView: 1,
+					spaceBetween: 10
+				}
+			}
+		});
+		
+		
+		//people say container swiper
+		
+		var swiper = new Swiper('.people-say-container', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 1,
+			spaceBetween: 25,
+			autoplay: false,
+			paginationClickable: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			 breakpoints: {
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				768: {
+					slidesPerView: 1,
+					spaceBetween: 30
+				},
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20
+				},
+				400: {
+					slidesPerView: 1,
+					spaceBetween: 10
+				}
+			}
+		});
+		
+		//Pre-Loader
+	
+			
+			$("#loading").delay(2000).fadeOut(500);
+			$("#loading-center").on("click",function() {
+			$("#loading").fadeOut(500);
+			});
+		
+		
+		
+		//Scroll Top Top 
+		
+		var link,
+		toggleScrollToTopLink = function(){
+			
+			if($("body").scrollTop() > 0 || $("html").scrollTop() > 0){
+				link.fadeIn(400);
+			}else{
+				link.fadeOut(400);
+			}
+			
+		};
+		
+			link = $(".scroll-img");
+			
+			$(window).scroll(toggleScrollToTopLink);
+			
+			toggleScrollToTopLink();
+			
+			link.on("click", function(){
+				
+				$("body").animate({scrollTop: 0});
+				$("html").animate({scrollTop: 0});
+				
+			});
+	
+		
+		//Menu Fixed Top
+		
+			var fixed_top = $(".menu-scroll");
 
-    // countTo
-    $('.as_number>span>span').countTo();
-    
-    // search popup
-    $('.as_search').on('click', function(){
-        $(this).parent().find('.as_search_boxpopup').addClass('popup_open');
-    })
-    $('.as_cancel').on('click', function(){
-        $(this).parent().removeClass('popup_open');
-    })
+			$(window).on('scroll', function() {
+				
+				if( $(this).scrollTop() > 100 ){	
+					fixed_top.addClass("menu-fixed animated fadeInDown");
+				}
+				else{
+					fixed_top.removeClass("menu-fixed animated fadeInDown");
+				}
+				
+			});
+			
+	
+			//Pricing Slider
+		
+			$('.nstSlider').nstSlider({
+				"left_grip_selector": ".leftGrip",
+				"right_grip_selector": ".rightGrip",
+				"value_bar_selector": ".bar",
+				"value_changed_callback": function(cause, leftValue, rightValue) {
+					$(this).parent().find('.leftLabel').text(leftValue);
+					$(this).parent().find('.rightLabel').text(rightValue);
+				}
+			});
 
-    // menu toggle
-    $('.as_toggle').on('click',function(){
-        $(this).parent().toggleClass('menu_open');
-        $(this).parent().find('.as_menu ul  li .as_submenu').parent().addClass('as_submenu_li')
-    })
-    // responsive menu
-    $(document).on('click','.as_menu > ul > li >a',function(){
-      // console.log($(this).closest('li').find('ul.submenu'))
-      $('.as_menu >ul > li>.as_submenu').removeClass('active');
-      $(this).closest('li').find('>ul.as_submenu').addClass('active')
-    })
-    $(document).on('click','.as_menu > ul > li > ul > li >a',function(){
-      // console.log($(this).closest('li').find('ul.submenu'))
-      $(this).closest('li').find('>ul.as_submenu').toggleClass('active')
-    })
+			
+		
+		
+		
+	//Flex Slider
+			
+		$(window).load(function() {
+		  // The slider being synced must be initialized first
+		  $('#carousel').flexslider({
+			animation: "slide",
+			controlNav: false,
+			animationLoop: false,
+			slideshow: false,
+			itemWidth: 74,
+			itemMargin: 5,
+			asNavFor: '#slider'
+		  });
+		 
+		  $('#slider').flexslider({
+			animation: "slide",
+			controlNav: false,
+			animationLoop: false,
+			slideshow: false,
+			sync: "#carousel"
+		  });
+		});
+		
+		
 
-    // cart box
-    $('.as_cart_wrapper').on('click',function(){
-        $(this).parent().toggleClass('cart_open');
-    })
+	//nst Slider
+	
+		$('.nstSlider').nstSlider({
+			"left_grip_selector": ".leftGrip",
+			"right_grip_selector": ".rightGrip",
+			"value_bar_selector": ".bar",
+			"value_changed_callback": function(cause, leftValue, rightValue) {
+				$(this).parent().find('.leftLabel').text(leftValue);
+				$(this).parent().find('.rightLabel').text(rightValue);
+			}
+		});
+        
 
-    // login popup
-    $('.as_signup').on('click',function(){
-      $(this).closest('.modal-body').find('.as_login_box').removeClass('active');
-      $(this).closest('.modal-body').find('.as_signup_box').addClass('active');
-      $(this).closest('.modal-content').find('.modal-title').text('Sign Up');
-    })
-    $('.as_login').on('click',function(){
-      $(this).closest('.modal-body').find('.as_login_box').addClass('active');
-      $(this).closest('.modal-body').find('.as_signup_box').removeClass('active');
-      $(this).closest('.modal-content').find('.modal-title').text('Login');
-    })
 
-    if($('.as_select_box').length){
-      $(".as_select_box select").select2({
-          placeholder: 'data-placeholder',
-          allowClear: true
-      });
-  }
-    // circle
-    if($('.as_progressbar').length){
-      $(".as_progressbar.p1").circularProgress({
-          color:'#ff7010',
-          starting_position: 0, // 12.00 o' clock position, 25 stands for 3.00 o'clock (clock-wise)
-          percent: 0, // percent starts from
-          percentage: true,
-      }).circularProgress('animate', 45, 5000);
-      $(".as_progressbar.p2").circularProgress({
-          color:'#ff7010',
-          starting_position: 0, // 12.00 o' clock position, 25 stands for 3.00 o'clock (clock-wise)
-          percent: 0, // percent starts from
-          percentage: true,
-      }).circularProgress('animate', 94, 5000);
-      $(".as_progressbar.p3").circularProgress({
-          color:'#ff7010',
-          starting_position: 0, // 12.00 o' clock position, 25 stands for 3.00 o'clock (clock-wise)
-          percent: 0, // percent starts from
-          percentage: true,
-      }).circularProgress('animate', 84, 5000);
-      $(".as_progressbar.p4").circularProgress({
-          color:'#ff7010',
-          starting_position: 0, // 12.00 o' clock position, 25 stands for 3.00 o'clock (clock-wise)
-          percent: 0, // percent starts from
-          percentage: true,
-      }).circularProgress('animate', 64, 5000);
-      $(".as_progressbar.p5").circularProgress({
-          color:'#ff7010',
-          starting_position: 0, // 12.00 o' clock position, 25 stands for 3.00 o'clock (clock-wise)
-          percent: 0, // percent starts from
-          percentage: true,
-      }).circularProgress('animate', 76, 5000);
-   }
 
-  // step
-  $(document).on('click','.checkout_wrapper_box .next',function(){
-    var targetNum = $(this).attr('data-step');
-    $(this).closest('.checkout_wrapper_box').find('.step').css('display','none');
-    $(this).closest('.checkout_wrapper_box').find('[data-target="'+targetNum+'"]').css('display','block');
-    $(this).closest('.checkout_wrapper_box').find('[data-active="'+targetNum+'"]').addClass('active');
-    // $(this).cloasest('.checkout_wrapper_box').find('data-target="'+targetNum+'"').css('display','block');
-  })
 
-  // number increase
-  $('.quantity .plus').on('click', function(){
-    var num = parseInt($('.quantity').find('input').val())+1; 
-    $(this).closest('.quantity').find('input').val(num);
-  }) 
-  $('.quantity .minus').on('click', function(){
-    var num = parseInt($('.quantity').find('input').val())-1; 
-    $(this).closest('.quantity').find('input').val(num);
-  }) 
+    //Sidebar Menu
+        $(".color-btn").on("click", function () {
+            $(".box-style").toggleClass('open')
+        });
 
-  
 
-  
-  
-})
-$(window).on('load',function(){
-    $('.as_loader').addClass('hide')
-})
+        
+
+        $(".boxed-btn").on("click", function () {
+            $("body").addClass('boxed')
+        });
+
+
+        $(".wide-btn").on("click", function () {
+            $("body").removeClass('boxed')
+        });
+
+        $(".rtl-btn").on("click", function () {
+            $("body").addClass('rtl');
+            var body = document.querySelector("body"); 
+            body.setAttribute("dir", "rtl");
+        });
+
+
+        $(".ltl-btn").on("click", function () {
+            $("body").removeClass('rtl');
+            var body = document.querySelector("body"); 
+            body.setAttribute("dir", "ltl");
+        });
+
+
+
+
+        jQuery(document).ready(function(){
+	        jQuery(".bg-1").click(function(){            
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/01.jpg) no-repeat fixed","background-size":"cover" });
+	            jQuery("body").addClass("boxed");
+	        });
+	        jQuery(".bg-2").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/02.jpg) no-repeat fixed","background-size":"cover"});
+	        });
+	        jQuery(".bg-3").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/03.jpg) no-repeat fixed","background-size":"cover" });
+	        });
+	        jQuery(".bg-4").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/04.jpg) no-repeat fixed","background-size":"cover"});
+	        });
+	        jQuery(".bg-5").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/05.jpg) no-repeat fixed","background-size":"cover"});
+	        });
+	        jQuery(".bg-6").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/06.jpg) no-repeat fixed","background-size":"cover"});
+	        });
+	        jQuery(".bg-7").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/07.jpg) no-repeat fixed","background-size":"cover"});
+	        });   
+	        jQuery(".bg-8").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/08.jpg) no-repeat fixed","background-size":"cover"});
+	        });      
+	    });
+
+	    jQuery(document).ready(function(){      
+	        jQuery(".pt-1").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/01.png) repeat fixed"});
+	        });
+	        jQuery(".pt-2").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/02.png) repeat fixed"});
+	        });
+	        jQuery(".pt-3").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/03.png) repeat fixed" });
+	        });
+	        jQuery(".pt-4").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/04.png) repeat fixed"});
+	        });
+	        jQuery(".pt-5").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/05.png) repeat fixed"});
+	        });
+	        jQuery(".pt-6").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/06.png) repeat fixed"});
+	        });
+	        jQuery(".pt-7").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/07.png) repeat fixed"});
+	        });
+	        jQuery(".pt-8").click(function(){
+	            jQuery("body").addClass("boxed");
+	            jQuery("body").css({"background":"url(https://www.codexcoder.com/images/auror/pt-image/08.png) repeat fixed"});
+	        });
+	    });
+        
+
+
+		
+	});	
+
+})(jQuery);
+
+
+
+
+
+	
+
+

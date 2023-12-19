@@ -117,7 +117,7 @@ class LoginController extends Controller
             try {
                 Mail::send('admin.email.send_login_otp', ['token' => $otp], function ($message) use ($request) {
                     $message->to($request->email);
-                    $message->from(env('MAIL_FROM_ADDRESS'), 'admin.staarae.com');
+                    $message->from(env('MAIL_FROM_ADDRESS'), 'admin.ngo_web.com');
                     $message->subject('Reset Password');
                 });
             } catch (Exception $e) {

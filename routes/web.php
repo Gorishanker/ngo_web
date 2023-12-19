@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,19 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::controller(HomeController::class)->group(function () {
-//     Route::get('/', 'index')->name('home');
-//     Route::any('contact-us', 'submitContactForm')->name('submitContactForm');
-//     Route::get('/privacy-policy', 'privacyPolicy')->name('privacyPolicy');
-//     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
-// });
-
-Route::get('/home', function () {
-    return redirect()->route('admin.dashboard');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/get-projects/{category_id?}', 'projects');
+    Route::any('/contact-us', 'submitContactForm')->name('submitContactForm');
+    Route::get('/privacy-policy', 'privacyPolicy')->name('privacyPolicy');
+    Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
 });
 
-
-Route::get('/', function () {
+Route::get('/home', function () {
     return redirect()->route('admin.dashboard');
 });
 

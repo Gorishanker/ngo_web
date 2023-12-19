@@ -1,7 +1,6 @@
 @extends('front.base')
 @section('title')
     <title>Privacy and Policy</title>
-    <title>{{ webSiteTitleName() }}</title>
 @endsection
 @section('content')
     <section class="pri-content-men" style="padding-top:100px; padding-bottom: 50px ">

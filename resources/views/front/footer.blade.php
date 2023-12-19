@@ -1,105 +1,122 @@
-<section class="as_footer_wrapper as_padderTop100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="as_footer_inner as_padderTop10 as_padderBottom40">
-                    <div class="row w-100">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="as_footer_widget">
-                                <div class="as_footer_logo">
-                                    <a href="javascript:void(0)"><img src="{{asset('front/images/logo.png')}}" alt="logo"
-                                            width="160px;" title="Logo"></a>
+
+    <!-- Start Footer Section -->
+    <footer>
+        <div class="bg-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-top">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="footer-widgets">
+                                    <div class="widgets-title">
+                                        <h3>About us</h3>
+                                    </div>
+                                    <!-- .widgets-title -->
+                                    <div class="widgets-content">
+                                        <p>Distily enable team driven services through extensive is a relatonships platforms
+                                            with interactive content. Enthusiastically scale effective.</p>
+                                    </div>
+                                    <!-- .widgets-content -->
+                                    <div class="address-box">
+                                        <ul class="address">
+                                            <li>
+                                                <i class="fa fa-home" aria-hidden="true"></i>
+                                                <span>New Chokoya Road, USA.</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                                <span>+8801 923 970 698.</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                                <span>Contact@admin.com</span>
+
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                                <span>Emai@admin.com</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- .address -->
                                 </div>
-                                <p>There are many variations of this passages of Lorem Ipsum. This passages of
-                                    Lorem Ipsum.</p>
-
-                                <ul class="p-0 social-ico">
-                                    <li><a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="1.4em"
-                                                viewBox="0 0 320 512">
-                                                <path
-                                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
-                                            </svg>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="1.4em"
-                                                viewBox="0 0 512 512">
-                                                <path
-                                                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
-                                            </svg>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="1.4em"
-                                                viewBox="0 0 448 512">
-                                                <path
-                                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                                            </svg>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="1.4em"
-                                                viewBox="0 0 448 512">
-                                                <path
-                                                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
-                                            </svg>
-                                        </a></li>
-                                </ul>
+                                <!-- .footer-widgets -->
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12">
-                            <div class="as_footer_widget ps-5">
-                                <h3 class="as_footer_heading">Quick Links</h3>
-
-                                <ul>
-                                    <li><a href="#about">About Us</a></li>
-                                    <li><a href="#horoscope">Horoscope</a></li>
-                                    <li><a href="#services">Services</a></li>
-                                    <li><a target="_blank" href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
-                                </ul>
+                            <!-- .col-lg-3 -->
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="footer-widgets">
+                                    <div class="widgets-title">
+                                        <h3>Recent Photos</h3>
+                                    </div>
+                                    <!-- .widgets-title -->
+                                    <div class="footer-instagram">
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-1.jpg')}}"
+                                                alt="footer-instagram-img-1" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-2.jpg')}}"
+                                                alt="footer-instagram-img-2" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-3.jpg')}}"
+                                                alt="footer-instagram-img-3" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-4.jpg')}}"
+                                                alt="footer-instagram-img-4" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-5.jpg')}}"
+                                                alt="footer-instagram-img-5" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-6.jpg')}}"
+                                                alt="footer-instagram-img-6" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-7.jpg')}}"
+                                                alt="footer-instagram-img-7" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-8.jpg')}}"
+                                                alt="footer-instagram-img-8" /></a>
+                                        <a href="#"><img src="{{asset('front/images/home01/footer-instagram-img-9.jpg')}}"
+                                                alt="footer-instagram-img-9" /></a>
+                                    </div>
+                                    <!-- .footer-instagram -->
+                                </div>
+                                <!-- .footer-widgets -->
                             </div>
+                            <!-- .col-lg-3 -->
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12">
-                            <div class="as_footer_widget">
-                                <ul class="pt-5 clin-one">
-                                    <li><a href="#client">Clients</a></li>
-                                    <li><a href="#faq">FAQ</a></li>
-                                    <li><a href="#contact">Contact us</a></li>
-                                    <li><a target="_blank" href="{{ route('termAndConditions') }}">Terms & Conditions</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="as_footer_widget">
-                                <h3 class="as_footer_heading">Contact Us</h3>
-                                <ul class="as_contact_list">
-                                    <li>
-                                        <img src="{{asset('front/images/map.svg')}}" alt="Address" title="Addres">
-                                        <p>NY 10018, California, USA</p>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('front/images/phone.svg')}}" alt="Mobile Number"
-                                            title="Mobile Number">
-                                        <p>
-                                            <a href="javascript:void(0)">+ (91) 1800-124-105</a>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('front/images/mail.svg')}}" alt="Email" title="Email">
-                                        <p>
-                                            <a href="javascript:void(0)">info@staarae.com</a>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <!-- .row -->
                     </div>
+                    <!-- .footer-top -->
                 </div>
-
-                <div class="as_copyright_wrapper text-center">
-                    <p class="mb-0">Copyright © 2023 Staarae. All Right Reserved.</p>
-                </div>
+                <!-- .row -->
             </div>
+            <!-- .container -->
         </div>
-    </div>
-</section>
+        <!-- .bg-footer-top -->
+
+        <div class="bg-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-bottom">
+                        <div class="copyright-txt">
+                            <p>&copy; 2017. Designer By <a href="#" title="Al-Amin(Web Designer)">LabArtisan</a></p>
+                        </div>
+                        <!-- .copyright-txt -->
+                        <div class="social-box">
+                            <ul class="social-icon-rounded">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- .social-box -->
+
+                    </div>
+                    <!-- .footer-bottom -->
+                </div>
+                <!-- .row -->
+            </div>
+            <!-- .container -->
+        </div>
+        <!-- .bg-footer-bottom -->
+
+    </footer>
+    <!-- End Footer Section -->
+
+
+    <!-- Start Scrolling -->
+    <div class="scroll-img"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+    <!-- End Scrolling -->

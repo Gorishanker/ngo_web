@@ -33,7 +33,7 @@ function roleName($key)
 function statusArray()
 {
     $data = [
-        0 => 'Inactve',
+        0 => 'Inactive',
         1 => 'Active',
     ];
     return $data;
@@ -274,4 +274,12 @@ function currencyIcon()
         return env('CURRENCY_ICON');
     }
     return '₹';
+}
+
+function setStringLength($string_value, $length = 20) {
+    if (!isset($string_value) || $string_value == null) {
+        return "Na";
+    } else {
+        return (strlen($string_value) > $length) ? substr($string_value, 0, $length - strlen('...')) . '....' : $string_value;
+    }
 }

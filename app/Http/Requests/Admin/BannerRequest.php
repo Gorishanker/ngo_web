@@ -25,13 +25,13 @@ class BannerRequest extends FormRequest
     {
         if (!request()->is('admin/banners/create')) {
             return [
-                'content' => 'required|alpha_spaces|min:10|max:150',
+                'content' => 'required|min:10',
                 'is_active' => 'required',
                 'image' => 'nullable|image',
             ];
         } else {
             return [
-                'content' => 'required|alpha_spaces|min:10|max:150',
+                'content' => 'required|min:10',
                 'is_active' => 'required',
                 'image' => 'required|image',
             ];

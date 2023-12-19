@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\ContactUsRequest;
+use App\Models\Banner;
+use App\Models\Campaign;
+use App\Models\Category;
 use App\Models\ContactUs;
 use App\Models\Faq;
 use App\Models\Page;
 use App\Models\PageContent;
+use App\Models\Project;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
@@ -20,6 +25,7 @@ class HomeController extends Controller
         $this->policy_view = 'front.privacy_policy';
         $this->terms_view = 'front.term_and_conditions';
     }
+
     /**
      * Display a landing page.
      *
@@ -27,10 +33,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $faqs = Faq::where('is_active', 1)->get();
-        return view($this->home_view, compact('faqs'));
+        $banners = Banner::where('is_active', 1)->get();
+        $services = Service::where('is_active', 1)->select('title','content','image', 'slug')->take(6)->get();
+        $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
+        $campaigns  = Campaign::where('is_active', 1)->take(3)->get();
+        return view($this->home_view, compact('banners', 'categories','services','campaigns'));
     }
-    
+
+    /**
+     * Display a landing page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function projects($category_id = null)
+    {
+        if (isset($category_id))
+            $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug')->take(6)->get();
+        else
+            $projects = Project::where('is_active',  1)->select('title', 'image', 'slug')->take(6)->get();
+        if (isset($projects) && $projects->count() > 0) {
+            $html = view('front.project', compact('projects'))->render();
+            return response()->json([
+                'status' => 1,
+                'html' => $html,
+            ]);
+        }
+        return false;
+    }
+
     /**
      * Display a privacy policy page.
      *
@@ -38,7 +68,7 @@ class HomeController extends Controller
      */
     public function privacyPolicy()
     {
-        $privacy_policy = PageContent::where(['key' => 'privacy-and-policy', 'user_type' => 1,'language' =>'en'])->first();
+        $privacy_policy = PageContent::where(['key' => 'privacy-and-policy', 'user_type' => 1, 'language' => 'en'])->first();
         return view($this->policy_view, compact('privacy_policy'));
     }
 
@@ -49,7 +79,7 @@ class HomeController extends Controller
      */
     public function termAndConditions()
     {
-        $term_and_condition = PageContent::where(['key' => 'term_and_conditions', 'user_type' => 1,'language' =>'en'])->first();
+        $term_and_condition = PageContent::where(['key' => 'term_and_conditions', 'user_type' => 1, 'language' => 'en'])->first();
         return view($this->terms_view, compact('term_and_condition'));
     }
 

@@ -95,6 +95,15 @@
                                             ]) !!}
                                         </div>
 
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label
+                                                class="required">Letest campaign video url</label>
+                                            {!! Form::text('data[letest_campaign_video_url]', isset($settings['letest_campaign_video_url']) ? $settings['letest_campaign_video_url'] : null, [
+                                                'placeholder' => 'Letest campaign video url',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+
 
                                         <div class="col-span-12 xl:col-span-12">
                                             <label

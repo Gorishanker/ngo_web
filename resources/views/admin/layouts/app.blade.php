@@ -3,7 +3,7 @@
 <!--begin::Head-->
 
 <head>
-    <title>Staaraee Login</title>
+    <title>GREEN FOREST Login</title>
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />

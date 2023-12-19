@@ -16,15 +16,7 @@
             'class' => 'input w-full border bg-gray-100 mt-2',
         ]) !!}
     </div>
-    <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.content', 1) }}</label>
-        {!! Form::textarea('content', null, [
-            'class' => 'input w-full border bg-gray-100 mt-2',
-            'rows' => 2,
-            'placeholder' => trans_choice('content.content', 1),
-        ]) !!}
-    </div>
-    <div class="col-span-12 form-group xl:col-span-6">
+    <div class="col-span-12 form-group xl:col-span-4">
         <label class="required">{{ trans_choice('content.image', 1) }}</label>
         {!! Form::file('image', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -34,12 +26,20 @@
             'placeholder' => __('Upload Image '),
         ]) !!}
     </div>
-    <div class="col-span-12 xl:col-span-6 mt-4">
+    <div class="col-span-12 xl:col-span-2 mt-4">
         @if (isset($banner->image))
             <img id="backImage_image" width="80px" height="80px" src="{{ $banner->image }}" title="Image">
             @else
             <img id="backImage_image" src="{{blankImageUrl()}}" width="80px" height="80px" title="Image">
         @endif
+    </div>
+    <div class="col-span-12 form-group xl:col-span-12">
+        <label class="required">{{ trans_choice('content.content', 1) }}</label>
+        {!! Form::textarea('content', null, [
+            'class' => 'input summernote w-full border bg-gray-100 mt-2',
+            'rows' => 2,
+            'placeholder' => trans_choice('content.content', 1),
+        ]) !!}
     </div>
 </div>
 <div class="text-right mt-6">
