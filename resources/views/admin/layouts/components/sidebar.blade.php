@@ -28,14 +28,14 @@
         <li>
             <a class="side-menu {{ checkActiveSideBar(['services']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.services.index') }}">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa-brands fa-servicestack"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.service', 1) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['teams']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.teams.index') }}">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa-solid fa-people-group"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.team', 1) }} </div>
             </a>
         </li>
@@ -56,28 +56,28 @@
         <li>
             <a class="side-menu {{ checkActiveSideBar(['projects']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.projects.index') }}">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa-solid fa-diagram-project"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.project', 1) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['campaigns']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.campaigns.index') }}">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa-solid fa-tree"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.campaign', 1) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['blogs']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.blogs.index') }}">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa-brands fa-microblog"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.blog', 1) }} </div>
             </a>
         </li>
         <li>
-            <a class="side-menu {{ checkActiveSideBar(['Gallery']) ? 'side-menu--active' : '' }}"
+            <a class="side-menu {{ checkActiveSideBar(['galleries']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.galleries.index') }}">
-                <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+                <div class="side-menu__icon"> <i class="fa-brands fa-envira"></i> </div>
                 <div class="side-menu__title">Gallery </div>
             </a>
         </li>
@@ -92,48 +92,21 @@
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.categories.index') }}">
-                        <div class="side-menu__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-codepen mx-auto">
-                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
-                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
-                            </svg> </div>
+                        <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.sidebar.category', 2) }}</div>
                     </a>
                 </li>
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['tags']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.tags.index') }}">
-                        <div class="side-menu__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-codepen mx-auto">
-                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
-                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
-                            </svg> </div>
+                        <div class="side-menu__icon"><i class="fa-solid fa-tags"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.tag', 2) }}</div>
                     </a>
                 </li>
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['banners']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.banners.index') }}">
-                        <div class="side-menu__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-codepen mx-auto">
-                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                                <line x1="12" y1="22" x2="12" y2="15.5"></line>
-                                <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
-                                <polyline points="2 15.5 12 8.5 22 15.5"></polyline>
-                                <line x1="12" y1="2" x2="12" y2="8.5"></line>
-                            </svg> </div>
+                        <div class="side-menu__icon"><i class="fa-solid fa-images"></i> </div>
                         <div class="side-menu__title">{{ trans_choice('content.banner', 2) }}</div>
                     </a>
                 </li>
@@ -156,8 +129,7 @@
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['page_contents']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.page_contents.index') }}">
-                        <div class="side-menu__icon"> <img
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABMElEQVR4nOWWsUoEMRCGUysWgrVPoKVnI4JwnVZnYXmd3dW+wj2BL2DnK9jY3HvszJKdWRaTfxV7yYK4ZG/Pyx7Cgj/8EEhmPvKHZNeYlkRknwiH29hau2dSReKfSPDBCrfRAs8CsGCSDMhLP/ttnbXvR6T4ZPFFEiQFwIqMC3fJAptLff4nAGOMSYLEgLB9Ukxj56W//QY0dYrpVnF1Af6RBS+xSfHK4rUNZcWyOfwCZztHVFXVASueOxa/Cj12BvQp1I4LQIWbZ1LfhHHIlgQPHRduPhjAggUJ7pq50l00BxlbsBgMSNX4dpCXfpaLv2pg6k5JcR87Xj+yiPQngkzq67WXS7EcDhBMWN5Owthad7zuXWq/P+OLKFX/BEDbfPR7HGo3AlJ+W/ocerSbfgH/FN1Q1OuC6QAAAABJRU5ErkJggg==">
+                        <div class="side-menu__icon"> <i class="fa-regular fa-file-lines"></i>
                         </div>
                         <div class="side-menu__title">{{ trans_choice('content.page_content', 2) }}</div>
                     </a>
@@ -165,8 +137,7 @@
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['faqs']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.faqs.index') }}">
-                        <div class="side-menu__icon"><img
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAACCElEQVR4nLWVPWgUURDH1w+0UBStbEQUFIWIlWBjI1poKdqIIIgoCtYWfiE2VrYSohYWQcRGUEsVLVTs5LA4Se5m9m5nNuR2/hti/WTOy/mR3exKLn+Y6s3M783Mm90oqlAIYTUpHrHAWJHVNrEkTu1kVf6IFEdJ8SaEsLbS+e+4XSzoVjrGmp9lwXhJdWuas7ObloD8WBYgTvLjLMgdtCIAErtDircsvbGVAai9phSXWez8yAEhhFUsJv4AWOzByAGt7txeFryYyrLNrPZl5IB4Jt/dFjsySHSpFEDd7DCpfWbBVJGR4rovWvSf8haSYj5ixXQfQthSZG2xnaRgVtwkwbUyi5P8xELyTqe3nQQTpPaqVp9Ys/2suMWKe+Vm3/wSg9ZcZLWXIrKhFOAJSe0TC64WngvGfT7DfnvFinekeMgJrrDg/u9B/BvM2EqCr81mWE+CTh2A65e/TZJab2lAgoP9/kX9Slppmm6sAxgOV+yuV1EOkN4YC94PzmMPqgtYpCJAoxHWkdj3dmKnWPChKG5ZAFes+SESPGe1pz6TkQMW1Erm9nlFi+IEE6w4Uw0Q+8iKG/7MhrdPswMkOF1m/c+HotWZyfdUAlrp/DYfKKtd6AOT7Nxgc5+VGSkek+JYVFf+Zn37fOVZ0ZhOsh21g6OaAC/Z/05/tmp0AMVtFntSNMzl6idOP653VJ8O3wAAAABJRU5ErkJggg==">
+                        <div class="side-menu__icon"><i class="fa-regular fa-comments"></i>
                         </div>
                         <div class="side-menu__title">{{ trans_choice('content.faq', 2) }}</div>
                     </a>
@@ -174,9 +145,10 @@
             </ul>
         </li>
         {{-- Contact us  --}}
+        <li>
         <a class="side-menu {{ checkActiveSideBar(['contact_us']) ? 'side-menu--active' : '' }}"
             href="{{ route('admin.contact_us.index') }}">
-            <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+            <div class="side-menu__icon"> <i class="fa-solid fa-headset"></i> </div>
             <div class="side-menu__title"> {{ trans_choice('content.contact_us', 1) }} </div>
         </a>
         </li>

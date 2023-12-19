@@ -2,7 +2,7 @@
 @section('content')
     @include('admin.layouts.components.header', [
         'title' => __('messages.list', [
-            'name' => trans_choice('content.contact_us', 2),
+            'name' => trans_choice('content.gallery', 1),
         ]),
         'breadcrumbs' => Breadcrumbs::render('admin.galleries.index'),
         'create_modal' => [
@@ -47,7 +47,7 @@
         <div class="col-span-12 text-right">
             <label> </label><span class="text-theme-6"></span>
             <button class="button w-24 bg-theme-6 text-white" type="reset" id="searchReset">Reset</button>
-            <button class="button w-24 bg-theme-43 text-white" id="customerExportListForm" type="submit">Download</button>
+            <button class="button w-24 bg-theme-43 text-white" id="customerExportListForm" type="submit">Submit</button>
         </div>
     </div>
     {!! Form::close() !!}

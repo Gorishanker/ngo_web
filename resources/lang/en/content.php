@@ -152,4 +152,5 @@ return [
     'new_password_title' => 'New password',
     'confirm_new_password_title' => 'Confirm new password',
     'email_title' => 'Email',
+    'gallery' => 'Gallery|Galleries',
 ];
