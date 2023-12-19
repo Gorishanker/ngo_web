@@ -95,17 +95,15 @@
             </a>
             <ul class="">
                 <li>
-                    <a href="{{ route('admin.page_contents.index') }}"
-                        class="menu {{ request()->is('*page_contents*') ? 'menu--active' : '' }}">
+                    <a href="{{ route('admin.page_contents.index') }}"  class="menu {{ request()->is('*page_contents*') ? 'menu--active' : '' }}">
                         <div class="menu__icon"><i class="fa-regular fa-file-lines"></i> </div>
                         <div class="menu__title"> Page Contents </div>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.faqs.index') }}"
-                        class="menu {{ request()->is('*faqs*') ? 'menu--active' : '' }}">
-                        <div class="menu__icon"><i class="fa-regular fa-comments"></i>
-                            <div class="menu__title"> Faqs </div>
+                    <a href="{{ route('admin.faqs.index') }}"  class="menu {{ request()->is('*faqs*') ? 'menu--active' : '' }}">
+                        <div class="menu__icon"><i class="fa-regular fa-comments"></i> </div>
+                        <div class="menu__title"> Faqs </div>
                     </a>
                 </li>
             </ul>
