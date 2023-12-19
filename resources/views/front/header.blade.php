@@ -5,9 +5,9 @@
                     <div class="row">
                         <div class="header-top">
                             <ul class="h-contact">
-                                <li><i class="flaticon-time-left"></i> Time : Tusday-Monday : 9:00am-6:00pm</li>
-                                <li><i class="flaticon-vibrating-phone"></i> Phone : +88017 923 970 659</li>
-                                <li><i class="flaticon-placeholder"></i> Address : Sute 07 Sahara Center</li>
+                                <li><i class="flaticon-time-left"></i> Time : {{getSettingDataBySlug('available_time')}}</li>
+                                <li><i class="flaticon-vibrating-phone"></i> Phone : {{getSettingDataBySlug('contact_number')}}</li>
+                                <li><i class="flaticon-placeholder"></i> Address :  {{getSettingDataBySlug('address')}}</li>
                             </ul>
                             <div class="donate-option">
                                 <a href="donate.html"><i class="fa fa-heart" aria-hidden="true"></i> donate now</a>
@@ -39,33 +39,11 @@
                                     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                                         <ul>
                                             <li>
-                                                <a href="#" class="active">HOME</a>
-                                                <ul class="sub-menu">
-                                                    <li class="sub-active"><a href="index.html"><i
-                                                                class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                            Home Page one</a></li>
-                                                    <li><a href="home02.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Home Page two</a></li>
-                                                    <li><a href="home03.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Home Page three</a></li>
-                                                    <li><a href="home_box.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Home Box style</a></li>
-                                                    <li><a href="home_onepage.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Home One Page</a></li>
-                                                    <li><a href="index-rtl.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> الصفحة الرئيسية رتل</a></li>
-                                                </ul>
+                                                <a href="{{url('/')}}" class="active">HOME</a>
                                             </li>
-                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="{{route('front.aboutUs')}}" class="{{ request()->is('*about-us*') ? 'active' : '' }}">About</a></li>
                                             <li>
-                                                <a href="#">Services</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="services.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Services</a></li>
-                                                    <li><a href="service_single.html"><i
-                                                                class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                                            Single Service</a></li>
-                                                </ul>
+                                                <a href="{{route('front.services')}}" class="{{ request()->is('*services*') ? 'active' : '' }}">Services</a>
                                             </li>
                                             <li>
                                                 <a href="#">pages</a>

@@ -28,7 +28,7 @@
                                                     <div class="slider-content">
                                                         {!! isset($banner->content)
                                                             ? $banner->content
-                                                            : '<h3>welcome to green forest</h3><h2>save the world</h2><p>By Planting Tree Tomorrow!</p>' !!}</h3>
+                                                            : '<h3>welcome to green forest</h3><h2>save the world</h2><p>By Planting Tree Tomorrow!</p>' !!}
                                                         <div class="slider-btn">
                                                             <a href="#" class="btn btn-default">join now</a>
                                                             <a href="javascript:;" class="btn btn-default">donate now</a>
@@ -585,16 +585,18 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="cause-items">
                                         <a href="campaign_single.html"><img
-                                                src="{{isset($campaign->image) ? $campaign->image : null}}"
+                                                src="{{ isset($campaign->image) ? $campaign->image : null }}"
                                                 alt="cause-img-1" class="img-responsive" /></a>
                                         <div class="cause-content">
                                             <div class="price-title">
                                                 <div class="price-left">
-                                                    <h5>Target:<span>{{isset($campaign->target_amount) ? currencyIcon(). $campaign->target_amount : 0}}</span></h5>
+                                                    <h5>Target:<span>{{ isset($campaign->target_amount) ? currencyIcon() . $campaign->target_amount : 0 }}</span>
+                                                    </h5>
                                                 </div>
                                                 <!-- .price-left -->
                                                 <div class="price-right">
-                                                    <h5>Raised:<span>{{isset($campaign->raise_amount) ? currencyIcon(). $campaign->raise_amount : 0}}</span></h5>
+                                                    <h5>Raised:<span>{{ isset($campaign->raise_amount) ? currencyIcon() . $campaign->raise_amount : 0 }}</span>
+                                                    </h5>
                                                 </div>
                                                 <!-- .price-left -->
                                             </div>
@@ -602,12 +604,14 @@
                                             <div class="progress">
                                                 <div class="progress-bar progress-bar-success progress-bar-striped"
                                                     role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width:{{$raised_percent}}%">
+                                                    aria-valuemax="100" style="width:{{ $raised_percent }}%">
                                                 </div>
                                                 <!-- .progress-bar -->
                                             </div>
                                             <!-- .progress -->
-                                            <h4><a href="campaign_single.html">{{isset($campaign->title) ? $campaign->title : null}}</a></h4>
+                                            <h4><a
+                                                    href="campaign_single.html">{{ isset($campaign->title) ? $campaign->title : null }}</a>
+                                            </h4>
                                             <p>{!! setStringLength($campaign->content, 150) !!}</p>
                                             <a href="donate.html" class="btn btn-default">donate Now</a>
                                         </div>

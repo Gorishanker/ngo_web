@@ -1109,7 +1109,7 @@ section{
 
 
 .bg-page-header{
-	background: url(../../assets/images/about/bg-page-header.jpg) no-repeat;
+	background: url('https://aminurislam.com/labartisan/greenforest-demo/greenforest/assets/images/about/bg-page-header.jpg') no-repeat;
 	background-size: cover;
 	background-position: 50% 50%;
 }
@@ -2951,7 +2951,7 @@ div#filters {
 ==========================================*/
 
 .bg-count2-section{
-	background: url(../../assets/images/home02/bg-counter2-img.jpg) no-repeat fixed;
+	background: url('https://aminurislam.com/labartisan/greenforest-demo/greenforest/assets/images/home02/bg-counter2-img.jpg') no-repeat fixed;
     background-size: cover;
     background-position: 48% 100%;
 }

@@ -46,7 +46,7 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="footer-widgets">
                                     <div class="widgets-title">
-                                        <h3>Recent Photos</h3>
+                                        <h3>Recent Media</h3>
                                     </div>
                                     <!-- .widgets-title -->
                                     <div class="footer-instagram">

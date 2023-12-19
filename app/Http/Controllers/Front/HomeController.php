@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\ContactUsRequest;
 use App\Models\Banner;
+use App\Models\Blog;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\ContactUs;
@@ -16,13 +17,14 @@ use App\Models\Service;
 
 class HomeController extends Controller
 {
-    protected $home_view, $policy_view, $terms_view;
+    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view;
 
     public function __construct()
     {
         //view files
         $this->home_view = 'front.home';
-        $this->policy_view = 'front.privacy_policy';
+        $this->about_us_view = 'front.about_us';
+        $this->service_view = 'front.service';
         $this->terms_view = 'front.term_and_conditions';
     }
 
@@ -34,10 +36,10 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('is_active', 1)->get();
-        $services = Service::where('is_active', 1)->select('title','content','image', 'slug')->take(6)->get();
+        $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->take(6)->get();
         $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
         $campaigns  = Campaign::where('is_active', 1)->take(3)->get();
-        return view($this->home_view, compact('banners', 'categories','services','campaigns'));
+        return view($this->home_view, compact('banners', 'categories', 'services', 'campaigns'));
     }
 
     /**
@@ -47,10 +49,17 @@ class HomeController extends Controller
      */
     public function projects($category_id = null)
     {
-        if (isset($category_id))
-            $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug')->take(6)->get();
-        else
-            $projects = Project::where('is_active',  1)->select('title', 'image', 'slug')->take(6)->get();
+        if (isset($category_id)) {
+            if (request()->is('*services*'))
+                $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug')->get();
+            else
+                $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug')->take(6)->get();
+        } else {
+            if (request()->is('*services*'))
+                $projects = Project::where('is_active',  1)->select('title', 'image', 'slug')->get();
+            else
+                $projects = Project::where('is_active',  1)->select('title', 'image', 'slug')->take(6)->get();
+        }
         if (isset($projects) && $projects->count() > 0) {
             $html = view('front.project', compact('projects'))->render();
             return response()->json([
@@ -62,14 +71,26 @@ class HomeController extends Controller
     }
 
     /**
-     * Display a privacy policy page.
+     * Display a privacy aboutUs page.
      *
      * @return \Illuminate\Http\Response
      */
-    public function privacyPolicy()
+    public function aboutUs()
     {
-        $privacy_policy = PageContent::where(['key' => 'privacy-and-policy', 'user_type' => 1, 'language' => 'en'])->first();
-        return view($this->policy_view, compact('privacy_policy'));
+        $blogs = Blog::where(['is_active' => 1, 'schedule_datetime' => null])->orWhere('schedule_datetime', '<=', now())->take(3)->orderBy('id', 'desc')->get();
+        return view($this->about_us_view, compact('blogs'));
+    }
+
+    /**
+     * Display a privacy services page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function services()
+    {
+        $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->get();
+        $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
+        return view($this->service_view, compact('services', 'categories'));
     }
 
     /**
