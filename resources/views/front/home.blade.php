@@ -1,6 +1,11 @@
 @extends('front.base')
 @section('title')
     <title>{{ webSiteTitleName() }}</title>
+     {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
+    {!! SEO::generate() !!}
 @endsection
 @section('content')
     <!-- Start Slider Section -->

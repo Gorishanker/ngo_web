@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-    <section class="bg-page-header">
+<section class="bg-page-header" style="background:  url({{asset('front/images/about/bg-page-header.jpg')}}) no-repeat">
         <div class="page-header-overlay">
             <div class="container">
                 <div class="row">
@@ -15,7 +15,7 @@
                         <!-- .page-title -->
                         <div class="page-header-content">
                             <ol class="breadcrumb">
-                                <li><a href="{{url('/')}}">Home</a></li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
                                 <li>services</li>
                             </ol>
                         </div>
@@ -52,11 +52,11 @@
                                                 alt="{{ isset($service->title) ? $service->title : 'Na' }}">
                                             <div class="our-services-content">
                                                 <h4><a
-                                                        href="service_single.html">{{ isset($service->title) ? $service->title : 'Na' }}</a>
+                                                        href="{{ route('front.serviceView', $service->slug) }}">{{ isset($service->title) ? $service->title : 'Na' }}</a>
                                                 </h4>
                                                 <p>{!! setStringLength($service->content, 150) !!}</p>
-                                                <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                        aria-hidden="true"></i></a>
+                                                <a href="{{ route('front.serviceView', $service->slug) }}">read more<i
+                                                        class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                             </div>
                                             <!-- .our-services-content -->
                                         </div>

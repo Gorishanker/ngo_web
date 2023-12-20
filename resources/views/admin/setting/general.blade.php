@@ -41,7 +41,7 @@
                                             ]) !!}
                                         </div>
                                         <div class="col-span-12 xl:col-span-6">
-                                            <label class="required">Meta-Title Name</label>
+                                            <label class="required">Meta-Title</label>
                                             {!! Form::text('data[web_site_name]', isset($settings['web_site_name']) ? $settings['web_site_name'] : null, [
                                                 'placeholder' => __('placeholder.web_site_name'),
                                                 'class' => 'input w-full rounded-full border bg-gray-100 mt-2',

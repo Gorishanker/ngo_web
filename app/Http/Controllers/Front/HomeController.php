@@ -9,15 +9,14 @@ use App\Models\Blog;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\ContactUs;
-use App\Models\Faq;
-use App\Models\Page;
 use App\Models\PageContent;
 use App\Models\Project;
 use App\Models\Service;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class HomeController extends Controller
 {
-    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view;
+    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view, $service_detail_view;
 
     public function __construct()
     {
@@ -25,6 +24,7 @@ class HomeController extends Controller
         $this->home_view = 'front.home';
         $this->about_us_view = 'front.about_us';
         $this->service_view = 'front.service';
+        $this->service_detail_view = 'front.service_detail';
         $this->terms_view = 'front.term_and_conditions';
     }
 
@@ -39,6 +39,10 @@ class HomeController extends Controller
         $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->take(6)->get();
         $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
         $campaigns  = Campaign::where('is_active', 1)->take(3)->get();
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
         return view($this->home_view, compact('banners', 'categories', 'services', 'campaigns'));
     }
 
@@ -91,6 +95,21 @@ class HomeController extends Controller
         $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->get();
         $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
         return view($this->service_view, compact('services', 'categories'));
+    }
+
+     /**
+     * Display a privacy services page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function serviceView($slug)
+    {
+        $service_detail = Service::where(['is_active' => 1, 'slug' => $slug])->first();
+        $services = Service::where('is_active', 1)->select('title','slug')->orderBy('id', 'desc')->take(6)->get();
+        // dd($service, $services);
+        if(!isset($service_detail))
+        abort(404);
+        return view($this->service_detail_view, compact('service_detail','services'));
     }
 
     /**

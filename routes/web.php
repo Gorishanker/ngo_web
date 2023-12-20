@@ -22,6 +22,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::any('/contact-us', 'submitContactForm')->name('submitContactForm');
     Route::get('/about-us', 'aboutUs')->name('front.aboutUs');
     Route::get('/services', 'services')->name('front.services');
+    Route::get('/service/{slug}', 'serviceView')->name('front.serviceView');
     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
 });
 

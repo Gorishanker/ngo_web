@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <!-- Start Page Header Section -->
-    <section class="bg-page-header">
+    <section class="bg-page-header" style="background:  url({{asset('front/images/about/bg-page-header.jpg')}}) no-repeat">
         <div class="page-header-overlay">
             <div class="container">
                 <div class="row">

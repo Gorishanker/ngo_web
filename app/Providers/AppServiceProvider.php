@@ -9,6 +9,15 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Opcodes\LogViewer\Facades\LogViewer;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
+
+// OR
+use Artesaos\SEOTools\Facades\SEOTools;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -200,6 +209,33 @@ $setting_data = Setting::pluck('value', 'slug');
             $view->with('web_site_name',  isset($setting_data['web_site_name']) ? $setting_data['web_site_name'] : 'GREEN FOREST');
         });
     }
+    
+    SEOTools::macro('webPage', function (string $title, string $description, string $logo, string $image = null) {
+        SEOMeta::setTitle($title);
+        SEOMeta::setDescription($description);
+        SEOMeta::setCanonical(url()->current());
+
+        OpenGraph::setDescription($description);
+        OpenGraph::setTitle($title);
+        OpenGraph::setUrl(url()->current());
+        OpenGraph::addProperty('type', 'Webpage');
+        OpenGraph::addImage($image);
+        TwitterCard::setTitle($title);
+        TwitterCard::setImage($image);
+
+        JsonLd::setTitle($title);
+        JsonLd::setDescription($title);
+
+        JsonLd::addImage($logo);
+
+        // OR
+
+        SEOTools::setTitle($title);
+        SEOTools::setDescription($description);
+        SEOTools::opengraph()->setUrl(url()->current());
+        SEOTools::setCanonical(url()->current());
+        SEOTools::opengraph()->addProperty('type', 'Webpage');
+    });
 
         LogViewer::auth(function ($request) {
             if (
