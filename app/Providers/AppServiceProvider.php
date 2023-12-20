@@ -210,25 +210,24 @@ $setting_data = Setting::pluck('value', 'slug');
         });
     }
     
-    SEOTools::macro('webPage', function (string $title, string $description, string $logo, string $image = null) {
+    SEOTools::macro('webPage', function (string $title, string $description, string $logo, string $image = null, $keywords = null) {
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
         SEOMeta::setCanonical(url()->current());
+        SEOMeta::setKeywords($keywords);
 
         OpenGraph::setDescription($description);
         OpenGraph::setTitle($title);
         OpenGraph::setUrl(url()->current());
         OpenGraph::addProperty('type', 'Webpage');
-        OpenGraph::addImage($image);
+        OpenGraph::addImage(isset($image) ? $image : asset('files/settings/' . $logo));
         TwitterCard::setTitle($title);
-        TwitterCard::setImage($image);
+        TwitterCard::setImage(isset($image) ? $image : asset('files/settings/' . $logo));
 
         JsonLd::setTitle($title);
         JsonLd::setDescription($title);
 
-        JsonLd::addImage($logo);
-
-        // OR
+        JsonLd::addImage(asset('files/settings/' . $logo));
 
         SEOTools::setTitle($title);
         SEOTools::setDescription($description);

@@ -81,6 +81,10 @@ class HomeController extends Controller
      */
     public function aboutUs()
     {
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
         $blogs = Blog::where(['is_active' => 1, 'schedule_datetime' => null])->orWhere('schedule_datetime', '<=', now())->take(3)->orderBy('id', 'desc')->get();
         return view($this->about_us_view, compact('blogs'));
     }
@@ -93,6 +97,10 @@ class HomeController extends Controller
     public function services()
     {
         $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->get();
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
         $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
         return view($this->service_view, compact('services', 'categories'));
     }
@@ -106,7 +114,10 @@ class HomeController extends Controller
     {
         $service_detail = Service::where(['is_active' => 1, 'slug' => $slug])->first();
         $services = Service::where('is_active', 1)->select('title','slug')->orderBy('id', 'desc')->take(6)->get();
-        // dd($service, $services);
+        $meta_title =  $service_detail->title;
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = `{!! setStringLength($service_detail->content, 150) !!}`;
+        SEOTools::webPage($meta_title, $meta_description, $logo);
         if(!isset($service_detail))
         abort(404);
         return view($this->service_detail_view, compact('service_detail','services'));
