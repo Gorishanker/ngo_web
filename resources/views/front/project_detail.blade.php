@@ -137,7 +137,7 @@
                 } else if (socialMedia === 'linkedin') {
                     shareURL = 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(urlToShare);
                 } else if (socialMedia === 'instagram') {
-                    shareURL = 'https://www.instagram.com/?url=' + encodeURIComponent(urlToShare);
+                    shareURL = 'instagram://library?AssetPath=' + encodeURIComponent(urlToShare);
                 }
                 
                 if (shareURL) {
