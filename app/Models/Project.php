@@ -34,7 +34,6 @@ class Project extends Model
             return null;
         }
     }
-
     public function sluggable(): array
     {
         return [
@@ -53,6 +52,11 @@ class Project extends Model
     public function project_docs()
     {
         return $this->hasMany(ProjectDoc::class);
+    }
+
+    public function project_images()
+    {
+        return $this->hasMany(ProjectDoc::class)->where('type', 3);
     }
     
     public function category()

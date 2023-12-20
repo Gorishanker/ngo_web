@@ -3858,7 +3858,6 @@ ul>li>a:focus, ul>li>a:hover {
 	margin-top: 34px;
 }
 .load-more-option .btn-default:hover, 
-.load-more-option .btn-default:focus, 
 .load-more-option .btn-default.focus, 
 .load-more-option .btn-default:active{
 	color: #53a92c;

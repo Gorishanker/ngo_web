@@ -59,7 +59,7 @@
                                                 <h4><a
                                                         href="{{ route('front.serviceView', $service->slug) }}">{{ isset($service->title) ? $service->title : 'Na' }}</a>
                                                 </h4>
-                                                <p>{!! setStringLength($service->content, 150) !!}</p>
+                                                <p>{{ setStringLength(strip_tags($service->content), 70) }}</p>
                                                 <a href="{{ route('front.serviceView', $service->slug) }}">read more<i
                                                         class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                             </div>

@@ -21,6 +21,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/get-projects/{category_id?}', 'projects');
     Route::any('/contact-us', 'submitContactForm')->name('submitContactForm');
     Route::get('/about-us', 'aboutUs')->name('front.aboutUs');
+    Route::get('/projects', 'projectIndex')->name('front.projectIndex');
+    Route::get('/project/{slug}', 'projectView')->name('front.projectView');
     Route::get('/services', 'services')->name('front.services');
     Route::get('/service/{slug}', 'serviceView')->name('front.serviceView');
     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');

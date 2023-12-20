@@ -46,9 +46,12 @@
                                                 <a href="{{route('front.services')}}" class="{{ request()->is('*services*') ? 'active' : '' }}">Services</a>
                                             </li>
                                             <li>
+                                                <a href="{{route('front.projectIndex')}}" class="{{ request()->is('*projects*') ? 'active' : '' }}">Projects</a>
+                                            </li>
+                                            <li>
                                                 <a href="#">pages</a>
                                                 <ul class="sub-menu">
-                                                    <li>
+                                                    {{-- <li>
                                                         <a href="#"><i class="fa fa-angle-double-right"
                                                                 aria-hidden="true"></i> Our Team</a>
                                                         <ul class="sub-sub-menu">
@@ -58,19 +61,7 @@
                                                                         class="fa fa-angle-double-right"
                                                                         aria-hidden="true"></i> Single Team</a></li>
                                                         </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Our project</a>
-                                                        <ul class="sub-sub-menu">
-                                                            <li><a href="project.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Projects</a></li>
-                                                            <li><a href="project_single.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Single Project</a></li>
-                                                        </ul>
-                                                    </li>
+                                                    </li> --}}
                                                     <li>
                                                         <a href="#"><i class="fa fa-angle-double-right"
                                                                 aria-hidden="true"></i> Shop</a>
@@ -102,16 +93,6 @@
                                                                 aria-hidden="true"></i> Donate Page</a></li>
                                                     <li><a href="404_page.html"><i class="fa fa-angle-double-right"
                                                                 aria-hidden="true"></i> 404 Page</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">Events</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="event.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Events</a></li>
-                                                    <li><a href="event_single.html"><i
-                                                                class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Single Event</a></li>
                                                 </ul>
                                             </li>
                                             <li>

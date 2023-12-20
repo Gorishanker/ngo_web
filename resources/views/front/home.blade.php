@@ -431,7 +431,7 @@
                                                 <h4><a
                                                         href="service_single.html">{{ isset($service->title) ? $service->title : 'Na' }}</a>
                                                 </h4>
-                                                <p>{!! setStringLength($service->content, 150) !!}</p>
+                                                <p>{{ setStringLength(strip_tags($service->content), 70) }}</p>
                                                 <a href="service_single.html">read more<i class="fa fa-angle-double-right"
                                                         aria-hidden="true"></i></a>
                                             </div>
@@ -617,7 +617,7 @@
                                             <h4><a
                                                     href="campaign_single.html">{{ isset($campaign->title) ? $campaign->title : null }}</a>
                                             </h4>
-                                            <p>{!! setStringLength($campaign->content, 150) !!}</p>
+                                            <p>{!! setStringLength(strip_tags($campaign->content), 70) !!}</p>
                                             <a href="donate.html" class="btn btn-default">donate Now</a>
                                         </div>
                                         <!-- .cause-content -->
