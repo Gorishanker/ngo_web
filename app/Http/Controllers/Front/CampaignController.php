@@ -23,9 +23,10 @@ class CampaignController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function campaigns()
+    public function campaigns(Request $request)
     {
-        $cart = Session::get('cart');
+        dump($request->session()->flush());
+        $cart = Session::all();
         dd($cart);
         // $cart[5] = array(
         //     "id" => 5,
@@ -49,6 +50,8 @@ class CampaignController extends Controller
         // Session::put('cart', $cart);
         // $cart = Session::get('cart');
         // dd($cart);
+
+        Session::forget('cart');
     
         $campaigns  = Campaign::where('is_active', 1)->get();
         $meta_title = getSettingDataBySlug('web_site_name');
