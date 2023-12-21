@@ -83,12 +83,12 @@
         </li>
         <li>
             <div
-                class="side-menu {{ checkActiveSideBar(['categories', 'banners', 'tags']) ? 'side-menu--active' : '' }}">
+                class="side-menu {{ checkActiveSideBar(['categories', 'banners', 'tags','occasions']) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.sidebar.masters', 2) }} <i
                         data-feather="chevron-down" class="side-menu__sub-icon" style="margin-right:11px"></i> </div>
             </div>
-            <ul class="{{ checkActiveSideBar(['categories', 'banners', 'tags']) ? 'side-menu__sub-open' : '' }}">
+            <ul class="{{ checkActiveSideBar(['categories', 'banners', 'tags','occasions']) ? 'side-menu__sub-open' : '' }}">
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.categories.index') }}">
@@ -108,6 +108,13 @@
                         href="{{ route('admin.banners.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-images"></i> </div>
                         <div class="side-menu__title">{{ trans_choice('content.banner', 2) }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="side-menu {{ checkActiveSideBar(['occasions']) ? 'side-menu--active' : '' }}"
+                        href="{{ route('admin.occasions.index') }}">
+                        <div class="side-menu__icon"><i class="fa-brands fa-affiliatetheme"></i></div>
+                        <div class="side-menu__title">Occassions</div>
                     </a>
                 </li>
             </ul>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Gallery;
 use App\Models\Setting;
 use App\Services\ManagerLanguageService;
 use App\Services\UserService;
@@ -276,7 +277,24 @@ function currencyIcon()
     return '₹';
 }
 
-function setStringLength($string_value, $length = 20) {
+function getGalleryImages($category_id = null,  $pagination = null)
+{
+    if (isset($category_id)) {
+        $data = Gallery::where('category_id', $category_id);
+    } else {
+        $data =  Gallery::query();
+    }
+    if (isset($pagination)) {
+        $data = $data->paginate($pagination);
+    } else {
+        $data = $data->take(9)->get();
+    }
+    return $data;
+}
+
+
+function setStringLength($string_value, $length = 20)
+{
     if (!isset($string_value) || $string_value == null) {
         return "Na";
     } else {

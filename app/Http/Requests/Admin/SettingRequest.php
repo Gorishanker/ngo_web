@@ -32,7 +32,12 @@ class SettingRequest extends FormRequest
             'data.favicon' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'data.email' => 'required|email:rfc|max:150',
             'data.contact_number' => 'required|min:10|max:15',
+            'data.whatsapp_number' => 'required|min:10|max:15',
             'data.letest_campaign_video_url' => 'required|url|max:150',
+            'data.facebook_url' => 'nullable|url|max:150',
+            'data.linkedin_url' => 'nullable|url|max:150',
+            'data.instagram_url' => 'nullable|url|max:150',
+            'data.twitter_url' => 'required|url|max:150',
             'data.about_company' => 'required|max:300',
             'data.address' => 'required|max:70',
             'data.available_time' => 'required|max:50',
@@ -66,7 +71,6 @@ class SettingRequest extends FormRequest
 
 
             'data.copyright_text.required' => __('validation.required', ['attribute' => 'Copyright text']),
-            'data.contact_number.required' => __('validation.required', ['attribute' => 'Contact number']),
             'data.home_page_title.required' => __('validation.required', ['attribute' => 'Home page title']),
             'data.company_full_name.required' => __('validation.required', ['attribute' => 'Company full name']),
             'data.email.required' => __('validation.required', ['attribute' => 'Email']),
@@ -76,6 +80,10 @@ class SettingRequest extends FormRequest
             'data.contact_number.max' => __('validation.max', ['attribute' => 'Contact No']),
             'data.contact_number.min' => __('validation.min', ['attribute' => 'Contact No']),
             'data.contact_number.phone' => __('validation.phone', ['attribute' => 'Contact No']),
+            'data.whatsapp_number.required' => __('validation.required', ['attribute' => 'Whatsapp no']),
+            'data.whatsapp_number.max' => __('validation.max', ['attribute' => 'Whatsapp no']),
+            'data.whatsapp_number.min' => __('validation.min', ['attribute' => 'Whatsapp no']),
+            'data.whatsapp_number.phone' => __('validation.phone', ['attribute' => 'Whatsapp no']),
             'data.about_company.required' => __('validation.required', ['attribute' => 'About company']),
             'data.about_company.max' => __('validation.max', ['attribute' => 'About company']),
 
@@ -88,6 +96,14 @@ class SettingRequest extends FormRequest
             'data.letest_campaign_video_url.required' => __('validation.required', ['attribute' => 'Letest campaign video url']),
             'data.letest_campaign_video_url.max' => __('validation.max', ['attribute' => 'Letest campaign video url']),
             'data.letest_campaign_video_url.url' => __('validation.url', ['attribute' => 'Letest campaign video url']),
+            'data.facebook_url.max' => __('validation.max', ['attribute' => 'Facebook url']),
+            'data.facebook_url.url' => __('validation.url', ['attribute' => 'Facebook url']),
+            'data.instagram_url.max' => __('validation.max', ['attribute' => 'Instagram url']),
+            'data.instagram_url.url' => __('validation.url', ['attribute' => 'Instagram url']),
+            'data.linkedin_url.max' => __('validation.max', ['attribute' => 'Linkedin url']),
+            'data.linkedin_url.url' => __('validation.url', ['attribute' => 'Linkedin url']),
+            'data.twitter_url.max' => __('validation.max', ['attribute' => 'Twitter url']),
+            'data.twitter_url.url' => __('validation.url', ['attribute' => 'Twitter url']),
           
         ];
     }

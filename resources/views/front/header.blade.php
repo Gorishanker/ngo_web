@@ -96,28 +96,12 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="#">Blog</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Blog</a></li>
-                                                    <li><a href="blog_02.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Blog style 02</a></li>
-                                                    <li><a href="blog_single.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Single Blog</a></li>
-                                                </ul>
+                                                <a href="{{route('front.blogs')}}" class="{{ request()->is('*blogs*') ? 'active' : '' }}">Blogs</a>
                                             </li>
                                             <li>
-                                                <a href="#">Gallery</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="gallery.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Gallery</a></li>
-                                                    <li><a href="gallery_02.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Gallery 02</a></li>
-                                                    <li><a href="gallery_03.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Gallery 03</a></li>
-                                                </ul>
+                                                <a href="{{route('front.gallery')}}" class="{{ request()->is('*gallery*') ? 'active' : '' }}">Gallery</a>
                                             </li>
-                                            <li><a href="contact.html">contacts</a></li>
+                                            <li><a href="{{route('front.contactUs')}}" class="{{ request()->is('*contact-us*') ? 'active' : '' }}">contacts</a></li>
                                         </ul>
                                         <div class="menu-right-option pull-right">
                                             <div class="cart-option">

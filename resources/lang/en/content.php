@@ -153,4 +153,6 @@ return [
     'confirm_new_password_title' => 'Confirm new password',
     'email_title' => 'Email',
     'gallery' => 'Gallery|Galleries',
+    'website' => 'Website',
+    'occasion' => 'Occasion|Occasions',
 ];

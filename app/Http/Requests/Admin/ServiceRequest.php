@@ -25,7 +25,7 @@ class ServiceRequest extends FormRequest
     {
         if (!request()->is('admin/services/create')) {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150',
+                'title' => 'required|alpha_spaces|max:50',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
                 'image' => 'nullable|image|max:3072',
@@ -34,7 +34,7 @@ class ServiceRequest extends FormRequest
             ];
         } else {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150',
+                'title' => 'required|alpha_spaces|max:50',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
                 'image' => 'required|image|max:3072',

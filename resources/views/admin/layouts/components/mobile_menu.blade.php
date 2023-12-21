@@ -85,6 +85,13 @@
                         <div class="menu__title"> Tags </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.occasions.index') }}"
+                        class="menu {{ request()->is('*occasions*') ? 'menu--active' : '' }}">
+                        <div class="menu__icon"> <i class="fa-brands fa-affiliatetheme"></i> </div>
+                        <div class="menu__title"> Tags </div>
+                    </a>
+                </li>
             </ul>
         </li>
         <li>

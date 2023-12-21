@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/lightcase.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/jquery.nstSlider.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/flexslider.css') }}" media="all" />
-
+    @stack('styles')
     <!-- own style css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/style.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/rtl.css') }}" media="all" />

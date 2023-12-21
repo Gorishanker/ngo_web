@@ -19,12 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/get-projects/{category_id?}', 'projects');
-    Route::any('/contact-us', 'submitContactForm')->name('submitContactForm');
+    Route::get('/get-images/{category_id?}', 'showImages');
+    Route::get('/contact-us', 'contactUs')->name('front.contactUs');
+    Route::post('/contact-us', 'submitContactUs')->name('front.submitContactUs');
     Route::get('/about-us', 'aboutUs')->name('front.aboutUs');
     Route::get('/projects', 'projectIndex')->name('front.projectIndex');
+    Route::get('/blogs', 'blogs')->name('front.blogs');
+    Route::get('/blog/{slug}', 'blogView')->name('front.blogView');
+    Route::post('/blog/comment', 'blogCommentStore')->name('front.blogComment.store');
     Route::get('/project/{slug}', 'projectView')->name('front.projectView');
     Route::get('/services', 'services')->name('front.services');
     Route::get('/service/{slug}', 'serviceView')->name('front.serviceView');
+    Route::get('/gallery', 'gallery')->name('front.gallery');
     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
 });
 
@@ -79,6 +85,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         });
         Route::resource('/categories', CategoryController::class);
 
+         //Occasion Controller
+         Route::controller(OccasionController::class)->group(function () {
+            Route::get('/occasions/status/{id}/{status}', 'status')->name('occasion.status');
+        });
+        Route::resource('/occasions', OccasionController::class);
+
         //page_contents Controller
         Route::controller(PageContentController::class)->group(function () {
             Route::get('/page_contents/status/{id}/{status}', 'status');
@@ -131,6 +143,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         //blog routes
         Route::controller(BlogController::class)->group(function () {
             Route::get('/blogs/status/{id}/{status}', 'status');
+            Route::get('/blog/comment/status/{blog_comment}/{status}', 'commentStatus');
+            Route::get('/blog/comments', 'comments')->name('blog.comments');
         });
         Route::resource('/blogs', BlogController::class);
         //end::blog routes

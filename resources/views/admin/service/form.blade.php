@@ -1,4 +1,4 @@
-@if ($errors->any())
+{{-- @if ($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
         <ul>
@@ -7,7 +7,7 @@
             @endforeach
         </ul>
     </div>
-@endif
+@endif --}}
 @php
     $pdf_url = null;
     $doc_url = null;
@@ -39,7 +39,7 @@
         ]) !!}
     </div>
 
-    <div class="col-span-12 form-group xl:col-span-{{isset($doc_url) ? 4 : 6}}">
+    <div class="col-span-12 form-group xl:col-span-{{ isset($doc_url) ? 4 : 6 }}">
         <label class="required">{{ trans_choice('content.brochure_doc', 1) }}</label>
         {!! Form::file('brochure_doc', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -56,7 +56,7 @@
             </a>
         </div>
     @endif
-    <div class="col-span-12 form-group xl:col-span-{{isset($pdf_url) ? 4 : 6}}">
+    <div class="col-span-12 form-group xl:col-span-{{ isset($pdf_url) ? 4 : 6 }}">
         <label class="required">{{ trans_choice('content.brochure_pdf', 1) }}</label>
         {!! Form::file('brochure_pdf', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -97,6 +97,9 @@
             'class' => 'input w-full summernote border bg-gray-100 mt-2',
             'placeholder' => trans_choice('content.content', 1),
         ]) !!}
+        @if ($errors->has('content'))
+            <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
+        @endif
     </div>
 </div>
 <div class="text-right mt-6">

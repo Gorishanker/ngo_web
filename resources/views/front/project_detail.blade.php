@@ -104,7 +104,7 @@
                                     <ul class="social-icon-rounded">
                                         <li><a href="javascript:;"><i class="share-button fa fa-facebook" aria-hidden="true" data-share="facebook"></i></a></li>
                                         <li><a href="javascript:;"><i class="share-button fa fa-twitter" aria-hidden="true" data-share="twitter"></i></a></li>
-                                        <li><a href="javascript:;"><i class="share-button fa fa-instagram" aria-hidden="true" data-share="instagram"></i></a></li>
+                                        <li><a href="javascript:;"><i class="share-button fa fa-whatsapp" aria-hidden="true" data-share="whatsapp"></i></a></li>
                                         <li><a href="javascript:;"><i class="share-button fa fa-linkedin" aria-hidden="true" data-share="linkedin"></i></a></li>
                                     </ul>
                                 </div>
@@ -136,8 +136,8 @@
                     shareURL = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(urlToShare);
                 } else if (socialMedia === 'linkedin') {
                     shareURL = 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(urlToShare);
-                } else if (socialMedia === 'instagram') {
-                    shareURL = 'instagram://library?AssetPath=' + encodeURIComponent(urlToShare);
+                }  else if (socialMedia === 'whatsapp') {
+                    shareURL = 'https://wa.me/?text=' + encodeURIComponent(urlToShare);
                 }
                 
                 if (shareURL) {

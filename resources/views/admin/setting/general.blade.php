@@ -75,6 +75,15 @@
 
                                         <div class="col-span-12 xl:col-span-6">
                                             <label
+                                                class="required">Whatsapp number</label>
+                                            {!! Form::text('data[whatsapp_number]', isset($settings['whatsapp_number']) ? $settings['whatsapp_number'] : null, [
+                                                'placeholder' => 'Whatsapp number',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label
                                                 class="required">Address</label>
                                             {!! Form::text(
                                                 'data[address]',
@@ -100,6 +109,42 @@
                                                 class="required">Letest campaign video url</label>
                                             {!! Form::text('data[letest_campaign_video_url]', isset($settings['letest_campaign_video_url']) ? $settings['letest_campaign_video_url'] : null, [
                                                 'placeholder' => 'Letest campaign video url',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label
+                                                class="required">Twitter url</label>
+                                            {!! Form::text('data[twitter_url]', isset($settings['twitter_url']) ? $settings['twitter_url'] : null, [
+                                                'placeholder' => 'Twitter url',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label
+                                                class="required">Facebook url</label>
+                                            {!! Form::text('data[facebook_url]', isset($settings['facebook_url']) ? $settings['facebook_url'] : null, [
+                                                'placeholder' => 'Facebook url',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label
+                                                class="required">Instagram url</label>
+                                            {!! Form::text('data[instagram_url]', isset($settings['instagram_url']) ? $settings['instagram_url'] : null, [
+                                                'placeholder' => 'Instagram url',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label
+                                                class="required">Linkedin url</label>
+                                            {!! Form::text('data[linkedin_url]', isset($settings['linkedin_url']) ? $settings['linkedin_url'] : null, [
+                                                'placeholder' => 'Linkedin url',
                                                 'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
                                             ]) !!}
                                         </div>

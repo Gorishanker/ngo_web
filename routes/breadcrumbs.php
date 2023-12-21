@@ -134,6 +134,9 @@ Breadcrumbs::resource('users', $mls->messageLanguage('only_name', 'user', 2));
 
 /*------------- Admin Categories ------------------------*/
 Breadcrumbs::resource('categories', 'Categories');
+/*------------- Admin Occasions ------------------------*/
+Breadcrumbs::resource('occasions', 'Occasions');
+
 
 Breadcrumbs::resource('page_contents', 'Page Content');
 /*------------- Admin faqs ------------------------*/

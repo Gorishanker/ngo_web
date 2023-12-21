@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Front\BlogCommentRequest;
 use App\Http\Requests\Front\ContactUsRequest;
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\BlogComment;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\ContactUs;
+use App\Models\Gallery;
 use App\Models\PageContent;
 use App\Models\Project;
 use App\Models\Service;
@@ -17,7 +20,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view, $service_detail_view, $project_view, $project_detail_view;
+    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view, $service_detail_view, $project_view, $project_detail_view, $blogs_view, $blog_detail_view;
 
     public function __construct()
     {
@@ -25,6 +28,8 @@ class HomeController extends Controller
         $this->home_view = 'front.home';
         $this->about_us_view = 'front.about_us';
         $this->service_view = 'front.service';
+        $this->blogs_view = 'front.blogs';
+        $this->blog_detail_view = 'front.blog_detail';
         $this->service_detail_view = 'front.service_detail';
         $this->project_detail_view = 'front.project_detail';
         $this->project_view = 'front.projects';
@@ -163,6 +168,65 @@ class HomeController extends Controller
         return view($this->project_detail_view, compact('project_detail'));
     }
 
+     /**
+     * Display a privacy services page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function blogs()
+    {
+        $blogs = Blog::where(['is_active' => 1, 'schedule_datetime' => null])->orWhere('schedule_datetime', '<=', now())->select('title','meta_description', 'image', 'slug','schedule_datetime','created_at')->paginate(9);
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
+        return view($this->blogs_view, compact('blogs'));
+    } 
+
+     /**
+     * Display a blog view page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function blogView($slug)
+    {
+        $blog_detail = Blog::where(['is_active' => 1, 'slug' => $slug])->first();
+        if(!isset($blog_detail))
+        abort(404);
+        $comments = BlogComment::where(['is_active'=> 1, 'blog_id' => $blog_detail->id])->paginate(10);
+        $blogs = Blog::where('is_active', 1)->where('slug', '!=', $slug)->orderBy('total_comments', 'desc')->take(5)->get();
+        $meta_title =  isset($blog_detail->meta_title) ? $blog_detail->meta_title : 'GREEN FOREST Blog Details';
+        $logo = getSettingDataBySlug('logo');
+        $image = getSettingDataBySlug('logo');
+        $meta_description = isset($blog_detail->meta_description) ? $blog_detail->meta_description :$meta_title ;
+        SEOTools::webPage($meta_title, $meta_description, $image, $logo);
+        $blog_detail->update(['total_comments'=> $blog_detail->getActiveComments()->count()]);
+        return view($this->blog_detail_view, compact('blog_detail','blogs','comments'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function blogCommentStore(BlogCommentRequest $request)
+    {
+        $input = $request->validated();
+        $comment = BlogComment::create($input);
+        if (isset($comment)) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Your comment successfully saved.',
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Error! while creating categories.',
+            ], 422);
+        }
+    }
+
     /**
      * Display a privacy terms page.
      *
@@ -174,12 +238,21 @@ class HomeController extends Controller
         return view($this->terms_view, compact('term_and_condition'));
     }
 
+    public function contactUs()
+    {
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
+        return view('front.contact_us');
+    }
+
     /**
      * Store a Contact us page info.
      *
      * @return \Illuminate\Http\Response
      */
-    public function submitContactForm(ContactUsRequest $request)
+    public function submitContactUs(ContactUsRequest $request)
     {
         $input = $request->validated();
         $data = ContactUs::create($input);
@@ -196,4 +269,37 @@ class HomeController extends Controller
             ], 422);
         }
     }
+
+    public function gallery( )
+    {
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
+        $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
+        return view('front.gallery', compact('categories'));
+    }
+
+    /**
+     * Display a landing page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showImages(Request $request,$category_id = null)
+    {
+        if (isset($category_id)) {
+           $images = Gallery::where('category_id', $category_id)->paginate(9);
+        } else {
+            $images = Gallery::paginate(9);
+        }
+        if (isset($images) && $images->count() > 0) {
+            $html = view('front.add_images', compact('images'))->render();
+            return response()->json([
+                'status' => 1,
+                'html' => $html,
+            ]);
+        }
+        return false;
+    }
+
 }

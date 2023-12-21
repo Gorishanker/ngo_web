@@ -23,6 +23,7 @@ class Blog extends Model
         'meta_description',
         'slug',
         'image',
+        'total_comments',
         'author',
         'schedule_datetime',
         'content',
@@ -36,6 +37,14 @@ class Blog extends Model
         } else {
             return null;
         }
+    }
+
+    public function getActiveComments() {
+        return $this->hasMany(BlogComment::class,'blog_id')->where('is_active', 1)->orderBy('created_at', 'desc');
+    }
+
+    public function getAllComments() {
+        return $this->hasMany(BlogComment::class,'blog_id')->orderBy('created_at', 'desc');
     }
 
     public function sluggable(): array

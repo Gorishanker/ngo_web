@@ -15,9 +15,9 @@ class ContactUsRequest extends FormRequest
     {
         return [
             'name' => 'required|alpha_spaces|max:50',
-            'email' => 'required|email|max:50',
-            'mobile_no' => 'required|digits_between:10,12',
-            'message' => 'required|min:15',
+            'email' => 'required|email|max:70',
+            'subject' => 'nullable|max:150',
+            'message' => 'required',
         ];
     }
 
@@ -30,19 +30,6 @@ class ContactUsRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => __('validation.required', ['attribute' => 'Name']),
-            'name.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Name']),
-            'name.max' => __('validation.max', ['attribute' => 'Name']),
-
-            'email.required' => __('validation.required', ['attribute' => 'Email']),
-            'email.email' => __('validation.email', ['attribute' => 'Email']),
-            'email.max' => __('validation.max', ['attribute' => 'Email']),
-
-            'mobile_no.required' => __('validation.required', ['attribute' => 'Mobile number']),
-            'mobile_no.digits_between' => __('validation.digits_between', ['attribute' => 'Mobile number']),
-
-            'message.required' => __('validation.required', ['attribute' => 'Message']),
-            'message.min' => __('validation.min', ['attribute' => 'Message']),
         ];
     }
 }

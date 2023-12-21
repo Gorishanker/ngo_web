@@ -64,8 +64,8 @@
                             <polyline points="3 6 5 6 21 6"></polyline>
                             <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"></path>
                         </svg>
-                        <a href="" class="w-3/5 file__icon file__icon--file mx-auto">
-                            <div class="file__icon--image__preview image-fit">
+                        <a href="" class="w-3/5">
+                            <div class="image-fit">
                                 <img alt="{{ isset($gallery->category->category_name) ? $gallery->category->category_name : iconNotFoundUrl() }}"
                                     src="{{ isset($gallery->file) ? $gallery->file : '' }}">
                             </div>

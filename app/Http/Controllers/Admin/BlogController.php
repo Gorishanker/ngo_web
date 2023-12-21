@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BlogRequest;
 use App\Models\Blog;
+use App\Models\BlogComment;
 use App\Services\BlogService;
 use App\Services\FileService;
 use App\Services\ManagerLanguageService;
@@ -58,6 +59,17 @@ class BlogController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function comments(Request $request)
+    {
+        $items = BlogComment::where('blog_id', $request->blog_id);
+        return datatables()->eloquent($items)->toJson();
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -87,14 +99,14 @@ class BlogController extends Controller
             ->with('success', $this->mls->messageLanguage('created', 'blog', 1));
     }
     /**
-    * Display the specified resource.
-    *
-    * @param blog $blog
-    * @return \Illuminate\Http\Response
-    */
+     * Display the specified resource.
+     *
+     * @param blog $blog
+     * @return \Illuminate\Http\Response
+     */
     public function show(Blog $blog)
     {
-    
+
         return  view($this->detail_view, compact('blog'));
     }
 
@@ -149,6 +161,25 @@ class BlogController extends Controller
     {
         $status = ($status == 1) ? 0 : 1;
         $result = $this->bannerService->updateById(['is_active' => $status], $id);
+        if ($result) {
+            return response()->json([
+                'status' => 1,
+                'message' => $this->mls->messageLanguage('updated', 'status', 1),
+                'status_name' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+                'message' => $this->mls->messageLanguage('not_updated', 'status', 1),
+                'status_name' => 'error'
+            ]);
+        }
+    }
+
+    public function commentStatus(BlogComment $blog_comment, $status)
+    {
+        $status = ($status == 1) ? 0 : 1;
+        $result =$blog_comment->update(['is_active' => $status]);
         if ($result) {
             return response()->json([
                 'status' => 1,

@@ -1,6 +1,6 @@
 @extends('front.base')
 @section('title')
-    <title>{{ webSiteTitleName() }}</title>
+    <title>{{ webSiteTitleName() }} : Services</title>
     {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
