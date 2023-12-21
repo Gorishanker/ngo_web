@@ -60,6 +60,9 @@
             'class' => 'input w-full border bg-gray-100 mt-2 summernote',
             'placeholder' => trans_choice('content.content', 1),
         ]) !!}
+         @if ($errors->has('content'))
+         <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
+     @endif
     </div>
 @endif
 @if ($lng == 'hi' || $d_lang == 'both')
@@ -107,6 +110,9 @@
             'class' => 'input w-full border bg-gray-100 mt-2 summernote',
             'placeholder' => trans_choice('content.content', 1),
         ]) !!}
+         @if ($errors->has('content'))
+         <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
+     @endif
     </div>
 @endif
 @push('scripts')

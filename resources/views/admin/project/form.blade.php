@@ -1,11 +1,11 @@
 @if ($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
-        <ul>
+        {{-- <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
+        </ul> --}}
     </div>
 @endif
 @php
@@ -135,6 +135,9 @@
             'rows' => 2,
             'placeholder' => trans_choice('content.content', 1),
         ]) !!}
+         @if ($errors->has('content'))
+         <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
+     @endif
     </div>
 </div>
 <div class="text-right mt-6">

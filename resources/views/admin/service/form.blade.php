@@ -1,13 +1,13 @@
-{{-- @if ($errors->any())
+@if ($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
-        <ul>
+        {{-- <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
+        </ul> --}}
     </div>
-@endif --}}
+@endif
 @php
     $pdf_url = null;
     $doc_url = null;
