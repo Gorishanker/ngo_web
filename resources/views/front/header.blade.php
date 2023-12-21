@@ -99,6 +99,9 @@
                                                 <a href="{{route('front.blogs')}}" class="{{ request()->is('*blogs*') ? 'active' : '' }}">Blogs</a>
                                             </li>
                                             <li>
+                                                <a href="{{route('front.campaigns.index')}}" class="{{ request()->is('*campaigns*') ? 'active' : '' }}">Campaigns</a>
+                                            </li>
+                                            <li>
                                                 <a href="{{route('front.gallery')}}" class="{{ request()->is('*gallery*') ? 'active' : '' }}">Gallery</a>
                                             </li>
                                             <li><a href="{{route('front.contactUs')}}" class="{{ request()->is('*contact-us*') ? 'active' : '' }}">contacts</a></li>
