@@ -32,13 +32,13 @@
                 <div class="side-menu__title"> {{ trans_choice('content.service', 1) }} </div>
             </a>
         </li>
-        <li>
+        {{-- <li>
             <a class="side-menu {{ checkActiveSideBar(['teams']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.teams.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-people-group"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.team', 1) }} </div>
             </a>
-        </li>
+        </li> --}}
         {{-- <li>
             <a class="side-menu {{ checkActiveSideBar(['news']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.news.index') }}">
