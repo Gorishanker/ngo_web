@@ -155,4 +155,5 @@ return [
     'gallery' => 'Gallery|Galleries',
     'website' => 'Website',
     'occasion' => 'Occasion|Occasions',
+    'price' => 'Price|Prices',
 ];

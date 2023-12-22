@@ -26,12 +26,43 @@
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
-                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.target_amount', 1) }}
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.raise_amount', 1) }}
                         : </label>
-                    {{ isset($campaign->target_amount) ?currencyIcon(). $campaign->target_amount : 'Na' }}
+                    {{ isset($campaign->raise_amount) ?currencyIcon(). $campaign->raise_amount : 'Na' }}
                 </div>
             </div>
         </div>
+
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.price', 1) }}
+                        : </label>
+                    {{ isset($campaign->price) ?currencyIcon(). $campaign->price : 'Na' }}
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Total rating
+                        : </label>
+                    {{ isset($campaign->total_rating) ?$campaign->total_rating . ' Star' : 'Na' }}
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Average rating
+                        : </label>
+                    {{ isset($campaign->average_rating) ?$campaign->average_rating . ' Star' : 'Na' }}
+                </div>
+            </div>
+        </div>
+
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>

@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\CampaignController;
+use App\Http\Controllers\Front\CampaignController as FrontCampaignController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +35,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
 });
 
-Route::controller(CampaignController::class)->group(function () {
+Route::controller(FrontCampaignController::class)->group(function () {
     Route::get('/campaigns', 'campaigns')->name('front.campaigns.index');
+    Route::post('/campaigns/add-or-update-cart/{campaign}', 'addOrUpdateCart');
 });
 
 Route::get('/home', function () {

@@ -51,35 +51,35 @@
                 <div class="box-content">
                     <ul class="box-bg-img">
                         <li>
-                            <a class="bg-1" href="#"><img src="{{asset('front/images/box-style/01.jpg')}}"
+                            <a class="bg-1" href="#"><img src="{{ asset('front/images/box-style/01.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-2" href="#"><img src="{{asset('front/images/box-style/02.jpg')}}"
+                            <a class="bg-2" href="#"><img src="{{ asset('front/images/box-style/02.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-3" href="#"><img src="{{asset('front/images/box-style/03.jpg')}}"
+                            <a class="bg-3" href="#"><img src="{{ asset('front/images/box-style/03.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-4" href="#"><img src="{{asset('front/images/box-style/04.jpg')}}"
+                            <a class="bg-4" href="#"><img src="{{ asset('front/images/box-style/04.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-5" href="#"><img src="{{asset('front/images/box-style/05.jpg')}}"
+                            <a class="bg-5" href="#"><img src="{{ asset('front/images/box-style/05.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-6" href="#"><img src="{{asset('front/images/box-style/06.jpg')}}"
+                            <a class="bg-6" href="#"><img src="{{ asset('front/images/box-style/06.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-7" href="#"><img src="{{asset('front/images/box-style/07.jpg')}}"
+                            <a class="bg-7" href="#"><img src="{{ asset('front/images/box-style/07.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="bg-8" href="#"><img src="{{asset('front/images/box-style/08.jpg')}}"
+                            <a class="bg-8" href="#"><img src="{{ asset('front/images/box-style/08.jpg') }}"
                                     alt="greenforest"></a>
                         </li>
                     </ul>
@@ -92,43 +92,35 @@
                 <div class="box-content">
                     <ul class="box-pattern-img">
                         <li>
-                            <a class="pt-1" href="#"><img
-                                    src="{{asset('front/images/pt-image/01.png')}}"
+                            <a class="pt-1" href="#"><img src="{{ asset('front/images/pt-image/01.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-2" href="#"><img
-                                    src="{{asset('front/images/pt-image/02.png')}}"
+                            <a class="pt-2" href="#"><img src="{{ asset('front/images/pt-image/02.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-3" href="#"><img
-                                    src="{{asset('front/images/pt-image/03.png')}}"
+                            <a class="pt-3" href="#"><img src="{{ asset('front/images/pt-image/03.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-4" href="#"><img
-                                    src="{{asset('front/images/pt-image/04.png')}}"
+                            <a class="pt-4" href="#"><img src="{{ asset('front/images/pt-image/04.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-5" href="#"><img
-                                    src="{{asset('front/images/pt-image/05.png')}}"
+                            <a class="pt-5" href="#"><img src="{{ asset('front/images/pt-image/05.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-6" href="#"><img
-                                    src="{{asset('front/images/pt-image/06.png')}}"
+                            <a class="pt-6" href="#"><img src="{{ asset('front/images/pt-image/06.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-7" href="#"><img
-                                    src="{{asset('front/images/pt-image/07.png')}}"
+                            <a class="pt-7" href="#"><img src="{{ asset('front/images/pt-image/07.png') }}"
                                     alt="greenforest"></a>
                         </li>
                         <li>
-                            <a class="pt-8" href="#"><img
-                                    src="{{asset('front/images/pt-image/08.png')}}"
+                            <a class="pt-8" href="#"><img src="{{ asset('front/images/pt-image/08.png') }}"
                                     alt="greenforest"></a>
                         </li>
                     </ul>
@@ -172,6 +164,16 @@
         <script type="text/javascript" src="{{ asset('front/js/isotope.pkgd.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('front/js/custom.isotope.js') }}"></script>
         <script type="text/javascript" src="{{ asset('front/js/custom.js') }}"></script>
+        <script>
+            $(document).on('keypress', '.only_number', function(e) {
+                // Only ASCII charactar in that range allowed
+                var ASCIICode = (e.which) ? e.which : e.keyCode;
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57) && (ASCIICode != 46)) {
+                    return false;
+                }
+                return true;
+            });
+        </script>
         @stack('scripts')
     </div>
 </body>

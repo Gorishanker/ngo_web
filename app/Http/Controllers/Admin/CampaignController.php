@@ -86,14 +86,14 @@ class CampaignController extends Controller
         }
         $campaign =  $this->bannerService->create($input);
 
-        if ($request->tags) {
-            $campaign_tags = [];
-            foreach ($request->tags as $key => $tag) {
-                $campaign_tags[$key]['campagin_id'] = $campaign->id;
-                $campaign_tags[$key]['tag_id'] = $tag;
-            }
-            CampaignTag::insert($campaign_tags);
-        }
+        // if ($request->tags) {
+        //     $campaign_tags = [];
+        //     foreach ($request->tags as $key => $tag) {
+        //         $campaign_tags[$key]['campagin_id'] = $campaign->id;
+        //         $campaign_tags[$key]['tag_id'] = $tag;
+        //     }
+        //     CampaignTag::insert($campaign_tags);
+        // }
 
         return redirect()->route($this->index_route_name)
             ->with('success', $this->mls->messageLanguage('created', 'campaign', 1));
@@ -142,17 +142,17 @@ class CampaignController extends Controller
             $input = Arr::except($input, array('image'));
         }
         $campaign->update($input);
-        CampaignTag::where('campagin_id', $campaign->id)->delete();
+        // CampaignTag::where('campagin_id', $campaign->id)->delete();
 
-        if ($request->tags) {
-            $campaign_tags = [];
-            foreach ($request->tags as $key => $tag) {
-                $campaign_tags[$key]['campagin_id'] = $campaign->id;
-                $campaign_tags[$key]['tag_id'] = $tag;
-            }
+        // if ($request->tags) {
+        //     $campaign_tags = [];
+        //     foreach ($request->tags as $key => $tag) {
+        //         $campaign_tags[$key]['campagin_id'] = $campaign->id;
+        //         $campaign_tags[$key]['tag_id'] = $tag;
+        //     }
 
-            CampaignTag::insert($campaign_tags);
-        }
+        //     CampaignTag::insert($campaign_tags);
+        // }
 
         return redirect()->route($this->index_route_name)
             ->with('success', $this->mls->messageLanguage('updated', 'campaign', 1));

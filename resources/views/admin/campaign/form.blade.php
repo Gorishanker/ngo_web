@@ -24,12 +24,10 @@
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.tags', 1) }}</label>
-        {!! Form::select('tags[]', $tags, isset($selected_tags) ? $selected_tags : null, [
-            'placeholder' => trans_choice('content.please_select', 1),
-            'data-control' => 'select2',
-            'multiple' => true,
-            'class' => 'input w-full select2 border bg-gray-100 mt-2',
+        <label class="required">{{ trans_choice('content.price', 1) }}</label>
+        {!! Form::text('price', null, [
+            'class' => 'input w-full border bg-gray-100 mt-2',
+            'placeholder' => trans_choice('content.price', 1),
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">

@@ -27,7 +27,7 @@ class CampaignRequest extends FormRequest
             return [
                 'title' => 'required|max:150',
                 'image' => 'nullable|image',
-                'tags' => 'nullable',
+                'price' => 'required|integer|max:1500000',
                 'target_amount' => 'required|integer|max:15000000',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
@@ -36,7 +36,7 @@ class CampaignRequest extends FormRequest
             return [
                 'title' => 'required|max:150',
                 'image' => 'required|image',
-                'tags' => 'nullable',
+                'price' => 'required|integer|max:1500000',
                 'target_amount' => 'required|integer|max:15000000',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
