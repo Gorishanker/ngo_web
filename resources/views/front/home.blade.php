@@ -23,7 +23,7 @@
                             @endphp
                             <div class="carousel-item {{ $active }}">
                                 <div class="slider-item">
-                                    <img src="{{ isset($banner->image) ? $banner->image : asset('front/images/home02/slider-img-1.jpg') }}"
+                                    <img style="width: 1862px; height: 776px;" src="{{ isset($banner->image) ? $banner->image : asset('front/images/home02/slider-img-1.jpg') }}"
                                         alt="Slider Image">
                                     <div class="slider-content-area">
                                         <div class="container">
@@ -159,7 +159,7 @@
                         <!-- .col-lg-8 -->
                         <div class="col-lg-4">
                             <div class="about-greenforest-img">
-                                <img src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
+                                <img style="width: 424px; height: 473px;" src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
                                     alt="about-greenforet-img" class="img-responsive" />
                             </div>
                             <!-- .about-greenforest-img -->
@@ -204,7 +204,7 @@
                                 <div class="portfolio-img">
                                     <div class="overlay-project"></div>
                                     <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-1.jpg') }}"
+                                    <img style="width: 402px; height: 304px;" src="{{ asset('front/images/home02/recent-project-img-1.jpg') }}"
                                         alt="recent-project-img-1">
                                     <ul class="project-link-option">
                                         <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
@@ -425,14 +425,14 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="our-services-box">
                                         <div class="our-services-items">
-                                            <img src="{{ isset($service->image) ? $service->image : null }}"
+                                            <img style="width: 150px; height: 100px;" src="{{ isset($service->image) ? $service->image : null }}"
                                                 alt="{{ isset($service->title) ? $service->title : 'Na' }}">
                                             <div class="our-services-content">
                                                 <h4><a
-                                                        href="service_single.html">{{ isset($service->title) ? $service->title : 'Na' }}</a>
+                                                        href="{{route('front.serviceView',$service->slug)}}">{{ isset($service->title) ? $service->title : 'Na' }}</a>
                                                 </h4>
                                                 <p>{{ setStringLength(strip_tags($service->content), 70) }}</p>
-                                                <a href="service_single.html">read more<i class="fa fa-angle-double-right"
+                                                <a href="{{route('front.serviceView',$service->slug)}}">read more<i class="fa fa-angle-double-right"
                                                         aria-hidden="true"></i></a>
                                             </div>
                                             <!-- .our-services-content -->
@@ -580,126 +580,75 @@
                         <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
                             ubiquitous leadership awesome skills.</p>
                     </div>
-                    <!-- .section-header -->
                     <div class="row">
-                        @if (isset($campaigns) && $campaigns->count() > 0)
-                            @foreach ($campaigns as $campaign)
-                                @php
-                                    $raised_percent = ($campaign->raise_amount / $campaign->target_amount) * 100;
-                                @endphp
-                                <div class="col-lg-4 col-sm-6 col-12">
-                                    <div class="cause-items">
-                                        <a href="campaign_single.html"><img
-                                                src="{{ isset($campaign->image) ? $campaign->image : null }}"
-                                                alt="cause-img-1" class="img-responsive" /></a>
-                                        <div class="cause-content">
-                                            <div class="price-title">
-                                                <div class="price-left">
-                                                    <h5>Target:<span>{{ isset($campaign->target_amount) ? currencyIcon() . $campaign->target_amount : 0 }}</span>
-                                                    </h5>
-                                                </div>
-                                                <!-- .price-left -->
-                                                <div class="price-right">
-                                                    <h5>Raised:<span>{{ isset($campaign->raise_amount) ? currencyIcon() . $campaign->raise_amount : 0 }}</span>
-                                                    </h5>
-                                                </div>
-                                                <!-- .price-left -->
-                                            </div>
-                                            <!-- .price-title -->
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-success progress-bar-striped"
-                                                    role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                                    aria-valuemax="100" style="width:{{ $raised_percent }}%">
-                                                </div>
-                                                <!-- .progress-bar -->
-                                            </div>
-                                            <!-- .progress -->
-                                            <h4><a
-                                                    href="campaign_single.html">{{ isset($campaign->title) ? $campaign->title : null }}</a>
-                                            </h4>
-                                            <p>{!! setStringLength(strip_tags($campaign->content), 70) !!}</p>
-                                            <a href="donate.html" class="btn btn-default">donate Now</a>
-                                        </div>
-                                        <!-- .cause-content -->
+                        @foreach ($campaigns as $campaign)
+                            @php
+                                $raised_percent = ($campaign->raise_amount / $campaign->target_amount) * 100;
+                            @endphp
+                            <div class="col-md-3 col-xl-3 col-sm-6 col-12 col-lg-3">
+                                <div class="list-box">
+                                    <div class="img-box">
+                                        <img src="{{ $campaign->image }}"
+                                            alt="{{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}"
+                                            style="width:304px; height:228px;">
                                     </div>
-                                    <!-- .cause-items -->
-                                </div>
-                            @endforeach
-                        @else
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="cause-items">
-                                    <a href="campaign_single.html"><img
-                                            src="{{ asset('front/images/home02/cause-img-2.jpg') }}" alt="cause-img-2"
-                                            class="img-responsive" /></a>
-                                    <div class="cause-content">
-                                        <div class="price-title">
-                                            <div class="price-left">
-                                                <h5>Raised:<span>$25.000</span></h5>
+
+                                    <div class="details-box">
+                                        <div class="progress-tp-head">
+                                            <div class="bar-value">
+                                                <span>Total Price:
+                                                    <b>{{ currencyIcon() }}{{ $campaign->target_amount }}</b></span>
+                                                <span>Raised:
+                                                    <b>{{ currencyIcon() }}{{ $campaign->raise_amount }}</b></span>
                                             </div>
-                                            <!-- .price-left -->
-                                            <div class="price-right">
-                                                <h5>Raised:<span>$50.000</span></h5>
+                                            <div class="progress skill-bar ">
+                                                <div class="progress-bar progress-bar-primary" role="progressbar"
+                                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                                    style="width: {{ $raised_percent }}%;">
+
+                                                </div>
                                             </div>
-                                            <!-- .price-left -->
                                         </div>
-                                        <!-- .price-title -->
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success progress-bar-striped"
-                                                role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                                aria-valuemax="100" style="width:50%">
+                                        <h6>
+                                            <a href="{{route('front.campaign.show', $campaign->slug)}}">
+                                                {{ isset($campaign->title) ? $campaign->title : 'Campaign Title' }}
+                                            </a>
+                                        </h6>
+
+                                        <div class="with-cart">
+                                            <p class="mb-0" id="cart_total_amount{{ $campaign->id }}"
+                                                data-value="{{ $campaign->price }}">Amount
+                                                {{ currencyIcon() }}{{ isset($campaign->order_item->total_amount) ? round($campaign->order_item->total_amount) : $campaign->price }}</span>
+                                            </p>
+                                            <div class="number">
+                                                <span data-id="{{ $campaign->id }}" class="minus cart_decrement">-</span>
+                                                <input type="text" data-id="{{ $campaign->id }}"
+                                                    class="only_number cartOrderQtyValue"
+                                                    id="cart_input{{ $campaign->id }}" value="{{isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1}}">
+                                                <span data-id="{{ $campaign->id }}" class="plus cart_increment">+</span>
                                             </div>
-                                            <!-- .progress-bar -->
                                         </div>
-                                        <!-- .progress -->
-                                        <h4><a href="campaign_single.html">Helping Young Planting</a></h4>
-                                        <p>Credibly iplement interopriable that a just Continually cultivate awesome team.
-                                        </p>
-                                        <a href="donate.html" class="btn btn-default">donate Now</a>
+
+                                        <div class="cart-btn">
+                                            <span>
+                                                @for ($i = 1; $i <= $campaign->average_rating; $i++)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endfor
+                                                @php
+                                                    $blank_star = 5 - $campaign->average_rating;
+                                                @endphp
+                                                @for ($i = 1; $i <= $blank_star; $i++)
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                @endfor
+                                                ({{ $campaign->total_rating }})
+                                            </span>
+                                            <a href="#" data-id="{{ $campaign->id }}">Donate Now</a>
+                                        </div>
                                     </div>
-                                    <!-- .cause-content -->
                                 </div>
-                                <!-- .cause-items -->
                             </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="cause-items">
-                                    <a href="campaign_single.html"><img
-                                            src="{{ asset('front/images/home02/cause-img-3.jpg') }}" alt="cause-img-3"
-                                            class="img-responsive" /></a>
-                                    <div class="cause-content">
-                                        <div class="price-title">
-                                            <div class="price-left">
-                                                <h5>Raised:<span>$25.000</span></h5>
-                                            </div>
-                                            <!-- .price-left -->
-                                            <div class="price-right">
-                                                <h5>Raised:<span>$50.000</span></h5>
-                                            </div>
-                                            <!-- .price-left -->
-                                        </div>
-                                        <!-- .price-title -->
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success progress-bar-striped"
-                                                role="progressbar" aria-valuenow="40" aria-valuemin="0"
-                                                aria-valuemax="100" style="width:50%">
-                                            </div>
-                                            <!-- .progress-bar -->
-                                        </div>
-                                        <!-- .progress -->
-                                        <h4><a href="campaign_single.html">Make Plants Alive</a></h4>
-                                        <p>Credibly iplement interopriable that a just Continually cultivate awesome team.
-                                        </p>
-                                        <a href="donate.html" class="btn btn-default">donate Now</a>
-                                    </div>
-                                    <!-- .cause-content -->
-                                </div>
-                                <!-- .cause-items -->
-                            </div>
-                            <!-- .col-md-4 -->
-                        @endif
+                        @endforeach
                     </div>
-                    <!-- .row -->
                 </div>
                 <!-- .focus-cause -->
             </div>
@@ -732,226 +681,86 @@
     </section>
     <!-- End campaian video Section -->
 
-
-    <!-- Start Collection Se Section -->
-    <section class="bg-collection-section">
-        <div class="container">
-            <div class="row">
-                <div class="collection-option">
-                    <div class="section-header">
-                        <h2>NEW COLLECTION</h2>
-                        <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
-                            ubiquitous leadership awesome skills.</p>
-                    </div>
-                    <!-- .section-header -->
-                    <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="collection-items">
-                                <div class="collection-img">
-                                    <div class="collection-overlay"></div>
-                                    <img src="{{ asset('front/images/home02/collection-img-1.jpg') }}"
-                                        alt="collection-img-1" />
-                                    <ul class="collection-icon">
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
-                                        <li><a href="{{ asset('front/images/home02/collection-img-1.jpg') }}"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-img -->
-                                <div class="collection-content">
-                                    <h4><a href="shop_single.html">Product Text Here</a></h4>
-                                    <h5>$150.00</h5>
-                                    <ul class="star-icon">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-content -->
-                            </div>
-                            <!-- .collection-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="collection-items">
-                                <div class="collection-img">
-                                    <div class="collection-overlay"></div>
-                                    <img src="{{ asset('front/images/home02/collection-img-2.jpg') }}"
-                                        alt="collection-img-2" />
-                                    <ul class="collection-icon">
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
-                                        <li><a href="{{ asset('front/images/home02/collection-img-2.jpg') }}"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-img -->
-                                <div class="collection-content">
-                                    <h4><a href="shop_single.html">Product Text Here</a></h4>
-                                    <h5>$150.00</h5>
-                                    <ul class="star-icon">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-content -->
-                            </div>
-                            <!-- .collection-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="collection-items">
-                                <div class="collection-img">
-                                    <div class="collection-overlay"></div>
-                                    <img src="{{ asset('front/images/home02/collection-img-3.jpg') }}"
-                                        alt="collection-img-3" />
-                                    <ul class="collection-icon">
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
-                                        <li><a href="{{ asset('front/images/home02/collection-img-3.jpg') }}"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-img -->
-                                <div class="collection-content">
-                                    <h4><a href="shop_single.html">Product Text Here</a></h4>
-                                    <h5>$150.00</h5>
-                                    <ul class="star-icon">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-content -->
-                            </div>
-                            <!-- .collection-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="collection-items">
-                                <div class="collection-img">
-                                    <div class="collection-overlay"></div>
-                                    <img src="{{ asset('front/images/home02/collection-img-4.jpg') }}"
-                                        alt="collection-img-4" />
-                                    <ul class="collection-icon">
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i></a></li>
-                                        <li><a href="{{ asset('front/images/home02/collection-img-4.jpg') }}"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-img -->
-                                <div class="collection-content">
-                                    <h4><a href="shop_single.html">Product Text Here</a></h4>
-                                    <h5>$150.00</h5>
-                                    <ul class="star-icon">
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .collection-content -->
-                            </div>
-                            <!-- .collection-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                    </div>
-                    <!-- .row -->
-                </div>
-                <!-- .collection-option -->
-            </div>
-            <!-- .row -->
-        </div>
-        <!-- .container -->
-    </section>
-    <!-- End Collection Section -->
-
-
-
     <!-- Start Upcoming Events Section -->
     <section class="bg-upcoming-events">
         <div class="container">
             <div class="row">
                 <div class="upcoming-events">
                     <div class="section-header">
-                        <h2>upcoming events</h2>
-                        <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
-                            ubiquitous leadership awesome skills.</p>
+                        <h2>Our Letest Blogs</h2>
                     </div>
                     <!-- .section-header -->
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="event-items">
-                                <div class="event-img">
-                                    <a href="event_single.html"><img
-                                            src="{{ asset('front/images/home02/upcoming-events-img-1.jpg') }}"
-                                            alt="upcoming-events-img-1" class="img-responsive" /></a>
-                                    <div class="date-box">
-                                        <h3>24</h3>
-                                        <h5>july</h5>
-                                    </div>
-                                    <!-- .date-box -->
-                                </div>
-                                <!-- .event-img -->
-                                <div class="events-content">
-                                    <h3><a href="event_single.html">Completely enable and before brcks</a></h3>
-                                    <ul class="meta-post">
-                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 8:30am - 5:30pm</li>
-                                        <li><i class="flaticon-placeholder"></i> Sahera Tropical Center Dhaka</li>
-                                    </ul>
-                                    <p>Uniquely initiate out ofthe-box channels vis and vis multidisciplnary Credbly
-                                        orcahestrate granular scenarios for forward manufactured Assettively negotiate
-                                        multimedia based total linkage rather.</p>
-                                    <a href="event_single.html" class="btn btn-default">join now</a>
-                                </div>
-                                <!-- .events-content -->
+                        <div class="blog-section blog-page">
+                            <div class="row">
+                                @if (isset($blogs))
+                                    @foreach ($blogs as $blog)
+                                        <div class="col-lg-4 col-sm-6 col-12">
+                                            <div class="blog-items">
+                                                <div class="blog-img">
+                                                    <a href="{{route('front.blogView', $blog->slug)}}"><img style="width: 416px; height: 303px;" src="{{ $blog->image }}"
+                                                            alt="{{ isset($blog->title) ? $blog->title : 'Blog Image' }}"
+                                                            class="img-responsive"></a>
+                                                </div>
+                                                <!-- .blog-img -->
+                                                <div class="blog-content-box">
+                                                    <div class="blog-content">
+                                                        <h4><a
+                                                                href="{{route('front.blogView', $blog->slug)}}">{{ isset($blog->title) ? $blog->title : 'Blog Title' }}</a>
+                                                        </h4>
+                                                        <p>{{ isset($blog->meta_description) ? setStringLength($blog->meta_description, 80) : 'Blog description' }}
+                                                        </p>
+                                                    </div>
+                                                    <!-- .blog-content -->
+                                                    <div class="meta-box">
+                                                        <ul class="meta-post">
+                                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
+                                                            </li>
+                                                            {{-- <li><a href="#"><i data-id="{{$blog->id}}" class="blog_like fa fa-heart-o" aria-hidden="true"></i>
+                                                                    24
+                                                                    Like</a></li> --}}
+                                                            <li><a href="#"><i class="fa fa-commenting-o"
+                                                                        aria-hidden="true"></i> 24
+                                                                    Comment</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <!-- .meta-box -->
+                                                </div>
+                                                <!-- .blog-content-box -->
+                                            </div>
+                                            <!-- .blog-items -->
+                                        </div>
+                                    @endforeach
+                                    <!-- .row -->
+                                    {{-- <div class="pagination-option">
+                                            <nav aria-label="Page navigation">
+                                                <ul class="pagination">
+                                                    <li>
+                                                        <a href="#" aria-label="Previous">
+                                                            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li class="active"><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><a href="#">...</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li>
+                                                        <a href="#" aria-label="Next">
+                                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div> --}}
+                                    <!-- .pagination_option -->
+                                @else
+                                    No Blog Found.
+                                @endif
                             </div>
-                            <!-- .events-items -->
                         </div>
-                        <!-- .col-lg-6 -->
-                        <div class="col-lg-6">
-                            <div class="event-items">
-                                <div class="event-img">
-                                    <a href="event_single.html"><img
-                                            src="{{ asset('front/images/home02/upcoming-events-img-2.jpg') }}"
-                                            alt="upcoming-events-img-2" class="img-responsive" /></a>
-                                    <div class="date-box">
-                                        <h3>29</h3>
-                                        <h5>july</h5>
-                                    </div>
-                                    <!-- .date-box -->
-                                </div>
-                                <!-- .event-img -->
-                                <div class="events-content">
-                                    <h3><a href="event_single.html">Completely enable and before brcks</a></h3>
-                                    <ul class="meta-post">
-                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 8:30am - 5:30pm</li>
-                                        <li><i class="flaticon-placeholder"></i> Sahera Tropical Center Dhaka</li>
-                                    </ul>
-                                    <p>Uniquely initiate out ofthe-box channels vis and vis multidisciplnary Credbly
-                                        orcahestrate granular scenarios for forward manufactured Assettively negotiate
-                                        multimedia based total linkage rather.</p>
-                                    <a href="event_single.html" class="btn btn-default">join now</a>
-                                </div>
-                                <!-- .events-content -->
-                            </div>
-                            <!-- .events-items -->
-                        </div>
-                        <!-- .col-lg-6 -->
+                        <!-- .blog-section -->
                     </div>
                     <!-- .row -->
                 </div>
@@ -963,9 +772,7 @@
     </section>
     <!-- End Upcoming Events Section -->
 
-
-
-    <!-- Start Sponsors Section -->
+    {{-- <!-- Start Sponsors Section -->
     <section class="bg-sponsors-section">
         <div class="container">
             <div class="row">
@@ -1046,8 +853,10 @@
         </div>
         <!-- .container -->
     </section>
-    <!-- End Sponsors Section -->
-
+    <!-- End Sponsors Section --> --}}
+    @push('styles')
+        @include('front.capaigns_css')
+    @endpush
     @push('scripts')
         <script>
             $(document).ready(function() {
@@ -1081,6 +890,77 @@
                     })
                     .done(function(response) {
                         $('.category_wise_projects').html(response.html);
+                    });
+            }
+        </script>
+         <script>
+            $('.cart_decrement').click(function() {
+                var data_id = $(this).attr('data-id');
+                var input_selector = `#cart_input${data_id}`;
+                var cart_val = $(input_selector).val();
+                if (Number(cart_val) <= 1) {
+                    return false;
+                }
+                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
+                total_amt = total_amt * (Number(cart_val) - 1);
+                var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
+                $(`#cart_total_amount${data_id}`).html(total_amt_html);
+                $(input_selector).val(Number(cart_val) - 1);
+                cart_val = $(input_selector).val();
+                setTimeout(function() {
+                    addOrUpdateToCart(data_id, cart_val);
+                }, 2000);
+            });
+
+            $('.cart_increment').click(function() {
+                var data_id = $(this).attr('data-id');
+                var input_selector = `#cart_input${data_id}`;
+                var cart_val = $(input_selector).val();
+                $(input_selector).val(Number(cart_val) + 1);
+                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
+                total_amt = total_amt * (Number(cart_val) + 1);
+                var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
+                $(`#cart_total_amount${data_id}`).html(total_amt_html);
+                cart_val = $(input_selector).val();
+                setTimeout(function() {
+                    addOrUpdateToCart(data_id, cart_val);
+                }, 2000);
+            });
+
+            $('.cartOrderQtyValue').change(function() {
+                var data_id = $(this).attr('data-id');
+                var input_selector = `#cart_input${data_id}`;
+                var cart_val = $(input_selector).val();
+                if (Number(cart_val) <= 0) {
+                    $(input_selector).val(1);
+                    return false;
+                }
+                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
+                total_amt = total_amt * Number(cart_val);
+                var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
+                $(`#cart_total_amount${data_id}`).html(total_amt_html);
+                cart_val = $(input_selector).val();
+                setTimeout(function() {
+                    addOrUpdateToCart(data_id, cart_val);
+                }, 2000);
+            });
+
+            function addOrUpdateToCart(data_id, cart_val) {
+                var url = `{{ url('/') }}/campaigns/add-or-update-cart/` + data_id;
+                $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': `{{ csrf_token() }}`,
+                        },
+                        url: url,
+                        type: 'POST',
+                        dataType: 'json',
+                        data: 'qty=' + cart_val,
+                    })
+                    .done(function(response) {
+                        console.log('success');
+                    })
+                    .fail(function() {
+                        console.log('failed');
                     });
             }
         </script>

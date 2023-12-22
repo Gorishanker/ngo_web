@@ -4,7 +4,7 @@
         <div class="portfolio-img">
             <div class="overlay-project"></div>
             <!-- .overlay-project -->
-            <img src="{{ isset($project->image) ? $project->image : asset('front/images/home02/recent-project-img-1.jpg') }}"
+            <img style="width: 402px; height: 304px;" src="{{ isset($project->image) ? $project->image : asset('front/images/home02/recent-project-img-1.jpg') }}"
                 alt="{{isset($project->title) ? $project->title : 'Na'}}">
             <ul class="project-link-option">
                 <li class="project-link"><a href="{{route('front.projectView', $project->slug)}}"><i class="fa fa-link"

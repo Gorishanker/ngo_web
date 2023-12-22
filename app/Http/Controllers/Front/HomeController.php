@@ -46,12 +46,13 @@ class HomeController extends Controller
         $banners = Banner::where('is_active', 1)->get();
         $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->take(6)->get();
         $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
+        $blogs = Blog::where(['is_active' => 1, 'schedule_datetime' => null])->orWhere('schedule_datetime', '<=', now())->take(3)->orderBy('id', 'desc')->get();
         $campaigns  = Campaign::where('is_active', 1)->take(3)->get();
         $meta_title = getSettingDataBySlug('web_site_name');
         $logo = getSettingDataBySlug('logo');
         $meta_description = getSettingDataBySlug('about_company');
         SEOTools::webPage($meta_title, $meta_description, $logo);
-        return view($this->home_view, compact('banners', 'categories', 'services', 'campaigns'));
+        return view($this->home_view, compact('banners', 'categories', 'services', 'campaigns','blogs'));
     }
 
     /**

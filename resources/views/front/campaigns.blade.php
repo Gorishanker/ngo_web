@@ -67,7 +67,7 @@
                                             </div>
                                         </div>
                                         <h6>
-                                            <a href="#">
+                                            <a href="{{route('front.campaign.show', $campaign->slug)}}">
                                                 {{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}
                                             </a>
                                         </h6>
@@ -75,12 +75,14 @@
                                         <div class="with-cart">
                                             <p class="mb-0" id="cart_total_amount{{ $campaign->id }}"
                                                 data-value="{{ $campaign->price }}">Amount
-                                                {{ currencyIcon() }}{{ $campaign->price }}</span></p>
+                                                {{ currencyIcon() }}{{ isset($campaign->order_item->total_amount) ? round($campaign->order_item->total_amount) : $campaign->price }}</span>
+                                            </p>
                                             <div class="number">
                                                 <span data-id="{{ $campaign->id }}" class="minus cart_decrement">-</span>
                                                 <input type="text" data-id="{{ $campaign->id }}"
                                                     class="only_number cartOrderQtyValue"
-                                                    id="cart_input{{ $campaign->id }}" value="1">
+                                                    id="cart_input{{ $campaign->id }}"
+                                                    value="{{ isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1 }}">
                                                 <span data-id="{{ $campaign->id }}" class="plus cart_increment">+</span>
                                             </div>
                                         </div>
@@ -115,12 +117,10 @@
         <!-- .container -->
     </section>
     @push('styles')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css" />
         @include('front.capaigns_css')
     @endpush
 
     @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
         <script>
             $('.cart_decrement').click(function() {
                 var data_id = $(this).attr('data-id');
@@ -137,7 +137,7 @@
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
                     addOrUpdateToCart(data_id, cart_val);
-                }, 1000);
+                }, 2000);
             });
 
             $('.cart_increment').click(function() {
@@ -152,7 +152,7 @@
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
                     addOrUpdateToCart(data_id, cart_val);
-                }, 1000);
+                }, 2000);
             });
 
             $('.cartOrderQtyValue').change(function() {
@@ -170,7 +170,7 @@
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
                     addOrUpdateToCart(data_id, cart_val);
-                }, 1000);
+                }, 2000);
             });
 
             function addOrUpdateToCart(data_id, cart_val) {
@@ -185,11 +185,10 @@
                         data: 'qty=' + cart_val,
                     })
                     .done(function(response) {
-
+                        console.log('success');
                     })
                     .fail(function() {
-                        Swal.fire('Oops...', 'Something went wrong please refresh pagin and again add!',
-                            'error');
+                        console.log('failed');
                     });
             }
         </script>

@@ -3,6 +3,9 @@
 namespace App\Services;
 
 use App\Models\Campaign;
+use App\Models\CampaignCombo;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class CampaignService
@@ -41,6 +44,94 @@ class CampaignService
     {
         $data = $campaign->update($data);
         return $data;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @return bool
+     */
+    public static function addOrUpdateCart(Request $request, Campaign $campaign)
+    {
+        $ip_address = $request->ip();
+        $order = Order::where(['ip_address' => $ip_address, 'status' => 0])->first();
+        if (isset($order)) {
+            if ($request->qty <= 0) {
+                OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                return false;
+            } else {
+                $order_item =  OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->first();
+                if (isset($order_item)) {
+                    $order_item->update(['quantity' => $request->qty, 'price' => $campaign->price, 'total_amount' => ($campaign->price) * ($request->qty)]);
+                } else {
+                    $order_item = OrderItem::create([
+                        'order_id' => $order->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign->price,
+                        'quantity' => $request->qty, 'total_amount' => ($campaign->price) * ($request->qty)
+                    ]);
+                }
+                $total_amt =  OrderItem::where('order_id', $order->id)->sum('total_amount');
+                $order->update(['total_price' =>  $total_amt]);
+            }
+        } else {
+            if ($request->qty <= 0) {
+                return false;
+            } else {
+                $order = Order::create(['ip_address' => $ip_address, 'total_price' => ($campaign->price) * ($request->qty)]);
+                $order_item = OrderItem::create([
+                    'order_id' => $order->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign->price,
+                    'quantity' => $request->qty, 'total_amount' => ($campaign->price) * ($request->qty)
+                ]);
+            }
+        }
+        return true;
+    }
+
+    /*** Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @return bool
+     */
+
+    public static function addOrUpdateCartWithCombo(Request $request, Campaign $campaign)
+    {
+        $ip_address = $request->ip();
+        $campaign_combo = CampaignCombo::find($request->combo_id);
+        if (isset($campaign_combo)) {
+            $order = Order::where(['ip_address' => $ip_address, 'status' => 0])->first();
+            if (isset($order)) {
+                if ($request->qty <= 0) {
+                    OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                    return false;
+                } else {
+                    $order_item =  OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->first();
+                    if (isset($order_item)) {
+                        $order_item->update(['combo' => 1, 'combo_id' => $request->combo_id, 'quantity' => $request->qty, 'price' => $campaign_combo->price , 'total_amount' => ($campaign_combo->price) * ($request->qty)]);
+                    } else {
+                        $order_item = OrderItem::create([
+                            'order_id' => $order->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id,'combo' => 1, 'combo_id' => $request->combo_id,
+                            'quantity' => $request->qty, 'price' => $campaign_combo->price , 'total_amount' => ($campaign_combo->price) * ($request->qty)
+                        ]);
+                    }
+                    $total_amt =  OrderItem::where('order_id', $order->id)->sum('total_amount');
+                    $order->update(['total_price' =>  $total_amt]);
+                }
+            } else {
+                if ($request->qty <= 0) {
+                    return false;
+                } else {
+                    $order = Order::create(['ip_address' => $ip_address, 'total_price' => ($campaign_combo->price) * ($request->qty)]);
+                    $order_item = OrderItem::create([
+                        'combo' => 1, 'combo_id' => $request->combo_id,'order_id' => $order->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign_combo->price,
+                        'quantity' => $request->qty, 'total_amount' => ($campaign_combo->price) * ($request->qty)
+                    ]);
+                }
+            }
+            return true;
+        } else {
+            self::addOrUpdateCart($request,$campaign);
+            return true;
+        }
     }
 
     /**
@@ -89,7 +180,7 @@ class CampaignService
     {
         $result = false;
         $data = self::getById($id);
-        if($data){
+        if ($data) {
             $result = $data->delete();
         }
         return $result;
@@ -101,7 +192,6 @@ class CampaignService
     public static function datatable()
     {
         $data = Campaign::query();
-        return $data;   
+        return $data;
     }
-
 }

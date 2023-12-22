@@ -19,7 +19,7 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.target_amount', 1) }}
                         : </label>
-                    {{ isset($campaign->target_amount) ? currencyIcon(). $campaign->target_amount : 'Na' }}
+                    {{ isset($campaign->target_amount) ? currencyIcon() . $campaign->target_amount : 'Na' }}
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.raise_amount', 1) }}
                         : </label>
-                    {{ isset($campaign->raise_amount) ?currencyIcon(). $campaign->raise_amount : 'Na' }}
+                    {{ isset($campaign->raise_amount) ? currencyIcon() . $campaign->raise_amount : 'Na' }}
                 </div>
             </div>
         </div>
@@ -36,9 +36,10 @@
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
-                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.price', 1) }}
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.price', 1) }} (For
+                        single)
                         : </label>
-                    {{ isset($campaign->price) ?currencyIcon(). $campaign->price : 'Na' }}
+                    {{ isset($campaign->price) ? currencyIcon() . $campaign->price : 'Na' }}
                 </div>
             </div>
         </div>
@@ -48,7 +49,7 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">Total rating
                         : </label>
-                    {{ isset($campaign->total_rating) ?$campaign->total_rating . ' Star' : 'Na' }}
+                    {{ isset($campaign->total_rating) ? $campaign->total_rating . ' Star' : 'Na' }}
                 </div>
             </div>
         </div>
@@ -58,7 +59,7 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">Average rating
                         : </label>
-                    {{ isset($campaign->average_rating) ?$campaign->average_rating . ' Star' : 'Na' }}
+                    {{ isset($campaign->average_rating) ? $campaign->average_rating . ' Star' : 'Na' }}
                 </div>
             </div>
         </div>
@@ -81,10 +82,34 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.is_active', 1) }}
                         : </label>
-                        {{ isset($campaign->created_at) ? get_default_format($campaign->created_at) : 'Na' }}
+                    {{ isset($campaign->created_at) ? get_default_format($campaign->created_at) : 'Na' }}
                 </div>
             </div>
         </div>
+        @if (isset($campaign->campaign_combos) && $campaign->campaign_combos->count())
+            @foreach ($campaign->campaign_combos as $combo)
+                <div class="intro-y col-span-12 lg:col-span-6">
+                    <div class="intro-y box p-5">
+                        <div>
+                            <label
+                                class="text-gray-500 font-medium leading-none mt-3">Combo name
+                                : </label>
+                            {{ isset($combo->name) ? $combo->name : 'Na' }}
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-y col-span-12 lg:col-span-6">
+                    <div class="intro-y box p-5">
+                        <div>
+                            <label
+                                class="text-gray-500 font-medium leading-none mt-3">Combo price
+                                : </label>
+                            {{ isset($combo->price) ? currencyIcon().$combo->price : 'Na' }}
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        @endif
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
@@ -92,13 +117,13 @@
                         : </label>
                     <a href="{{ $campaign->image }}" target="_blank">
                         <div class="font-medium whitespace-no-wrap">
-                            <img src="{{ $campaign->image }}" alt="Banner image">
+                            <img style="width: 60px; height: 40px;" src="{{ $campaign->image }}" alt="Banner image">
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="intro-y col-span-12 lg:col-span-6">
+        <div class="intro-y col-span-12 lg:col-span-12">
             <div class="intro-y box p-5">
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.content', 1) }}

@@ -44,7 +44,7 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="blog-items">
                                         <div class="blog-img">
-                                            <a href="{{route('front.blogView', $blog->slug)}}"><img style="width: auto; height: 200px;" src="{{ $blog->image }}"
+                                            <a href="{{route('front.blogView', $blog->slug)}}"><img style="width: 416px; height: 303px;" src="{{ $blog->image }}"
                                                     alt="{{ isset($blog->title) ? $blog->title : 'Blog Image' }}"
                                                     class="img-responsive"></a>
                                         </div>

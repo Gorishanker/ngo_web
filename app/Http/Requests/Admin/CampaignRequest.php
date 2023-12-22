@@ -31,6 +31,8 @@ class CampaignRequest extends FormRequest
                 'target_amount' => 'required|integer|max:15000000',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
+                'combo.*.name' => 'required_with:combo.*.file|max:70',
+                'combo.*.price' => 'required_with:combo.*.name|integer|between:1,1000000',
             ];
         } else {
             return [
@@ -40,6 +42,8 @@ class CampaignRequest extends FormRequest
                 'target_amount' => 'required|integer|max:15000000',
                 'content' => 'required|min:50',
                 'is_active' => 'required',
+                'combo.*.name' => 'required|max:70',
+                'combo.*.price' => 'required|integer|between:1,1000000',
             ];
         }
     }
@@ -48,6 +52,13 @@ class CampaignRequest extends FormRequest
     {
         return [
             'is_active.required' => __('validation.required', ['attribute' => 'status']),
+            'combo.*.name.max' => __('validation.max', ['attribute' => 'Combo name']),
+            'combo.*.name.required' => __('validation.required', ['attribute' => 'Combo name']),
+
+            'combo.*.price.integer' => __('validation.integer', ['attribute' => 'Combo price']),
+            'combo.*.price.between' => __('validation.between', ['attribute' => 'Combo price']),
+            'combo.*.price.required' => __('validation.required', ['attribute' => 'Combo price']),
+
         ];
     }
 }

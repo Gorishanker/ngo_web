@@ -37,6 +37,7 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(FrontCampaignController::class)->group(function () {
     Route::get('/campaigns', 'campaigns')->name('front.campaigns.index');
+    Route::get('/campaign/{slug}', 'show')->name('front.campaign.show');
     Route::post('/campaigns/add-or-update-cart/{campaign}', 'addOrUpdateCart');
 });
 

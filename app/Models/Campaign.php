@@ -39,9 +39,19 @@ class Campaign extends Model
         }
     }
 
-    public function campaign_tags()
+    public function campaign_combos()
     {
-        return $this->hasMany(CampaignTag::class,'campagin_id');
+        return $this->hasMany(CampaignCombo::class,'campaign_id');
+    }
+
+    public function campaign_combos_with_trash()
+    {
+        return $this->hasMany(CampaignCombo::class,'campaign_id')->withTrashed();
+    }
+
+    public function order_item()
+    {
+        return $this->hasOne(OrderItem::class,'campagin_id');
     }
     public function sluggable(): array
     {

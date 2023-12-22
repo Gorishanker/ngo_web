@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CampaignRequest;
 use App\Models\Campaign;
+use App\Models\CampaignCombo;
 use App\Models\CampaignTag;
 use App\Models\Tag;
 use App\Services\CampaignService;
@@ -78,22 +79,23 @@ class CampaignController extends Controller
      */
     public function store(CampaignRequest $request)
     {
-        $input = $request->except('tags');
-
+        $input = $request->except('combo');
         $image = FileService::imageUploader($request, 'image', $this->image_directory);
         if ($image != null) {
             $input['image'] = $image;
         }
         $campaign =  $this->bannerService->create($input);
-
-        // if ($request->tags) {
-        //     $campaign_tags = [];
-        //     foreach ($request->tags as $key => $tag) {
-        //         $campaign_tags[$key]['campagin_id'] = $campaign->id;
-        //         $campaign_tags[$key]['tag_id'] = $tag;
-        //     }
-        //     CampaignTag::insert($campaign_tags);
-        // }
+$combo = null;
+        if (isset($request->combo)) {
+            foreach ($request->combo as $value) {
+                if (isset($value)) {
+                    $combo['campaign_id'] = $campaign->id;
+                    $combo['name'] = $value['name'];
+                    $combo['price'] = $value['price'];
+                    CampaignCombo::insert($combo);
+                }
+            }
+        }
 
         return redirect()->route($this->index_route_name)
             ->with('success', $this->mls->messageLanguage('created', 'campaign', 1));
@@ -106,7 +108,6 @@ class CampaignController extends Controller
      */
     public function show(Campaign $campaign)
     {
-
         return  view($this->detail_view, compact('campaign'));
     }
 
@@ -119,8 +120,8 @@ class CampaignController extends Controller
     public function edit(Campaign $campaign)
     {
         $tags = Tag::where('is_active', 1)->pluck('name', 'id');
-        $selected_tags = $campaign->hasMany(CampaignTag::class,'campagin_id')->pluck('tag_id');
-        return view($this->edit_view, compact('campaign', 'tags','selected_tags'));
+        $combos = $campaign->hasMany(CampaignCombo::class,'campaign_id')->get();
+        return view($this->edit_view, compact('campaign','combos'));
     }
 
     /**
@@ -132,7 +133,7 @@ class CampaignController extends Controller
      */
     public function update(CampaignRequest $request, Campaign $campaign)
     {
-        $input = $request->except('tags');
+        $input = $request->except('combo');
         if (!empty($input['image'])) {
             $image = FileService::imageUploader($request, 'image', $this->image_directory);
             if ($image != null) {
@@ -142,17 +143,18 @@ class CampaignController extends Controller
             $input = Arr::except($input, array('image'));
         }
         $campaign->update($input);
-        // CampaignTag::where('campagin_id', $campaign->id)->delete();
-
-        // if ($request->tags) {
-        //     $campaign_tags = [];
-        //     foreach ($request->tags as $key => $tag) {
-        //         $campaign_tags[$key]['campagin_id'] = $campaign->id;
-        //         $campaign_tags[$key]['tag_id'] = $tag;
-        //     }
-
-        //     CampaignTag::insert($campaign_tags);
-        // }
+        CampaignCombo::where('campaign_id', $campaign->id)->delete();
+        $combo = null;
+        if (isset($request->combo)) {
+            foreach ($request->combo as $value) {
+                if (isset($value)) {
+                    $combo['campaign_id'] = $campaign->id;
+                    $combo['name'] = $value['name'];
+                    $combo['price'] = $value['price'];
+                    CampaignCombo::insert($combo);
+                }
+            }
+        }
 
         return redirect()->route($this->index_route_name)
             ->with('success', $this->mls->messageLanguage('updated', 'campaign', 1));
