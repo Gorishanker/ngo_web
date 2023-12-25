@@ -106,4 +106,6 @@ return [
 'contact_u' => 'Contact us',
 'contact_us' => 'Contact us',
 'setting' => 'Setting',
+'sponsor' => 'Sponsor|Sponsors',
+'impact_story' => 'Impact Story|Impact Stories',
 ];

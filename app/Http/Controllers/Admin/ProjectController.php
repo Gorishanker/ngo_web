@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProjectRequest;
 use App\Models\Category;
-use App\Models\Client;
 use App\Models\Project;
 use App\Models\ProjectDoc;
 use App\Services\ProjectService;

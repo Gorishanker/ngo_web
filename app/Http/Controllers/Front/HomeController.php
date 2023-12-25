@@ -11,16 +11,18 @@ use App\Models\BlogComment;
 use App\Models\Campaign;
 use App\Models\Category;
 use App\Models\ContactUs;
+use App\Models\Faq;
 use App\Models\Gallery;
 use App\Models\PageContent;
 use App\Models\Project;
 use App\Models\Service;
+use App\Models\Team;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view, $service_detail_view, $project_view, $project_detail_view, $blogs_view, $blog_detail_view;
+    protected $home_view, $policy_view, $terms_view, $about_us_view, $service_view, $service_detail_view, $project_view, $project_detail_view, $blogs_view, $blog_detail_view, $team_detail_view;
 
     public function __construct()
     {
@@ -32,6 +34,7 @@ class HomeController extends Controller
         $this->blog_detail_view = 'front.blog_detail';
         $this->service_detail_view = 'front.service_detail';
         $this->project_detail_view = 'front.project_detail';
+        $this->team_detail_view = 'front.team_detail';
         $this->project_view = 'front.projects';
         $this->terms_view = 'front.term_and_conditions';
     }
@@ -53,6 +56,21 @@ class HomeController extends Controller
         $meta_description = getSettingDataBySlug('about_company');
         SEOTools::webPage($meta_title, $meta_description, $logo);
         return view($this->home_view, compact('banners', 'categories', 'services', 'campaigns','blogs'));
+    }
+
+    /**
+     * Display a landing page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function faqs()
+    {
+        $meta_title = getSettingDataBySlug('web_site_name');
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = getSettingDataBySlug('about_company');
+        SEOTools::webPage($meta_title, $meta_description, $logo);
+        $faqs = Faq::where('is_active', 1)->orderBy('id', 'desc')->get();
+        return view('front.faq', compact('faqs'));
     }
 
     /**
@@ -301,6 +319,23 @@ class HomeController extends Controller
             ]);
         }
         return false;
+    }
+
+    /**
+     * Display a privacy project view page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function teamView($slug)
+    {
+        $team_detail = Team::where(['is_active' => 1, 'slug' => $slug])->first();
+        $meta_title =  isset($team_detail->name) ? $team_detail->name : 'GREEN FOREST Team Details';
+        $logo = getSettingDataBySlug('logo');
+        $meta_description = isset($team_detail->description) ? setStringLength(strip_tags($team_detail->description,150)) :$meta_title ;
+        SEOTools::webPage($meta_title, $meta_description, $logo, $team_detail->image);
+        if(!isset($team_detail))
+        abort(404);
+        return view($this->team_detail_view, compact('team_detail'));
     }
 
 }

@@ -779,7 +779,7 @@
     </section>
     <!-- End Upcoming Events Section -->
 
-    {{-- <!-- Start Sponsors Section -->
+    <!-- Start Sponsors Section -->
     <section class="bg-sponsors-section">
         <div class="container">
             <div class="row">
@@ -792,63 +792,16 @@
                     <!-- .section-header -->
                     <div class="sponsors-container">
                         <div class="swiper-wrapper">
+                            @foreach (sponsors() as $sponsor)
                             <div class="swiper-slide">
                                 <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-1.jpg') }}"
-                                            alt="sponsors-img-1" class="img-responsive" /></a>
+                                    <a href="#"><img style="width: 309px; height: 137px" src="{{$sponsor->image}}"
+                                            alt="{{$sponsor->name}}" class="img-responsive" /></a>
                                 </div>
                                 <!-- .sponsors-items -->
                             </div>
                             <!-- .swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-2.jpg') }}"
-                                            alt="sponsors-img-2" class="img-responsive" /></a>
-                                </div>
-                                <!-- .sponsors-items -->
-                            </div>
-                            <!-- .swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-3.jpg') }}"
-                                            alt="sponsors-img-3" class="img-responsive" /></a>
-                                </div>
-                                <!-- .sponsors-items -->
-                            </div>
-                            <!-- .swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-4.jpg') }}"
-                                            alt="sponsors-img-4" class="img-responsive" /></a>
-                                </div>
-                                <!-- .sponsors-items -->
-                            </div>
-                            <!-- .swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-1.jpg') }}"
-                                            alt="sponsors-img-1" class="img-responsive" /></a>
-                                </div>
-                                <!-- .sponsors-items -->
-                            </div>
-                            <!-- .swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-2.jpg') }}"
-                                            alt="sponsors-img-2" class="img-responsive" /></a>
-                                </div>
-                                <!-- .sponsors-items -->
-                            </div>
-                            <!-- .swiper-slide -->
-                            <div class="swiper-slide">
-                                <div class="sopnsors-items">
-                                    <a href="#"><img src="{{ asset('front/images/home01/sponsors-img-3.jpg') }}"
-                                            alt="sponsors-img-3" class="img-responsive" /></a>
-                                </div>
-                                <!-- .sponsors-items -->
-                            </div>
-                            <!-- .swiper-slide -->
-
+                            @endforeach
                         </div>
                         <!-- .swiper-wrapper -->
                     </div>
@@ -860,7 +813,7 @@
         </div>
         <!-- .container -->
     </section>
-    <!-- End Sponsors Section --> --}}
+    <!-- End Sponsors Section -->
     @push('styles')
         @include('front.capaigns_css')
     @endpush

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\CampaignController as FrontCampaignController;
+use App\Http\Controllers\Front\ImpactStoryController as FrontImpactStoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/blog/{slug}', 'blogView')->name('front.blogView');
     Route::post('/blog/comment', 'blogCommentStore')->name('front.blogComment.store');
     Route::get('/project/{slug}', 'projectView')->name('front.projectView');
+    Route::get('/teams/{slug}', 'teamView')->name('front.teamView');
     Route::get('/services', 'services')->name('front.services');
     Route::get('/service/{slug}', 'serviceView')->name('front.serviceView');
     Route::get('/gallery', 'gallery')->name('front.gallery');
+    Route::get('/faqs', 'faqs')->name('front.faqs');
     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
 });
 
@@ -40,6 +43,12 @@ Route::controller(FrontCampaignController::class)->group(function () {
     Route::get('/campaign/{slug}', 'show')->name('front.campaign.show');
     Route::post('/campaigns/add-or-update-cart/{campaign}', 'addOrUpdateCart');
 });
+
+Route::controller(FrontImpactStoryController::class)->group(function () {
+    Route::get('/impact-stories', 'index')->name('front.impactStory.index');
+    Route::get('/impact-story/{slug}', 'show')->name('front.impactStory.show');
+});
+
 
 Route::get('/home', function () {
     return redirect()->route('admin.dashboard');
@@ -91,6 +100,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::get('/categories/status/{id}/{status}', 'status')->name('category.status');
         });
         Route::resource('/categories', CategoryController::class);
+         //Sponsor Controller
+         Route::controller(SponsorController::class)->group(function () {
+            Route::get('/sponsors/status/{id}/{status}', 'status')->name('sponsor.status');
+        });
+        Route::resource('/sponsors', SponsorController::class);
 
          //Occasion Controller
          Route::controller(OccasionController::class)->group(function () {
@@ -132,6 +146,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         });
         Route::resource('/projects', ProjectController::class);
         //end::project routes
+
+         //impact routes
+         Route::controller(ImpactStoryController::class)->group(function () {
+            Route::get('/impact-stories/status/{id}/{status}', 'status');
+        });
+        Route::resource('/impact-stories', ImpactStoryController::class);
+        //end::impact routes
 
         //campaign routes
         Route::controller(CampaignController::class)->group(function () {

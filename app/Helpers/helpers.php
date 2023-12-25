@@ -2,6 +2,8 @@
 
 use App\Models\Gallery;
 use App\Models\Setting;
+use App\Models\Sponsor;
+use App\Models\Team;
 use App\Services\ManagerLanguageService;
 use App\Services\UserService;
 use Carbon\Carbon;
@@ -291,6 +293,19 @@ function getGalleryImages($category_id = null,  $pagination = null)
     }
     return $data;
 }
+
+function sponsors()
+{
+    $data = Sponsor::where('is_active', 1)->get();
+    return $data;
+}
+
+function teams()
+{
+    $data = Team::where('is_active', 1)->get();
+    return $data;
+}
+
 
 
 function setStringLength($string_value, $length = 20)

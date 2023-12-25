@@ -17,19 +17,9 @@ class ContactUs extends Model
     protected $fillable = [
         'name', 
         'email', 
-        'mobile_no',
-        'user_id',
+        'subject',
         'message',
         'status',
-        'updated_at',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User', 'user_id');
-    }
-    public function guruji()
-    {
-        return $this->belongsTo('App\Models\Guruji', 'user_id');
-    }
 }

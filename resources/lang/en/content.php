@@ -156,4 +156,7 @@ return [
     'website' => 'Website',
     'occasion' => 'Occasion|Occasions',
     'price' => 'Price|Prices',
+    'sponsor' => 'Sponsor|Sponsors',
+    'impact_story' => 'Impact Story|Impact Stories',
+    'other_images' => 'Other Image|Other Images',
 ];

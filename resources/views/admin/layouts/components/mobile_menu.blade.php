@@ -72,6 +72,13 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.sponsors.index') }}"
+                        class="menu {{ request()->is('*sponsors*') ? 'menu--active' : '' }}">
+                        <div class="menu__icon"> <i class="fa-solid fa-list"></i> </div>
+                        <div class="menu__title"> Sponsors </div>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('admin.banners.index') }}"
                         class="menu {{ request()->is('*banners*') ? 'menu--active' : '' }}">
                         <div class="menu__icon"> <i class="fa-solid fa-images"></i> </div>

@@ -32,13 +32,13 @@
                 <div class="side-menu__title"> {{ trans_choice('content.service', 1) }} </div>
             </a>
         </li>
-        {{-- <li>
+        <li>
             <a class="side-menu {{ checkActiveSideBar(['teams']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.teams.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-people-group"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.team', 1) }} </div>
             </a>
-        </li> --}}
+        </li>
         {{-- <li>
             <a class="side-menu {{ checkActiveSideBar(['news']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.news.index') }}">
@@ -83,17 +83,31 @@
         </li>
         <li>
             <div
-                class="side-menu {{ checkActiveSideBar(['categories', 'banners', 'tags','occasions']) ? 'side-menu--active' : '' }}">
+                class="side-menu {{ checkActiveSideBar(['categories','impact-stories', 'sponsors', 'banners', 'tags','occasions']) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <i data-feather="shield"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.sidebar.masters', 2) }} <i
                         data-feather="chevron-down" class="side-menu__sub-icon" style="margin-right:11px"></i> </div>
             </div>
-            <ul class="{{ checkActiveSideBar(['categories', 'banners', 'tags','occasions']) ? 'side-menu__sub-open' : '' }}">
+            <ul class="{{ checkActiveSideBar(['categories','impact-stories', 'sponsors', 'banners', 'tags','occasions']) ? 'side-menu__sub-open' : '' }}">
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.categories.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.sidebar.category', 2) }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="side-menu {{ checkActiveSideBar(['impact-stories']) ? 'side-menu--active' : '' }}"
+                        href="{{ route('admin.impact-stories.index') }}">
+                        <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
+                        <div class="side-menu__title">Impact Stories</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="side-menu {{ checkActiveSideBar(['sponsors']) ? 'side-menu--active' : '' }}"
+                        href="{{ route('admin.sponsors.index') }}">
+                        <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
+                        <div class="side-menu__title">{{ trans_choice('content.sponsor', 2) }}</div>
                     </a>
                 </li>
                 <li>

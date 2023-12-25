@@ -137,6 +137,13 @@ Breadcrumbs::resource('categories', 'Categories');
 /*------------- Admin Occasions ------------------------*/
 Breadcrumbs::resource('occasions', 'Occasions');
 
+/*------------- Admin impact-stories ------------------------*/
+Breadcrumbs::resource('impact-stories', 'Impact Stories');
+
+/*------------- Admin Sponsors ------------------------*/
+Breadcrumbs::resource('sponsors', 'Sponsors');
+
+
 
 Breadcrumbs::resource('page_contents', 'Page Content');
 /*------------- Admin faqs ------------------------*/

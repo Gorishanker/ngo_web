@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="add-card">
-                            <a href="#">Add to cart</a>
+                            <a href="#">Donate now</a>
                         </div>
 
                         <div class="acordian-main">
@@ -510,6 +510,12 @@
         </div>
     </div>
     @push('scripts')
+    <style>
+        .gift-accasion a{
+            border: 2px #53a92c solid;
+        }
+        
+    </style>
         <link rel="stylesheet" type="text/css"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         @include('front.capaigns_css')

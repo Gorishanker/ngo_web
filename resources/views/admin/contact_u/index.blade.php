@@ -198,7 +198,7 @@
                             var show_data = actionShowWithModal(attr);
                             var replay = actionReplayButton(row['id']);
                             return `<div class="flex items-center">
-                             ${replay} ${show_data}</div>`;
+                              ${show_data}</div>`;
 
                         }
                     },

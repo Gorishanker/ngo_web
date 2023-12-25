@@ -66,7 +66,7 @@
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.image', 1) }}</label>
+        <label class="required">{{ trans_choice('content.image', 1) }}(max- 636*589 px)</label>
         {!! Form::file('image', [
             'class' => 'input w-full border bg-gray-100 mt-2',
             'id' => 'image',

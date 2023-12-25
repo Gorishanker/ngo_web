@@ -41,7 +41,7 @@
                         <div class="col-lg-8">
                             <div class="blog-items">
                                 <div class="blog-img">
-                                    <a href=""><img src="{{ $blog_detail->image }}"
+                                    <a href=""><img style="width: 856px; height: 411px;" src="{{ $blog_detail->image }}"
                                             style="width: auto; height: 400px;" alt="blog-img-10"
                                             class="img-responsive"></a>
                                 </div>

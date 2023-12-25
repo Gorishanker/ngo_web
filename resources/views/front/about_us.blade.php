@@ -1,7 +1,7 @@
 @extends('front.base')
 @section('title')
     <title>{{ webSiteTitleName() }} About us</title>
-        {!! SEOMeta::generate() !!}
+    {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
     {!! JsonLd::generate() !!}
@@ -9,7 +9,7 @@
 @endsection
 @section('content')
     <!-- Start Page Header Section -->
-    <section class="bg-page-header" style="background:  url({{asset('front/images/about/bg-page-header.jpg')}}) no-repeat">
+    <section class="bg-page-header" style="background:  url({{ asset('front/images/about/bg-page-header.jpg') }}) no-repeat">
         <div class="page-header-overlay">
             <div class="container">
                 <div class="row">
@@ -62,7 +62,7 @@
                         <!-- .col-lg-8 -->
                         <div class="col-lg-4">
                             <div class="about-greenforest-img">
-                                <img style="width: 416px; height: 303px;" src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
+                                <img src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
                                     alt="about-greenforet-img" class="img-responsive" />
                             </div>
                             <!-- .about-greenforest-img -->
@@ -146,116 +146,47 @@
                     </div>
                     <!-- .section-header -->
                     <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="volunteers-items">
-                                <div class="volunteers-img">
-                                    <img src="{{ asset('front/images/home01/volunteers-img-1.jpg') }}"
-                                        alt="volunteers-img-1" class="img-responsive" />
+                        @foreach (teams() as $team)
+                            <div class="col-lg-3 col-sm-6 col-12">
+                                <div class="volunteers-items">
+                                    <div class="volunteers-img">
+                                        <a href="{{route('front.teamView',$team->slug)}}">
+                                        <img style="width: 200px; height: 200px;" src="{{ $team->image }}"
+                                            alt="{{ isset($team->name) ? $team->name : 'Na' }}" class="img-responsive" /></a>
+                                    </div>
+                                    <!-- .volunteers-img -->
+                                    <div class="volunteers-content">
+                                        <h4><a href="{{route('front.teamView',$team->slug)}}">{{ isset($team->name) ? $team->name : 'Na' }}</a>
+                                        </h4>
+                                        <p>{{ isset($team->position) ? $team->position : 'Na' }}</p>
+                                    </div>
+                                    <!-- .volunteers-content -->
+                                    <div class="volunteers-social-icon">
+                                        <ul class="social-icon">
+                                            @if(isset($team->facebook_url))
+                                            <li>
+                                                <a href="{{$team->facebook_url}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                            </li>
+                                            @endif
+                                            @if(isset($team->twitter_url))
+                                            <li><a href="{{$team->twitter_url}}" target="_blank"><i class="fa fa-twitter"
+                                                        aria-hidden="true"></i></a>
+                                            </li>
+                                            @endif
+                                            @if(isset($team->linkedin_url))
+                                            <li><a href="{{$team->linkedin_url}}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                            </li>
+                                            @endif
+                                            @if(isset($team->instagram_url))
+                                            <li><a href="{{$team->instagram_url}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                    <!-- .volunteers-social-icon -->
                                 </div>
-                                <!-- .volunteers-img -->
-                                <div class="volunteers-content">
-                                    <h4><a href="team_single.html">robot smith</a></h4>
-                                    <p>Founder & CEO</p>
-                                </div>
-                                <!-- .volunteers-content -->
-                                <div class="volunteers-social-icon">
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- .volunteers-social-icon -->
+                                <!-- .volunteers-items -->
                             </div>
-                            <!-- .volunteers-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="volunteers-items">
-                                <div class="volunteers-img">
-                                    <img src="{{ asset('front/images/home01/volunteers-img-2.jpg') }}"
-                                        alt="volunteers-img-1" class="img-responsive" />
-                                </div>
-                                <!-- .volunteers-img -->
-                                <div class="volunteers-content">
-                                    <h4><a href="team_single.html">JANATON DOE</a></h4>
-                                    <p>Founder & CEO</p>
-                                </div>
-                                <!-- .volunteers-content -->
-                                <div class="volunteers-social-icon">
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- .volunteers-social-icon -->
-                            </div>
-                            <!-- .volunteers-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="volunteers-items">
-                                <div class="volunteers-img">
-                                    <img src="{{ asset('front/images/home01/volunteers-img-3.jpg') }}"
-                                        alt="volunteers-img-3" class="img-responsive" />
-                                </div>
-                                <!-- .volunteers-img -->
-                                <div class="volunteers-content">
-                                    <h4><a href="team_single.html">SMITH JHONSON</a></h4>
-                                    <p>Founder & CEO</p>
-                                </div>
-                                <!-- .volunteers-content -->
-                                <div class="volunteers-social-icon">
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- .volunteers-social-icon -->
-                            </div>
-                            <!-- .volunteers-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="volunteers-items">
-                                <div class="volunteers-img">
-                                    <img src="{{ asset('front/images/home01/volunteers-img-2.jpg') }}"
-                                        alt="volunteers-img-1" class="img-responsive" />
-                                </div>
-                                <!-- .volunteers-img -->
-                                <div class="volunteers-content">
-                                    <h4><a href="team_single.html">JHON SHOW</a></h4>
-                                    <p>Founder & CEO</p>
-                                </div>
-                                <!-- .volunteers-content -->
-                                <div class="volunteers-social-icon">
-                                    <ul class="social-icon">
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- .volunteers-social-icon -->
-                            </div>
-                            <!-- .volunteers-items -->
-                        </div>
-                        <!-- .col-lg-3 -->
+                        @endforeach
                     </div>
                     <!-- .row -->
                 </div>
@@ -357,19 +288,25 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="blog-items">
                                         <div class="blog-img">
-                                            <a href="blog_single.html"><img src="{{$blog->image}}"
-                                                    alt="{{isset($blog->meta_title) ? $blog->meta_title : 'Blog Image'}}" class="img-responsive" /></a>
+                                            <a href="{{ route('front.blogView', $blog->slug) }}"><img
+                                                    style="width: 416px; height: 303px;" src="{{ $blog->image }}"
+                                                    alt="{{ isset($blog->meta_title) ? $blog->meta_title : 'Blog Image' }}"
+                                                    class="img-responsive" /></a>
                                         </div>
                                         <!-- .blog-img -->
                                         <div class="blog-content-box">
                                             <div style="word-break: break-all;" class="blog-content">
-                                                <h4><a href="blog_single.html">{{isset($blog->title) ? $blog->title : 'Na'}}</a></h4>
+                                                <h4><a
+                                                        href="{{ route('front.blogView', $blog->slug) }}">{{ isset($blog->title) ? $blog->title : 'Na' }}</a>
+                                                </h4>
                                                 <p>{!! setStringLength($blog->content, 150) !!}</p>
                                             </div>
                                             <!-- .blog-content -->
                                             <div class="meta-box">
                                                 <ul class="meta-post">
-                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> {{isset($blog->schedule_datetime) ? $blog->schedule_datetime : get_default_format($blog->created_at)}}</li>
+                                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>
+                                                        {{ isset($blog->schedule_datetime) ? $blog->schedule_datetime : get_default_format($blog->created_at) }}
+                                                    </li>
                                                     <li><a href="#"><i class="fa fa-heart-o"
                                                                 aria-hidden="true"></i> 24
                                                             Like</a></li>

@@ -49,50 +49,20 @@
                                                 <a href="{{route('front.projectIndex')}}" class="{{ request()->is('*projects*') ? 'active' : '' }}">Projects</a>
                                             </li>
                                             <li>
-                                                <a href="#">pages</a>
+                                                <a href="#" class="{{ (request()->is('*impact-stories*')||request()->is('*faqs*') || request()->is('*gallery*')) ? 'active' : '' }}">pages</a>
                                                 <ul class="sub-menu">
-                                                    {{-- <li>
-                                                        <a href="#"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Our Team</a>
-                                                        <ul class="sub-sub-menu">
-                                                            <li><a href="team.html"><i class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Team</a></li>
-                                                            <li><a href="team_single.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Single Team</a></li>
-                                                        </ul>
-                                                    </li> --}}
                                                     <li>
-                                                        <a href="#"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Shop</a>
-                                                        <ul class="sub-sub-menu">
-                                                            <li><a href="shop.html"><i class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Shop</a></li>
-                                                            <li><a href="shop_single.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Single Shop</a></li>
-                                                            <li><a href="shop_cart.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Shop Cart</a></li>
-                                                        </ul>
+                                                        <a href="{{route('front.impactStory.index')}}" class="{{ request()->is('*impact-stories*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                                aria-hidden="true"></i> Impact Stories</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Campaign</a>
-                                                        <ul class="sub-sub-menu">
-                                                            <li><a href="campaign.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Campaign</a></li>
-                                                            <li><a href="campaign_single.html"><i
-                                                                        class="fa fa-angle-double-right"
-                                                                        aria-hidden="true"></i> Single Campaign</a>
-                                                            </li>
-                                                        </ul>
+                                                        <a href="{{route('front.gallery')}}" class="{{ request()->is('*gallery*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Gallery</a>
                                                     </li>
-                                                    <li><a href="donate.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> Donate Page</a></li>
-                                                    <li><a href="404_page.html"><i class="fa fa-angle-double-right"
-                                                                aria-hidden="true"></i> 404 Page</a></li>
+                                                    <li>
+                                                        <a href="{{route('front.faqs')}}" class="{{ request()->is('*faqs*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Faq's</a>
+                                                    </li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -101,9 +71,7 @@
                                             <li>
                                                 <a href="{{route('front.campaigns.index')}}" class="{{ request()->is('*campaigns*') ? 'active' : '' }}">Campaigns</a>
                                             </li>
-                                            <li>
-                                                <a href="{{route('front.gallery')}}" class="{{ request()->is('*gallery*') ? 'active' : '' }}">Gallery</a>
-                                            </li>
+                                          
                                             <li><a href="{{route('front.contactUs')}}" class="{{ request()->is('*contact-us*') ? 'active' : '' }}">contacts</a></li>
                                         </ul>
                                         <div class="menu-right-option pull-right">

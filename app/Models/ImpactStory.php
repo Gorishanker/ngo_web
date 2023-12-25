@@ -7,7 +7,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class ImpactStory extends Model
 {
     use HasFactory, Sluggable;
 
@@ -17,34 +17,37 @@ class Team extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
+        'title',
         'slug',
         'image',
-        'position',
-        'personal_statement',
-        'description',
-        'email',
-        'address',
-        'facebook_url',
-        'linkedin_url',
-        'twitter_url',
-        'instagram_url',
+        'project_id',
+        'image',
+        'content',
         'is_active',
     ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 
     public function getImageAttribute($value)
     {
         if ($value) {
-            return  FileService::getFileUrl('files/teams/', $value);
+            return  FileService::getFileUrl('files/impacts/', $value);
         } else {
             return null;
         }
+    }
+    public function impact_images()
+    {
+        return $this->hasMany(ImpactImage::class, 'impact_id');
     }
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name',
+                'source' => 'title',
                 'maxLength' => 255,
                 'method'  => null,
                 'separator' => '-',

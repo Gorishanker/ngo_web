@@ -241,7 +241,7 @@
   font-weight: 500;
 }
 .add-card a{
-  background-color: #ff6b6b;
+  background-color: #53a92b;
   text-decoration: none;
   color: #fff;
   padding: 12px 16px;
@@ -426,8 +426,8 @@
   margin-right: 10px;
 }
 .gift-accasion a{
-  background-color: #53a92c;
-  color: #fff !important;
+  background-color: #fff;
+  color: #53a92c !important;
   padding: 12px 16px;
   font-weight: 500;
   border-radius: 4px;

@@ -15,7 +15,6 @@ class Faq extends Model
      * @var array
      */
     protected $fillable = [
-        'language',
         'question',
         'answer',
         'is_active',
