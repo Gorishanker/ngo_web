@@ -62,7 +62,7 @@
                         <!-- .col-lg-8 -->
                         <div class="col-lg-4">
                             <div class="about-greenforest-img">
-                                <img src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
+                                <img style="width: 416px; height: 303px;" src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
                                     alt="about-greenforet-img" class="img-responsive" />
                             </div>
                             <!-- .about-greenforest-img -->
