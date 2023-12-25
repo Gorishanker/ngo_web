@@ -1,7 +1,7 @@
 @extends('front.base')
 @section('title')
     <title>{{ webSiteTitleName() }}</title>
-     {!! SEOMeta::generate() !!}
+    {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
     {!! JsonLd::generate() !!}
@@ -23,7 +23,8 @@
                             @endphp
                             <div class="carousel-item {{ $active }}">
                                 <div class="slider-item">
-                                    <img style="width: 1862px; height: 776px;" src="{{ isset($banner->image) ? $banner->image : asset('front/images/home02/slider-img-1.jpg') }}"
+                                    <img style="width: 1862px; height: 776px;"
+                                        src="{{ isset($banner->image) ? $banner->image : asset('front/images/home02/slider-img-1.jpg') }}"
                                         alt="Slider Image">
                                     <div class="slider-content-area">
                                         <div class="container">
@@ -159,7 +160,8 @@
                         <!-- .col-lg-8 -->
                         <div class="col-lg-4">
                             <div class="about-greenforest-img">
-                                <img style="width: 424px; height: 473px;" src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
+                                <img style="width: 424px; height: 473px;"
+                                    src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
                                     alt="about-greenforet-img" class="img-responsive" />
                             </div>
                             <!-- .about-greenforest-img -->
@@ -204,7 +206,8 @@
                                 <div class="portfolio-img">
                                     <div class="overlay-project"></div>
                                     <!-- .overlay-project -->
-                                    <img style="width: 402px; height: 304px;" src="{{ asset('front/images/home02/recent-project-img-1.jpg') }}"
+                                    <img style="width: 402px; height: 304px;"
+                                        src="{{ asset('front/images/home02/recent-project-img-1.jpg') }}"
                                         alt="recent-project-img-1">
                                     <ul class="project-link-option">
                                         <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
@@ -425,15 +428,16 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="our-services-box">
                                         <div class="our-services-items">
-                                            <img style="width: 150px; height: 100px;" src="{{ isset($service->image) ? $service->image : null }}"
+                                            <img style="width: 150px; height: 100px;"
+                                                src="{{ isset($service->image) ? $service->image : null }}"
                                                 alt="{{ isset($service->title) ? $service->title : 'Na' }}">
                                             <div class="our-services-content">
                                                 <h4><a
-                                                        href="{{route('front.serviceView',$service->slug)}}">{{ isset($service->title) ? $service->title : 'Na' }}</a>
+                                                        href="{{ route('front.serviceView', $service->slug) }}">{{ isset($service->title) ? $service->title : 'Na' }}</a>
                                                 </h4>
                                                 <p>{{ setStringLength(strip_tags($service->content), 70) }}</p>
-                                                <a href="{{route('front.serviceView',$service->slug)}}">read more<i class="fa fa-angle-double-right"
-                                                        aria-hidden="true"></i></a>
+                                                <a href="{{ route('front.serviceView', $service->slug) }}">read more<i
+                                                        class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                             </div>
                                             <!-- .our-services-content -->
                                         </div>
@@ -610,7 +614,7 @@
                                             </div>
                                         </div>
                                         <h6>
-                                            <a href="{{route('front.campaign.show', $campaign->slug)}}">
+                                            <a href="{{ route('front.campaign.show', $campaign->slug) }}">
                                                 {{ isset($campaign->title) ? $campaign->title : 'Campaign Title' }}
                                             </a>
                                         </h6>
@@ -624,7 +628,8 @@
                                                 <span data-id="{{ $campaign->id }}" class="minus cart_decrement">-</span>
                                                 <input type="text" data-id="{{ $campaign->id }}"
                                                     class="only_number cartOrderQtyValue"
-                                                    id="cart_input{{ $campaign->id }}" value="{{isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1}}">
+                                                    id="cart_input{{ $campaign->id }}"
+                                                    value="{{ isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1 }}">
                                                 <span data-id="{{ $campaign->id }}" class="plus cart_increment">+</span>
                                             </div>
                                         </div>
@@ -698,7 +703,9 @@
                                         <div class="col-lg-4 col-sm-6 col-12">
                                             <div class="blog-items">
                                                 <div class="blog-img">
-                                                    <a href="{{route('front.blogView', $blog->slug)}}"><img style="width: 416px; height: 303px;" src="{{ $blog->image }}"
+                                                    <a href="{{ route('front.blogView', $blog->slug) }}"><img
+                                                            style="width: 416px; height: 303px;"
+                                                            src="{{ $blog->image }}"
                                                             alt="{{ isset($blog->title) ? $blog->title : 'Blog Image' }}"
                                                             class="img-responsive"></a>
                                                 </div>
@@ -706,7 +713,7 @@
                                                 <div class="blog-content-box">
                                                     <div class="blog-content">
                                                         <h4><a
-                                                                href="{{route('front.blogView', $blog->slug)}}">{{ isset($blog->title) ? $blog->title : 'Blog Title' }}</a>
+                                                                href="{{ route('front.blogView', $blog->slug) }}">{{ isset($blog->title) ? $blog->title : 'Blog Title' }}</a>
                                                         </h4>
                                                         <p>{{ isset($blog->meta_description) ? setStringLength($blog->meta_description, 80) : 'Blog description' }}
                                                         </p>
@@ -893,7 +900,7 @@
                     });
             }
         </script>
-         <script>
+        <script>
             $('.cart_decrement').click(function() {
                 var data_id = $(this).attr('data-id');
                 var input_selector = `#cart_input${data_id}`;
@@ -933,11 +940,14 @@
                 var cart_val = $(input_selector).val();
                 if (Number(cart_val) <= 0) {
                     $(input_selector).val(1);
-                    return false;
+                    var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
+                    total_amt = total_amt * Number(1);
+                    var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
+                }else{
+                    var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
+                    total_amt = total_amt * Number(cart_val);
+                    var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
                 }
-                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
-                total_amt = total_amt * Number(cart_val);
-                var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
                 $(`#cart_total_amount${data_id}`).html(total_amt_html);
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
