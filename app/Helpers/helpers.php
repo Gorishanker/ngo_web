@@ -1,12 +1,15 @@
 <?php
 
 use App\Models\Gallery;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Setting;
 use App\Models\Sponsor;
 use App\Models\Team;
 use App\Services\ManagerLanguageService;
 use App\Services\UserService;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -304,6 +307,22 @@ function teams()
 {
     $data = Team::where('is_active', 1)->get();
     return $data;
+}
+
+function cartItemCounter(){
+    $order = Order::where(['ip_address'=> request()->ip(), 'status' => 0])->select('id')->first();
+    if(isset($order)){
+        $total_cart = OrderItem::where('order_id', $order->id)->count();
+        return $total_cart;
+    }else{
+        return 0;
+    }
+}
+
+function totalCartAmount(){
+    $order = Order::where(['ip_address'=> request()->ip(), 'status' => 0])->select('id')->first();
+    $total_cart = OrderItem::where('order_id', $order->id)->sum('total_amount');
+    return $total_cart;
 }
 
 

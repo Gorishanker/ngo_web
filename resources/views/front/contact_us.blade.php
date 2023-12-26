@@ -41,7 +41,7 @@
                         <div class="col-lg-8">
                             <h3 class="contact-title">Get in Touch</h3>
                             {!! Form::open([
-                                'id' => 'ContactUsForm',
+                                'id' => 'DonateUsForm',
                                 'class' => 'contact-form',
                                 'method' => 'POST',
                             ]) !!}
@@ -135,7 +135,7 @@
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
     {!! JsValidator::formRequest('App\Http\Requests\Front\ContactUsRequest', 'form') !!}
     <script>
-        $('#ContactUsForm').submit(function(e) {
+        $('#DonateUsForm').submit(function(e) {
             e.preventDefault();
             let formData = new FormData(this);
             $.ajax({

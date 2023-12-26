@@ -24,4 +24,14 @@ class OrderItem extends Model
         'quantity',
         'total_amount',
     ];
+
+    public function combo()
+    {
+        return $this->belongsTo(CampaignCombo::class,'combo_id');
+    }
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class,'campagin_id');
+    }
 }

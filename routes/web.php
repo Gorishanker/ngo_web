@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\CampaignController as FrontCampaignController;
 use App\Http\Controllers\Front\ImpactStoryController as FrontImpactStoryController;
+use App\Http\Controllers\Front\DonationController as FrontDonationController;
+use App\Http\Controllers\Front\CartController as FrontCartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,12 +43,25 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(FrontCampaignController::class)->group(function () {
     Route::get('/campaigns', 'campaigns')->name('front.campaigns.index');
     Route::get('/campaign/{slug}', 'show')->name('front.campaign.show');
-    Route::post('/campaigns/add-or-update-cart/{campaign}', 'addOrUpdateCart');
+    Route::post('/campaigns/add-or-cart//{campaign}', 'addOrUpdateCart');
 });
 
 Route::controller(FrontImpactStoryController::class)->group(function () {
     Route::get('/impact-stories', 'index')->name('front.impactStory.index');
     Route::get('/impact-story/{slug}', 'show')->name('front.impactStory.show');
+});
+
+Route::controller(FrontDonationController::class)->group(function () {
+    Route::get('/donate', 'donate')->name('front.donate');
+    Route::post('/donate-now-submit', 'donateNow')->name('front.donateNow');
+    Route::post('/donate/payment', 'payment')->name('front.donationPayment');
+});
+
+Route::controller(FrontCartController::class)->group(function () {
+    Route::get('/cart', 'index')->name('front.cart');
+    Route::post('/cart/update-cart/{order_item}', 'updateCart');
+    Route::delete('/cart/delete-item/{order_item}', 'deleteItem');
+    Route::get('/cart/donate', 'donate')->name('front.cartCheckout');
 });
 
 

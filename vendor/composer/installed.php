@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '27ee0ee7f2fe84875e9a9ab77cda4a121d8af4f0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '234c7d3bdb5c6f54a037106ebb13107afa0e27a6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -614,9 +614,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '27ee0ee7f2fe84875e9a9ab77cda4a121d8af4f0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '234c7d3bdb5c6f54a037106ebb13107afa0e27a6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1267,8 +1267,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1322,6 +1322,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'razorpay/razorpay' => array(
+            'pretty_version' => '2.9.0',
+            'version' => '2.9.0.0',
+            'reference' => 'a3d7c2bcb416091edd6a76eb5a7600eaf00ac837',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../razorpay/razorpay',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'rhumsaa/uuid' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -1334,6 +1343,15 @@
             'reference' => '5ed4ba8ea34af84485dea815d4b6b620794d1168',
             'type' => 'library',
             'install_path' => __DIR__ . '/../rize/uri-template',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'rmccue/requests' => array(
+            'pretty_version' => 'v2.0.9',
+            'version' => '2.0.9.0',
+            'reference' => '422612952ff3bd5163039f8889eaaaab95a432eb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../rmccue/requests',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

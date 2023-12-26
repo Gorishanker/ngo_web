@@ -10,7 +10,7 @@
                                 <li><i class="flaticon-placeholder"></i> Address :  {{getSettingDataBySlug('address')}}</li>
                             </ul>
                             <div class="donate-option">
-                                <a href="donate.html"><i class="fa fa-heart" aria-hidden="true"></i> donate now</a>
+                                <a href="{{route('front.donate')}}"><i class="fa fa-heart" aria-hidden="true"></i> donate now</a>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                         <div class="main-menu">
                             <div class="main-menu-bottom">
                                 <div class="navbar-header">
-                                    <a class="navbar-brand" href="index.html"><img
+                                    <a class="navbar-brand" href="{{url('/')}}"><img
                                             src="{{ asset('front/images/home01/logo.png') }}" alt="logo"
                                             class="img-responsive" /></a>
                                     <button type="button" class="navbar-toggler collapsed d-lg-none"
@@ -76,82 +76,12 @@
                                         </ul>
                                         <div class="menu-right-option pull-right">
                                             <div class="cart-option">
+                                                <a href="{{(cartItemCounter() > 0) ? route('front.cart') : '#'}}">
                                                 <div class="cart-icon">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <div class="count-cart">2</div>
+                                                    <div class="count-cart">{{cartItemCounter()}}</div>
                                                 </div>
-                                                <!-- .cart-icon -->
-                                                <div class="cart-dropdown-menu">
-                                                    <div class="cart-items">
-                                                        <div class="cart-img">
-                                                            <a href="single_shop_cat.html"><img
-                                                                    src="{{ asset('front/images/home01/cart-img-1.jpg') }}"
-                                                                    alt="cart-img-1"></a>
-                                                        </div>
-                                                        <div class="cart-content">
-                                                            <h6><a href="single_shop_cat.html">Product Title Here</a>
-                                                            </h6>
-                                                            <p>1*<span>$350</span></p>
-                                                        </div>
-                                                        <div class="cart-btn">
-                                                            <a href="#"><i class="fa fa-pencil"
-                                                                    aria-hidden="true"></i></a>
-                                                            <a href="#"><i class="fa fa-times"
-                                                                    aria-hidden="true"></i></a>
-                                                        </div>
-                                                        <div class="clr"></div>
-                                                    </div>
-                                                    <!-- .cart-items -->
-
-                                                    <div class="cart-items">
-                                                        <div class="cart-img">
-                                                            <a href="#"><img
-                                                                    src="{{ asset('front/images/home01/cart-img-2.jpg') }}"
-                                                                    alt="cart-img-2"></a>
-                                                        </div>
-                                                        <div class="cart-content">
-                                                            <h6><a href="single_shop_cat.html">Product Title Here</a>
-                                                            </h6>
-                                                            <p>1*<span>$350</span></p>
-                                                        </div>
-                                                        <div class="cart-btn">
-                                                            <a href="#"><i class="fa fa-pencil"
-                                                                    aria-hidden="true"></i></a>
-                                                            <a href="#"><i class="fa fa-times"
-                                                                    aria-hidden="true"></i></a>
-                                                        </div>
-                                                        <div class="clr"></div>
-                                                    </div>
-                                                    <!-- .cart-items -->
-                                                    <div class="cart-items">
-                                                        <div class="cart-img">
-                                                            <a href="#"><img
-                                                                    src="{{ asset('front/images/home01/cart-img-3.jpg') }}"
-                                                                    alt="cart-img-3"></a>
-                                                        </div>
-                                                        <div class="cart-content">
-                                                            <h6><a href="single_shop_cat.html">Product Title Here</a>
-                                                            </h6>
-                                                            <p>1*<span>$350</span></p>
-                                                        </div>
-                                                        <div class="cart-btn">
-                                                            <a href="#"><i class="fa fa-pencil"
-                                                                    aria-hidden="true"></i></a>
-                                                            <a href="#"><i class="fa fa-times"
-                                                                    aria-hidden="true"></i></a>
-                                                        </div>
-                                                        <div class="clr"></div>
-                                                    </div>
-                                                    <!-- .cart-items -->
-                                                    <div class="total-price">
-                                                        <p><span>Total Price :</span> $700 </p>
-                                                    </div>
-                                                    <!-- .total-prices -->
-                                                    <div class="checkout-btn">
-                                                        <a href="#" class="btn btn-default">donate now</a>
-                                                    </div>
-                                                </div>
-                                                <!-- .cart--->
+                                            </a>
                                             </div>
                                             <!-- .cart-option -->
 
