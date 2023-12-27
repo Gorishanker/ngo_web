@@ -147,14 +147,14 @@
                         class="side-menu__sub-icon" style="margin-right:11px"></i> </div>
             </div>
             <ul class="{{ checkActiveSideBar(['page_contents', 'faqs']) ? 'side-menu__sub-open' : '' }}">
-                {{-- <li>
+                <li>
                     <a class="side-menu {{ checkActiveSideBar(['page_contents']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.page_contents.index') }}">
                         <div class="side-menu__icon"> <i class="fa-regular fa-file-lines"></i>
                         </div>
                         <div class="side-menu__title">{{ trans_choice('content.page_content', 2) }}</div>
                     </a>
-                </li> --}}
+                </li>
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['faqs']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.faqs.index') }}">

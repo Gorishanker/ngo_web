@@ -49,7 +49,7 @@
                                                 <a href="{{route('front.projectIndex')}}" class="{{ request()->is('*projects*') ? 'active' : '' }}">Projects</a>
                                             </li>
                                             <li>
-                                                <a href="#" class="{{ (request()->is('*impact-stories*')||request()->is('*faqs*') || request()->is('*gallery*')) ? 'active' : '' }}">pages</a>
+                                                <a href="#" class="{{ (request()->is('*impact-stories*')||request()->is('*pricing-policy*')||request()->is('*shipping-policy*')||request()->is('*cancellations-policy*') ||request()->is('*privacy-policy*') || request()->is('*terms-and-conditions*')||request()->is('*faqs*') || request()->is('*gallery*')) ? 'active' : '' }}">pages</a>
                                                 <ul class="sub-menu">
                                                     <li>
                                                         <a href="{{route('front.impactStory.index')}}" class="{{ request()->is('*impact-stories*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
@@ -62,6 +62,26 @@
                                                     <li>
                                                         <a href="{{route('front.faqs')}}" class="{{ request()->is('*faqs*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
                                                             aria-hidden="true"></i>Faq's</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{url('/')}}/terms-and-conditions" class="{{ request()->is('*terms-and-conditions*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Terms & Conditions</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{url('/')}}/privacy-policy" class="{{ request()->is('*privacy-policy*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Privacy Policy</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{url('/')}}/cancellations-policy" class="{{ request()->is('*cancellations-policy*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Cancellation Policy</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{url('/')}}/shipping-policy" class="{{ request()->is('*shipping-policy*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Shipping Policy</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{{url('/')}}/pricing-policy" class="{{ request()->is('*pricing-policy*') ? 'active' : '' }}"><i class="fa fa-angle-double-right"
+                                                            aria-hidden="true"></i>Pricing Policy</a>
                                                     </li>
                                                 </ul>
                                             </li>

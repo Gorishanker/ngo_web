@@ -84,6 +84,27 @@ class SettingController extends Controller
                 $favicon->move($destinationPath, $filename);
                 $value = $filename;
             }
+            if ($key == "qr_scanner" && !empty($request->file('data.qr_scanner'))) {
+                //Start::Get old qr_scanner and delete it.
+                $qr_scanner_name = isset($settings['qr_scanner']) ? $settings['qr_scanner'] : null;
+                if ($qr_scanner_name) {
+                    $qr_scanner_url = '/files/settings/' . $qr_scanner_name;
+                    FileService::remove_file_public_path($qr_scanner_url);
+                }
+                //End::Get old qr_scanner and delete it.
+
+                $qr_scanner = $request->file('data.qr_scanner');
+
+                $name = '';
+                $ext = $qr_scanner->getClientOriginalExtension() !== "" ? $qr_scanner->getClientOriginalExtension() : $qr_scanner->extension();
+                // $filename = $name . time() . '_' . uniqid() . '.' . $ext;
+
+                // $filename    = config('services.app_details.app_name') . '-qr_scanner.' . $qr_scanner->getClientOriginalExtension();
+                $filename = $qr_scanner->getClientOriginalName();
+                $destinationPath = public_path('/files/settings/');
+                $qr_scanner->move($destinationPath, $filename);
+                $value = $filename;
+            }
 
             $setting->updateOrCreate(
                 ['slug' =>  $key],

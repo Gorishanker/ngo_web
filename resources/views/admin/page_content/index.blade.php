@@ -6,7 +6,7 @@
         ]),
         'breadcrumbs' => Breadcrumbs::render('admin.page_contents.index'),
         'create_modal' => [
-            'status' => true,
+            'status' => false,
             'id' => 'addNewModal',
             'name' => trans_choice('content.page_content', 1),
         ],
@@ -31,8 +31,6 @@
             ['classname' => 'fs-5 uppercase', 'title' => trans_choice('content.id_title', 1)],
             ['classname' => 'min-w-125px uppercase fs-5', 'title' => trans_choice('content.title_title', 1)],
             ['classname' => 'min-w-125px uppercase fs-5', 'title' => trans_choice('content.content', 1)],
-            ['classname' => 'min-w-125px uppercase fs-5', 'title' => trans_choice('content.language', 1)],
-            ['classname' => 'min-w-125px uppercase fs-5', 'title' => 'User type'],
             ['classname' => 'min-w-125px uppercase fs-5', 'title' => trans_choice('content.status', 1)],
             ['classname' => 'min-w-125px uppercase fs-5', 'title' => trans_choice('content.created_at', 1)],
             ['classname' => 'min-w-100px uppercase fs-5', 'title' => trans_choice('content.action_title', 1)],
@@ -50,7 +48,7 @@
                 processing: true,
                 serverSide: true,
                 order: [
-                    [0, 'desc']
+                    [4, 'desc']
                 ],
                 language: {
                     search: "_INPUT_",
@@ -74,7 +72,7 @@
                       "<'row'<'col-sm-12'tr>>" +
                       "<'row datatable_footer'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
                 columnDefs: [{
-                    targets: [7],
+                    targets: [5],
                     orderable: false,
                     searchable: false,
                     // className: 'mdl-data-table__cell--non-numeric'
@@ -97,40 +95,8 @@
                     {
                         data: 'content',
                         name: 'content',
-                        visible: false,
                         render: function(data, type, row, meta) {
                             return `<div class="font-normal whitespace-no-wrap">${setStringLength(data)}</div>`;
-                        }
-                    },
-                    {
-                        data: 'language',
-                        name: 'language',
-                        render: function(data, type, row, meta) {
-                            if (data) {
-                                if (data == 'en')
-                                    return `<div class="font-normal whitespace-no-wrap">English</div>`;
-                                else if (data == 'hi')
-                                    return `<div class="font-normal whitespace-no-wrap">Hindi</div>`;
-                                else
-                                    return `<div class="font-normal whitespace-no-wrap capitalize">${data}</div>`;
-                            } else {
-                                return `<div class="font-normal whitespace-no-wrap">{{ __('content.no_data_available') }}</div>`;
-                            }
-                        }
-                    },
-                    {
-                        data: 'user_type',
-                        name: 'user_type',
-                        render: function(data, type, row, meta) {
-                            if (data) {
-                                if (data == 1) {
-                                    return `<div class="font-normal whitespace-no-wrap">Customer</div>`;
-                                } else if (data == 2) {
-                                    return `<div class="font-normal whitespace-no-wrap">Guruji</div>`;
-                                }
-                                return `<div class="font-normal whitespace-no-wrap">Na</div>`;
-                            }
-                            return `<div class="font-normal whitespace-no-wrap">Na</div>`;
                         }
                     },
                     {
@@ -347,6 +313,27 @@
                 },
             });
         });
+        function actionEditWithModal(attr, statusclass = "clsEditModal") {
+
+let html_data_retun =
+    `<a class="button px-2 mr-1 mb-2 mt-2 bg-theme-1 text-white ml-3 ${statusclass}"  ${attr} title="Edit">
+            <span class="w-5 h-5 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit w-4 h-4"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></span>
+        </a>`;
+
+return html_data_retun;
+}
+
+function actionShowWithModal(attr, statusclass = "clsShowModal") {
+
+let html_data_retun =
+    `<a class="button px-2 mr-1 mb-2 mt-2 bg-theme-5 text-purple-900 ml-3 ${statusclass}"  ${attr}" title="Show">
+        <span class="w-5 h-5 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye w-4 h-4"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        </span>
+    </a>`;
+
+return html_data_retun;
+}
     </script>
     <script>
         $("#btnClosePopupAdd").click(function() {

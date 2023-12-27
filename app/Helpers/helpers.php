@@ -3,6 +3,7 @@
 use App\Models\Gallery;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\PageContent;
 use App\Models\Setting;
 use App\Models\Sponsor;
 use App\Models\Team;
@@ -166,6 +167,15 @@ function getSettingDataBySlug($slug)
     $data = Setting::where('slug', '=', $slug)->first();
     if ($data) {
         return $data->value;
+    }
+    return null;
+}
+
+function getPageContentBySlug($slug)
+{
+    $data = PageContent::where('slug', '=', $slug)->first();
+    if ($data) {
+        return $data->content;
     }
     return null;
 }

@@ -221,6 +221,67 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="intro-y flex items-center h-10">
+                                        <h2 class="text-lg font-medium truncate mr-5">
+                                            Bank Details
+                                        </h2>
+                                    </div>
+                                    <div class="grid grid-cols-12 gap-5 mt-5">
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label class="required">Bank Name</label>
+                                            {!! Form::text('data[bank_name]', isset($settings['bank_name']) ? $settings['bank_name'] : null, [
+                                                'placeholder' =>'Bank Name',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label class="required">A/C Number</label>
+                                            {!! Form::text('data[ac_number]', isset($settings['ac_number']) ? $settings['ac_number'] : null, [
+                                                'placeholder' =>'A/C Number',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label class="required">IFSC Code</label>
+                                            {!! Form::text('data[ifsc_code]', isset($settings['ifsc_code']) ? $settings['ifsc_code'] : null, [
+                                                'placeholder' =>'IFSC Code',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label class="required">A/C Name</label>
+                                            {!! Form::text('data[ac_name]', isset($settings['ac_name']) ? $settings['ac_name'] : null, [
+                                                'placeholder' =>'A/C Name',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+                                        <div class="col-span-12 xl:col-span-6">
+                                            <label class="required">Branch</label>
+                                            {!! Form::text('data[branch]', isset($settings['branch']) ? $settings['branch'] : null, [
+                                                'placeholder' =>'Branch',
+                                                'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
+                                            ]) !!}
+                                        </div>
+                                        <div class="col-span-12 xl:col-span-4">
+                                            <label class="required">QR/Scanner</label>
+                                            {!! Form::file('data[qr_scanner]', [
+                                                'class' => 'input w-full border bg-gray-100 mt-2',
+                                                'id' => 'qr_scanner',
+                                                'onchange' => 'readURL(this, qr_scanner);',
+                                                'accept' => 'image/x-png,image/jpg,image/jpeg,image/png',
+                                            ]) !!}
+
+                                        </div>
+                                        <div class="col-span-12 xl:col-span-2 mt-4">
+                                            @if (isset($qr_scanner))
+                                                <img id="backImage_qr_scanner" height="100px" width="100px"
+                                                    src="{{ $qr_scanner }}" title="Image">
+                                            @else
+                                                <img id="backImage_qr_scanner" height="100px" width="100px"
+                                                    src="{{ blankImageUrl() }}" title="Image">
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="text-right mt-6">

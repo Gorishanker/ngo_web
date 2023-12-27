@@ -41,6 +41,12 @@ class SettingRequest extends FormRequest
             'data.about_company' => 'required|max:300',
             'data.address' => 'required|max:70',
             'data.available_time' => 'required|max:50',
+            'data.bank_name' => 'required|max:50',
+            'data.ac_number' => 'required|max:50',
+            'data.ifsc_code' => 'required|max:25',
+            'data.ac_name' => 'required|max:50',
+            'data.branch' => 'required|max:150',
+            'data.qr_scanner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ];
     }
 
@@ -104,7 +110,19 @@ class SettingRequest extends FormRequest
             'data.linkedin_url.url' => __('validation.url', ['attribute' => 'Linkedin url']),
             'data.twitter_url.max' => __('validation.max', ['attribute' => 'Twitter url']),
             'data.twitter_url.url' => __('validation.url', ['attribute' => 'Twitter url']),
-          
+
+            'data.qr_scanner.image' => __('validation.image', ['attribute' => 'QR/Scanner']),
+            'data.qr_scanner.mimes' => __('validation.mimes', ['attribute' => 'QR/Scanner']),
+            'data.branch.required' => __('validation.required', ['attribute' => 'Branch']),
+            'data.branch.max' => __('validation.max', ['attribute' => 'Branch']),
+            'data.ac_name.required' => __('validation.required', ['attribute' => 'A/C Name']),
+            'data.ac_name.max' => __('validation.max', ['attribute' => 'A/C Name']),
+            'data.ifsc_code.required' => __('validation.required', ['attribute' => 'IFSC Code']),
+            'data.ifsc_code.max' => __('validation.max', ['attribute' => 'IFSC Code']),
+            'data.ac_number.required' => __('validation.required', ['attribute' => 'A/C Number']),
+            'data.ac_number.max' => __('validation.max', ['attribute' => 'A/C Number']),
+            'data.bank_name.required' => __('validation.required', ['attribute' => 'Bank Name']),
+            'data.bank_name.max' => __('validation.max', ['attribute' => 'Bank Name']),
         ];
     }
 }

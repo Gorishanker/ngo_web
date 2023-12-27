@@ -34,7 +34,7 @@
         <!-- .page-header-overlay -->
     </section>
 
-    <section class="bg-donate-section">
+    <section class="bg-donate-section"  style="padding:0;">
         <div class="container">
             <div class="row">
                 <div class="donate-form">
@@ -206,6 +206,47 @@
             <!-- .row -->
         </div>
         <!-- .container -->
+    </section>
+    <section class="bg-donate-section" style="padding:40px 0;">
+        <div class="container">
+            <div class="gmt-heading text-center">
+                <span class="subtitle-gmt">For</span>
+                <h2 class="gmthdg-txt mb-4" style="color: #53a92b;">Simple Donations</h2>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 pt-2 pt-sm-3 pt-xl-2">
+
+                <!-- Item -->
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start  shadow rounded scanUpi-gmt">
+                        <div style="width: 50%;" class="ps-4 ps-sm-3 ps-md-4 pt-2 justify-content-baseline">
+                            <h2 class=" h1" style="color: #53a92b;">Scan to pay <br> via UPI</h2>
+                        </div>
+                        <div style="width: 50%;" class="gmt-barcode">
+                            <img style="width: 150px; height:150px;" class=""
+                                src="{{ isset($global_setting_data['qr_scanner']) ? asset('files/settings/' . $global_setting_data['qr_scanner'] . '') : $logo_img }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start shadow rounded scanUpi-gmt">
+                        <div class="ps-4 ps-sm-3 ps-md-4 pt-2">
+                            <h2 class="" style="font-size:45px; color: #53a92b;">Bank <br> Transfer</h2>
+                        </div>
+                        <div class="bg-white text-dark ps-4">
+                            <h2 class="hdfc-gmt">{{ isset($global_setting_data['bank_name']) ? $global_setting_data['bank_name'] : 'Test Bank' }}</h2>
+                            <p><b>A/C Number:</b> {{ isset($global_setting_data['ac_number']) ? $global_setting_data['ac_number'] : '00000000' }}</p>
+                            <p><b>IFSC Code:</b> {{ isset($global_setting_data['ifsc_code']) ? $global_setting_data['ifsc_code'] : 'Test IFSC' }}</p>
+                            <p><b>A/C Payee:</b> {{ isset($global_setting_data['ac_name']) ? $global_setting_data['ac_name'] : 'Test Account' }}</p>
+                            <p><b>Branch :</b> {{ isset($global_setting_data['branch']) ? $global_setting_data['branch'] : 'Test Bank' }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
     </section>
     @push('styles')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css" />

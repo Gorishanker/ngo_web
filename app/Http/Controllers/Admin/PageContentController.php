@@ -15,7 +15,7 @@ class PageContentController extends Controller
     protected $mls;
     protected $index_view, $create_view, $edit_view, $detail_view;
     protected $index_route_name, $create_route_name, $detail_route_name, $edit_route_name;
-    protected $categoryService, $utilityService;
+    protected $pagecontentService, $utilityService;
 
     public function __construct()
     {
@@ -30,7 +30,7 @@ class PageContentController extends Controller
         $this->edit_view = 'admin.page_content.edit';
 
         //service files
-        $this->categoryService = new PageContentService();
+        $this->pagecontentService = new PageContentService();
         $this->utilityService = new UtilityService();
 
         //mls is used for manage language content based on keys in messages.php
@@ -46,7 +46,7 @@ class PageContentController extends Controller
     {
         
         if ($request->ajax()) {
-            $items = $this->categoryService->dataTable();
+            $items = $this->pagecontentService->dataTable();
             return dataTables()->eloquent($items)->toJson();
         } else {
             return view($this->index_view);
@@ -63,46 +63,17 @@ class PageContentController extends Controller
     public function store(PageContentRequest $request)
     {
         $input = $request->validated();
-        $slug = generateSlug($request->title);
-        $slug_exists = PageContent::where('key', $slug)->count();
-        if($slug_exists > 0){
-            $slug = $slug . '_'.rand(0,10);
-            $slug_exists = PageContent::where('key', $slug)->count();
-            if($slug_exists > 0){
-                $slug = $slug . '_'.rand(0,10);
-            }
-        }
-        $hi_input = [
-            'title' => $request->title_h,
-            'key' => $slug,
-            'content' => $request->content_h,
-            'is_active' => $request->is_active_h,
-            'language' => 'hi',
-        ];
-        $en_input = [
-            'title' => $request->title,
-            'key' =>$slug,
-            'content' => $request->content,
-            'is_active' => $request->is_active,
-            'language' => 'en',
-        ];
-        $en_data =$this->categoryService->create($en_input);
-        $hi_data =$this->categoryService->create($hi_input);
-        if (isset($en_data) && isset($hi_data)) {
+       
+        $page_content =$this->pagecontentService->create($input);
+        if (isset($page_content)) {
             return response()->json([
                 'status' => true,
-                'message' => 'PageContent created successfully.',
+                'message' => 'Page Content created successfully.',
             ], 200);
         } else {
-            if (isset($en_data)) {
-                $en_data->delete();
-            }
-            if (isset($hi_data)) {
-                $hi_data->delete();
-            }
             return response()->json([
                 'status' => false,
-                'message' => 'Error! while creating PageContent.',
+                'message' => 'Error! while creating Page Content.',
             ], 422);
         }
     }
@@ -147,26 +118,16 @@ class PageContentController extends Controller
     public function update(PageContentRequest $request, PageContent $page_content)
     {
         $input = $request->validated();
-        if ($page_content->language == 'hi') {
-            $input = [
-                'title' => $request->title_h,
-                'content' => $request->content_h,
-                'is_active' => $request->is_active_h,
-                'user_type' => $request->user_type_h,
-                'language' => 'hi', 
-            ];
-        }
-
         $data = $page_content->update($input);
         if (isset($data)) {
             return response()->json([
                 'status' => true,
-                'message' => 'PageContent update successfully.',
+                'message' => 'Page Content update successfully.',
             ], 200);
         } else {
             return response()->json([
                 'status' => false,
-                'message' => 'Error! while creating page_content.',
+                'message' => 'Error! while creating Page Content.',
             ], 422);
         }
     }

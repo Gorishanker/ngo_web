@@ -64,6 +64,12 @@ Route::controller(FrontCartController::class)->group(function () {
     Route::get('/cart/donate', 'donate')->name('front.cartCheckout');
 });
 
+Route::view('/terms-and-conditions', 'front.static_page');
+Route::view('/privacy-policy', 'front.static_page');
+Route::view('/cancellations-policy', 'front.static_page');
+Route::view('/shipping-policy', 'front.static_page');
+Route::view('/pricing-policy', 'front.static_page');
+
 
 Route::get('/home', function () {
     return redirect()->route('admin.dashboard');
