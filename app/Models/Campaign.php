@@ -18,6 +18,11 @@ class Campaign extends Model
      */
     protected $fillable = [
         'title',
+        'hint',
+        'benefit',
+        'short_description',
+        'primary_description',
+        'secondary_description',
         'target_amount',
         'raise_amount',
         'total_rating',
@@ -26,7 +31,6 @@ class Campaign extends Model
         'slug',
         'image',
         'author',
-        'content',
         'is_active',
     ];
 

@@ -25,8 +25,8 @@ class Order extends Model
         'payment_token',
     ];
 
-    public function order()
+    public function orderItems()
     {
-        return $this->belongsTo(Order::class);
+        return $this->hasMany(OrderItem::class);
     }
 }

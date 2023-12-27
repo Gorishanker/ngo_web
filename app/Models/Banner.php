@@ -19,6 +19,10 @@ class Banner extends Model
         'content',
         'image',
         'is_active',
+        'button_1_text',
+        'button_1_url',
+        'button_2_text',
+        'button_2_url',
     ];
 
     public function getImageAttribute($value)

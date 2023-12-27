@@ -495,7 +495,6 @@
 .details-left {
   position: sticky;
   top: 0px;
-  height: 750px;
 }
 .details-poduct{
   padding-left: 20px;

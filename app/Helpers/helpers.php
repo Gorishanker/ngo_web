@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Gallery;
+use App\Models\Occasion;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\PageContent;
@@ -178,6 +179,15 @@ function getPageContentBySlug($slug)
         return $data->content;
     }
     return null;
+}
+
+function getAllOccasion()
+{
+    $data = Occasion::where('is_active', 1)->pluck('name', 'id');
+    if ($data) {
+        return $data;
+    }
+    return [];
 }
 
 

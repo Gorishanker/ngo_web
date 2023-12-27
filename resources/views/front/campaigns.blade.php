@@ -45,9 +45,11 @@
                             <div class="col-md-3 col-xl-3 col-sm-6 col-12 col-lg-3">
                                 <div class="list-box">
                                     <div class="img-box">
+                                        <a href="{{ route('front.campaign.show', $campaign->slug) }}">
                                         <img src="{{ $campaign->image }}"
                                             alt="{{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}"
                                             style="width:304px; height:228px;">
+                                        </a>
                                     </div>
 
                                     <div class="details-box">
@@ -67,23 +69,31 @@
                                             </div>
                                         </div>
                                         <h6>
-                                            <a href="{{route('front.campaign.show', $campaign->slug)}}">
+                                            <a href="{{ route('front.campaign.show', $campaign->slug) }}">
                                                 {{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}
                                             </a>
                                         </h6>
 
                                         <div class="with-cart">
                                             <p class="mb-0" id="cart_total_amount{{ $campaign->id }}"
-                                                data-value="{{ $campaign->price }}">Amount
-                                                {{ currencyIcon() }}{{ isset($campaign->order_item->total_amount) ? round($campaign->order_item->total_amount) : $campaign->price }}</span>
+                                                data-value="{{ $campaign->campaign_combos[0]->price }}">Amount
+                                                {{ currencyIcon() }}{{ isset($campaign->order_item->total_amount) ? round($campaign->order_item->total_amount) : $campaign->campaign_combos[0]->price }}</span>
                                             </p>
-                                            <div class="number">
-                                                <span data-id="{{ $campaign->id }}" class="minus cart_decrement">-</span>
-                                                <input type="text" data-id="{{ $campaign->id }}"
-                                                    class="only_number cartOrderQtyValue"
-                                                    id="cart_input{{ $campaign->id }}"
-                                                    value="{{ isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1 }}">
-                                                <span data-id="{{ $campaign->id }}" class="plus cart_increment">+</span>
+                                            <div class="number addToCartBTNDiv{{$campaign->id}}">
+                                                @if (isset($campaign->order_item->quantity))
+                                                    <span data-id="{{ $campaign->id }}"
+                                                        class="minus cart_decrement">-</span>
+                                                    <input type="text" data-id="{{ $campaign->id }}"
+                                                        class="only_number cartOrderQtyValue"
+                                                        id="cart_input{{ $campaign->id }}"
+                                                        value="{{ isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1 }}">
+                                                    <span data-id="{{ $campaign->id }}"
+                                                        class="plus cart_increment">+</span>
+                                                @else
+                                                    <p class="addToCartBTN"
+                                                        data-id="{{ $campaign->id }}"
+                                                        style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">Add</p>
+                                                @endif
                                             </div>
                                         </div>
 
@@ -100,7 +110,7 @@
                                                 @endfor
                                                 ({{ $campaign->total_rating }})
                                             </span>
-                                            <a href="#" data-id="{{ $campaign->id }}">Donate Now</a>
+                                            <a href="{{route('front.donate')}}" data-id="{{ $campaign->id }}">Donate Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +132,18 @@
 
     @push('scripts')
         <script>
-            $('.cart_decrement').click(function() {
+            $('.addToCartBTN').click(function() {
+                var data_id = $(this).attr('data-id');
+                var html = ` <span data-id="${data_id}" class="minus cart_decrement">-</span>
+                                                <input type="text" data-id="${data_id}"
+                                                    class="only_number cartOrderQtyValue"
+                                                    id="cart_input${data_id}"
+                                                    value="1">
+                                                <span data-id="${data_id}" class="plus cart_increment">+</span>`;
+                $('.addToCartBTNDiv'+data_id).html(html);
+                addOrUpdateToCart(data_id, 1);
+            });
+            $(document).on("click", ".cart_decrement", function() {
                 var data_id = $(this).attr('data-id');
                 var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();
@@ -140,7 +161,7 @@
                 }, 2000);
             });
 
-            $('.cart_increment').click(function() {
+            $(document).on("click", ".cart_increment", function() {
                 var data_id = $(this).attr('data-id');
                 var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();
@@ -155,7 +176,7 @@
                 }, 2000);
             });
 
-            $('.cartOrderQtyValue').change(function() {
+            $(document).on("click", ".cartOrderQtyValue", function() {
                 var data_id = $(this).attr('data-id');
                 var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();

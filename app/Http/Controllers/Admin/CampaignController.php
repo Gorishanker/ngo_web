@@ -85,7 +85,6 @@ class CampaignController extends Controller
             $input['image'] = $image;
         }
         $campaign =  $this->bannerService->create($input);
-$combo = null;
         if (isset($request->combo)) {
             foreach ($request->combo as $value) {
                 if (isset($value)) {
@@ -144,7 +143,7 @@ $combo = null;
         }
         $campaign->update($input);
         CampaignCombo::where('campaign_id', $campaign->id)->delete();
-        $combo = null;
+        $combo = [];
         if (isset($request->combo)) {
             foreach ($request->combo as $value) {
                 if (isset($value)) {

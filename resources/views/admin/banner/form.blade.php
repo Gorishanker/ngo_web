@@ -10,6 +10,34 @@
 @endif
 <div class="grid grid-cols-12 gap-5 mt-5">
     <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">Button 1st text</label>
+         {!! Form::text('button_1_text', null, [
+            'placeholder' => 'Button 1st text',
+            'class' => 'input w-full border bg-gray-100 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">Button 2nd text</label>
+         {!! Form::text('button_2_text', null, [
+            'placeholder' => 'Button 2nd text',
+            'class' => 'input w-full border bg-gray-100 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">Button 1st url</label>
+         {!! Form::text('button_1_url', null, [
+            'placeholder' => 'Button 1st url',
+            'class' => 'input w-full border bg-gray-100 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">Button 2nd url</label>
+         {!! Form::text('button_2_url', null, [
+            'placeholder' => 'Button 2nd url',
+            'class' => 'input w-full border bg-gray-100 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.is_active', 1) }}</label>
          {!! Form::select('is_active', statusArray(), null, [
             'placeholder' => trans_choice('content.please_select', 1),

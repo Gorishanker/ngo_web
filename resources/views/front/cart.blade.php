@@ -49,6 +49,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if(isset($items))
                                 @foreach ($items as $item)
                                     <tr>
                                         <td class="cart-product">
@@ -90,22 +91,27 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                @else
+                                <tr><td colspan="4" style="padding-left: 20px;">Cart Item Not Found Please add item first.  <a href="{{url('/')}}">Go to home</a></td></tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
                     <!-- .table-box -->
 
+                    @if(isset($items))
                     <div class="cart-checked-box">
                         <div class="cart-coupon-code">
                             <h4>Total Amount : {{ currencyIcon() . $total_amount }}</h4>
                         </div>
-                        <!-- .coupon-code -->
+                       
                         <div class="cart-update">
                             <a href="{{route('front.cartCheckout')}}">
                             <button type="submit">proceed checkout</button></a>
                         </div>
                         <!-- .coupon-code -->
                     </div>
+                    @endif
                     <!-- .cart-checked-box -->
                 </div>
                 <!-- .product-cart-option -->

@@ -96,7 +96,7 @@
                                         </ul>
                                         <div class="menu-right-option pull-right">
                                             <div class="cart-option">
-                                                <a href="{{(cartItemCounter() > 0) ? route('front.cart') : '#'}}">
+                                                <a href="{{route('front.cart')}}">
                                                 <div class="cart-icon">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                     <div class="count-cart">{{cartItemCounter()}}</div>

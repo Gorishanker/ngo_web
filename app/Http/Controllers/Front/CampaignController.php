@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
+use App\Models\CampaignCombo;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Services\CampaignService;
@@ -43,10 +44,10 @@ class CampaignController extends Controller
     public function show($slug)
     {
         $campaign_detail  = Campaign::where(['is_active' => 1, 'slug' => $slug])->first();
-        $campaigns  = Campaign::where('is_active', 1)->orderBy('total_rating', 'desc')->take(4);
+        $campaigns  = Campaign::where('is_active', 1)->orderBy('total_rating', 'desc')->take(4)->get();
         $meta_title = $campaign_detail->title;
         $logo = getSettingDataBySlug('logo');
-        $meta_description =  isset($campaign_detail->content) ? setStringLength(strip_tags($campaign_detail->content, 250)) : $meta_title;
+        $meta_description =  isset($campaign_detail->benefit) ? setStringLength(strip_tags($campaign_detail->benefit, 250)) : $meta_title;
         SEOTools::webPage($meta_title, $meta_description, $logo, $campaign_detail->image);
         return view('front.campaign_detail', compact('campaign_detail', 'campaigns'));
     }
@@ -60,6 +61,22 @@ class CampaignController extends Controller
         }
         return response()->json([
             'status' => true,
+        ], 200);
+    }
+
+    public function UpdateCartVariation(Request $request,CampaignCombo $combo, Campaign $campaign)
+    {
+        $order = Order::where(['ip_address'=> $request->ip(), 'status' => 1])->first();
+        if(isset($order)){
+            $order_item = OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->first();
+            $order_item->update(['combo_id'=> $combo->id, 'price' => $combo->price, 'total_amount' => ($order_item->quantity * $combo->price) ]);
+            $total_amount = OrderItem::where(['order_id' => $order->id])->sum('total_amount');
+            $order->update(['total_price' => $total_amount]);
+        }
+        $total = $combo->price;
+        return response()->json([
+            'status' => true,
+            'total' => $total,
         ], 200);
     }
 }

@@ -43,7 +43,8 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(FrontCampaignController::class)->group(function () {
     Route::get('/campaigns', 'campaigns')->name('front.campaigns.index');
     Route::get('/campaign/{slug}', 'show')->name('front.campaign.show');
-    Route::post('/campaigns/add-or-cart//{campaign}', 'addOrUpdateCart');
+    Route::post('/campaigns/add-or-update-cart/{campaign}', 'addOrUpdateCart');
+    Route::get('/campaigns/update-campaign-variation/{combo}/{campaign}', 'UpdateCartVariation');
 });
 
 Route::controller(FrontImpactStoryController::class)->group(function () {

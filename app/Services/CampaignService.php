@@ -58,16 +58,22 @@ class CampaignService
         $order = Order::where(['ip_address' => $ip_address, 'status' => 0])->first();
         if (isset($order)) {
             if ($request->qty <= 0) {
-                OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                $orderitemCount = OrderItem::where('order_id', $order->id)->count();
+                if($orderitemCount <=1){
+                    OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                    $order->delete();
+                }else{
+                    OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                }
                 return false;
             } else {
                 $order_item =  OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->first();
                 if (isset($order_item)) {
-                    $order_item->update(['quantity' => $request->qty, 'price' => $campaign->price, 'total_amount' => ($campaign->price) * ($request->qty)]);
+                    $order_item->update(['quantity' => $request->qty, 'combo' => 1, 'combo_id' => $campaign->campaign_combos[0]->id, 'price' => $campaign->campaign_combos[0]->price, 'total_amount' => ($campaign->campaign_combos[0]->price) * ($request->qty)]);
                 } else {
                     $order_item = OrderItem::create([
-                        'order_id' => $order->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign->price,
-                        'quantity' => $request->qty, 'total_amount' => ($campaign->price) * ($request->qty)
+                        'order_id' => $order->id, 'combo' => 1, 'combo_id' => $campaign->campaign_combos[0]->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign->campaign_combos[0]->price,
+                        'quantity' => $request->qty, 'total_amount' => ($campaign->campaign_combos[0]->price) * ($request->qty)
                     ]);
                 }
                 $total_amt =  OrderItem::where('order_id', $order->id)->sum('total_amount');
@@ -77,10 +83,10 @@ class CampaignService
             if ($request->qty <= 0) {
                 return false;
             } else {
-                $order = Order::create(['ip_address' => $ip_address, 'total_price' => ($campaign->price) * ($request->qty)]);
+                $order = Order::create(['ip_address' => $ip_address, 'total_price' => ($campaign->campaign_combos[0]->price) * ($request->qty)]);
                 $order_item = OrderItem::create([
-                    'order_id' => $order->id, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign->price,
-                    'quantity' => $request->qty, 'total_amount' => ($campaign->price) * ($request->qty)
+                    'order_id' => $order->id, 'combo_id' => $campaign->campaign_combos[0]->id, 'combo' => 1, 'ip_address' => $ip_address, 'campagin_id' => $campaign->id, 'price' => $campaign->campaign_combos[0]->price,
+                    'quantity' => $request->qty, 'total_amount' => ($campaign->campaign_combos[0]->price) * ($request->qty)
                 ]);
             }
         }
@@ -101,7 +107,13 @@ class CampaignService
             $order = Order::where(['ip_address' => $ip_address, 'status' => 0])->first();
             if (isset($order)) {
                 if ($request->qty <= 0) {
-                    OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                    $orderitemCount = OrderItem::where('order_id', $order->id)->count();
+                    if($orderitemCount <=1){
+                        OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                        $order->delete();
+                    }else{
+                        OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->delete();
+                    }
                     return false;
                 } else {
                     $order_item =  OrderItem::where(['order_id' => $order->id, 'campagin_id' => $campaign->id])->first();

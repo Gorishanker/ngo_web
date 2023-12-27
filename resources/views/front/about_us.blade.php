@@ -55,7 +55,7 @@
                                     paradigms before resource maximg convergence. Efciey diseminate mindshare clientcentered
                                     creative theme experiences.</p>
                                 <a href="#" class="btn btn-default">join now</a>
-                                <a href="donate.html" class="btn btn-default">donate now</a>
+                                <a href="{{ route('front.donate') }}" class="btn btn-default">donate now</a>
                             </div>
                             <!-- .about-greenforest-content -->
                         </div>

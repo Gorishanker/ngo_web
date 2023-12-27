@@ -32,18 +32,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="intro-y col-span-12 lg:col-span-6">
-            <div class="intro-y box p-5">
-                <div>
-                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.price', 1) }} (For
-                        single)
-                        : </label>
-                    {{ isset($campaign->price) ? currencyIcon() . $campaign->price : 'Na' }}
-                </div>
-            </div>
-        </div>
-
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
@@ -126,16 +114,52 @@
         <div class="intro-y col-span-12 lg:col-span-12">
             <div class="intro-y box p-5">
                 <div>
-                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.content', 1) }}
+                    <label class="text-gray-500 font-medium leading-none mt-3">Hint
                         : </label>
-                    {!! isset($campaign->content) ? $campaign->content : 'Na' !!}
+                    {!! isset($campaign->hint) ? $campaign->hint : 'Na' !!}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Benefit
+                        : </label>
+                    {!! isset($campaign->benefit) ? $campaign->benefit : 'Na' !!}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Short description
+                        : </label>
+                    {!! isset($campaign->short_description) ? $campaign->short_description : 'Na' !!}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Primary description
+                        : </label>
+                    {!! isset($campaign->primary_description) ? $campaign->primary_description : 'Na' !!}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Secondary description
+                        : </label>
+                    {!! isset($campaign->secondary_description) ? $campaign->secondary_description : 'Na' !!}
                 </div>
             </div>
         </div>
     </div>
     <div class="text-right mt-6">
         <div class="mr-6">
-            <a href="{{ route('admin.blogs.index') }}">
+            <a href="{{ route('admin.campaigns.index') }}">
                 <button type="button" class="button mr-2 bg-theme-1 text-white">
                     Back</button></a>
         </div>

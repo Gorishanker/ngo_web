@@ -32,9 +32,14 @@ class CartController extends Controller
         $meta_description = getSettingDataBySlug('about_company');
         SEOTools::webPage($meta_title, $meta_description, $logo);
         $order = Order::where(['ip_address'=> $request->ip(), 'status' => 0])->select('id')->first();
-        $items = OrderItem::where('order_id', $order->id);
-        $total_amount =  $items->sum('total_amount');
-        $items =  $items->get();
+        if(isset($order)){
+            $items = OrderItem::where('order_id', $order->id);
+            $total_amount =  $items->sum('total_amount');
+            $items =  $items->get();
+        }else{
+            $total_amount = 0;
+            $items =null;
+        }
         return view($this->index_view, compact('items','total_amount'));
     }
 

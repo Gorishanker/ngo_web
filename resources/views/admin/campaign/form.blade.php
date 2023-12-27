@@ -23,13 +23,7 @@
             'placeholder' => trans_choice('content.target_amount', 1),
         ]) !!}
     </div>
-    <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.price', 1) }} (For single)</label>
-        {!! Form::text('price', null, [
-            'class' => 'input w-full border bg-gray-100 mt-2',
-            'placeholder' => trans_choice('content.price', 1),
-        ]) !!}
-    </div>
+   
     <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.is_active', 1) }}</label>
         {!! Form::select('is_active', statusArray(), null, [
@@ -129,16 +123,41 @@
             <img id="backImage_image" src="{{ blankImageUrl() }}" width="80px" height="80px" title="Image">
         @endif
     </div>
-    <div class="col-span-12 form-group xl:col-span-12">
-        <label class="required">{{ trans_choice('content.content', 1) }}</label>
-        {!! Form::textarea('content', null, [
-            'class' => 'input w-full summernote border bg-gray-100 mt-2',
-            'rows' => 3,
-            'placeholder' => trans_choice('content.content', 1),
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="">Hint</label>
+        {!! Form::textarea('hint', null, [
+            'class' => 'input summernote w-full border bg-gray-100 mt-2',
+            'rows' => 9,
+            'placeholder' => 'Hint',
         ]) !!}
-        @if ($errors->has('content'))
-            <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
-        @endif
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="">Benefit</label>
+        {!! Form::textarea('benefit', null, [
+            'class' => 'input w-full summernote border bg-gray-100 mt-2',
+            'placeholder' => 'Benefit',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="">Short description</label>
+        {!! Form::textarea('short_description', null, [
+            'class' => 'input w-full summernote border bg-gray-100 mt-2',
+            'placeholder' => 'Short description',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="">Primary description</label>
+        {!! Form::textarea('primary_description', null, [
+            'class' => 'input w-full summernote border bg-gray-100 mt-2',
+            'placeholder' => 'Primary description',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="">Secondary description</label>
+        {!! Form::textarea('secondary_description', null, [
+            'class' => 'input w-full summernote border bg-gray-100 mt-2',
+            'placeholder' => 'Secondary description',
+        ]) !!}
     </div>
 </div>
 <div class="text-right mt-6">
