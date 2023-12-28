@@ -82,7 +82,7 @@ class DonationController extends Controller
             'donation_amount' => $request->amount,
             'payment_json' => $request->payment_json,
         ];
-        $payment  = Payment::where(['ip_address' => $request->ip(), 'payment_status' => 0, 'donation_amount' => $request->amount])->orderBy('created_at', 'desc')->first();
+        $payment  = Payment::where(['ip_address' => $request->ip(), 'donation_amount' => $request->amount])->orderBy('created_at', 'desc')->first();
         $payment = $payment->update($input);
         if (isset($payment)) {
             return response()->json([
@@ -107,8 +107,8 @@ class DonationController extends Controller
                 $payment = Payment::where('id', $decoded_json->payload->payment->entity->notes->donate_id)->first();
                 Log::info('payment => ' . json_encode($payment));
                 if(isset($payment)){
-                    $payment = $payment->update(['payment_status' => 1, 'payment_json' => $json, 'payment_id' => $decoded_json->payload->payment->entity->id]);
-                    Log::info('payment => ' . json_encode($payment));
+                    $payment->update(['payment_status' => 1, 'payment_json' => $json, 'payment_id' => $decoded_json->payload->payment->entity->id]);
+                    Log::info('payment => ' . json_encode($payment) . 'Order_id '. $payment->order_id);
                     if(isset($payment->order_id)){
                         $order = Order::where('id', $payment->order_id)->first();
                         Log::info('order => ' . json_encode($order));
