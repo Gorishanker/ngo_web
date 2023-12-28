@@ -289,8 +289,7 @@
                     success: (response) => {
                         if (response.status == 1) {
                             payAmountWithRazorpay(response.data.donation_amount, response.data.donate_id, response
-                                .data.pan_name, response.data.email, response.data.mobile_no, response
-                                .data.address = null)
+                                .data.pan_name, response.data.email, response.data.mobile_no)
                             $('#submit_form').html('Donate Now');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
@@ -308,7 +307,7 @@
                 });
             });
 
-            function payAmountWithRazorpay(amount, donate_id, pan_name, email, mobile_no, address = null) {
+            function payAmountWithRazorpay(amount, donate_id, pan_name, email, mobile_no) {
                 var total_amount = amount * 100; 
                 console.log(total_amount, amount,donate_id);
                 var options = {
@@ -349,7 +348,6 @@
                         "contact": mobile_no
                     },
                     "notes": {
-                        "address": address,
                         "donate_id" : donate_id,
                     },
                     "theme": {

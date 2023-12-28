@@ -270,11 +270,21 @@
                             <h2 class="" style="font-size:45px; color: #53a92b;">Bank <br> Transfer</h2>
                         </div>
                         <div class="bg-white text-dark ps-4">
-                            <h2 class="hdfc-gmt">{{ isset($global_setting_data['bank_name']) ? $global_setting_data['bank_name'] : 'Test Bank' }}</h2>
-                            <p><b>A/C Number:</b> {{ isset($global_setting_data['ac_number']) ? $global_setting_data['ac_number'] : '00000000' }}</p>
-                            <p><b>IFSC Code:</b> {{ isset($global_setting_data['ifsc_code']) ? $global_setting_data['ifsc_code'] : 'Test IFSC' }}</p>
-                            <p><b>A/C Payee:</b> {{ isset($global_setting_data['ac_name']) ? $global_setting_data['ac_name'] : 'Test Account' }}</p>
-                            <p><b>Branch :</b> {{ isset($global_setting_data['branch']) ? $global_setting_data['branch'] : 'Test Bank' }}</p>
+                            <h2 class="hdfc-gmt">
+                                {{ isset($global_setting_data['bank_name']) ? $global_setting_data['bank_name'] : 'Test Bank' }}
+                            </h2>
+                            <p><b>A/C Number:</b>
+                                {{ isset($global_setting_data['ac_number']) ? $global_setting_data['ac_number'] : '00000000' }}
+                            </p>
+                            <p><b>IFSC Code:</b>
+                                {{ isset($global_setting_data['ifsc_code']) ? $global_setting_data['ifsc_code'] : 'Test IFSC' }}
+                            </p>
+                            <p><b>A/C Payee:</b>
+                                {{ isset($global_setting_data['ac_name']) ? $global_setting_data['ac_name'] : 'Test Account' }}
+                            </p>
+                            <p><b>Branch :</b>
+                                {{ isset($global_setting_data['branch']) ? $global_setting_data['branch'] : 'Test Bank' }}
+                            </p>
                         </div>
                     </div>
 
@@ -325,8 +335,7 @@
                         if (response.status == 1) {
                             payAmountWithRazorpay(response.data.donation_amount, response.data.donate_id,
                                 response
-                                .data.pan_name, response.data.email, response.data.mobile_no, response
-                                .data.address = null)
+                                .data.pan_name, response.data.email, response.data.mobile_no)
                             $('#submit_form').html('Donate Now');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
@@ -344,7 +353,7 @@
                 });
             });
 
-            function payAmountWithRazorpay(amount, donate_id, pan_name, email, mobile_no, address = null) {
+            function payAmountWithRazorpay(amount, donate_id, pan_name, email, mobile_no) {
                 var total_amount = amount * 100;
                 console.log(total_amount, amount, donate_id);
                 var options = {
@@ -382,8 +391,7 @@
                         "contact": mobile_no
                     },
                     "notes": {
-                        "address": address,
-                        "donate_id" : donate_id,
+                        "donate_id": donate_id,
                     },
                     "theme": {
                         "color": "#218838"
