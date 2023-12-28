@@ -1,11 +1,11 @@
 @if ($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
-        {{-- <ul>
+        <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul> --}}
+        </ul>
     </div>
 @endif
 @php
@@ -115,18 +115,19 @@
         <label class="required">{{ trans_choice('content.side_images', 1) }}</label>
         <input type="file" name="side_images[]" class="input w-full border bg-gray-100 mt-2"
             placeholder={{ __('Upload Image ') }} multiple="true" accept="image/*">
-    </div> 
+    </div>
     <div class="col-span-12 form-group xl:col-span-12" style="display: flex;">
-            @if (!empty($project->project_docs))
-                @foreach ($project->project_docs as $project_doc)
+        @if (!empty($project->project_docs))
+            @foreach ($project->project_docs as $project_doc)
                 @if ($project_doc->type == 3)
                     <a href="{{ $project_doc->file }}" target="_blank">
-                       <img style="margin: 5px;" data-id="{{ $project_doc->id}}" width="80px" height="80px" src="{{ $project_doc->file }}" title="Image"></a>
-                    @else
-                        @continue
-                    @endif
-                @endforeach
-            @endif
+                        <img style="margin: 5px;" data-id="{{ $project_doc->id }}" width="80px" height="80px"
+                            src="{{ $project_doc->file }}" title="Image"></a>
+                @else
+                    @continue
+                @endif
+            @endforeach
+        @endif
     </div>
     <div class="col-span-12 form-group xl:col-span-12">
         <label class="required">{{ trans_choice('content.content', 1) }}</label>
@@ -135,9 +136,9 @@
             'rows' => 2,
             'placeholder' => trans_choice('content.content', 1),
         ]) !!}
-         @if ($errors->has('content'))
-         <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
-     @endif
+        @if ($errors->has('content'))
+            <span class="invalid-feedback" style="display: block;">{{ $errors->first('content') }}</span>
+        @endif
     </div>
 </div>
 <div class="text-right mt-6">
