@@ -99,31 +99,31 @@ class DonationController extends Controller
     {
 
         $json = json_encode($request->all());
-        Log::info($json);
+        // Log::info($json);
         $decoded_json = json_decode($json);
         if (isset($decoded_json) && $decoded_json->event == 'payment.authorized') {
             if (isset($decoded_json->payload->payment->entity->id) && isset($decoded_json->payload->payment->entity->amount)) {
                 $amount = $decoded_json->payload->payment->entity->amount / 100;
                 $payment = Payment::where('id', $decoded_json->payload->payment->entity->notes->donate_id)->first();
-                Log::info('payment => ' . json_encode($payment));
+                // Log::info('payment => ' . json_encode($payment));
                 if(isset($payment)){
                     $payment->update(['payment_status' => 1, 'payment_json' => $json, 'payment_id' => $decoded_json->payload->payment->entity->id]);
-                    Log::info('payment => ' . json_encode($payment) . 'Order_id '. $payment->order_id);
+                    // Log::info('payment => ' . json_encode($payment) . 'Order_id '. $payment->order_id);
                     if(isset($payment->order_id)){
                         $order = Order::where('id', $payment->order_id)->first();
-                        Log::info('order => ' . json_encode($order));
+                        // Log::info('order => ' . json_encode($order));
                         if(isset($order)){
                             $order->update(['payment_status'=> 1, 'payment_json' => $json, 'payment_date' => now()]);
-                            Log::info('order => ' . json_encode($order));
+                            // Log::info('order => ' . json_encode($order));
                             $order_items = OrderItem::where('order_id', $order->id)->get();
-                            Log::info('order_items => ' . json_encode($order_items));
+                            // Log::info('order_items => ' . json_encode($order_items));
                             if(isset($order_items) && $order_items->count() > 0){
                                 foreach($order_items as $order_item){
                                     if(isset($order_item->campagin_id)){
                                         $campaign = Campaign::where('id', $order_item->campagin_id)->first();
                                         $raise_amount = round($campaign->raise_amount + $amount);
                                         $campaign->update(['raise_amount' => $raise_amount]);
-                                        Log::info('campaign => ' . json_encode( $campaign));
+                                        // Log::info('campaign => ' . json_encode( $campaign));
                                     }
                                 }
                             }
