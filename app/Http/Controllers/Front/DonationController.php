@@ -94,7 +94,14 @@ class DonationController extends Controller
 
     public function paymentVerify(Request $request)
     {
-        Log::info('GetWebHookPaymentInformation' . json_encode($request->all()));
+
+        // $json = $request->all();
+        // if (isset($json) && $json->event == 'payment.authorized') {
+        //     dd($json->payload->payment->entity->id, $json->payload->payment->entity->amount / 100);
+        // }
+
+        Log::info('GetWebHookPaymentInformation' . json_decode($request->all()));
+
         return UtilityService::is200Response(responseMsg('success'));
     }
 }
