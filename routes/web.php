@@ -49,6 +49,9 @@ Route::controller(FrontCampaignController::class)->group(function () {
     Route::get('/campaign/{slug}', 'show')->name('front.campaign.show');
     Route::post('/campaigns/add-or-update-cart/{campaign}', 'addOrUpdateCart');
     Route::get('/campaigns/update-campaign-variation/{combo}/{campaign}', 'UpdateCartVariation');
+    Route::post('/add-or-update-gift-tree', 'submitGirtTree')->name('front.submitGirtTree');
+    Route::post('/add-or-update-occasion-tree', 'giveTheOccasion')->name('front.giveTheOccasion');
+    Route::post('/campaign/review', 'campaignReview')->name('front.campaignReview.store');
 });
 
 Route::controller(FrontImpactStoryController::class)->group(function () {

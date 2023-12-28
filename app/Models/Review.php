@@ -17,11 +17,11 @@ class Review extends Model
     protected $fillable = [
         'name',
         'email',
-        'review',
-        'type',
-        'type_id',
+        'rating',
+        'product_id',
+        'campaign_id',
         'status',
-        'message',
+        'review',
     ];
 
 

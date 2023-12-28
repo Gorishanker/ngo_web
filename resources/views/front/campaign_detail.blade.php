@@ -112,7 +112,7 @@
                                 <span>Raised:
                                     <b>{{ currencyIcon() }}{{ $campaign_detail->raise_amount }}</b></span>
                             </div>
-                            <div class="progress skill-bar ">
+                            <div class="progress skill-bar " style="margin-bottom: 10px;">
                                 <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80"
                                     aria-valuemin="0" aria-valuemax="100" style="width: {{ $raised_percent }}%;">
 
@@ -256,6 +256,126 @@
             @endif
         </div>
     </section>
+    <section class="bg-shop-section" style="padding: 0 0">
+        <div class="container">
+            <div class="row">
+                <div class="shop-option">
+                    <div class="row">
+                        <div class="col-lg-9">
+
+
+                            <div class="product-review">
+                                @if (isset($reviews) && $reviews->count() > 0)
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#description"
+                                                aria-controls="description" role="tab"
+                                                data-bs-toggle="tab">Reviews</a>
+                                        </li>
+                                    </ul>
+                                @endif
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="review">
+                                        @if (isset($reviews) && $reviews->count() > 0)
+                                            <div class="review-content">
+                                                <h4 class="description-title">Customer Reviews</h4>
+                                                @foreach ($reviews as $review)
+                                                    <div class="costomer-review-items">
+                                                        <div class="customer-img">
+                                                            <img src="{{ blankUserUrl() }}" alt="User profile image">
+                                                        </div>
+                                                        <!-- .customer-img -->
+                                                        <div class="customer-content">
+                                                            <div class="customer-title">
+                                                                <div class="customer-name">
+                                                                    <h4><a
+                                                                            href="#">{{ isset($review->name) ? $review->name : 'Gues User' }}</a>
+                                                                        <small>Posted on
+                                                                            {{ diffForHumans($review->created_at) }}</small>
+                                                                    </h4>
+                                                                </div>
+                                                                <!-- .customer-name -->
+                                                                <div class="rating">
+                                                                    <ul class="star-icon">
+                                                                        @for ($i = 1; $i <= $review->rating; $i++)
+                                                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        @endfor
+                                                                        @php
+                                                                            $blank_star = 5 - $review->rating;
+                                                                        @endphp
+                                                                        @for ($i = 1; $i <= $blank_star; $i++)
+                                                                            <i class="fa fa-star-o"
+                                                                                aria-hidden="true"></i>
+                                                                        @endfor
+                                                                    </ul>
+                                                                </div>
+                                                                <!-- .customer-name -->
+                                                            </div>
+                                                            <!-- .customer-title -->
+                                                            <p>{{ isset($review->review) ? $review->review : '' }}</p>
+                                                        </div>
+                                                        <!-- .review-img -->
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            {{ $reviews->links() }}
+                                        @endif
+                                        <!-- .review-content -->
+                                        <div class="review-submit">
+                                            <h4 class="review-submit-title">Add A Review</h4>
+                                            {!! Form::open([
+                                                'route' => 'front.campaignReview.store',
+                                                'id' => 'ReviewForm',
+                                                'method' => 'POST',
+                                            ]) !!}
+                                            {!! Form::hidden('campaign_id', $campaign_detail->id) !!}
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        {!! Form::text('name', null, ['placeholder' => 'Name*', 'class' => 'form-control']) !!}
+                                                    </div>
+                                                </div>
+                                                <!-- .col-md-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        {!! Form::text('email', null, ['placeholder' => 'Email*', 'class' => 'form-control']) !!}
+                                                    </div>
+                                                </div>
+                                                <!-- .col-md-4 -->
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        {!! Form::text('rating', 5, ['placeholder' => 'Your Rating*', 'class' => 'form-control']) !!}
+                                                    </div>
+                                                </div>
+                                                <!-- .col-md-4 -->
+                                            </div>
+                                            <!-- .row -->
+                                            {!! Form::textarea('review', null, [
+                                                'placeholder' => 'Type Here Message*',
+                                                'class' => 'form-control comments-textarea',
+                                            ]) !!}
+                                            <button type="submit" id="submit_review_form" class="btn btn-default">Submit
+                                                REVIEW</button>
+                                            </form>
+                                        </div>
+                                        <!-- .review-submit -->
+                                    </div>
+                                    <!-- .review -->
+                                </div>
+                                <!-- .Tab-content -->
+                            </div>
+                            <!-- .product-review -->
+                        </div>
+                    </div>
+                    <!-- .row -->
+                </div>
+                <!-- .shop-option -->
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+    </section>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -269,39 +389,47 @@
                         <h2>GIVE THE GIFT OF TREES!</h2>
                         <p class="mb-0">Scroll to the right of the carousel below to select from more card options.</p>
                         <b>A Tree Certificate will be sent to the recipient with the e-card.</b>
-                        <p>Need help gifting? <a href="#">Click here</a> for our guide!</p>
+                        {{-- <p>Need help gifting? <a href="#">Click here</a> for our guide!</p> --}}
                     </div>
-
+                    {!! Form::open([
+                        'id' => 'GiftTreeFormForm',
+                        'route' => 'front.submitGirtTree',
+                        'method' => 'POST',
+                    ]) !!}
+                    <input type="hidden" name="campaign_id" value="{{ $campaign_detail->id }}">
                     <div class="form-main">
                         <div class="tree-form">
                             <label>To:</label>
-                            <input type="name" class="form-control" placeholder="Type recipient's name">
+                            <input type="text" name="name" class="form-control"
+                                placeholder="  Type recipient's name *">
                         </div>
                         <div class="tree-form">
                             <label></label>
-                            <input type="name" class="form-control" placeholder="Type recipient's email">
+                            <input type="text" name="email" class="form-control"
+                                placeholder="  Type recipient's email *">
                         </div>
                         <div class="tree-form">
                             <label>From:</label>
-                            <input type="name" class="form-control" placeholder="Type your name">
+                            <input type="text" name="from" class="form-control" placeholder="  Type your name *">
                         </div>
                         <div class="tree-form">
                             <label>Title</label>
-                            <input type="name" class="form-control"
-                                placeholder="Type a title - ex: Happy birthday! max. 30 characters">
+                            <input type="text" name="title" class="form-control"
+                                placeholder="  Type a title - ex: Happy birthday! max. 30 characters *">
                         </div>
                         <div class="tree-form">
                             <label>Message:</label>
-                            <textarea class="form-control" placeholder="Type a message - ex: Enjoy Your Gift! - max. 250 characters"></textarea>
+                            <textarea name="message" class="form-control"
+                                placeholder="Type a message - ex: Enjoy Your Gift! - max. 250 characters *"></textarea>
                         </div>
                         <div class="tree-form">
                             <label>Delivery Date:</label>
-                            <input type="date" class="form-control" placeholder="">
+                            <input type="date" name="delivery_date" class="form-control" placeholder="">
                         </div>
-
                         <div class="trand-view">
-                            <a href="#">Submit</a>
+                            <button type="submit" id="submit_form" class="btn btn-default">Submit</button>
                         </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
@@ -321,6 +449,12 @@
                     <div class="modal-head">
                         <h2>GIVE THE OCCASION!</h2>
                     </div>
+                    {!! Form::open([
+                        'id' => 'GIVETHEOCCASION',
+                        'route' => 'front.giveTheOccasion',
+                        'method' => 'POST',
+                    ]) !!}
+                    <input type="hidden" name="occassion_campaign_id" value="{{ $campaign_detail->id }}">
                     <div class="form-main">
                         <div class="tree-form">
                             <label>Select:</label>
@@ -332,17 +466,22 @@
                         </div>
                         <div class="tree-form">
                             <label></label>
-                            <input type="text" id="custom_occasion" class="form-control" placeholder="Or ....">
+                            {!! Form::text('custom_occasion', null, [
+                                'placeholder' => 'Or ....',
+                                'id' => 'custom_occasion',
+                                'class' => 'form-control',
+                            ]) !!}
                         </div>
                         <div class="trand-view">
-                            <a href="#">Submit</a>
+                            <button type="submit" id="submit_occassion_form" class="btn btn-default">Submit</button>
                         </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    @push('scripts')
+    @push('styles')
         <style>
             .gift-accasion a {
                 border: 2px #53a92c solid;
@@ -353,6 +492,127 @@
         @include('front.capaigns_css')
     @endpush
     @push('scripts')
+        <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+        {!! JsValidator::formRequest('App\Http\Requests\Front\GiftTreeRequest', '#GiftTreeFormForm') !!}
+        {!! JsValidator::formRequest('App\Http\Requests\Front\ReviewRequest', '#ReviewForm') !!}
+        <script>
+            $('#ReviewForm').submit(function(e) {
+                e.preventDefault();
+                let formData = new FormData(this);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': `{{ csrf_token() }}`
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('front.campaignReview.store') }}",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('#submit_review_form').html('Loading...');
+                        $('#submit_review_form').addClass('disabled');
+                        $('#submit_review_form').attr('disabled', true);
+                    },
+                    success: (response) => {
+                        if (response.status == 1) {
+                            $('#submit_review_form').html('Submitted');
+                            $('#submit_review_form').removeClass('disabled');
+                        } else {
+                            $('#submit_review_form').html('Submit REVIEW');
+                            $('#submit_review_form').removeClass('disabled');
+                            $('#submit_review_form').attr('disabled', false);
+                        }
+                    },
+                    error: function() {
+                        $('#submit_review_form').html('Submit REVIEW');
+                        $('#submit_review_form').removeClass('disabled');
+                        $('#submit_review_form').attr('disabled', false);
+                    },
+                });
+            });
+            $('#GIVETHEOCCASION').submit(function(e) {
+                e.preventDefault();
+                var custom_occasion = $('#custom_occasion').val();
+                var occasion_select = $('#occasion_select').val();
+                if (custom_occasion || occasion_select) {
+                    let formData = new FormData(this);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': `{{ csrf_token() }}`
+                        }
+                    });
+                    $.ajax({
+                        type: 'POST',
+                        url: "{{ route('front.giveTheOccasion') }}",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function() {
+                            $('#submit_occassion_form').html('Loading...');
+                            $('#submit_occassion_form').addClass('disabled');
+                            $('#submit_occassion_form').attr('disabled', true);
+                        },
+                        success: (response) => {
+                            if (response.status == 1) {
+                                $('#submit_occassion_form').html('Submit');
+                                $('#submit_occassion_form').removeClass('disabled');
+                                $('#occasionModal').modal('hide');
+                            } else {
+                                $('#submit_occassion_form').html('Submit');
+                                $('#submit_occassion_form').removeClass('disabled');
+                                $('#submit_occassion_form').attr('disabled', false);
+                            }
+                        },
+                        error: function() {
+                            $('#submit_occassion_form').html('Submit');
+                            $('#submit_occassion_form').removeClass('disabled');
+                            $('#submit_occassion_form').attr('disabled', false);
+                        },
+                    });
+                } else {
+                    return false;
+                }
+            });
+            $('#GiftTreeFormForm').submit(function(e) {
+                e.preventDefault();
+                let formData = new FormData(this);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': `{{ csrf_token() }}`
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('front.submitGirtTree') }}",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('#submit_form').html('Loading...');
+                        $('#submit_form').addClass('disabled');
+                        $('#submit_form').attr('disabled', true);
+                    },
+                    success: (response) => {
+                        if (response.status == 1) {
+                            $('#submit_form').html('Submit');
+                            $('#submit_form').removeClass('disabled');
+                            $('#exampleModal').modal('hide');
+                        } else {
+                            $('#submit_form').html('Submit');
+                            $('#submit_form').removeClass('disabled');
+                            $('#submit_form').attr('disabled', false);
+                        }
+                    },
+                    error: function() {
+                        $('#submit_form').html('Submit');
+                        $('#submit_form').removeClass('disabled');
+                        $('#submit_form').attr('disabled', false);
+                    },
+                });
+            });
+        </script>
         <script type="text/javascript">
             $('#thumbs img').click(function() {
                 $('#largeImage').attr('src', $(this).attr('src').replace('thumb', 'large'));
