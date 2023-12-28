@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\DonationRequest;
 use App\Models\Donation;
 use App\Models\Payment;
+use App\Services\UtilityService;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DonationController extends Controller
 {
@@ -52,7 +54,7 @@ class DonationController extends Controller
             'mobile_no' => $payment->mobile,
             'address' => $payment->address_1,
         ];
-                            
+
         if (isset($payment)) {
             return response()->json([
                 'status' => true,
@@ -87,5 +89,11 @@ class DonationController extends Controller
                 'status' => false,
             ], 422);
         }
+    }
+
+    public function paymentVerify(Request $request)
+    {
+        Log::info('GetWebHookPaymentInformation' . $request->all());
+        return UtilityService::is200Response(responseMsg('success'));
     }
 }

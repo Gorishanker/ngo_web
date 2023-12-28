@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::controller(FrontDonationController::class)->group(function () {
+    Route::any('/verify-payment/razorpay-webhook', 'paymentVerify');
+});
+
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/get-projects/{category_id?}', 'projects');
