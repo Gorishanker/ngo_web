@@ -23,7 +23,7 @@ class ProjectRequest extends FormRequest
      */
     public function rules()
     {
-        if (!request()->is('admin/blogs/create')) {
+        if (!request()->is('admin/projects/create')) {
             return [
                 'title' => 'required|alpha_spaces|min:10|max:150|unique:projects,title,' .request()->id,
                 'image' => 'nullable|image',
@@ -33,6 +33,7 @@ class ProjectRequest extends FormRequest
                 'side_images' => 'nullable|max:3',
                 'brochure_pdf' => 'nullable|file|mimes:pdf',
                 'brochure_doc' => 'nullable|file',
+                'content' => 'required|min:50',
             ];
         } else {
             return [
@@ -44,6 +45,7 @@ class ProjectRequest extends FormRequest
                 'side_images' => 'required|max:3',
                 'brochure_pdf' => 'required|file|mimes:pdf',
                 'brochure_doc' => 'required|file',
+                'content' => 'required|min:50',
             ];
         }
     }

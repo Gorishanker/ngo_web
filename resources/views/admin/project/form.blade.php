@@ -1,11 +1,11 @@
 @if ($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
-        <ul>
+        {{-- <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
+        </ul> --}}
     </div>
 @endif
 @php
@@ -112,9 +112,12 @@
         @endif
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.side_images', 1) }}</label>
+        <label class="required">{{ trans_choice('content.side_images', 1) }} (Maximum 3 image)</label>
         <input type="file" name="side_images[]" class="input w-full border bg-gray-100 mt-2"
             placeholder={{ __('Upload Image ') }} multiple="true" accept="image/*">
+            @if ($errors->has('side_images'))
+            <span class="invalid-feedback" style="display: block;">{{ $errors->first('side_images') }}</span>
+        @endif
     </div>
     <div class="col-span-12 form-group xl:col-span-12" style="display: flex;">
         @if (!empty($project->project_docs))
@@ -130,7 +133,7 @@
         @endif
     </div>
     <div class="col-span-12 form-group xl:col-span-12">
-        <label class="required">{{ trans_choice('content.content', 1) }}</label>
+        <label class="required">{{ trans_choice('content.content', 1) }}(Minimum 50 characters)</label>
         {!! Form::textarea('content', null, [
             'class' => 'input summernote w-full border bg-gray-100 mt-2',
             'rows' => 2,
