@@ -315,7 +315,7 @@
                     "key": "{{ env('RAZOR_KEY') }}", // Enter the Key ID generated from the Dashboard
                     "amount": total_amount, // Amount is in currency subunits. Default currency is INR. Hence, 10 refers to 1000 paise
                     "currency": "INR",
-                    'donate_id' : donate_id,
+                    "donate_id" : donate_id,
                     "name": "GreenForest",
                     "description": "Donation Transaction",
                     "image": "{{ asset('front/images/home01/logo.png') }}",
@@ -350,7 +350,8 @@
                         "contact": mobile_no
                     },
                     "notes": {
-                        "address": address
+                        "address": address,
+                        "donate_id" : donate_id,
                     },
                     "theme": {
                         "color": "#218838"
