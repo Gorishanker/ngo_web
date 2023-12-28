@@ -113,7 +113,7 @@ class DonationController extends Controller
                         $order = Order::where('id', $payment->order_id)->first();
                         // Log::info('order => ' . json_encode($order));
                         if(isset($order)){
-                            $order->update(['payment_status'=> 1, 'payment_json' => $json, 'payment_date' => now()]);
+                            $order->update(['payment_status'=> 1, 'payment_json' => $json, 'payment_date' => now(),'status' => 1]);
                             // Log::info('order => ' . json_encode($order));
                             $order_items = OrderItem::where('order_id', $order->id)->get();
                             // Log::info('order_items => ' . json_encode($order_items));

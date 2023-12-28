@@ -17,6 +17,7 @@ class Order extends Model
     protected $fillable = [
         'ip_address',
         'total_price',
+        'status',
         'payment_status',
         'payment_json',
         'payment_date',
