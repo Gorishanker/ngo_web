@@ -106,8 +106,8 @@ class DonationController extends Controller
                 $payment = Payment::where(['payment_id' => $decoded_json->payload->payment->entity->id, 'donation_amount' => $amount])->orderBy('created_at' , 'desc')->first();
                 Log::info('amount => ' . $amount );
                 Log::info('payment => ' . json_encode($payment) );
-                $clientIPc = \Request::ip();
-                $clientIP = \Request::getClientIp(true);
+                $clientIPc = $request->ip();
+                $clientIP = $request->getClientIp(true);
                 Log::info('ip => '. request()->ip() . ' ip => ' . $clientIPc . ' ip => ' .$clientIP . ' ip => ' . $request->ip());
             }
                 // $payment = $payment->update(['payment_status' => 1, 'payment_json' => $json]);
