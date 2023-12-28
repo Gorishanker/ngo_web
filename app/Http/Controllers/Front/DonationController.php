@@ -79,7 +79,8 @@ class DonationController extends Controller
             'donation_amount' => $request->amount,
             'payment_json' => $request->payment_json,
         ];
-        $payment  = Payment::where(['ip_address' => $request->ip(), 'payment_status' => 0, 'donation_amount' => $request->amount])->orderBy('created_at', 'desc')->update($input);
+        $payment  = Payment::where(['ip_address' => $request->ip(), 'payment_status' => 0, 'donation_amount' => $request->amount])->orderBy('created_at', 'desc')->first();
+        $payment = $payment->update($input);
         if (isset($payment)) {
             return response()->json([
                 'status' => true,
