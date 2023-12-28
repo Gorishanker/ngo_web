@@ -104,7 +104,7 @@ class DonationController extends Controller
             if (isset($decoded_json->payload->payment->entity->id) && isset($decoded_json->payload->payment->entity->amount)) {
                 $amount = $decoded_json->payload->payment->entity->amount / 100;
                 $payment = Payment::where(['payment_id' => $decoded_json->payload->payment->entity->id, 'donation_amount' => $amount])->orderBy('created_at' , 'desc')->first();
-                Log::info('amount => ' . $amount );
+                Log::info('amount => ' . $amount . ': payment_id => '. $decoded_json->payload->payment->entity->id);
                 Log::info('payment => ' . json_encode($payment) );
                 Log::info('ip => ' .$request->ip());
                 if(isset($payment)){
