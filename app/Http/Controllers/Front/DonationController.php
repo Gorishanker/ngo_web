@@ -103,31 +103,31 @@ class DonationController extends Controller
         if (isset($decoded_json) && $decoded_json->event == 'payment.authorized') {
             if (isset($decoded_json->payload->payment->entity->id) && isset($decoded_json->payload->payment->entity->amount)) {
                 $amount = $decoded_json->payload->payment->entity->amount / 100;
-                // $payment = Payment::where('payment_id' ,$decoded_json->payload->payment->entity->id)->first();
-                $payment = Payment::get();
-                Log::info('amount => ' . $amount . ': payment_id => '. $decoded_json->payload->payment->entity->id);
+                $payment = Payment::where(['payment_id' => $decoded_json->payload->payment->entity->id, 'donation_amount' => $amount])->orderBy('created_at' , 'desc')->first();
+                Log::info('amount => ' . $amount );
                 Log::info('payment => ' . json_encode($payment) );
-                if(isset($payment)){
-                    Log::info('payment => ' . json_encode($payment) );
-                    $payment = $payment->update(['payment_status' => 1, 'payment_json' => $json]);
-                    if(isset($payment->order_id)){
-                        $order = Order::where('id', $payment->order_id)->first();
-                        if(isset($order)){
-                            $order->update(['payment_status'=> 1, 'payment_json' => $json, 'payment_date' => now()]);
-                            $order_items = OrderItem::where('order_id', $order->id)->get();
-                            if(isset($order_items) && $order_items->count() > 0){
-                                foreach($order_items as $order_item){
-                                    if(isset($order_item->campagin_id)){
-                                        $campaign = Campaign::where('id', $order_item->campagin_id)->first();
-                                        $raise_amount = round($campaign->raise_amount + $amount);
-                                        $campaign->update(['raise_amount' => $raise_amount]);
-                                    }
-                                }
-                            }
-    
-                        }
-                    }
-                }
+                $clientIPc = \Request::ip();
+                $clientIP = \Request::getClientIp(true);
+                Log::info('ip => '. request()->ip() . ' ip => ' . $clientIPc . ' ip => ' .$clientIP . ' ip => ' . $request->ip());
+            }
+                // $payment = $payment->update(['payment_status' => 1, 'payment_json' => $json]);
+                // if(isset($payment->order_id)){
+                //     $order = Order::where('id', $payment->order_id)->first();
+                //     if(isset($order)){
+                //         $order->update(['payment_status'=> 1, 'payment_json' => $json, 'payment_date' => now()]);
+                //         $order_items = OrderItem::where('order_id', $order->id)->get();
+                //         if(isset($order_items) && $order_items->count() > 0){
+                //             foreach($order_items as $order_item){
+                //                 if(isset($order_item->campagin_id)){
+                //                     $campaign = Campaign::where('id', $order_item->campagin_id)->first();
+                //                     $raise_amount = round($campaign->raise_amount + $amount);
+                //                     $campaign->update(['raise_amount' => $raise_amount]);
+                //                 }
+                //             }
+                //         }
+
+                //     }
+                // }
             }
         }
         return UtilityService::is200Response(responseMsg('success'));
