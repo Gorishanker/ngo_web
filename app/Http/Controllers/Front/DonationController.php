@@ -93,7 +93,7 @@ class DonationController extends Controller
 
     public function paymentVerify(Request $request)
     {
-        Log::info('GetWebHookPaymentInformation' . $request->all());
+        Log::info('GetWebHookPaymentInformation' . json_encode($request->all()));
         return UtilityService::is200Response(responseMsg('success'));
     }
 }
