@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\DonationRequest;
+use App\Models\Campaign;
 use App\Models\Donation;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Payment;
 use App\Services\UtilityService;
 use Artesaos\SEOTools\Facades\SEOTools;
@@ -95,13 +98,32 @@ class DonationController extends Controller
     public function paymentVerify(Request $request)
     {
 
-        // $json = $request->all();
-        // if (isset($json) && $json->event == 'payment.authorized') {
-        //     dd($json->payload->payment->entity->id, $json->payload->payment->entity->amount / 100);
-        // }
+        $json = json_encode($request->all());
+        $decoded_json = json_decode($json);
+        if (isset($decoded_json) && $decoded_json->event == 'payment.authorized') {
+            if (isset($decoded_json->payload->payment->entity->id) && isset($decoded_json->payload->payment->entity->amount)) {
+                $amount = $decoded_json->payload->payment->entity->amount / 100;
+                $payment = Payment::where(['ip_address' => $request->ip(), 'payment_id' => $decoded_json->payload->payment->entity->id, 'donation_amount' => $amount])->orderBy('created_at' , 'desc')->first();
+                $payment = $payment->update(['payment_status' => 1, 'payment_json' => $json]);
+                if(isset($payment->order_id)){
+                    $order = Order::where('id', $payment->order_id)->first();
+                    if(isset($order)){
+                        $order->update(['payment_status'=> 1, 'payment_json' => $json, 'payment_date' => now()]);
+                        $order_items = OrderItem::where('order_id', $order->id)->get();
+                        if(isset($order_items) && $order_items->count() > 0){
+                            foreach($order_items as $order_item){
+                                if(isset($order_item->campagin_id)){
+                                    $campaign = Campaign::where('id', $order_item->campagin_id)->first();
+                                    $raise_amount = round($campaign->raise_amount + $amount);
+                                    $campaign->update(['raise_amount' => $raise_amount]);
+                                }
+                            }
+                        }
 
-        Log::info('GetWebHookPaymentInformation' . json_decode($request->all()));
-
+                    }
+                }
+            }
+        }
         return UtilityService::is200Response(responseMsg('success'));
     }
 }
