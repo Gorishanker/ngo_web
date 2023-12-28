@@ -103,10 +103,9 @@ class DonationController extends Controller
         if (isset($decoded_json) && $decoded_json->event == 'payment.authorized') {
             if (isset($decoded_json->payload->payment->entity->id) && isset($decoded_json->payload->payment->entity->amount)) {
                 $amount = $decoded_json->payload->payment->entity->amount / 100;
-                $payment = Payment::where(['payment_id' => $decoded_json->payload->payment->entity->id, 'donation_amount' => $amount])->orderBy('created_at' , 'desc')->first();
+                $payment = Payment::where(['payment_id' => $decoded_json->payload->payment->entity->id, 'donation_amount' => $amount])->first();
                 Log::info('amount => ' . $amount . ': payment_id => '. $decoded_json->payload->payment->entity->id);
                 Log::info('payment => ' . json_encode($payment) );
-                Log::info('ip => ' .$request->ip());
                 if(isset($payment)){
                     $payment = $payment->update(['payment_status' => 1, 'payment_json' => $json]);
                     if(isset($payment->order_id)){
