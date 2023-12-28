@@ -31,6 +31,20 @@
             </a>
         </li>
         <li>
+            <a href="{{ route('admin.orders.index') }}"
+                class="menu {{ request()->is('*orders*') ? 'menu--active' : '' }}">
+                <div class="menu__icon"> <i class="fa-solid fa-cart-shopping"></i> </div>
+                <div class="menu__title"> Orders </div>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.payment_histories.index') }}"
+                class="menu {{ request()->is('*payment_histories*') ? 'menu--active' : '' }}">
+                <div class="menu__icon"> <i class="fa-solid fa-money-bill"></i> </div>
+                <div class="menu__title"> Payment history </div>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('admin.projects.index') }}"
                 class="menu {{ request()->is('*projects*') ? 'menu--active' : '' }}">
                 <div class="menu__icon"> <i class="fa-solid fa-diagram-project"></i> </div>

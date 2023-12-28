@@ -153,6 +153,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         });
         Route::resource('/faqs', FaqController::class);
 
+        Route::controller(OrderController::class)->group(function () {
+            Route::get('/orders', 'index')->name('orders.index');
+            Route::get('/orders/{order}', 'show')->name('orders.show');
+        });
+
+        Route::controller(PaymentHistoryController::class)->group(function () {
+            Route::get('/payment_histories', 'index')->name('payment_histories.index');
+            Route::get('/payment_histories/{payment_history}', 'show')->name('payment_histories.show');
+        });
 
         //contact_us Controller
         Route::controller(ContactUsController::class)->group(function () {

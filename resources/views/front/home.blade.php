@@ -705,7 +705,7 @@
             <div class="row">
                 <div class="upcoming-events">
                     <div class="section-header">
-                        <h2>Our Letest Blogs</h2>
+                        <h2>Our Latest Blogs</h2>
                     </div>
                     <!-- .section-header -->
                     <div class="row">

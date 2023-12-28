@@ -345,6 +345,26 @@ function totalCartAmount(){
     return $total_cart;
 }
 
+function paymentStatus($data)
+{
+    if($data == 1){
+        return 'Success';
+    }elseif($data == 2){
+return "Failed";
+    }else{
+        return "Pending";
+    }
+}
+
+function orderStatus($data)
+{
+    if($data == 1){
+        return 'Completed';
+    }else{
+        return "In Cart";
+    }
+}
+
 
 
 function setStringLength($string_value, $length = 20)

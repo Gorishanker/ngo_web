@@ -171,3 +171,7 @@ Breadcrumbs::resource('tags', "tags");
 Breadcrumbs::resource('contact_us', 'Contact us');
 // /*------------- Admin gallery ------------------------*/
 Breadcrumbs::resource('galleries', 'Gallery');
+// /*------------- Admin orders ------------------------*/
+Breadcrumbs::resource('orders', 'Orders');
+// /*------------- Admin payment_histories ------------------------*/
+Breadcrumbs::resource('payment_histories', 'Payment Histories');
