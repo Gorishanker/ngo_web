@@ -20,21 +20,21 @@
                                     <ul class="address">
                                         <li>
                                             <i class="fa fa-home" aria-hidden="true"></i>
-                                            <span>New Chokoya Road, USA.</span>
+                                            <span>{{getSettingDataBySlug('address')}}</span>
                                         </li>
                                         <li>
                                             <i class="fa fa-phone" aria-hidden="true"></i>
-                                            <span>+8801 923 970 698.</span>
+                                            <span>{{getSettingDataBySlug('contact_number')}}</span>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                            <span>Contact@admin.com</span>
+                                            <span>{{getSettingDataBySlug('email')}}</span>
 
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <i class="fa fa-globe" aria-hidden="true"></i>
                                             <span>Emai@admin.com</span>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
