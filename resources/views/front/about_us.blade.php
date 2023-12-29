@@ -133,7 +133,7 @@
         </div>
     </section>
     <!-- End Count Section -->
-
+@if(teams()->count() > 0)
     <!-- Start our volunteers Section -->
     <section class="bg-volunteers-section">
         <div class="container">
@@ -196,9 +196,10 @@
         </div>
         <!-- .container -->
     </section>
+    @endif
     <!-- End our volunteers Section -->
 
-    <!-- Start People Say Section -->
+    {{-- <!-- Start People Say Section -->
     <section class="bg-people-say-section">
         <div class="people-say-overlay">
             <div class="container">
@@ -269,9 +270,10 @@
         </div>
         <!-- .people-say-overlay -->
     </section>
-    <!-- End People Say Section -->
+    <!-- End People Say Section --> --}}
 
     <!-- Start Blog Section -->
+    @if (isset($blogs) && $blogs->count() > 0)
     <section class="bg-blog-section">
         <div class="container">
             <div class="row">
@@ -283,7 +285,6 @@
                     </div>
                     <!-- .section-header -->
                     <div class="row">
-                        @if (isset($blogs) && $blogs->count() > 0)
                             @foreach ($blogs as $blog)
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="blog-items">
@@ -322,21 +323,8 @@
                                     <!-- .blog-items -->
                                 </div>
                             @endforeach
-                        @else
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="blog-items">
-                                    <!-- .blog-img -->
-                                    <div class="blog-content-box">
-                                        <div class="blog-content">
-                                            <h4><a href="#">Comming Soon</a></h4>
-                                        </div>
-                                        <!-- .meta-box -->
-                                    </div>
-                                    <!-- .blog-content-box -->
-                                </div>
-                                <!-- .blog-items -->
-                            </div>
-                        @endif
+                           
+                        
                     </div>
                     <!-- .row -->
                 </div>
@@ -346,6 +334,7 @@
         </div>
         <!-- .bg-blog-section -->
     </section>
+    @endif
     <!-- End Blog Section -->
     @if(sponsors()->count() > 0)
        <!-- Start Sponsors Section -->

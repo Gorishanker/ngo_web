@@ -39,8 +39,8 @@
             <div class="row">
                 <div class="recent-project">
                     <div id="filters" class="button-group ">
-                        <button id="showAllProjects" class="button is-checked">show all</button>
                         @if (isset($categories) && $categories->count() > 0)
+                        <button id="showAllProjects" class="button is-checked">show all</button>
                             @foreach ($categories as $key => $category)
                                 <button data-id="{{ $category->id }}"
                                     class="single_category_projects button">{{ isset($category->category_name) ? $category->category_name : 'Na' }}</button>
@@ -52,9 +52,15 @@
                     <!-- .isotope-items -->
                 </div>
                 <!-- .recent-project -->
+                @if (isset($categories) && $categories->count() > 0)
                 <div class="load-more-option" data-id="1" service-id="0">
                     <a href="javascript:;" class="btn btn-default">load more</a>
                 </div>
+                @else
+                <div class="load-more-option" data-id="1" service-id="0">
+                    <a href="javascript:;" class="btn btn-default">Comming Soon</a>
+                </div>
+                @endif
             </div>
             <!-- .row -->
         </div>

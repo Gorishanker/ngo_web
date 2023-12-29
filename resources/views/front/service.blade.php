@@ -34,7 +34,7 @@
         </div>
         <!-- .page-header-overlay -->
     </section>
-
+    @if (isset($services) && $services->count() > 0)
     <!-- Start Service Style2 Section -->
     <section class="bg-servicesstyle2-section">
         <div class="container">
@@ -47,7 +47,6 @@
                     </div>
                     <!-- .section-header -->
                     <div class="row">
-                        @if (isset($services) && $services->count() > 0)
                             @foreach ($services as $service)
                                 <!-- .col-md-4 -->
                                 <div class="col-lg-4 col-sm-6 col-12">
@@ -70,122 +69,6 @@
                                     <!-- .our-services-box -->
                                 </div>
                             @endforeach
-                        @else
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="our-services-box">
-                                    <div class="our-services-items">
-                                        <i class="flaticon-greenhouse"></i>
-                                        <div class="our-services-content">
-                                            <h4><a href="service_single.html">Young Planting</a></h4>
-                                            <p>Credibly utcost efective an expertise and web enabled proces that
-                                                improvements
-                                                Completely seamless channels </p>
-                                            <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                        <!-- .our-services-content -->
-                                    </div>
-                                    <!-- .our-services-items -->
-                                </div>
-                                <!-- .our-services-box -->
-                            </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="our-services-box">
-                                    <div class="our-services-items">
-                                        <i class="flaticon-technology"></i>
-                                        <div class="our-services-content">
-                                            <h4><a href="service_single.html">Solar Panels</a></h4>
-                                            <p>Credibly utcost efective an expertise and web enabled proces that
-                                                improvements
-                                                Completely seamless channels </p>
-                                            <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                        <!-- .our-services-content -->
-                                    </div>
-                                    <!-- .our-services-items -->
-                                </div>
-                                <!-- .our-services-box -->
-                            </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="our-services-box">
-                                    <div class="our-services-items">
-                                        <i class="flaticon-light-bulb"></i>
-                                        <div class="our-services-content">
-                                            <h4><a href="service_single.html">Wind Energy</a></h4>
-                                            <p>Credibly utcost efective an expertise and web enabled proces that
-                                                improvements
-                                                Completely seamless channels </p>
-                                            <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                        <!-- .our-services-content -->
-                                    </div>
-                                    <!-- .our-services-items -->
-                                </div>
-                                <!-- .our-services-box -->
-                            </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="our-services-box">
-                                    <div class="our-services-items">
-                                        <i class="flaticon-recycling-symbol"></i>
-                                        <div class="our-services-content">
-                                            <h4><a href="service_single.html">Recycling</a></h4>
-                                            <p>Credibly utcost efective an expertise and web enabled proces that
-                                                improvements
-                                                Completely seamless channels </p>
-                                            <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                        <!-- .our-services-content -->
-                                    </div>
-                                    <!-- .our-services-items -->
-                                </div>
-                                <!-- .our-services-box -->
-                            </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="our-services-box">
-                                    <div class="our-services-items">
-                                        <i class="flaticon-sprout"></i>
-                                        <div class="our-services-content">
-                                            <h4><a href="service_single.html">Saving Forests</a></h4>
-                                            <p>Credibly utcost efective an expertise and web enabled proces that
-                                                improvements
-                                                Completely seamless channels </p>
-                                            <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                        <!-- .our-services-content -->
-                                    </div>
-                                    <!-- .our-services-items -->
-                                </div>
-                                <!-- .our-services-box -->
-                            </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="our-services-box">
-                                    <div class="our-services-items">
-                                        <i class="flaticon-droplet"></i>
-                                        <div class="our-services-content">
-                                            <h4><a href="service_single.html">Water Refining</a></h4>
-                                            <p>Credibly utcost efective an expertise and web enabled proces that
-                                                improvements
-                                                Completely seamless channels </p>
-                                            <a href="service_single.html">read more<i class="fa fa-angle-double-right"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                        <!-- .our-services-content -->
-                                    </div>
-                                    <!-- .our-services-items -->
-                                </div>
-                                <!-- .our-services-box -->
-                            </div>
-                            <!-- .col-md-4 -->
-                        @endif
                     </div>
                     <!-- .row -->
                 </div>
@@ -195,6 +78,7 @@
         </div>
         <!-- .container -->
     </section>
+    @endif
     <!-- End Service Style2 Section -->
     <!-- Start campaian video Section -->
     <section class="bg-compaian-video">
@@ -229,8 +113,8 @@
                     <!-- .section-header -->
 
                     <div id="filters" class="button-group ">
-                        <button id="showAllProjects" class="button is-checked">show all</button>
                         @if (isset($categories) && $categories->count() > 0)
+                        <button id="showAllProjects" class="button is-checked">show all</button>
                             @foreach ($categories as $key => $category)
                                 <button data-id="{{ $category->id }}"
                                     class="single_category_projects button">{{ isset($category->category_name) ? $category->category_name : 'Na' }}</button>
@@ -238,157 +122,7 @@
                         @endif
                     </div>
                     <div class="category_wise_projects portfolio-items">
-                        <div class="item cat-1" data-category="transition">
-                            <div class="item-inner">
-                                <div class="portfolio-img">
-                                    <div class="overlay-project"></div>
-                                    <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-1.jpg') }}"
-                                        alt="recent-project-img-1">
-                                    <ul class="project-link-option">
-                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li class="project-search"><a href="front/images/home02/recent-project-img-1.jpg"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /.portfolio-img -->
-                                <div class="recent-project-content">
-                                    <h4><a href="project_single.html">Sustainable Agriculture</a></h4>
-                                    <p>By : <span><a href="#">Green Forest</a></span></p>
-                                </div>
-                                <!-- .latest-port-content -->
-                            </div>
-                            <!-- .item-inner -->
-                        </div>
-                        <div class="item cat-2 " data-category="metalloid">
-                            <div class="item-inner">
-                                <div class="portfolio-img">
-                                    <div class="overlay-project"></div>
-                                    <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-2.jpg') }}"
-                                        alt="recent-project-img-2">
-                                    <ul class="project-link-option">
-                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li class="project-search"><a href="front/images/home02/recent-project-img-2.jpg"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /.portfolio-img -->
-                                <div class="recent-project-content">
-                                    <h4><a href="project_single.html">Helping Young Planting</a></h4>
-                                    <p>By : <span><a href="#">Green Forest</a></span></p>
-                                </div>
-                                <!-- .latest-port-content -->
-                            </div>
-                            <!-- .item-inner -->
-                        </div>
-                        <!-- .items -->
-
-                        <div class="item cat-3 " data-category="post-transition">
-                            <div class="item-inner">
-                                <div class="portfolio-img">
-                                    <div class="overlay-project"></div>
-                                    <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-3.jpg') }}"
-                                        alt="recent-project-img-3">
-                                    <ul class="project-link-option">
-                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li class="project-search"><a href="front/images/home02/recent-project-img-3.jpg"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /.portfolio-img -->
-                                <div class="recent-project-content">
-                                    <h4><a href="project_single.html">Need Solar Panels</a></h4>
-                                    <p>By : <span><a href="#">Green Forest</a></span></p>
-                                </div>
-                                <!-- .latest-port-content -->
-                            </div>
-                            <!-- .item-inner -->
-                        </div>
-                        <!-- .items -->
-
-                        <div class="item cat-2" data-category="post-transition">
-                            <div class="item-inner">
-                                <div class="portfolio-img">
-                                    <div class="overlay-project"></div>
-                                    <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-4.jpg') }}"
-                                        alt="recent-project-img-4">
-                                    <ul class="project-link-option">
-                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li class="project-search"><a href="front/images/home02/recent-project-img-4.jpg"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /.portfolio-img -->
-                                <div class="recent-project-content">
-                                    <h4><a href="project_single.html">Save The Ozone Layer</a></h4>
-                                    <p>By : <span><a href="#">Green Forest</a></span></p>
-                                </div>
-                                <!-- .latest-port-content -->
-                            </div>
-                            <!-- .item-inner -->
-                        </div>
-                        <!-- .items -->
-                        <div class="item cat-4" data-category="transition">
-                            <div class="item-inner">
-                                <div class="portfolio-img">
-                                    <div class="overlay-project"></div>
-                                    <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-5.jpg') }}"
-                                        alt="recent-project-img-5">
-                                    <ul class="project-link-option">
-                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li class="project-search"><a href="front/images/home02/recent-project-img-5.jpg"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /.portfolio-img -->
-                                <div class="recent-project-content">
-                                    <h4><a href="project_single.html">Save Water From Polution</a></h4>
-                                    <p>By : <span><a href="#">Green Forest</a></span></p>
-                                </div>
-                                <!-- .latest-port-content -->
-                            </div>
-                            <!-- .item-inner -->
-                        </div>
-                        <!-- .items -->
-                        <div class="item cat-1" data-category="alkali">
-                            <div class="item-inner">
-                                <div class="portfolio-img">
-                                    <div class="overlay-project"></div>
-                                    <!-- .overlay-project -->
-                                    <img src="{{ asset('front/images/home02/recent-project-img-6.jpg') }}"
-                                        alt="recent-project-img-6">
-                                    <ul class="project-link-option">
-                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li class="project-search"><a href="front/images/home02/recent-project-img-6.jpg"
-                                                data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
-                                                    aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /.portfolio-img -->
-                                <div class="recent-project-content">
-                                    <h4><a href="project_single.html">Make Plants Alive</a></h4>
-                                    <p>By : <span><a href="#">Green Forest</a></span></p>
-                                </div>
-                                <!-- .latest-port-content -->
-                            </div>
-                            <!-- .item-inner -->
-                        </div>
-                        <!-- .items -->
+                        <button id="showAllProjects" class="button is-checked">Comming Soon</button>
                     </div>
                     <!-- .isotope-items -->
                 </div>
