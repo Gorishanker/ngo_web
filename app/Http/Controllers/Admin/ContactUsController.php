@@ -44,7 +44,7 @@ class ContactUsController extends Controller
             if (isset($request->date_range)) {
                 list($startDate, $endDate) = explode(" - ", $request->date_range);
                 $items = $items->whereDate('contact_us.created_at', '>=', $startDate)
-                    ->whereDate('contact_us.created_at', '<', $endDate);
+                    ->whereDate('contact_us.created_at', '<=', $endDate);
             }
             if (isset($request->status_f)) {
                     $items = $items->where('contact_us.status', $request->status_f);

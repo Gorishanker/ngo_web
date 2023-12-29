@@ -80,7 +80,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="firstName">First Name<span>*</span></label>
-                                    <input type="text" class="form-control" name="first_name" id="firstName"
+                                    <input type="text" class="form-control mb-2" name="first_name" id="firstName"
                                         placeholder="First Name">
                                 </div>
                                 <!-- .form-group -->
@@ -89,7 +89,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="lastName">Last Name<span>*</span></label>
-                                    <input type="text" class="form-control" name="last_name" id="lastName"
+                                    <input type="text" class="form-control mb-2" name="last_name" id="lastName"
                                         placeholder="Last Name">
                                 </div>
                                 <!-- .form-group -->
@@ -99,7 +99,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="address1">Address 1<span>*</span></label>
-                                    <input type="text" class="form-control" name="address_1" id="address1"
+                                    <input type="text" class="form-control mb-2" name="address_1" id="address1"
                                         placeholder="Address 1">
                                 </div>
                                 <!-- .form-group -->
@@ -108,7 +108,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="address2">Address 2</label>
-                                    <input type="text" class="form-control" name="address_2" id="address2"
+                                    <input type="text" class="form-control mb-2" name="address_2" id="address2"
                                         placeholder="Address 2">
                                 </div>
                                 <!-- .form-group -->
@@ -116,7 +116,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="city">City<span>*</span></label>
-                                    <input type="text" class="form-control" name="city" id="city"
+                                    <input type="text" class="form-control mb-2" name="city" id="city"
                                         placeholder="City">
                                 </div>
                                 <!-- .form-group -->
@@ -125,7 +125,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="state">State<span>*</span></label>
-                                    <input type="text" class="form-control" name="state" id="state"
+                                    <input type="text" class="form-control mb-2" name="state" id="state"
                                         placeholder="State">
                                 </div>
                                 <!-- .form-group -->
@@ -135,7 +135,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="country">Country<span>*</span></label>
-                                    <input type="text" class="form-control" name="country" id="country"
+                                    <input type="text" class="form-control mb-2" name="country" id="country"
                                         placeholder="Country">
                                 </div>
                                 <!-- .form-group -->
@@ -153,7 +153,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="email">Email<span>*</span></label>
-                                    <input type="text" class="form-control" name="email" id="email"
+                                    <input type="text" class="form-control mb-2" name="email" id="email"
                                         placeholder="Email">
                                 </div>
                                 <!-- .form-group -->
@@ -162,7 +162,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="mobile">Mobile<span>*</span></label>
-                                    <input type="text" class="form-control" name="mobile" id="mobile"
+                                    <input type="text" class="form-control mb-2" name="mobile" id="mobile"
                                         placeholder="Mobile">
                                 </div>
                                 <!-- .form-group -->
@@ -170,18 +170,18 @@
                             <!-- .col-lg-6 -->
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="pan_number">PAN number</label>
-                                    <input type="text" maxlength="10" minlength="10" class="form-control"
-                                        name="pan_number" id="pan_number" placeholder="PAN number">
+                                    <label for="pan_number">PAN card number</label>
+                                    <input type="text" maxlength="10" minlength="10" class="form-control mb-2"
+                                        name="pan_number" id="pan_number" placeholder="PAN card number">
                                 </div>
                                 <!-- .form-group -->
                             </div>
                             <!-- .col-lg-6 -->
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label for="name_on_pan">Name on PAN</label>
-                                    <input type="text" class="form-control" name="name_on_pan" id="name_on_pan"
-                                        placeholder="Name on PAN">
+                                    <label for="name_on_pan">Name on PAN card</label>
+                                    <input type="text" class="form-control mb-2" name="name_on_pan" id="name_on_pan"
+                                        placeholder="Name on PAN card">
                                 </div>
                                 <!-- .form-group -->
                             </div>
@@ -189,7 +189,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="how_did_you_about_us">How did you about us</label>
-                                    <textarea class="form-control" name="how_did_you_about_us" id="how_did_you_about_us"
+                                    <textarea class="form-control mb-2" name="how_did_you_about_us" id="how_did_you_about_us"
                                         placeholder="How did you about us"></textarea>
                                 </div>
                                 <!-- .form-group -->

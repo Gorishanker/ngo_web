@@ -180,7 +180,7 @@
                         $('#submit_form').html('Save');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
-                        Swal.fire('Created!', 'Form submit successfull.', 'success');
+                        Swal.fire('Created!', response.message, 'success');
                     } else {
                         Swal.fire('Oops...', 'Something went wrong with ajax !',
                             'error');
@@ -221,7 +221,7 @@
                         this.reset();
                         $('#editDataModal').modal("hide");
                         oTable.draw();
-                        Swal.fire('Updated!', 'Form Update successfull.', 'success');
+                        Swal.fire('Updated!', response.message, 'success');
                     } else {
                         Swal.fire('Oops...', 'Something went wrong with ajax !',
                             'error');

@@ -47,14 +47,14 @@
         @endphp
         @foreach ($combos as $combo)
             <div class="col-span-12 form-group xl:col-span-6" id="addMoreCertificateSection0">
-                <label>Combo name</label>
+                <label class="required">Combo name</label>
                 {!! Form::text('combo[' . $combo_count . '][name]', $combo->name, [
                     'class' => 'input w-full border bg-gray-100 mt-2',
                     'placeholder' => 'Combo name',
                 ]) !!}
             </div>
             <div class="col-span-12 form-group xl:col-span-6" id="addMoreCertificateSection0">
-                <label>Combo price </label>
+                <label class="required">Combo price </label>
                 {!! Form::text('combo[' . $combo_count . '][price]', $combo->price, [
                     'class' => 'input w-full only_number border bg-gray-100 mt-2',
                     'placeholder' => 'Combo price',
@@ -66,14 +66,14 @@
         @endforeach
     @else
         <div class="col-span-12 form-group xl:col-span-6" id="addMoreCertificateSection0">
-            <label>Combo name</label>
+            <label class="required">Combo name</label>
             {!! Form::text('combo[0][name]', null, [
                 'class' => 'input w-full border bg-gray-100 mt-2',
                 'placeholder' => 'Combo name',
             ]) !!}
         </div>
         <div class="col-span-12 form-group xl:col-span-6" id="addMoreCertificateSection0">
-            <label>Combo price </label>
+            <label class="required">Combo price </label>
             {!! Form::text('combo[0][price]', null, [
                 'class' => 'input w-full only_number border bg-gray-100 mt-2',
                 'placeholder' => 'Combo price',
@@ -182,14 +182,14 @@
             }
             $(this).attr('data-id', parseInt(data_id, 10) + 1);
             $('#addMoreCertificateSections').append(`<div class="col-span-12 form-group xl:col-span-5 position: relative addMoreCertificateSection${data_id}">
-                <label>Combo name</label>
+                <label class="required">Combo name</label>
                 {!! Form::text('combo[${data_id}][name]', null, [
                     'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
                     'placeholder' => 'Combo name',
                 ]) !!}
             </div>
             <div class="col-span-12 form-group xl:col-span-5 position: relative addMoreCertificateSection${data_id}">
-                <label>Combo price </label>
+                <label class="required">Combo price </label>
                 {!! Form::text('combo[${data_id}][price]', null, [
                     'class' => 'input w-full only_number rounded-full border bg-gray-100 mt-2',
                     'placeholder' => 'Combo name',

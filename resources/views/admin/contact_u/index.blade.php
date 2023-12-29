@@ -108,7 +108,7 @@
                 ajax: {
                     "url": "{{ route('admin.contact_us.index') }}",
                     data: function(d) {
-                        d.status_f = $('select[name=status_f]').val();
+                        d.status_f = $('select[name=status]').val();
                         d.date_range = $('input[name="date_range"]').val();
                     },
                 },

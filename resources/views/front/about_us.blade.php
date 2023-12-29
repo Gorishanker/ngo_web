@@ -305,7 +305,7 @@
                                             <div class="meta-box">
                                                 <ul class="meta-post">
                                                     <li><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        {{ isset($blog->schedule_datetime) ? $blog->schedule_datetime : get_default_format($blog->created_at) }}
+                                                        {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
                                                     </li>
                                                     <li><a href="#"><i class="fa fa-heart-o"
                                                                 aria-hidden="true"></i> 24
@@ -325,28 +325,10 @@
                         @else
                             <div class="col-lg-4 col-sm-6 col-12">
                                 <div class="blog-items">
-                                    <div class="blog-img">
-                                        <a href="blog_single.html"><img src="assets/images/about/blog-img-1.jpg"
-                                                alt="blog-img-1" class="img-responsive" /></a>
-                                    </div>
                                     <!-- .blog-img -->
                                     <div class="blog-content-box">
                                         <div class="blog-content">
-                                            <h4><a href="blog_single.html">Actualze Cententrc Staled</a></h4>
-                                            <p>Completely actuaze cent centric coloration an sharing without ainstalled and
-                                                base
-                                                awesome event PSD Template.</p>
-                                        </div>
-                                        <!-- .blog-content -->
-                                        <div class="meta-box">
-                                            <ul class="meta-post">
-                                                <li><i class="fa fa-calendar" aria-hidden="true"></i> 22.04.2017</li>
-                                                <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 24
-                                                        Like</a></li>
-                                                <li><a href="#"><i class="fa fa-commenting-o"
-                                                            aria-hidden="true"></i>
-                                                        24 Comment</a></li>
-                                            </ul>
+                                            <h4><a href="#">Comming Soon</a></h4>
                                         </div>
                                         <!-- .meta-box -->
                                     </div>
@@ -354,71 +336,6 @@
                                 </div>
                                 <!-- .blog-items -->
                             </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="blog-items">
-                                    <div class="blog-img">
-                                        <a href="blog_single.html"><img src="assets/images/about/blog-img-2.jpg"
-                                                alt="blog-img-2" class="img-responsive" /></a>
-                                    </div>
-                                    <!-- .blog-img -->
-                                    <div class="blog-content-box">
-                                        <div class="blog-content">
-                                            <h4><a href="blog_single.html">Actualze Cententrc Staled</a></h4>
-                                            <p>Completely actuaze cent centric coloration an sharing without ainstalled and
-                                                base
-                                                awesome event PSD Template.</p>
-                                        </div>
-                                        <!-- .blog-content -->
-                                        <div class="meta-box">
-                                            <ul class="meta-post">
-                                                <li><i class="fa fa-calendar" aria-hidden="true"></i> 22.04.2017</li>
-                                                <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 24
-                                                        Like</a></li>
-                                                <li><a href="#"><i class="fa fa-commenting-o"
-                                                            aria-hidden="true"></i>
-                                                        24 Comment</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- .meta-box -->
-                                    </div>
-                                    <!-- .blog-content-box -->
-                                </div>
-                                <!-- .blog-items -->
-                            </div>
-                            <!-- .col-md-4 -->
-                            <div class="col-lg-4 col-sm-6 col-12">
-                                <div class="blog-items">
-                                    <div class="blog-img">
-                                        <a href="blog_single.html"><img src="assets/images/about/blog-img-3.jpg"
-                                                alt="blog-img-3" class="img-responsive" /></a>
-                                    </div>
-                                    <!-- .blog-img -->
-                                    <div class="blog-content-box">
-                                        <div class="blog-content">
-                                            <h4><a href="blog_single.html">Actualze Cententrc Staled</a></h4>
-                                            <p>Completely actuaze cent centric coloration an sharing without ainstalled and
-                                                base
-                                                awesome event PSD Template.</p>
-                                        </div>
-                                        <!-- .blog-content -->
-                                        <div class="meta-box">
-                                            <ul class="meta-post">
-                                                <li><i class="fa fa-calendar" aria-hidden="true"></i> 22.04.2017</li>
-                                                <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 24
-                                                        Like</a></li>
-                                                <li><a href="#"><i class="fa fa-commenting-o"
-                                                            aria-hidden="true"></i>
-                                                        24 Comment</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- .meta-box -->
-                                    </div>
-                                    <!-- .blog-content-box -->
-                                </div>
-                                <!-- .blog-items -->
-                            </div>
-                            <!-- .col-md-4 -->
                         @endif
                     </div>
                     <!-- .row -->
@@ -430,4 +347,42 @@
         <!-- .bg-blog-section -->
     </section>
     <!-- End Blog Section -->
+    @if(sponsors()->count() > 0)
+       <!-- Start Sponsors Section -->
+       <section class="bg-sponsors-section">
+        <div class="container">
+            <div class="row">
+                <div class="sponsors-option">
+                    <div class="section-header">
+                        <h2>top sponsors</h2>
+                        <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
+                            ubiquitous leadership awesome skills.</p>
+                    </div>
+                    <!-- .section-header -->
+                    <div class="sponsors-container">
+                        <div class="swiper-wrapper">
+                            @foreach (sponsors() as $sponsor)
+                                <div class="swiper-slide">
+                                    <div class="sopnsors-items">
+                                        <a href="#"><img style="width: 309px; height: 137px"
+                                                src="{{ $sponsor->image }}" alt="{{ $sponsor->name }}"
+                                                class="img-responsive" /></a>
+                                    </div>
+                                    <!-- .sponsors-items -->
+                                </div>
+                                <!-- .swiper-slide -->
+                            @endforeach
+                        </div>
+                        <!-- .swiper-wrapper -->
+                    </div>
+                    <!-- .sponsors-container -->
+                </div>
+                <!-- .sponsors-option -->
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+    </section>
+    @endif
+    <!-- End Sponsors Section -->
 @endsection

@@ -21,7 +21,7 @@
                                 'method' => 'POST',
                                 'class' => 'form mb-15',
                                 'enctype' => 'multipart/form-data',
-                                'onsubmit' => 'return checkForm(this);',
+                                // 'onsubmit' => 'return checkForm(this);',
                             ]) !!}
                             @csrf
 
@@ -115,7 +115,7 @@
 
                                         <div class="col-span-12 xl:col-span-6">
                                             <label
-                                                class="required">Twitter url</label>
+                                                class="">Twitter url</label>
                                             {!! Form::text('data[twitter_url]', isset($settings['twitter_url']) ? $settings['twitter_url'] : null, [
                                                 'placeholder' => 'Twitter url',
                                                 'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
@@ -124,7 +124,7 @@
 
                                         <div class="col-span-12 xl:col-span-6">
                                             <label
-                                                class="required">Facebook url</label>
+                                                class="">Facebook url</label>
                                             {!! Form::text('data[facebook_url]', isset($settings['facebook_url']) ? $settings['facebook_url'] : null, [
                                                 'placeholder' => 'Facebook url',
                                                 'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
@@ -133,7 +133,7 @@
 
                                         <div class="col-span-12 xl:col-span-6">
                                             <label
-                                                class="required">Instagram url</label>
+                                                class="">Instagram url</label>
                                             {!! Form::text('data[instagram_url]', isset($settings['instagram_url']) ? $settings['instagram_url'] : null, [
                                                 'placeholder' => 'Instagram url',
                                                 'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
@@ -142,7 +142,7 @@
 
                                         <div class="col-span-12 xl:col-span-6">
                                             <label
-                                                class="required">Linkedin url</label>
+                                                class="">Linkedin url</label>
                                             {!! Form::text('data[linkedin_url]', isset($settings['linkedin_url']) ? $settings['linkedin_url'] : null, [
                                                 'placeholder' => 'Linkedin url',
                                                 'class' => 'input w-full rounded-full border bg-gray-100 mt-2',

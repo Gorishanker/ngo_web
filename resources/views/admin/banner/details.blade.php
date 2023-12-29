@@ -8,6 +8,42 @@
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Button 1st text
+                        : </label>
+                    {{ isset($banner->button_1_text) ? $banner->button_1_text : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Button 2nd text
+                        : </label>
+                    {{ isset($banner->button_2_text) ? $banner->button_2_text : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Button 1st url
+                        : </label>
+                    {{ isset($banner->button_1_url) ? $banner->button_1_url : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Button 2nd url
+                        : </label>
+                    {{ isset($banner->button_2_url) ? $banner->button_2_url : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.is_active', 1) }}
                         : </label>
                     @if ($banner->is_active == 1)
@@ -24,6 +60,19 @@
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.created_at', 1) }}
                         : </label>
                     {{ isset($banner->created_at) ? get_default_format($banner->created_at) : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.image', 1) }}
+                        : </label>
+                    <a href="{{ $banner->image }}" target="_blank">
+                        <div class="font-medium whitespace-no-wrap">
+                            <img style="width: 200px; height: 120px;" src="{{ $banner->image }}" alt="Banner image">
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

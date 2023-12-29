@@ -111,13 +111,13 @@
                         <div class="side-menu__title">{{ trans_choice('content.sponsor', 2) }}</div>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a class="side-menu {{ checkActiveSideBar(['tags']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.tags.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-tags"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.tag', 2) }}</div>
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['banners']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.banners.index') }}">

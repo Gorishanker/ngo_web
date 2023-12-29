@@ -7,9 +7,9 @@
             <img style="width: 402px; height: 304px;" src="{{ isset($project->image) ? $project->image : asset('front/images/home02/recent-project-img-1.jpg') }}"
                 alt="{{isset($project->title) ? $project->title : 'Na'}}">
             <ul class="project-link-option">
-                <li class="project-link"><a href="{{route('front.projectView', $project->slug)}}"><i class="fa fa-link"
+                <li class="project-link"><a href="{{route('front.projectView', $project->slug)}}"><i class="fa fa-eye"
                             aria-hidden="true"></i></a></li>
-                <li class="project-search"><a href="{{asset('front/images/home02/recent-project-img-1.jpg')}}"
+                <li class="project-search"><a href="{{ isset($project->image) ? $project->image : asset('front/images/home02/recent-project-img-1.jpg') }}"
                         data-rel="lightcase:myCollection"><i class="fa fa-search-plus"
                             aria-hidden="true"></i></a></li>
             </ul>

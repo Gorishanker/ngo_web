@@ -36,13 +36,13 @@
             ]) !!}
         </div>
 
-        <div class="col-span-12 xl:col-span-3">
+        {{-- <div class="col-span-12 xl:col-span-3">
             <label>Date range</label>
             {!! Form::text('date_range', isset(request()->date_range) ? request()->date_range : null, [
                 'placeholder' => 'Date range',
                 'class' => 'input w-full datepicker border bg-gray-10 mt-2',
             ]) !!}
-        </div>
+        </div> --}}
 
         <div class="col-span-12 text-right">
             <label> </label><span class="text-theme-6"></span>

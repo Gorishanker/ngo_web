@@ -57,7 +57,7 @@
                                     </ul>
                                 @endif
                                 <div class="download-service">
-                                    <h4>Brochures dow:</h4>
+                                    <h4>Brochures download:</h4>
                                     @foreach ($service_detail->service_docs as $service_doc)
                                         @if ($service_doc->type == 1)
                                             <a href="{{ $service_doc->file }}" class="download-btn"><i

@@ -19,7 +19,7 @@
             ['classname' => '', 'title' => trans_choice('content.id_title', 1)],
             ['classname' => 'min-w-125px', 'title' => 'Button 1'],
             ['classname' => 'min-w-125px', 'title' => 'Button 2'],
-            ['classname' => 'min-w-125px', 'title' => trans_choice('content.image', 1)],
+            ['classname' => 'min-w-125px text-center', 'title' => trans_choice('content.image', 1)],
             ['classname' => 'min-w-125px', 'title' => trans_choice('content.status_title', 1)],
             ['classname' => 'min-w-125px', 'title' => trans_choice('content.created_at', 1)],
             ['classname' => 'min-w-100px', 'title' => trans_choice('content.action_title', 1)],
@@ -119,7 +119,6 @@
                     {
                         data: 'created_at',
                         name: 'created_at',
-                        visible: false,
                         render: function(data, type, row, meta) {
                             return getDateTimeByFormat(data);
                         }
