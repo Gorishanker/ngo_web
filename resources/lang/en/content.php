@@ -180,4 +180,9 @@ return [
     'total_price' => 'Total Price',
     'payment_date' => 'Payment Date',
     'ip_address' => 'Ip Address',
+    'order' => 'Order|Orders',
+    'rating' => 'Rating',
+    'review' => 'Review',
+    'subject' => 'Subject',
+    'message' => 'Message',
 ];

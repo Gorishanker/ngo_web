@@ -95,6 +95,7 @@
                     {
                         data: 'content',
                         name: 'content',
+                        visible:false,
                         render: function(data, type, row, meta) {
                             return `<div class="font-normal whitespace-no-wrap">${setStringLength(data)}</div>`;
                         }

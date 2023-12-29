@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\CampaignRequest;
 use App\Models\Campaign;
 use App\Models\CampaignCombo;
 use App\Models\CampaignTag;
+use App\Models\Review;
 use App\Models\Tag;
 use App\Services\CampaignService;
 use App\Services\FileService;
@@ -189,4 +190,29 @@ class CampaignController extends Controller
             ]);
         }
     }
+
+    public function reviewList(Request $request)
+    {
+        $items = Review::where('campaign_id', $request->campaign_id);
+        return datatables()->eloquent($items)->toJson();
+    }
+
+    public function reviewStatus(Review $review, $status)
+    {
+        $result =  $review->update(['status' => $status]);
+        if ($result) {
+            return response()->json([
+                'status' => 1,
+                'message' => $this->mls->messageLanguage('updated', 'status', 1),
+                'status_name' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+                'message' => $this->mls->messageLanguage('not_updated', 'status', 1),
+                'status_name' => 'error'
+            ]);
+        }
+    }
+
 }

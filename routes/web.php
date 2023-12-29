@@ -192,9 +192,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('/impact-stories', ImpactStoryController::class);
         //end::impact routes
 
-        //campaign routes
+        //campaign routes 
         Route::controller(CampaignController::class)->group(function () {
             Route::get('/campaigns/status/{id}/{status}', 'status');
+            Route::get('/campaigns/reviews', 'reviewList')->name('campaignReview.list');
+            Route::get('/campaigns/review-verify-status/{review}/{status}', 'reviewStatus');
         });
         Route::resource('/campaigns', CampaignController::class);
         //end::campaign routes

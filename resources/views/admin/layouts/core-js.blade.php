@@ -462,6 +462,32 @@
     }
 
 
+    function getModalShowData(id, url) {
+        $.ajax({
+            url: url,
+            type: "GET",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            // dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            beforeSend: function() {
+                $('.clsShowModal').css('pointer-events','none');
+            },
+            success: function(response) {
+                $('#details_modal_body').html(response.data);
+                $('#viewDataModal').modal('show');
+                $('.clsShowModal').css('pointer-events','');
+            },
+            error:function() {
+                    $('.clsShowModal').css('pointer-events','');
+            },
+        })
+    }
+
+
     function tableChnageStatusWithoutDataTable(url, status) {
         Swal.fire({
             title: 'Are you sure?',
