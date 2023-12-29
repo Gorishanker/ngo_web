@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\BlogComment;
 use App\Models\Gallery;
 use App\Models\Occasion;
 use App\Models\Order;

@@ -106,7 +106,6 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-
         return  view($this->detail_view, compact('blog'));
     }
 
@@ -180,6 +179,11 @@ class BlogController extends Controller
     {
         $status = ($status == 1) ? 0 : 1;
         $result =$blog_comment->update(['is_active' => $status]);
+        $blog = Blog::find('blog_id');
+        if(isset($blog)){
+            $total_comment = Blog::where(['blog_id'=> $blog_comment->blog_id, 'is_active' => 1])->count();
+        }
+        $blog->update(['total_comments' => $total_comment]);
         if ($result) {
             return response()->json([
                 'status' => 1,

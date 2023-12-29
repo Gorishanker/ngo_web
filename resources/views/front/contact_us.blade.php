@@ -48,24 +48,24 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                            {!! Form::text('name', null, [ 'placeholder' => 'Full Name*', 'class' => 'form-control']) !!}
+                                            {!! Form::text('name', null, [ 'placeholder' => 'Full Name*', 'class' => 'form-control mb-2']) !!}
                                     </div>
                                     <!-- .form-group -->
                                 </div>
                                 <!-- .col-md-6 -->
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                            {!! Form::text('email', null, [ 'placeholder' => 'Email Address*', 'class' => 'form-control']) !!}
+                                            {!! Form::text('email', null, [ 'placeholder' => 'Email Address*', 'class' => 'form-control mb-2']) !!}
                                     </div>
                                 </div>
                                 <!-- .col-md-6 -->
                             </div>
                             <!-- .row -->
                             <div class="form-group">
-                                    {!! Form::text('subject', null, [ 'placeholder' => 'Subject', 'class' => 'form-control']) !!}
+                                    {!! Form::text('subject', null, [ 'placeholder' => 'Subject', 'class' => 'form-control mb-2']) !!}
                             </div>
                             <div class="form-group">
-                            <textarea class="form-control text-area" name="message" rows="3" placeholder="Message*"></textarea>
+                            <textarea class="form-control text-area mb-2" name="message" rows="3" placeholder="Message*"></textarea>
                             </div>
                             <button type="submit" id="submit_form" class="btn btn-default">Submit</button>
                             {!! Form::close() !!}

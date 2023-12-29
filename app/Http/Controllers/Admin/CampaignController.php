@@ -120,8 +120,8 @@ class CampaignController extends Controller
     public function edit(Campaign $campaign)
     {
         $tags = Tag::where('is_active', 1)->pluck('name', 'id');
-        $combos = $campaign->hasMany(CampaignCombo::class,'campaign_id')->get();
-        return view($this->edit_view, compact('campaign','combos'));
+        $combos = $campaign->hasMany(CampaignCombo::class, 'campaign_id')->get();
+        return view($this->edit_view, compact('campaign', 'combos'));
     }
 
     /**
@@ -200,6 +200,15 @@ class CampaignController extends Controller
     public function reviewStatus(Review $review, $status)
     {
         $result =  $review->update(['status' => $status]);
+        $campaign = Campaign::find($review->campaign_id);
+        if (isset($campaign)) {
+            $review = Review::where(['campaign_id' => $campaign->id,'status' => 1]);
+            $update = [
+                'total_rating' =>  $review->count(),
+                'average_rating' =>  round($review->avg('rating')),
+            ];
+            $campaign->update($update);
+        }
         if ($result) {
             return response()->json([
                 'status' => 1,
@@ -214,5 +223,4 @@ class CampaignController extends Controller
             ]);
         }
     }
-
 }

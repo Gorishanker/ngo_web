@@ -99,7 +99,9 @@
                                                 <a href="{{route('front.cart')}}">
                                                 <div class="cart-icon">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <div class="count-cart">{{cartItemCounter()}}</div>
+                                                    @if(cartItemCounter() > 0)
+                                                    <div class="count-cart">{{(cartItemCounter())}}</div>
+                                                    @endif
                                                 </div>
                                             </a>
                                             </div>
