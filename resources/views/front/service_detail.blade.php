@@ -44,9 +44,15 @@
                                 @if (isset($services) && $services->count() > 0)
                                     <ul class="nav nav-tabs" role="tablist">
                                         @foreach ($services as $service)
-                                            <li role="presentation"><a
-                                                    href="{{ route('front.serviceView', $service->slug) }}">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
-                                            </li>
+                                        <li role="presentation">
+                                        @if($service->id == $service_detail->id)
+                                                <a
+                                                    href="{{ route('front.serviceView', $service->slug) }}" style="color: #53a92b">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
+                                                   @else
+                                                   <a
+                                                   href="{{ route('front.serviceView', $service->slug) }}">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
+                                                    @endif
+                                                </li>
                                         @endforeach
                                     </ul>
                                 @endif

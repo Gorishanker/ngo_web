@@ -145,7 +145,7 @@ class HomeController extends Controller
     public function serviceView($slug)
     {
         $service_detail = Service::where(['is_active' => 1, 'slug' => $slug])->first();
-        $services = Service::where('is_active', 1)->select('title','slug')->orderBy('id', 'desc')->take(6)->get();
+        $services = Service::where('is_active', 1)->select('id','title','slug')->orderBy('id', 'desc')->take(6)->get();
         $meta_title =  isset($service_detail->title) ? $service_detail->title : 'GREEN FOREST Service Details';
         $logo = getSettingDataBySlug('logo');
         $meta_description = isset($service_detail->content) ? setStringLength(strip_tags($service_detail->content,150)) :$meta_title ;

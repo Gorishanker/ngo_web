@@ -44,6 +44,7 @@
         $(document).ready(function() {
             oTable = $('#kt_table_1').DataTable({
                 responsive: true,
+                searching: false,
                 searchDelay: 500,
                 processing: true,
                 serverSide: true,
