@@ -37,10 +37,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- .address -->
                             </div>
                             <!-- .footer-widgets -->
                         </div>
+                        <!-- .address -->
+
                         <!-- .col-lg-3 -->
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="footer-widgets">
@@ -60,61 +61,126 @@
                             <!-- .footer-widgets -->
                         </div>
                         <!-- .col-lg-3 -->
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="footer-widgets">
+                                <div class="widgets-title">
+                                    <h3>Pages</h3>
+                                </div>
+                                <ul class="address">
+                                    <li>
+                                        <a href="{{ route('front.impactStory.index') }}"
+                                            class="{{ request()->is('*impact-stories*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i> Impact
+                                            Stories</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('front.gallery') }}"
+                                            class="{{ request()->is('*gallery*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('front.faqs') }}"
+                                            class="{{ request()->is('*faqs*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Faq's</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/') }}/terms-and-conditions"
+                                            class="{{ request()->is('*terms-and-conditions*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Terms &
+                                            Conditions</a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- .row -->
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="footer-widgets">
+                                <div class="widgets-title">
+                                    <h3>Pages</h3>
+                                </div>
+                                <ul class="address">
+                                    <li>
+                                        <a href="{{ url('/') }}/privacy-policy"
+                                            class="{{ request()->is('*privacy-policy*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Privacy
+                                            Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/') }}/cancellations-policy"
+                                            class="{{ request()->is('*cancellations-policy*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Cancellation
+                                            Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/') }}/shipping-policy"
+                                            class="{{ request()->is('*shipping-policy*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Shipping
+                                            Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/') }}/pricing-policy"
+                                            class="{{ request()->is('*pricing-policy*') ? 'active' : '' }}"><i
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Pricing
+                                            Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- .row -->
                     </div>
-                    <!-- .row -->
+                    <!-- .footer-top -->
                 </div>
-                <!-- .footer-top -->
+                <!-- .row -->
             </div>
-            <!-- .row -->
+            <!-- .container -->
         </div>
-        <!-- .container -->
-    </div>
-    <!-- .bg-footer-top -->
+        <!-- .bg-footer-top -->
 
-    <div class="bg-footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="footer-bottom">
-                    <div class="copyright-txt">
-                        @if (getSettingDataBySlug('copyright_text') != null)
-                            <p>{{getSettingDataBySlug('copyright_text')}}</p>
-                        @endif
-                    </div>
-                    <!-- .copyright-txt -->
-                    <div class="social-box">
-                        <ul class="social-icon-rounded">
-                            @if (getSettingDataBySlug('facebook_url') != null)
-                                <li><a href="{{ getSettingDataBySlug('facebook_url') }}" target="_blank"><i
-                                            class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <div class="bg-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-bottom">
+                        <div class="copyright-txt">
+                            @if (getSettingDataBySlug('copyright_text') != null)
+                                <p>{{ getSettingDataBySlug('copyright_text') }}</p>
                             @endif
-                            @if (getSettingDataBySlug('twitter_url') != null)
-                                <li><a href="{{ getSettingDataBySlug('twitter_url') }}" target="_blank"><i
-                                            class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            @endif
-                            @if (getSettingDataBySlug('instagram_url') != null)
-                                <li><a href="{{ getSettingDataBySlug('instagram_url') }}" target="_blank"><i
-                                            class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            @endif
-                            @if (getSettingDataBySlug('linkedin_url') != null)
-                                <li><a href="{{ getSettingDataBySlug('linkedin_url') }}" target="_blank"><i
-                                            class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            @endif
-                            @if (getSettingDataBySlug('whatsapp_number') != null)
-                                <li><a href="https://wa.me/{{ getSettingDataBySlug('whatsapp_number') }}"
-                                        target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                            @endif
-                        </ul>
-                    </div>
-                    <!-- .social-box -->
+                        </div>
+                        <!-- .copyright-txt -->
+                        <div class="social-box">
+                            <ul class="social-icon-rounded">
+                                @if (getSettingDataBySlug('facebook_url') != null)
+                                    <li><a href="{{ getSettingDataBySlug('facebook_url') }}" target="_blank"><i
+                                                class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                @endif
+                                @if (getSettingDataBySlug('twitter_url') != null)
+                                    <li><a href="{{ getSettingDataBySlug('twitter_url') }}" target="_blank"><i
+                                                class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                @endif
+                                @if (getSettingDataBySlug('instagram_url') != null)
+                                    <li><a href="{{ getSettingDataBySlug('instagram_url') }}" target="_blank"><i
+                                                class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                @endif
+                                @if (getSettingDataBySlug('linkedin_url') != null)
+                                    <li><a href="{{ getSettingDataBySlug('linkedin_url') }}" target="_blank"><i
+                                                class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                @endif
+                                @if (getSettingDataBySlug('whatsapp_number') != null)
+                                    <li><a href="https://wa.me/{{ getSettingDataBySlug('whatsapp_number') }}"
+                                            target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                                @endif
+                            </ul>
+                        </div>
+                        <!-- .social-box -->
 
+                    </div>
+                    <!-- .footer-bottom -->
                 </div>
-                <!-- .footer-bottom -->
+                <!-- .row -->
             </div>
-            <!-- .row -->
+            <!-- .container -->
         </div>
-        <!-- .container -->
-    </div>
-    <!-- .bg-footer-bottom -->
+        <!-- .bg-footer-bottom -->
 
 </footer>
 <!-- End Footer Section -->

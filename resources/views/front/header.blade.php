@@ -39,7 +39,7 @@
                                     <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
                                         <ul>
                                             <li>
-                                                <a href="{{url('/')}}" class="active">HOME</a>
+                                                <a href="{{url('/')}}" class="{{request()->is('/') ? 'active' : ''}}">HOME</a>
                                             </li>
                                             <li><a href="{{route('front.aboutUs')}}" class="{{ request()->is('*about-us*') ? 'active' : '' }}">About</a></li>
                                             <li>
@@ -48,7 +48,7 @@
                                             <li>
                                                 <a href="{{route('front.projectIndex')}}" class="{{ request()->is('*projects*') ? 'active' : '' }}">Projects</a>
                                             </li>
-                                            <li>
+                                            {{-- <li>
                                                 <a href="#" class="{{ (request()->is('*impact-stories*')||request()->is('*pricing-policy*')||request()->is('*shipping-policy*')||request()->is('*cancellations-policy*') ||request()->is('*privacy-policy*') || request()->is('*terms-and-conditions*')||request()->is('*faqs*') || request()->is('*gallery*')) ? 'active' : '' }}">pages</a>
                                                 <ul class="sub-menu">
                                                     <li>
@@ -84,7 +84,7 @@
                                                             aria-hidden="true"></i>Pricing Policy</a>
                                                     </li>
                                                 </ul>
-                                            </li>
+                                            </li> --}}
                                             <li>
                                                 <a href="{{route('front.blogs')}}" class="{{ request()->is('*blogs*') ? 'active' : '' }}">Blogs</a>
                                             </li>
