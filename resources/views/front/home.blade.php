@@ -148,14 +148,14 @@
                     <!-- .section-header -->
 
                     <div id="filters" class="button-group ">
-                        <button id="showAllProjects" class="button is-checked">show all</button>
                         @if (isset($categories) && $categories->count() > 0)
+                        <button id="showAllProjects" class="button is-checked">show all</button>
                             @foreach ($categories as $key => $category)
                                 <button data-id="{{ $category->id }}"
                                     class="single_category_projects button">{{ isset($category->category_name) ? $category->category_name : 'Na' }}</button>
                             @endforeach
                             @else
-                            Comming Soon
+                           <img src="{{asset('front/comming_soon.jpg')}}">
                         @endif
                     </div>
                     <div class="category_wise_projects portfolio-items">
@@ -255,7 +255,7 @@
                             @endforeach
                         @else
                         <div class="section-header">
-                            <h4>Comming Soon</h4>
+                            <img src="{{asset('front/comming_soon.jpg')}}">
                         </div>
                         @endif
                     </div>
@@ -280,6 +280,7 @@
                         <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
                             ubiquitous leadership awesome skills.</p>
                     </div>
+                    @if($campaigns->count() > 0)
                     <div class="row">
                         @foreach ($campaigns as $campaign)
                             @php
@@ -361,6 +362,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @else
+                    <img src="{{asset('front/comming_soon.jpg')}}">
+                    @endif
                 </div>
                 <!-- .focus-cause -->
             </div>
@@ -373,7 +377,7 @@
 
 
     <!-- Start campaian video Section -->
-    <section class="bg-compaian-video">
+    {{-- <section class="bg-compaian-video">
         <div class="compaian-video-overlay">
             <div class="container">
                 <div class="row">
@@ -390,7 +394,7 @@
             <!-- .container -->
         </div>
         <!-- .compaian-video-overlay -->
-    </section>
+    </section> --}}
     <!-- End campaian video Section -->
     @if (isset($blogs) && $blogs->count()>0)
     <!-- Start Upcoming Events Section -->

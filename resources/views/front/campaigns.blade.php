@@ -33,6 +33,7 @@
         </div>
         <!-- .page-header-overlay -->
     </section>
+    @if($campaigns->count() > 0)
     <section class="bg-campaing-section">
         <div class="container">
             <div class="row">
@@ -126,6 +127,9 @@
         </div>
         <!-- .container -->
     </section>
+    @else
+    <img src="{{asset('front/comming_soon.jpg')}}">
+    @endif
     @push('styles')
         @include('front.capaigns_css')
     @endpush

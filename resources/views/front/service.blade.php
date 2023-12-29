@@ -81,7 +81,7 @@
     @endif
     <!-- End Service Style2 Section -->
     <!-- Start campaian video Section -->
-    <section class="bg-compaian-video">
+    {{-- <section class="bg-compaian-video">
         <div class="compaian-video-overlay">
             <div class="container">
                 <div class="row">
@@ -98,7 +98,7 @@
             <!-- .container -->
         </div>
         <!-- .compaian-video-overlay -->
-    </section>
+    </section> --}}
     <!-- End campaian video Section -->
     <!-- Start Recent Project Section -->
     <section class="bg-recent-project">
@@ -121,9 +121,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <div class="category_wise_projects portfolio-items">
-                        <button id="showAllProjects" class="button is-checked">Comming Soon</button>
-                    </div>
+                        <img src="{{asset('front/comming_soon.jpg')}}">
                     <!-- .isotope-items -->
                 </div>
                 <!-- .recent-project -->

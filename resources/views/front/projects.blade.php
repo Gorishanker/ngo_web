@@ -57,9 +57,7 @@
                     <a href="javascript:;" class="btn btn-default">load more</a>
                 </div>
                 @else
-                <div class="load-more-option" data-id="1" service-id="0">
-                    <a href="javascript:;" class="btn btn-default">Comming Soon</a>
-                </div>
+                <img src="{{asset('front/comming_soon.jpg')}}">
                 @endif
             </div>
             <!-- .row -->

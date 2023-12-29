@@ -101,7 +101,7 @@
                                 </div> --}}
                             <!-- .pagination_option -->
                         @else
-                            No Blog Found.
+                        <img src="{{asset('front/comming_soon.jpg')}}">
                         @endif
                     </div>
                 </div>

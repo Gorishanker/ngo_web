@@ -10,7 +10,7 @@
                                 <li><i class="flaticon-placeholder"></i> Address :  {{getSettingDataBySlug('address')}}</li>
                             </ul>
                             <div class="donate-option">
-                                <a href="{{route('front.donate')}}"><i class="fa fa-heart" aria-hidden="true"></i> donate now</a>
+                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> donate now</a>
                             </div>
                         </div>
                     </div>
@@ -96,14 +96,14 @@
                                         </ul>
                                         <div class="menu-right-option pull-right">
                                             <div class="cart-option">
-                                                <a href="{{route('front.cart')}}">
+                                                {{-- <a href="{{route('front.cart')}}"> --}}
                                                 <div class="cart-icon">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                     @if(cartItemCounter() > 0)
                                                     <div class="count-cart">{{(cartItemCounter())}}</div>
                                                     @endif
                                                 </div>
-                                            </a>
+                                            {{-- </a> --}}
                                             </div>
                                             <!-- .cart-option -->
 
@@ -112,12 +112,6 @@
                                                     style="display: block;"></i>
                                                 <i class="fa fa-times second_click" aria-hidden="true"
                                                     style="display: none;"></i>
-                                            </div>
-                                            <div class="search-box-text">
-                                                <form action="search">
-                                                    <input type="text" name="search" id="all-search"
-                                                        placeholder="Search Here">
-                                                </form>
                                             </div>
                                         </div>
                                         <!-- .header-search-box -->
