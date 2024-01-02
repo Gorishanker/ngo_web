@@ -14,7 +14,7 @@ class ModelHasRoleSeeder extends Seeder
      */
     public function run()
     {
-        $model_has_role =  ['role_id'=>'1','model_type'=>'App\\Models\\User','model_id'=>'1'];
+        $model_has_role =  ['role_id'=>'1','model_type'=>'App\\Models\\Admin','model_id'=>'1'];
         $insert = DB::table('model_has_roles')->insert($model_has_role );
     }
 }

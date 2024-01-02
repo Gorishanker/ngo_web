@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Admin;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -17,14 +17,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data =  [
-            'name'=>'Admin',
+            'name'=>'NGO',
             'email'=>'admin@gmail.com',
-            'mobile_no'=>'8078602432',
-            'lang'=>'en',
+            'mobile_no'=>'7689864687',
             'is_active'=>'1',
-            'password'=> Hash::make('123456'),
+            'password'=> Hash::make('Admin@123'),
             'created_at'=> Carbon::now()
         ];
-        User::create($data);
+        Admin::create($data);
     }
 }
