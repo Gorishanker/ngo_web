@@ -20,6 +20,7 @@ class OrderItem extends Model
         'combo',
         'combo_id',
         'campagin_id',
+        'product_id',
         'price',
         'quantity',
         'total_amount',

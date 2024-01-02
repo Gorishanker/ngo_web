@@ -7,6 +7,7 @@ use App\Http\Controllers\Front\CampaignController as FrontCampaignController;
 use App\Http\Controllers\Front\ImpactStoryController as FrontImpactStoryController;
 use App\Http\Controllers\Front\DonationController as FrontDonationController;
 use App\Http\Controllers\Front\CartController as FrontCartController;
+use App\Http\Controllers\Front\ProductController as FrontProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,14 @@ Route::controller(FrontCampaignController::class)->group(function () {
 Route::controller(FrontImpactStoryController::class)->group(function () {
     Route::get('/impact-stories', 'index')->name('front.impactStory.index');
     Route::get('/impact-story/{slug}', 'show')->name('front.impactStory.show');
+});
+
+Route::controller(FrontProductController::class)->group(function () {
+    Route::get('/products', 'index')->name('front.products.index');
+    Route::get('/products/{slug}', 'show')->name('front.product.show');
+    Route::post('/product/review', 'productReview')->name('front.productReview.store');
+    Route::post('/product/add-or-update-cart/{product}', 'addOrUpdateCart');
+
 });
 
 Route::controller(FrontDonationController::class)->group(function () {
@@ -247,5 +256,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
         Route::resource('/galleries', GalleryController::class)->only('index', 'store', 'destroy');
 
+         //Products routes
+         Route::controller(ProductController::class)->group(function () {
+            Route::get('/products/status/{id}/{status}', 'status');
+        });
+        Route::resource('/products', ProductController::class);
+
+         //testimonials routes
+         Route::controller(TestimonialController::class)->group(function () {
+            Route::get('/testimonials/status/{id}/{status}', 'status');
+        });
+        Route::resource('/testimonials', TestimonialController::class);
+        //end::testimonials routes
     });
 });

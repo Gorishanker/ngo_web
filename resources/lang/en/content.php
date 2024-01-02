@@ -185,4 +185,11 @@ return [
     'review' => 'Review',
     'subject' => 'Subject',
     'message' => 'Message',
+    'product' => 'Product|Products',
+    'amount' => 'Amount',
+    'total_rating' => 'Total ratings',
+    'avg_rating' => 'Average ratings',
+    'summery' => 'Summery',
+    'testimonial' => 'Testimonial|Testimonials',
+    
 ];

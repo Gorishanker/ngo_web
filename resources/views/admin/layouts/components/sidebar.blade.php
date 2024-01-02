@@ -61,6 +61,13 @@
             </a>
         </li>
         <li>
+            <a class="side-menu {{ checkActiveSideBar(['products']) ? 'side-menu--active' : '' }}"
+                href="{{ route('admin.products.index') }}">
+                <div class="side-menu__icon"> <i class="fa-solid fa-diagram-project"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.product', 1) }} </div>
+            </a>
+        </li>
+        <li>
             <a class="side-menu {{ checkActiveSideBar(['campaigns']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.campaigns.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-tree"></i> </div>
@@ -136,7 +143,7 @@
         </li>
 
         <li>
-            <div class="side-menu {{ checkActiveSideBar(['page_contents', 'faqs']) ? 'side-menu--active' : '' }}">
+            <div class="side-menu {{ checkActiveSideBar(['page_contents', 'faqs','testimonials']) ? 'side-menu--active' : '' }}">
                 <div class="side-menu__icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                         stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout">
@@ -147,7 +154,7 @@
                 <div class="side-menu__title"> Page Contents <i data-feather="chevron-down"
                         class="side-menu__sub-icon" style="margin-right:11px"></i> </div>
             </div>
-            <ul class="{{ checkActiveSideBar(['page_contents', 'faqs']) ? 'side-menu__sub-open' : '' }}">
+            <ul class="{{ checkActiveSideBar(['page_contents', 'faqs','testimonials']) ? 'side-menu__sub-open' : '' }}">
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['page_contents']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.page_contents.index') }}">
@@ -162,6 +169,14 @@
                         <div class="side-menu__icon"><i class="fa-regular fa-comments"></i>
                         </div>
                         <div class="side-menu__title">{{ trans_choice('content.faq', 2) }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a class="side-menu {{ checkActiveSideBar(['testimonials']) ? 'side-menu--active' : '' }}"
+                        href="{{ route('admin.testimonials.index') }}">
+                        <div class="side-menu__icon"><i class="fa-regular fa-comments"></i>
+                        </div>
+                        <div class="side-menu__title">{{ trans_choice('content.testimonial', 2) }}</div>
                     </a>
                 </li>
             </ul>

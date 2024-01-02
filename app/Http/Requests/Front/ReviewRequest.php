@@ -15,7 +15,8 @@ class ReviewRequest extends FormRequest
     {
         return [
             'name' => 'required|alpha_spaces|max:30',
-            'campaign_id' => 'required',
+            'campaign_id' => 'nullable',
+            'product_id' => 'nullable',
             'email' => 'required|email|max:70',
             'rating' => 'required|integer|max:5',
             'review' => 'required|min:10|max:250',

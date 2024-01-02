@@ -175,3 +175,7 @@ Breadcrumbs::resource('galleries', 'Gallery');
 Breadcrumbs::resource('orders', 'Orders');
 // /*------------- Admin payment_histories ------------------------*/
 Breadcrumbs::resource('payment_histories', 'Payment Histories');
+// /*------------- Admin Products ------------------------*/
+Breadcrumbs::resource('products', 'Products');
+// /*------------- Admin Testimonials ------------------------*/
+Breadcrumbs::resource('testimonials', 'Testimonials');

@@ -48,6 +48,9 @@
                                             <li>
                                                 <a href="{{route('front.projectIndex')}}" class="{{ request()->is('*projects*') ? 'active' : '' }}">Projects</a>
                                             </li>
+                                            <li>
+                                                <a href="{{route('front.products.index')}}" class="{{ request()->is('*products*') ? 'active' : '' }}">Products</a>
+                                            </li>
                                             {{-- <li>
                                                 <a href="#" class="{{ (request()->is('*impact-stories*')||request()->is('*pricing-policy*')||request()->is('*shipping-policy*')||request()->is('*cancellations-policy*') ||request()->is('*privacy-policy*') || request()->is('*terms-and-conditions*')||request()->is('*faqs*') || request()->is('*gallery*')) ? 'active' : '' }}">pages</a>
                                                 <ul class="sub-menu">
