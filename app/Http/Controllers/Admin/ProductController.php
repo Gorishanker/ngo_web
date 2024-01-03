@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductImage;
+use App\Models\Review;
 use App\Services\ProductService;
 use App\Services\FileService;
 use App\Services\ManagerLanguageService;
@@ -174,6 +175,39 @@ class ProductController extends Controller
     {
         $status = ($status == 1) ? 0 : 1;
         $result = $this->productService->updateById(['is_active' => $status], $id);
+        if ($result) {
+            return response()->json([
+                'status' => 1,
+                'message' => $this->mls->messageLanguage('updated', 'status', 1),
+                'status_name' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 0,
+                'message' => $this->mls->messageLanguage('not_updated', 'status', 1),
+                'status_name' => 'error'
+            ]);
+        }
+    }
+
+    public function reviewList(Request $request)
+    {
+        $items = Review::where('product_id', $request->product_id);
+        return datatables()->eloquent($items)->toJson();
+    }
+
+    public function reviewStatus(Review $review, $status)
+    {
+        $result =  $review->update(['status' => $status]);
+        $product = Product::find($review->product_id);
+        if (isset($product)) {
+            $review = Review::where(['product_id' => $product->id,'status' => 1]);
+            $update = [
+                'total_rating' =>  $review->count(),
+                'avg_rating' =>  round($review->avg('rating')),
+            ];
+            $product->update($update);
+        }
         if ($result) {
             return response()->json([
                 'status' => 1,

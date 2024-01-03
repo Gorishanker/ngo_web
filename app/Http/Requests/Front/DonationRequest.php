@@ -14,7 +14,7 @@ class DonationRequest extends FormRequest
     public function rules()
     {
         return [
-            'donation_amount' => 'required|numeric||min:1|max:5000000',
+            'donation_amount' => 'required|numeric||min:1|max:50000000',
             'donation_type' => 'required',
             'first_name' => 'required|alpha_spaces|max:50',
             'last_name' => 'required|alpha_spaces|max:50',

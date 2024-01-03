@@ -1,40 +1,35 @@
 <!-- Start Footer Section -->
 <footer>
-    <div class="bg-footer-top">
+    <div class="bg-footer-top" style="padding-bottom: 0px;">
         <div class="container">
+            <div class="widgets-title">
+                <h3>Contact us</h3>
+            </div>
             <div class="row">
                 <div class="footer-top">
                     <div class="row">
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="footer-widgets">
-                                <div class="widgets-title">
-                                    <h3>About us</h3>
-                                </div>
                                 <!-- .widgets-title -->
                                 <div class="widgets-content">
-                                    <p>Distily enable team driven services through extensive is a relatonships platforms
-                                        with interactive content. Enthusiastically scale effective.</p>
+                                    <p>{{ getSettingDataBySlug('contact_us_text') }}</p>
                                 </div>
                                 <!-- .widgets-content -->
                                 <div class="address-box">
                                     <ul class="address">
                                         <li>
                                             <i class="fa fa-home" aria-hidden="true"></i>
-                                            <span>{{getSettingDataBySlug('address')}}</span>
+                                            <span>{{ getSettingDataBySlug('address') }}</span>
                                         </li>
                                         <li>
                                             <i class="fa fa-phone" aria-hidden="true"></i>
-                                            <span>{{getSettingDataBySlug('contact_number')}}</span>
+                                            <span>{{ getSettingDataBySlug('contact_number') }}</span>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                            <span>{{getSettingDataBySlug('email')}}</span>
+                                            <span>{{ getSettingDataBySlug('email') }}</span>
 
                                         </li>
-                                        {{-- <li>
-                                            <i class="fa fa-globe" aria-hidden="true"></i>
-                                            <span>Emai@admin.com</span>
-                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -45,9 +40,6 @@
                         <!-- .col-lg-3 -->
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="footer-widgets">
-                                <div class="widgets-title">
-                                    <h3>Recent Media</h3>
-                                </div>
                                 <!-- .widgets-title -->
                                 <div class="footer-instagram">
                                     @foreach (getGalleryImages() as $photo)
@@ -63,9 +55,6 @@
                         <!-- .col-lg-3 -->
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="footer-widgets">
-                                <div class="widgets-title">
-                                    <h3>Pages</h3>
-                                </div>
                                 <ul class="address">
                                     <li>
                                         <a href="{{ route('front.impactStory.index') }}"
@@ -81,7 +70,7 @@
                                     <li>
                                         <a href="{{ route('front.faqs') }}"
                                             class="{{ request()->is('*faqs*') ? 'active' : '' }}"><i
-                                                class="fa fa-angle-double-right" aria-hidden="true"></i>Faq's</a>
+                                                class="fa fa-angle-double-right" aria-hidden="true"></i>FAQ's</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/') }}/terms-and-conditions"
@@ -89,16 +78,13 @@
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Terms &
                                             Conditions</a>
                                     </li>
-                                   
+
                                 </ul>
                             </div>
                         </div>
                         <!-- .row -->
                         <div class="col-lg-3 col-sm-6 col-12">
                             <div class="footer-widgets">
-                                <div class="widgets-title">
-                                    <h3>Pages</h3>
-                                </div>
                                 <ul class="address">
                                     <li>
                                         <a href="{{ url('/') }}/privacy-policy"

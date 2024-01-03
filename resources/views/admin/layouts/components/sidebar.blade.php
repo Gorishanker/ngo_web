@@ -11,7 +11,7 @@
 @endphp
 <nav class="side-nav">
     <a href="{{ route('admin.dashboard') }}" class="intro-x flex items-center pl-5 pt-4">
-        <img alt="" class="w-6"
+        <img alt=""  class="w-6"
             src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : $logo_img }}"
             style="width: 100%;border-radius:5px">
         {{-- <span class="hidden xl:block text-white text-lg ml-3">{{ $global_setting_data['site_name'] }} </span> --}}
@@ -63,7 +63,7 @@
         <li>
             <a class="side-menu {{ checkActiveSideBar(['products']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.products.index') }}">
-                <div class="side-menu__icon"> <i class="fa-solid fa-diagram-project"></i> </div>
+                <div class="side-menu__icon"><i class="fa-solid fa-bag-shopping"></i> </div>
                 <div class="side-menu__title"> {{ trans_choice('content.product', 1) }} </div>
             </a>
         </li>
@@ -107,14 +107,14 @@
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['impact-stories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.impact-stories.index') }}">
-                        <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
+                        <div class="side-menu__icon"><i class="fa-solid fa-arrows-down-to-people"></i></div>
                         <div class="side-menu__title">Impact Stories</div>
                     </a>
                 </li>
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['sponsors']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.sponsors.index') }}">
-                        <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
+                        <div class="side-menu__icon"><i class="fa-regular fa-handshake"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.sponsor', 2) }}</div>
                     </a>
                 </li>
@@ -135,7 +135,7 @@
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['occasions']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.occasions.index') }}">
-                        <div class="side-menu__icon"><i class="fa-brands fa-affiliatetheme"></i></div>
+                        <div class="side-menu__icon"><i class="fa-solid fa-calendar-days"></i></div>
                         <div class="side-menu__title">Occassions</div>
                     </a>
                 </li>
@@ -174,7 +174,7 @@
                 <li>
                     <a class="side-menu {{ checkActiveSideBar(['testimonials']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.testimonials.index') }}">
-                        <div class="side-menu__icon"><i class="fa-regular fa-comments"></i>
+                        <div class="side-menu__icon"><i class="fa-regular fa-comment"></i>
                         </div>
                         <div class="side-menu__title">{{ trans_choice('content.testimonial', 2) }}</div>
                     </a>

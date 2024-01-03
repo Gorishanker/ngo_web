@@ -259,6 +259,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
          //Products routes
          Route::controller(ProductController::class)->group(function () {
             Route::get('/products/status/{id}/{status}', 'status');
+            Route::get('/products/reviews', 'reviewList')->name('productReview.list');
+            Route::get('/products/review-verify-status/{review}/{status}', 'reviewStatus');
         });
         Route::resource('/products', ProductController::class);
 

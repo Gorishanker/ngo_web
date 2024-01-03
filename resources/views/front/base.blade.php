@@ -21,6 +21,40 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/style.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/rtl.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/responsive.css') }}" media="all" />
+    <style>
+        .w-5.h-5 {
+            width: 24px;
+        }
+
+        .relative.inline-flex.items-center {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 5px;
+            display: inline-block;
+            border: 1px solid #53a92c !important;
+            color: #53a92c;
+            border-radius: 4px;
+            line-height: 38px;
+            text-align: center;
+            padding: 0px !important;
+        }
+
+        .cursor-default {
+            background-color: #53a92c !important;
+            color: #fff !important;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        nav div:first-child {
+            display: none !important;
+        }
+    </style>
 
 </head>
 

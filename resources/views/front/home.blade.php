@@ -149,17 +149,17 @@
 
                     <div id="filters" class="button-group ">
                         @if (isset($categories) && $categories->count() > 0)
-                        <button id="showAllProjects" class="button is-checked">show all</button>
+                            <button id="showAllProjects" class="button is-checked">show all</button>
                             @foreach ($categories as $key => $category)
                                 <button data-id="{{ $category->id }}"
                                     class="single_category_projects button">{{ isset($category->category_name) ? $category->category_name : 'Na' }}</button>
                             @endforeach
-                            @else
-                           <img src="{{asset('front/comming_soon.jpg')}}">
+                        @else
+                            <img src="{{ asset('front/comming_soon.jpg') }}">
                         @endif
                     </div>
                     <div class="category_wise_projects portfolio-items">
-                              
+
                     </div>
                     <!-- .isotope-items -->
                 </div>
@@ -254,9 +254,9 @@
                                 </div>
                             @endforeach
                         @else
-                        <div class="section-header">
-                            <img src="{{asset('front/comming_soon.jpg')}}">
-                        </div>
+                            <div class="section-header">
+                                <img src="{{ asset('front/comming_soon.jpg') }}">
+                            </div>
                         @endif
                     </div>
                     <!-- .row -->
@@ -280,90 +280,91 @@
                         <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
                             ubiquitous leadership awesome skills.</p>
                     </div>
-                    @if($campaigns->count() > 0)
-                    <div class="row">
-                        @foreach ($campaigns as $campaign)
-                            @php
-                                $raised_percent = ($campaign->raise_amount / $campaign->target_amount) * 100;
-                            @endphp
-                            <div class="col-md-3 col-xl-3 col-sm-6 col-12 col-lg-3">
-                                <div class="list-box">
-                                    <div class="img-box">
-                                        <a href="{{ route('front.campaign.show', $campaign->slug) }}">
-                                        <img src="{{ $campaign->image }}"
-                                            alt="{{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}"
-                                            style="width:304px; height:228px;">
-                                        </a>
-                                    </div>
+                    @if ($campaigns->count() > 0)
+                        <div class="row">
+                            @foreach ($campaigns as $campaign)
+                                @php
+                                    $raised_percent = ($campaign->raise_amount / $campaign->target_amount) * 100;
+                                @endphp
+                                <div class="col-md-3 col-xl-3 col-sm-6 col-12 col-lg-3">
+                                    <div class="list-box">
+                                        <div class="img-box">
+                                            <a href="{{ route('front.campaign.show', $campaign->slug) }}">
+                                                <img src="{{ $campaign->image }}"
+                                                    alt="{{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}"
+                                                    style="width:304px; height:228px;">
+                                            </a>
+                                        </div>
 
-                                    <div class="details-box">
-                                        <div class="progress-tp-head">
-                                            <div class="bar-value">
-                                                <span>Total Price:
-                                                    <b>{{ currencyIcon() }}{{ $campaign->target_amount }}</b></span>
-                                                <span>Raised:
-                                                    <b>{{ currencyIcon() }}{{ $campaign->raise_amount }}</b></span>
-                                            </div>
-                                            <div class="progress skill-bar ">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar"
-                                                    aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width: {{ $raised_percent }}%;">
+                                        <div class="details-box">
+                                            <div class="progress-tp-head">
+                                                <div class="bar-value">
+                                                    <span>Total Price:
+                                                        <b>{{ currencyIcon() }}{{ $campaign->target_amount }}</b></span>
+                                                    <span>Raised:
+                                                        <b>{{ currencyIcon() }}{{ $campaign->raise_amount }}</b></span>
+                                                </div>
+                                                <div class="progress skill-bar ">
+                                                    <div class="progress-bar progress-bar-primary" role="progressbar"
+                                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                                                        style="width: {{ $raised_percent }}%;">
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <h6>
-                                            <a href="{{ route('front.campaign.show', $campaign->slug) }}">
-                                                {{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}
-                                            </a>
-                                        </h6>
+                                            <h6>
+                                                <a href="{{ route('front.campaign.show', $campaign->slug) }}">
+                                                    {{ isset($campaign->title) ? $campaign->title : 'Campaign Image' }}
+                                                </a>
+                                            </h6>
 
-                                        <div class="with-cart">
-                                            <p class="mb-0" id="cart_total_amount{{ $campaign->id }}"
-                                                data-value="{{ $campaign->campaign_combos[0]->price }}">Amount
-                                                {{ currencyIcon() }}{{ isset($campaign->order_item->total_amount) ? round($campaign->order_item->total_amount) : $campaign->campaign_combos[0]->price }}</span>
-                                            </p>
-                                            <div class="number addToCartBTNDiv{{ $campaign->id }}">
-                                                @if (isset($campaign->order_item->quantity))
-                                                    <span data-id="{{ $campaign->id }}"
-                                                        class="minus cart_decrement">-</span>
-                                                    <input type="text" data-id="{{ $campaign->id }}"
-                                                        class="only_number cartOrderQtyValue"
-                                                        id="cart_input{{ $campaign->id }}"
-                                                        value="{{ isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1 }}">
-                                                    <span data-id="{{ $campaign->id }}"
-                                                        class="plus cart_increment">+</span>
-                                                @else
-                                                    <p class="addToCartBTN" data-id="{{ $campaign->id }}"
-                                                        style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
-                                                        Add</p>
-                                                @endif
+                                            <div class="with-cart">
+                                                <p class="mb-0" id="cart_total_amount{{ $campaign->id }}"
+                                                    data-value="{{ $campaign->campaign_combos[0]->price }}">Amount
+                                                    {{ currencyIcon() }}{{ isset($campaign->order_item->total_amount) ? round($campaign->order_item->total_amount) : $campaign->campaign_combos[0]->price }}</span>
+                                                </p>
+                                                <div class="number addToCartBTNDiv{{ $campaign->id }}">
+                                                    @if (isset($campaign->order_item->quantity))
+                                                        <span data-id="{{ $campaign->id }}"
+                                                            class="minus cart_decrement">-</span>
+                                                        <input type="text" data-id="{{ $campaign->id }}"
+                                                            class="only_number cartOrderQtyValue"
+                                                            id="cart_input{{ $campaign->id }}"
+                                                            value="{{ isset($campaign->order_item->quantity) ? $campaign->order_item->quantity : 1 }}">
+                                                        <span data-id="{{ $campaign->id }}"
+                                                            class="plus cart_increment">+</span>
+                                                    @else
+                                                        <p class="addToCartBTN" data-id="{{ $campaign->id }}"
+                                                            style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
+                                                            Add</p>
+                                                    @endif
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="cart-btn">
-                                            <span>
-                                                @for ($i = 1; $i <= $campaign->average_rating; $i++)
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                @endfor
-                                                @php
-                                                    $blank_star = 5 - $campaign->average_rating;
-                                                @endphp
-                                                @for ($i = 1; $i <= $blank_star; $i++)
-                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                @endfor
-                                                ({{ $campaign->total_rating }})
-                                            </span>
-                                            <a href="{{ route('front.donate') }}" data-id="{{ $campaign->id }}">Donate
-                                                Now</a>
+                                            <div class="cart-btn">
+                                                <span>
+                                                    @for ($i = 1; $i <= $campaign->average_rating; $i++)
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @endfor
+                                                    @php
+                                                        $blank_star = 5 - $campaign->average_rating;
+                                                    @endphp
+                                                    @for ($i = 1; $i <= $blank_star; $i++)
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    @endfor
+                                                    ({{ $campaign->total_rating }})
+                                                </span>
+                                                <a href="{{ route('front.donate') }}"
+                                                    data-id="{{ $campaign->id }}">Donate
+                                                    Now</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
-                    </div>
+                            @endforeach
+                        </div>
                     @else
-                    <img src="{{asset('front/comming_soon.jpg')}}">
+                        <img src="{{ asset('front/comming_soon.jpg') }}">
                     @endif
                 </div>
                 <!-- .focus-cause -->
@@ -396,62 +397,62 @@
         <!-- .compaian-video-overlay -->
     </section> --}}
     <!-- End campaian video Section -->
-    @if (isset($blogs) && $blogs->count()>0)
-    <!-- Start Upcoming Events Section -->
-    <section class="bg-upcoming-events">
-        <div class="container">
-            <div class="row">
-                <div class="upcoming-events">
-                    <div class="section-header">
-                        <h2>Our Latest Blogs</h2>
-                    </div>
-                    <!-- .section-header -->
-                    <div class="row">
-                        <div class="blog-section blog-page">
-                            <div class="row">
-                                @if (isset($blogs))
-                                    @foreach ($blogs as $blog)
-                                        <div class="col-lg-4 col-sm-6 col-12">
-                                            <div class="blog-items">
-                                                <div class="blog-img">
-                                                    <a href="{{ route('front.blogView', $blog->slug) }}"><img
-                                                            style="width: 416px; height: 303px;"
-                                                            src="{{ $blog->image }}"
-                                                            alt="{{ isset($blog->title) ? $blog->title : 'Blog Image' }}"
-                                                            class="img-responsive"></a>
-                                                </div>
-                                                <!-- .blog-img -->
-                                                <div class="blog-content-box">
-                                                    <div class="blog-content">
-                                                        <h4><a
-                                                                href="{{ route('front.blogView', $blog->slug) }}">{{ isset($blog->title) ? $blog->title : 'Blog Title' }}</a>
-                                                        </h4>
-                                                        <p>{{ isset($blog->meta_description) ? setStringLength($blog->meta_description, 80) : 'Blog description' }}
-                                                        </p>
+    @if (isset($blogs) && $blogs->count() > 0)
+        <!-- Start Upcoming Events Section -->
+        <section class="bg-upcoming-events">
+            <div class="container">
+                <div class="row">
+                    <div class="upcoming-events">
+                        <div class="section-header">
+                            <h2>Our Latest Blogs</h2>
+                        </div>
+                        <!-- .section-header -->
+                        <div class="row">
+                            <div class="blog-section blog-page">
+                                <div class="row">
+                                    @if (isset($blogs))
+                                        @foreach ($blogs as $blog)
+                                            <div class="col-lg-4 col-sm-6 col-12">
+                                                <div class="blog-items">
+                                                    <div class="blog-img">
+                                                        <a href="{{ route('front.blogView', $blog->slug) }}"><img
+                                                                style="width: 416px; height: 303px;"
+                                                                src="{{ $blog->image }}"
+                                                                alt="{{ isset($blog->title) ? $blog->title : 'Blog Image' }}"
+                                                                class="img-responsive"></a>
                                                     </div>
-                                                    <!-- .blog-content -->
-                                                    <div class="meta-box">
-                                                        <ul class="meta-post">
-                                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>
-                                                                {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
-                                                            </li>
-                                                            {{-- <li><a href="#"><i data-id="{{$blog->id}}" class="blog_like fa fa-heart-o" aria-hidden="true"></i>
+                                                    <!-- .blog-img -->
+                                                    <div class="blog-content-box">
+                                                        <div class="blog-content">
+                                                            <h4><a
+                                                                    href="{{ route('front.blogView', $blog->slug) }}">{{ isset($blog->title) ? $blog->title : 'Blog Title' }}</a>
+                                                            </h4>
+                                                            <p>{{ isset($blog->meta_description) ? setStringLength($blog->meta_description, 80) : 'Blog description' }}
+                                                            </p>
+                                                        </div>
+                                                        <!-- .blog-content -->
+                                                        <div class="meta-box">
+                                                            <ul class="meta-post">
+                                                                <li><i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                    {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
+                                                                </li>
+                                                                {{-- <li><a href="#"><i data-id="{{$blog->id}}" class="blog_like fa fa-heart-o" aria-hidden="true"></i>
                                                                     24
                                                                     Like</a></li> --}}
-                                                            <li><a href="#"><i class="fa fa-commenting-o"
-                                                                        aria-hidden="true"></i> 24
-                                                                    Comment</a></li>
-                                                        </ul>
+                                                                <li><a href="#"><i class="fa fa-commenting-o"
+                                                                            aria-hidden="true"></i> 24
+                                                                        Comment</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- .meta-box -->
                                                     </div>
-                                                    <!-- .meta-box -->
+                                                    <!-- .blog-content-box -->
                                                 </div>
-                                                <!-- .blog-content-box -->
+                                                <!-- .blog-items -->
                                             </div>
-                                            <!-- .blog-items -->
-                                        </div>
-                                    @endforeach
-                                    <!-- .row -->
-                                    {{-- <div class="pagination-option">
+                                        @endforeach
+                                        <!-- .row -->
+                                        {{-- <div class="pagination-option">
                                             <nav aria-label="Page navigation">
                                                 <ul class="pagination">
                                                     <li>
@@ -472,61 +473,104 @@
                                                 </ul>
                                             </nav>
                                         </div> --}}
-                                    <!-- .pagination_option -->
-                                @else
-                                    No Blog Found.
-                                @endif
+                                        <!-- .pagination_option -->
+                                    @else
+                                        No Blog Found.
+                                    @endif
+                                </div>
                             </div>
+                            <!-- .blog-section -->
                         </div>
-                        <!-- .blog-section -->
+                        <!-- .row -->
                     </div>
-                    <!-- .row -->
+                    <!-- .upcoming-events -->
                 </div>
-                <!-- .upcoming-events -->
+                <!-- .row -->
             </div>
-            <!-- .row -->
-        </div>
-        <!-- .container -->
-    </section>
+            <!-- .container -->
+        </section>
     @endif
     <!-- End Upcoming Events Section -->
-@if(sponsors()->count() > 0)
-    <!-- Start Sponsors Section -->
-    <section class="bg-sponsors-section">
-        <div class="container">
-            <div class="row">
-                <div class="sponsors-option">
-                    <div class="section-header">
-                        <h2>top sponsors</h2>
-                        <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver
-                            ubiquitous leadership awesome skills.</p>
-                    </div>
-                    <!-- .section-header -->
-                    <div class="sponsors-container">
-                        <div class="swiper-wrapper">
-                            @foreach (sponsors() as $sponsor)
-                                <div class="swiper-slide">
-                                    <div class="sopnsors-items">
-                                        <a href="#"><img style="width: 309px; height: 137px"
-                                                src="{{ $sponsor->image }}" alt="{{ $sponsor->name }}"
-                                                class="img-responsive" /></a>
-                                    </div>
-                                    <!-- .sponsors-items -->
-                                </div>
-                                <!-- .swiper-slide -->
-                            @endforeach
+    @if (sponsors()->count() > 0)
+        <!-- Start Sponsors Section -->
+        <section class="bg-sponsors-section">
+            <div class="container">
+                <div class="row">
+                    <div class="sponsors-option">
+                        <div class="section-header">
+                            <h2>top sponsors</h2>
+                            <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically
+                                deliver
+                                ubiquitous leadership awesome skills.</p>
                         </div>
-                        <!-- .swiper-wrapper -->
+                        <!-- .section-header -->
+                        <div class="sponsors-container">
+                            <div class="swiper-wrapper">
+                                @foreach (sponsors() as $sponsor)
+                                    <div class="swiper-slide">
+                                        <div class="sopnsors-items">
+                                            <a href="#"><img style="width: 309px; height: 137px"
+                                                    src="{{ $sponsor->image }}" alt="{{ $sponsor->name }}"
+                                                    class="img-responsive" /></a>
+                                        </div>
+                                        <!-- .sponsors-items -->
+                                    </div>
+                                    <!-- .swiper-slide -->
+                                @endforeach
+                            </div>
+                            <!-- .swiper-wrapper -->
+                        </div>
+                        <!-- .sponsors-container -->
                     </div>
-                    <!-- .sponsors-container -->
+                    <!-- .sponsors-option -->
                 </div>
-                <!-- .sponsors-option -->
+                <!-- .row -->
             </div>
-            <!-- .row -->
-        </div>
-        <!-- .container -->
-    </section>
+            <!-- .container -->
+        </section>
     @endif
+
+    @if (testimonials()->count() > 0)
+    <!-- Start People Say Section -->
+
+    <section class="bg-people-say-section">
+        <div class="people-say-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="people-say-section">
+                        <div class="people-say-container">
+                            <div class="swiper-wrapper">
+                                @foreach (testimonials() as $testimonial)
+                                    <div class="swiper-slide">
+                                        <div class="people-say-items">
+                                            <img src="{{ $testimonial->image }}"
+                                                style="width: 6rem; border-radius: 5rem;"
+                                                alt="{{ isset($testimonial->name) ? $testimonial->name : 'User Profile' }}">
+                                            <h3>{{ isset($testimonial->name) ? $testimonial->name : 'Guset User' }}
+                                            </h3>
+                                            <h4>{{ isset($testimonial->country) ? '(' . $testimonial->country . ')' : '' }}
+                                            </h4>
+                                            <p>{{ isset($testimonial->content) ? $testimonial->content : '' }}</p>
+                                        </div>
+                                        <!-- .sponsors-items -->
+                                    </div>
+                                @endforeach
+                            </div>
+                            <!-- .swiper-wrapper -->
+                        </div>
+                        <!-- .people-say-container -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <!-- .people-say-section -->
+                </div>
+                <!-- .row -->
+            </div>
+            <!-- .container -->
+        </div>
+        <!-- .people-say-overlay -->
+    </section>
+    <!-- End People Say Section -->
+@endif
     <!-- End Sponsors Section -->
     @push('styles')
         @include('front.capaigns_css')
@@ -567,7 +611,7 @@
                     });
             }
         </script>
-         <script>
+        <script>
             $('.addToCartBTN').click(function() {
                 var data_id = $(this).attr('data-id');
                 var html = ` <span data-id="${data_id}" class="minus cart_decrement">-</span>
@@ -576,7 +620,7 @@
                                                     id="cart_input${data_id}"
                                                     value="1">
                                                 <span data-id="${data_id}" class="plus cart_increment">+</span>`;
-                $('.addToCartBTNDiv'+data_id).html(html);
+                $('.addToCartBTNDiv' + data_id).html(html);
                 addOrUpdateToCart(data_id, 1);
             });
             $(document).on("click", ".cart_decrement", function() {

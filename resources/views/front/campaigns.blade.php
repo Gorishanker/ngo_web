@@ -131,6 +131,7 @@
     <img src="{{asset('front/comming_soon.jpg')}}">
     @endif
     @push('styles')
+   
         @include('front.capaigns_css')
     @endpush
 

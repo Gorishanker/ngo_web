@@ -38,6 +38,7 @@ class SettingRequest extends FormRequest
             'data.instagram_url' => 'nullable|url|max:150',
             'data.twitter_url' => 'nullable|url|max:150',
             'data.about_company' => 'required|max:300',
+            'data.contact_us_text' => 'required|max:200',
             'data.address' => 'required|max:70',
             'data.available_time' => 'required|max:50',
             'data.bank_name' => 'required|max:50',
@@ -46,6 +47,23 @@ class SettingRequest extends FormRequest
             'data.ac_name' => 'required|max:50',
             'data.branch' => 'required|max:150',
             'data.qr_scanner' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'data.site_mode' => 'required',
+
+            'data.about_1st_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'data.about_1_btn_text' => 'required|max:30',
+            'data.about_2_btn_text' => 'required|max:30',
+            'data.about_1_btn_url' => 'required|url|max:150',
+            'data.about_2_btn_url' => 'required|url|max:150',
+            'data.total_globalization_work' => 'required|integer|max:195',
+            'data.total_happy_donator' => 'required|integer|max:100000000',
+            'data.total_success_mission' => 'required|integer|max:100000',
+            'data.total_volunteer_reached' => 'required|integer|max:100000',
+            'data.volunteer_section_heading' => 'required|max:50',
+            'data.volunteer_section_description' => 'required|max:250',
+            'data.blog_section_heading' => 'required|max:50',
+            'data.blog_section_description' => 'required|max:250',
+            'data.sponsor_section_heading' => 'required|max:50',
+            'data.sponsor_section_description' => 'required|max:250',
         ];
     }
 
@@ -92,6 +110,9 @@ class SettingRequest extends FormRequest
             'data.about_company.required' => __('validation.required', ['attribute' => 'About company']),
             'data.about_company.max' => __('validation.max', ['attribute' => 'About company']),
 
+            'data.contact_us_text.required' => __('validation.required', ['attribute' => 'Contact us']),
+            'data.contact_us_text.max' => __('validation.max', ['attribute' => 'Contact us']),
+
             'data.address.max' => __('validation.max', ['attribute' => 'Address']),
             'data.address.required' => __('validation.required', ['attribute' => 'Address']),
 
@@ -123,6 +144,66 @@ class SettingRequest extends FormRequest
             'data.ac_number.max' => __('validation.max', ['attribute' => 'A/C Number']),
             'data.bank_name.required' => __('validation.required', ['attribute' => 'Bank Name']),
             'data.bank_name.max' => __('validation.max', ['attribute' => 'Bank Name']),
+            'data.site_mode.required' => __('validation.required', ['attribute' => 'Site Mode']),
+
+            'data.about_1_btn_text.required' => __('validation.required', ['attribute' => 'Button 1st text']),
+            'data.about_2_btn_text.required' => __('validation.required', ['attribute' => 'Button 2nd text']),
+            'data.about_1_btn_text.max' => __('validation.max', ['attribute' => 'Button 1st text']),
+            'data.about_2_btn_text.max' => __('validation.max', ['attribute' => 'Button 2nd text']),
+
+            'data.about_1_btn_url.required' => __('validation.required', ['attribute' => 'Button 1st text']),
+            'data.about_2_btn_url.required' => __('validation.required', ['attribute' => 'Button 2nd text']),
+            'data.about_1_btn_url.max' => __('validation.max', ['attribute' => 'Button 1st text']),
+            'data.about_2_btn_url.max' => __('validation.max', ['attribute' => 'Button 2nd text']),
+            'data.about_1_btn_url.url' => __('validation.url', ['attribute' => 'Button 1st text']),
+            'data.about_2_btn_url.url' => __('validation.url', ['attribute' => 'Button 2nd text']),
+
+            'data.total_globalization_work.required' => __('validation.required', ['attribute' => 'Total globalization work']),
+            'data.total_globalization_work.integer' => __('validation.integer', ['attribute' => 'Total globalization work']),
+            'data.total_globalization_work.max' => __('validation.max', ['attribute' => 'Total globalization work']),
+            
+            'data.total_happy_donator.required' => __('validation.required', ['attribute' => 'Total happy donators']),
+            'data.total_happy_donator.integer' => __('validation.integer', ['attribute' => 'Total happy donators']),
+            'data.total_happy_donator.max' => __('validation.max', ['attribute' => 'Total happy donators']),
+
+            'data.total_success_mission.required' => __('validation.required', ['attribute' => 'Total success mission']),
+            'data.total_success_mission.integer' => __('validation.integer', ['attribute' => 'Total success mission']),
+            'data.total_success_mission.max' => __('validation.max', ['attribute' => 'Total success mission']),
+
+            'data.total_volunteer_reached.required' => __('validation.required', ['attribute' => 'Total volunteer reached']),
+            'data.total_volunteer_reached.integer' => __('validation.integer', ['attribute' => 'Total volunteer reached']),
+            'data.total_volunteer_reached.max' => __('validation.max', ['attribute' => 'Total volunteer reached']),
+
+            'data.volunteer_section_heading.required' => __('validation.required', ['attribute' => 'Volunteer section heading']),
+            'data.volunteer_section_heading.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Volunteer section heading']),
+            'data.volunteer_section_heading.max' => __('validation.max', ['attribute' => 'Volunteer section heading']),
+
+            'data.volunteer_section_description.required' => __('validation.required', ['attribute' => 'Volunteer section description']),
+            'data.volunteer_section_description.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Volunteer section description']),
+            'data.volunteer_section_description.max' => __('validation.max', ['attribute' => 'Volunteer section description']),
+
+            'data.blog_section_heading.required' => __('validation.required', ['attribute' => 'Blog section heading']),
+            'data.blog_section_heading.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Blog section heading']),
+            'data.blog_section_heading.max' => __('validation.max', ['attribute' => 'Blog section heading']),
+
+            'data.blog_section_description.required' => __('validation.required', ['attribute' => 'Blog section description']),
+            'data.blog_section_description.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Blog section description']),
+            'data.blog_section_description.max' => __('validation.max', ['attribute' => 'Blog section description']),
+
+            'data.blog_section_heading.required' => __('validation.required', ['attribute' => 'Blog section heading']),
+            'data.blog_section_heading.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Blog section heading']),
+            'data.blog_section_heading.max' => __('validation.max', ['attribute' => 'Blog section heading']),
+
+            'data.sponsor_section_description.required' => __('validation.required', ['attribute' => 'Sponsor section description']),
+            'data.sponsor_section_description.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Sponsor section description']),
+            'data.sponsor_section_description.max' => __('validation.max', ['attribute' => 'Sponsor section description']),
+
+            'data.sponsor_section_heading.required' => __('validation.required', ['attribute' => 'Sponsor section heading']),
+            'data.sponsor_section_heading.alpha_spaces' => __('validation.alpha_spaces', ['attribute' => 'Sponsor section heading']),
+            'data.sponsor_section_heading.max' => __('validation.max', ['attribute' => 'Sponsor section heading']),
+
+            'data.about_1st_image.image' => __('validation.image', ['attribute' => '1st Section Image ']),
+            'data.about_1st_image.required' => __('validation.required', ['attribute' => '1st Section Image ']),
         ];
     }
 }

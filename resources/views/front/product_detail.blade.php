@@ -123,7 +123,7 @@
                                                     <input type="submit" data-id="{{ $product->id }}"
                                                         class="cart_increment" name="add" value="+">
                                                 @else
-                                                    <p class="addToCartBTNLetest" data-id="{{ $product->id }}"
+                                                    <p class="addToCartBTN" data-id="{{ $product->id }}"
                                                         style="max-width: 50px; background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px; cursor: pointer;">
                                                         Add</p>
                                                 @endif
@@ -354,77 +354,71 @@
             });
         </script>
         <script>
-            $('.addToCartBTNLetest').click(function() {
+            $('.addToCartBTN').click(function() {
                 var data_id = $(this).attr('data-id');
-                var html = ` <input data-id="${data_id}" type="submit"
+                var html = `  <input data-id="${data_id}" type="submit"
                                                         class="cart_decrement" name="remove" value="-">
                                                     <input type="text" data-id="${data_id}"
-                                                        id="ca$rt_input{data_id}"
+                                                        id="cart_input${data_id}"
                                                         class="only_number cartOrderQtyValue" name="quantity"
                                                         value="{{ isset($product->order_item->quantity) ? $product->order_item->quantity : 1 }}">
                                                     <input type="submit" data-id="${data_id}"
                                                         class="cart_increment" name="add" value="+">`;
-                var html = `<span data-id="${data_id}" class="minus cart_decrementLetest">-</span>
-                                        <input type="text" data-id="${data_id}"
-                                            class="only_number cartOrderQtyValueLetest"
-                                            id="cart_inputLetest${data_id}"
-                                            value="1">
-                                        <span data-id="${data_id}" class="plus cart_incrementLetest">+</span>`;
-                $('.addToCartBTNDivLetest' + data_id).html(html);
-                addOrUpdateToCartLetest(data_id, 1);
+                $('.addToCartBTNDiv' + data_id).html(html);
+                addOrUpdateToCart(data_id, 1);
             });
-            $(document).on("click", ".cart_decrementLetest", function() {
+            $(document).on("click", ".cart_decrement", function() {
                 var data_id = $(this).attr('data-id');
-                var input_selector = `#cart_inputLetest${data_id}`;
+                var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();
                 if (Number(cart_val) <= 1) {
                     return false;
                 }
-                var total_amt = Number($(`#cart_total_amountLetest${data_id}`).attr('data-value'));
+                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
                 total_amt = total_amt * (Number(cart_val) - 1);
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
-                $(`#cart_total_amountLetest${data_id}`).html(total_amt_html);
+                $(`#cart_total_amount${data_id}`).html(total_amt_html);
                 $(input_selector).val(Number(cart_val) - 1);
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
-                    addOrUpdateToCartLetest(data_id, cart_val);
+                    addOrUpdateToCart(data_id, cart_val);
                 }, 2000);
             });
 
-            $(document).on("click", ".cart_incrementLetest", function() {
+            $(document).on("click", ".cart_increment", function() {
                 var data_id = $(this).attr('data-id');
-                var input_selector = `#cart_inputLetest${data_id}`;
+                var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();
                 $(input_selector).val(Number(cart_val) + 1);
-                var total_amt = Number($(`#cart_total_amountLetest${data_id}`).attr('data-value'));
+                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
                 total_amt = total_amt * (Number(cart_val) + 1);
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
-                $(`#cart_total_amountLetest${data_id}`).html(total_amt_html);
+                $(`#cart_total_amount${data_id}`).html(total_amt_html);
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
-                    addOrUpdateToCartLetest(data_id, cart_val);
+                    addOrUpdateToCart(data_id, cart_val);
                 }, 2000);
             });
 
-            $(document).on("click", ".cartOrderQtyValueLetest", function() {
+            $(document).on("change", ".cartOrderQtyValue", function() {
                 var data_id = $(this).attr('data-id');
-                var input_selector = `#cart_inputLetest${data_id}`;
+                var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();
                 if (Number(cart_val) <= 0) {
                     $(input_selector).val(1);
                     return false;
                 }
-                var total_amt = Number($(`#cart_total_amountLetest${data_id}`).attr('data-value'));
+                var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
                 total_amt = total_amt * Number(cart_val);
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
-                $(`#cart_total_amountLetest${data_id}`).html(total_amt_html);
+                $(`#cart_total_amount${data_id}`).html(total_amt_html);
                 cart_val = $(input_selector).val();
                 setTimeout(function() {
-                    addOrUpdateToCartLetest(data_id, cart_val);
+                    addOrUpdateToCart(data_id, cart_val);
                 }, 2000);
             });
 
-            function addOrUpdateToCartLetest(data_id, cart_val) {
+            function addOrUpdateToCart(data_id, cart_val) {
                 var url = `{{ url('/') }}/product/add-or-update-cart/` + data_id;
                 $.ajax({
                         headers: {

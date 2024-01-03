@@ -35,4 +35,9 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Campaign::class,'campagin_id');
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class,'product_id');
+    }
 }

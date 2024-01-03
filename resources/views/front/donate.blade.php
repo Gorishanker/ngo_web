@@ -253,24 +253,26 @@
 
                 <!-- Item -->
                 <div class="col-md-6">
-                    <div class="d-flex align-items-start  shadow rounded scanUpi-gmt">
-                        <div style="width: 50%;" class="ps-4 ps-sm-3 ps-md-4 pt-2 justify-content-baseline">
-                            <h2 class=" h1" style="color: #53a92b;">Scan to pay <br> via UPI</h2>
+                    <div class="d-flex align-items-center  shadow rounded scanUpi-gmt">
+                        <div class="d-flex align-items-center"
+                            style="width: 50%;padding: 30px;background-color:#53a92b;height:100%;">
+                            <h2 class=" h1" style="color: #fff;">Scan to pay via UPI</h2>
                         </div>
-                        <div style="width: 50%;" class="gmt-barcode">
-                            <img style="width: 150px; height:150px;" class=""
+                        <div style="width: 50%;text-align:right;" class="gmt-barcode">
+                            <img
                                 src="{{ isset($global_setting_data['qr_scanner']) ? asset('files/settings/' . $global_setting_data['qr_scanner'] . '') : $logo_img }}">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="d-flex align-items-start shadow rounded scanUpi-gmt">
-                        <div class="ps-4 ps-sm-3 ps-md-4 pt-2">
-                            <h2 class="" style="font-size:45px; color: #53a92b;">Bank <br> Transfer</h2>
+                    <div class="d-flex align-items-center shadow rounded scanUpi-gmt" style="height: 100%;">
+                        <div class="d-flex align-items-center"
+                            style="width: 50%;padding: 30px;background-color:#53a92b;height:100%;">
+                            <h2 class="h1" style="color: #fff;">Bank Transfer</h2>
                         </div>
-                        <div class="bg-white text-dark ps-4">
-                            <h2 class="hdfc-gmt">
+                        <div class="bg-white text-dark ps-4 detail-p">
+                            <h2 class="hdfc-gmt" style="font-weight: 500;font-size: 26px;">
                                 {{ isset($global_setting_data['bank_name']) ? $global_setting_data['bank_name'] : 'Test Bank' }}
                             </h2>
                             <p><b>A/C Number:</b>
@@ -294,6 +296,20 @@
         </div>
     </section>
     @push('styles')
+    <style>
+        .scanUpi-gmt {
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .h1 {
+            font-size: 46px;
+        }
+
+        .detail-p p {
+            margin-top: 12px;
+        }
+    </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css" />
     @endpush
     @push('scripts')

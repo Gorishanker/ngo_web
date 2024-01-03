@@ -33,7 +33,7 @@ class CampaignController extends Controller
      */
     public function campaigns(Request $request)
     {
-        $campaigns  = Campaign::where('is_active', 1)->paginate(20);
+        $campaigns  = Campaign::where('is_active', 1)->paginate(1);
         $meta_title = getSettingDataBySlug('web_site_name');
         $logo = getSettingDataBySlug('logo');
         $meta_description = getSettingDataBySlug('about_company');

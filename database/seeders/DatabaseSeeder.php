@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             ModelHasRoleSeeder::class,
             SettingSeeder::class,
+            PageContentSeeder::class,
         ]);
     }
 }

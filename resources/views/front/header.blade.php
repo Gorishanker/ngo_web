@@ -24,8 +24,8 @@
                         <div class="main-menu">
                             <div class="main-menu-bottom">
                                 <div class="navbar-header">
-                                    <a class="navbar-brand" href="{{url('/')}}"><img
-                                            src="{{ asset('front/images/home01/logo.png') }}" alt="logo"
+                                    <a class="navbar-brand" href="{{url('/')}}"><img style="max-width:230px; max-height:46px;"
+                                            src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : $logo_img }}" alt="logo"
                                             class="img-responsive" /></a>
                                     <button type="button" class="navbar-toggler collapsed d-lg-none"
                                         data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1"

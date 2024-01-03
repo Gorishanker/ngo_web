@@ -9,6 +9,7 @@ use App\Models\PageContent;
 use App\Models\Setting;
 use App\Models\Sponsor;
 use App\Models\Team;
+use App\Models\Testimonial;
 use App\Services\ManagerLanguageService;
 use App\Services\UserService;
 use Carbon\Carbon;
@@ -321,6 +322,12 @@ function getGalleryImages($category_id = null,  $pagination = null)
 function sponsors()
 {
     $data = Sponsor::where('is_active', 1)->get();
+    return $data;
+}
+
+function testimonials()
+{
+    $data = Testimonial::where('is_active', 1)->get();
     return $data;
 }
 

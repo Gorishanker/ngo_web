@@ -49,68 +49,115 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @if(isset($items))
-                                @foreach ($items as $item)
-                                    <tr>
-                                        <td class="cart-product">
-                                            <div class="product-cart-img">
-                                                <a href="#"><img style="width: 85px; height: 85px;"
-                                                        src="{{ isset($item->campaign->image) ? $item->campaign->image : 'Na' }}"
-                                                        alt="{{ isset($item->campaign->title) ? $item->campaign->title : 'Na' }}"></a>
-                                            </div>
-                                            <!-- .product-cart-img -->
-                                            <div class="product-cart-title">
-                                                <h4><a
-                                                        href="#">{{ isset($item->campaign->title) ? $item->campaign->title : 'Na' }}</a>
-                                                </h4>
-                                            </div>
-                                            <!-- .product-cart-title -->
-                                        </td>
-                                        <td class="cart-price">
-                                            {{ isset($item->price) ? currencyIcon() . $item->price : 'Na' }}</td>
-                                        <td class="cart-quantity">
-                                            <div class="product-counter-option">
-                                                <div class="product-count">
-                                                    <!-- .product-count -->
-                                                    <input type="submit" data-id="{{ $item->id }}"
-                                                        class="cart_decrement" value="-">
-                                                    <input type="text" data-id="{{ $item->id }}"
-                                                        class="only_number cartOrderQtyValue"
-                                                        id="cart_input{{ $item->id }}"
-                                                        value="{{ isset($item->quantity) ? $item->quantity : 1 }}">
-                                                    <input data-id="{{ $item->id }}" class="cart_increment"
-                                                        type="submit" value="+">
+                                @if (isset($items))
+                                    @foreach ($items as $item)
+                                        @if (isset($item->product_id))
+                                            <tr>
+                                                <td class="cart-product">
+                                                    <div class="product-cart-img">
+                                                        <a href="{{route('front.product.show', $item->product->slug)}}"><img style="width: 85px; height: 85px;"
+                                                                src="{{ isset($item->product->image) ? $item->product->image : 'Na' }}"
+                                                                alt="{{ isset($item->product->title) ? $item->product->title : 'Na' }}"></a>
+                                                    </div>
+                                                    <!-- .product-cart-img -->
+                                                    <div class="product-cart-title">
+                                                        <h4><a
+                                                                href="{{route('front.product.show', $item->product->slug)}}">{{ isset($item->product->title) ? $item->product->title : 'Na' }}</a>
+                                                        </h4>
+                                                    </div>
+                                                    <!-- .product-cart-title -->
+                                                </td>
+                                                <td class="cart-price">
+                                                    {{ isset($item->price) ? currencyIcon() . $item->price : 'Na' }}</td>
+                                                <td class="cart-quantity">
+                                                    <div class="product-counter-option">
+                                                        <div class="product-count">
+                                                            <!-- .product-count -->
+                                                            <input type="submit" data-id="{{ $item->id }}"
+                                                                class="cart_decrement" value="-">
+                                                            <input type="text" data-id="{{ $item->id }}"
+                                                                class="only_number cartOrderQtyValue"
+                                                                id="cart_input{{ $item->id }}"
+                                                                value="{{ isset($item->quantity) ? $item->quantity : 1 }}">
+                                                            <input data-id="{{ $item->id }}" class="cart_increment"
+                                                                type="submit" value="+">
 
-                                                </div>
-                                        </td>
-                                        <td class="cart-total">
-                                            {{ isset($item->total_amount) ? currencyIcon() . $item->total_amount : 'Na' }}
-                                        </td>
-                                        <td class="cart-edit">
-                                            <a href="#"><i item-id="{{$item->id}}" class="deleteCartitem fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                                        </div>
+                                                </td>
+                                                <td class="cart-total">
+                                                    {{ isset($item->total_amount) ? currencyIcon() . $item->total_amount : 'Na' }}
+                                                </td>
+                                                <td class="cart-edit">
+                                                   <a><i item-id="{{ $item->id }}"
+                                                            class="deleteCartitem fa fa-times"></i></a>
+                                                </td>
+                                            </tr>
+                                        @else
+                                            <tr>
+                                                <td class="cart-product">
+                                                    <div class="product-cart-img">
+                                                        <a href="{{route('front.campaign.show', $item->campaign->slug)}}"><img style="width: 85px; height: 85px;"
+                                                                src="{{ isset($item->campaign->image) ? $item->campaign->image : 'Na' }}"
+                                                                alt="{{ isset($item->campaign->title) ? $item->campaign->title : 'Na' }}"></a>
+                                                    </div>
+                                                    <!-- .product-cart-img -->
+                                                    <div class="product-cart-title">
+                                                        <h4><a
+                                                                href="{{route('front.campaign.show', $item->campaign->slug)}}">{{ isset($item->campaign->title) ? $item->campaign->title : 'Na' }}</a>
+                                                        </h4>
+                                                    </div>
+                                                    <!-- .product-cart-title -->
+                                                </td>
+                                                <td class="cart-price">
+                                                    {{ isset($item->price) ? currencyIcon() . $item->price : 'Na' }}</td>
+                                                <td class="cart-quantity">
+                                                    <div class="product-counter-option">
+                                                        <div class="product-count">
+                                                            <!-- .product-count -->
+                                                            <input type="submit" data-id="{{ $item->id }}"
+                                                                class="cart_decrement" value="-">
+                                                            <input type="text" data-id="{{ $item->id }}"
+                                                                class="only_number cartOrderQtyValue"
+                                                                id="cart_input{{ $item->id }}"
+                                                                value="{{ isset($item->quantity) ? $item->quantity : 1 }}">
+                                                            <input data-id="{{ $item->id }}" class="cart_increment"
+                                                                type="submit" value="+">
+
+                                                        </div>
+                                                </td>
+                                                <td class="cart-total">
+                                                    {{ isset($item->total_amount) ? currencyIcon() . $item->total_amount : 'Na' }}
+                                                </td>
+                                                <td class="cart-edit">
+                                                    <a><i item-id="{{ $item->id }}"
+                                                            class="deleteCartitem fa fa-times"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
                                 @else
-                                <tr><td colspan="4" style="padding-left: 20px;">Cart Item Not Found Please add item first.  <a href="{{url('/')}}">Go to home</a></td></tr>
+                                    <tr>
+                                        <td colspan="4" style="padding-left: 20px;">Cart Item Not Found Please add item
+                                            first. <a href="{{ url('/') }}">Go to home</a></td>
+                                    </tr>
                                 @endif
                             </tbody>
                         </table>
                     </div>
                     <!-- .table-box -->
 
-                    @if(isset($items))
-                    <div class="cart-checked-box">
-                        <div class="cart-coupon-code">
-                            <h4>Total Amount : {{ currencyIcon() . $total_amount }}</h4>
+                    @if (isset($items))
+                        <div class="cart-checked-box">
+                            <div class="cart-coupon-code">
+                                <h4>Total Amount : {{ currencyIcon() . $total_amount }}</h4>
+                            </div>
+
+                            <div class="cart-update">
+                                <a href="{{ route('front.cartCheckout') }}">
+                                    <button type="submit">proceed checkout</button></a>
+                            </div>
+                            <!-- .coupon-code -->
                         </div>
-                       
-                        <div class="cart-update">
-                            <a href="{{route('front.cartCheckout')}}">
-                            <button type="submit">proceed checkout</button></a>
-                        </div>
-                        <!-- .coupon-code -->
-                    </div>
                     @endif
                     <!-- .cart-checked-box -->
                 </div>
@@ -200,7 +247,7 @@
                         return new Promise(function(resolve) {
                             $.ajax({
                                     headers: {
-                                        'X-CSRF-TOKEN': `{{csrf_token()}}`
+                                        'X-CSRF-TOKEN': `{{ csrf_token() }}`
                                     },
                                     url: url,
                                     type: 'DELETE',

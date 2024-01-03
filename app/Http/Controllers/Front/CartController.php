@@ -64,8 +64,21 @@ class CartController extends Controller
      */
     public function deleteItem(OrderItem $order_item)
     {
-        $result = $order_item->delete();
-        return WebUtilityService::swalWithTitleResponse($result, 'deleted', 'cart_item');
+        if(isset($order_item)){
+            $order_items = OrderItem::where('order_id', $order_item->order_id)->get();
+            $order = Order::find($order_item->order_id);
+            if($order_items->count() <= 1){
+                $order->delete(); 
+                $result = $order_item->delete();
+            }else{
+                $result = $order_item->delete();
+                $total_amount = OrderItem::where('order_id', $order_item->order_id)->sum('total_amount');
+                $order->update(['total_price' =>  $total_amount]);
+            }
+            return WebUtilityService::swalWithTitleResponse($result, 'deleted', 'cart_item');
+        }else{
+            return false;
+        }
     }
 
      /**

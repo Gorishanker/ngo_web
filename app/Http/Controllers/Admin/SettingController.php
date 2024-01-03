@@ -63,6 +63,30 @@ class SettingController extends Controller
                 // dd($destinationPath);
                 $value = $filename;
             }
+            if ($key == "about_1st_image" && !empty($request->file('data.about_1st_image'))) {
+
+                //Start::Delete old about_1st_image.
+                $logo_name = isset($settings['about_1st_image']) ? $settings['about_1st_image'] : null;
+                if ($logo_name) {
+                    $logo_url = '/files/settings/' . $logo_name;
+                    FileService::remove_file_public_path($logo_url);
+                }
+                //End::Delete old about_1st_image.
+
+                $about_1st_image = $request->file('data.about_1st_image');
+                // dd($about_1st_image->getClientOriginalName());
+                $name = '';
+                $ext = $about_1st_image->getClientOriginalExtension() !== "" ? $about_1st_image->getClientOriginalExtension() : $about_1st_image->extension();
+                // dd($ext);
+                // $filename = $name . time() . '_' . uniqid() . '.' . $ext;
+                // dd(config('services.app_details.app_name'), '-about_1st_image.', $about_1st_image->getClientOriginalExtension());
+                // $filename    = config('services.app_details.app_name') . '-about_1st_image.' . $about_1st_image->getClientOriginalExtension();
+                $filename    = $about_1st_image->getClientOriginalName();
+                $destinationPath = public_path('/files/settings/');
+                $about_1st_image->move($destinationPath, $filename);
+                // dd($destinationPath);
+                $value = $filename;
+            }
             if ($key == "favicon" && !empty($request->file('data.favicon'))) {
                 //Start::Get old favicon and delete it.
                 $favicon_name = isset($settings['favicon']) ? $settings['favicon'] : null;
