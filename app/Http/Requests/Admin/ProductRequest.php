@@ -31,7 +31,7 @@ class ProductRequest extends FormRequest
                 'summery' => 'required|max:250',
                 'description' => 'required|min:50',
                 'is_active' => 'required',
-                'side_images' => 'nullable|max:3',
+                'side_images' => 'nullable|max:10',
             ];
         } else {
             return [
