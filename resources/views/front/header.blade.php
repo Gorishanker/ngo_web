@@ -60,7 +60,7 @@
                                             </li>
                                             <li>
                                                 <a href="{{ route('front.products.index') }}"
-                                                    class="{{ (request()->is('*products*') || request()->is('*project*')) ? 'active' : '' }}">Products</a>
+                                                    class="{{ (request()->is('*products*') || request()->is('*product*')) ? 'active' : '' }}">Products</a>
                                             </li>
                                             {{-- @if (getSettingDataBySlug('site_mode') == 1)
                                                 <li>
