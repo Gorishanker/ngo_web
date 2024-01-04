@@ -31,7 +31,7 @@
     <div class="intro-y col-span-12 lg:col-span-6">
         <div class="intro-y box p-5">
             <div>
-                <label class="text-gray-500 font-medium leading-none mt-3">User type
+                <label class="text-gray-500 font-medium leading-none mt-3">Status
                     : </label>
                 @if (isset($contact_u->status))
                     @if ($contact_u->status == 0 || $contact_u->status == null)
