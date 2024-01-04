@@ -92,7 +92,7 @@ class HomeController extends Controller
                 $projects = Project::where('is_active',  1)->select('title', 'image', 'slug');
         }
         if(isset($request->page)){
-            $projects = $projects->paginate(2);
+            $projects = $projects->paginate(6);
             if($projects->currentPage() == $projects->lastPage()){
                 $disable_load_more_btn = true;
             }
