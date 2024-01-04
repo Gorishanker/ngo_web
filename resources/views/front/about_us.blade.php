@@ -69,6 +69,8 @@
         <!-- .container -->
     </section>
     <!-- End About Greenforest Section -->
+    @else
+    <img src="{{asset('front/comming_soon.jpg')}}">
 @endif
 
     <!-- Start Count Section -->
