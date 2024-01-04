@@ -1,6 +1,6 @@
 @extends('front.base')
 @section('title')
-    <title>{{ webSiteTitleName() }} : Projects</title>
+    <title>{{ webSiteTitleName() }} : Impact Stories</title>
     {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
@@ -98,7 +98,7 @@
                                 </div> --}}
                             <!-- .pagination_option -->
                         @else
-                            No Blog Found.
+                        <img src="{{asset('front/comming_soon.jpg')}}">
                         @endif
                     </div>
                 </div>

@@ -78,7 +78,7 @@
         </div>
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
-                <label class="text-gray-500 font-medium leading-none mt-3">Side Images                    : </label>
+                <label class="text-gray-500 font-medium leading-none mt-3">Side Images: </label>
                     <div style="display: flex;">
                     @if (!empty($product->product_images))
                         @foreach ($product->product_images as $images)

@@ -202,7 +202,7 @@ $setting_data = Setting::pluck('value', 'slug');
         view()->composer('*', function ($view) use($setting_data) {
             $view->with('global_setting_data', $setting_data);
             $view->with('auth_user', Auth::user());
-            $view->with('logo_img', url('/') . '/files/settings/Staaraee-logo.png');
+            $view->with('logo_img', url('/') . '/files/settings/logo.png');
             $view->with('about_1st_image', asset('front/images/home02/about-greenforet-img.jpg'));
             $view->with('favicon_img', isset($setting_data['favicon']) ? asset('files/settings/' . $setting_data['favicon'] . '') : url('/') . 'blank.png');
             $view->with('qr_scanner', isset($setting_data['qr_scanner']) ? asset('files/settings/' . $setting_data['qr_scanner'] . '') : url('/') . 'blank.png');

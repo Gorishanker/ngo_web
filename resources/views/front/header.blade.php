@@ -30,7 +30,7 @@
                                 <div class="navbar-header">
                                     <a class="navbar-brand" href="{{ url('/') }}"><img
                                             style="max-width:230px; max-height:46px;"
-                                            src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : $logo_img }}"
+                                            src="{{ ($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : $logo_img }}"
                                             alt="logo" class="img-responsive" /></a>
                                     <button type="button" class="navbar-toggler collapsed d-lg-none"
                                         data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1"
@@ -147,10 +147,10 @@
                                             <!-- .cart-option -->
 
                                             <div class="search-box">
-                                                <i class="fa fa-search first_click" aria-hidden="true"
-                                                    style="display: block;"></i>
-                                                <i class="fa fa-times second_click" aria-hidden="true"
-                                                    style="display: none;"></i>
+                                                {{-- <i class="fa fa-search first_click" aria-hidden="true"
+                                                    style="display: block;"></i> --}}
+                                                {{-- <i class="fa fa-times second_click" aria-hidden="true"
+                                                    style="display: none;"></i> --}}
                                             </div>
                                         </div>
                                         <!-- .header-search-box -->

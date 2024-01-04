@@ -23,7 +23,7 @@
                             @endphp
                             <div class="carousel-item {{ $active }}">
                                 <div class="slider-item">
-                                    <img style="width: 1862px; height: 776px;"
+                                    <img style="width: 1765px; height: 776px;"
                                         src="{{ isset($banner->image) ? $banner->image : asset('front/images/home02/slider-img-1.jpg') }}"
                                         alt="Slider Image">
                                     <div class="slider-content-area">
@@ -90,7 +90,7 @@
     </section>
     <!-- End Slider Section -->
 
-
+@if(getSettingDataBySlug('about_1st_content'))
     <!-- Start About Greenforest Section -->
     <section class="bg-about-greenforest">
         <div class="container">
@@ -99,17 +99,9 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="about-greenforest-content">
-                                <h2>about greenforest</h2>
-                                <p><span>Globaly eenable turnkey aplcations interndent awesome andbenefisa tional awesome
-                                        ascenarios exceptional scenarios awesome theme strategies.</span></p>
-                                <p>Globally eenable turnkey applications via interdependent awesome andbenefitsa theme are
-                                    awesome Uniquely formulate impacful bandwidth with client centered creative ianitiatives
-                                    Interively productivate vertcal paradigms before resource maximg convergence. Efciey
-                                    diseminate mtidisciplinary mindshare after clientcentered creative theme experienvertcal
-                                    paradigms before resource maximg convergence. Efciey diseminate mindshare clientcentered
-                                    creative theme experiences.</p>
-                                <a href="#" class="btn btn-default">join now</a>
-                                <a href="{{-- route('front.donate') --}}" class="btn btn-default">donate now</a>
+                                {!!getSettingDataBySlug('about_1st_content')!!}
+                                <a href="{{getSettingDataBySlug('about_1_btn_url')}}" class="btn btn-default">{{getSettingDataBySlug('about_1_btn_text')}}</a>
+                                <a href="{{getSettingDataBySlug('about_2_btn_url')}}" class="btn btn-default">{{getSettingDataBySlug('about_2_btn_text')}}</a>
                             </div>
                             <!-- .about-greenforest-content -->
                         </div>
@@ -133,7 +125,7 @@
     </section>
     <!-- End About Greenforest Section -->
 
-
+@endif
 
     <!-- Start Recent Project Section -->
     <section class="bg-recent-project">

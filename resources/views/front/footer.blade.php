@@ -58,23 +58,23 @@
                                 <ul class="address">
                                     <li>
                                         <a href="{{ route('front.impactStory.index') }}"
-                                            class="{{ request()->is('*impact-stories*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*impact-stories*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i> Impact
                                             Stories</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('front.gallery') }}"
-                                            class="{{ request()->is('*gallery*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*gallery*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Gallery</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('front.faqs') }}"
-                                            class="{{ request()->is('*faqs*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*faqs*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>FAQ's</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/') }}/terms-and-conditions"
-                                            class="{{ request()->is('*terms-and-conditions*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*terms-and-conditions*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Terms &
                                             Conditions</a>
                                     </li>
@@ -88,25 +88,25 @@
                                 <ul class="address">
                                     <li>
                                         <a href="{{ url('/') }}/privacy-policy"
-                                            class="{{ request()->is('*privacy-policy*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*privacy-policy*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Privacy
                                             Policy</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/') }}/cancellations-policy"
-                                            class="{{ request()->is('*cancellations-policy*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*cancellations-policy*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Cancellation
                                             Policy</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/') }}/shipping-policy"
-                                            class="{{ request()->is('*shipping-policy*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*shipping-policy*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Shipping
                                             Policy</a>
                                     </li>
                                     <li>
                                         <a href="{{ url('/') }}/pricing-policy"
-                                            class="{{ request()->is('*pricing-policy*') ? 'active' : '' }}"><i
+                                            class="{{ request()->is('*pricing-policy*') ? 'active_footer_pages_link' : '' }}"><i
                                                 class="fa fa-angle-double-right" aria-hidden="true"></i>Pricing
                                             Policy</a>
                                     </li>

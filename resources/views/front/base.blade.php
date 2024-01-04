@@ -26,6 +26,14 @@
             width: 24px;
         }
 
+        .footer-widgets ul li a:hover{
+            color:#53a92b;
+        }
+
+        .active_footer_pages_link{
+            color:#53a92b;
+        }
+
         .relative.inline-flex.items-center {
             width: 40px !important;
             height: 40px !important;

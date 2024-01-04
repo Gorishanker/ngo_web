@@ -39,8 +39,8 @@
             <div class="row">
                 <div class="recent-project gallery2-items">
                     <div id="filters" class="button-group ">
-                        <button id="showAllImages" class="button is-checked" data-filter="*">show all</button>
                         @if (isset($categories) && $categories->count() > 0)
+                        <button id="showAllImages" class="button is-checked" data-filter="*">show all</button>
                         @foreach ($categories as $key => $category)
                         <button data-id="{{ $category->id }}" class="single_category_images button">{{
                             isset($category->category_name) ? $category->category_name : 'Na' }}</button>
@@ -52,15 +52,20 @@
                     </div>
                     <!-- .isotope-items -->
                 </div>
+                @if (isset($categories) && $categories->count() > 0)
                 <div class="load-more-option" data-id="1" service-id="0">
                     <a href="javascript:;" class="btn btn-default">load more photos</a>
                 </div>
+                @else
+                <img src="{{asset('front/comming_soon.jpg')}}">
+                @endif
                 <!-- .recent-project -->
             </div>
             <!-- .row -->
         </div>
         <!-- .container -->
     </section>
+
     
     @push('scripts')
         <script>

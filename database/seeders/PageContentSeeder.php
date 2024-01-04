@@ -46,7 +46,7 @@ class PageContentSeeder extends Seeder
             ],
             [
                 'title' => 'Shipping Policy',
-                'slug' => 'Shipping Policy',
+                'slug' => 'shipping-policy',
                 'content' => 'Please add',
                 'is_active' => 1,
                 'created_at' => Carbon::now()

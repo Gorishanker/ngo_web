@@ -26,10 +26,10 @@
         <!-- BEGIN: Login Info -->
         <div class="hidden xl:flex flex-col min-h-screen">
             <a href="{{ route('admin.login') }}" class="-intro-x flex items-center pt-5">
-                <img alt="Starrae" style="max-width:230px; max-height:46px;" 
-                    src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : 'dist/images/logo.svg' }}">
-                <span
-                    class="text-white text-lg ml-3">{{ isset($global_setting_data['site_name']) ? $global_setting_data['site_name'] : 'na' }}</span>
+                <img alt="NGO" style="max-width:230px; max-height:46px;" 
+                    src="{{ ($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : $logo_img }}">
+                {{-- <span
+                    class="text-white text-lg ml-3">{{ isset($global_setting_data['site_name']) ? $global_setting_data['site_name'] : 'na' }}</span> --}}
             </a>
             <div class="my-auto">
                 <img alt="Starrae" src="dist/images/illustration.svg"  class="-intro-x w-1/2 -mt-16" style="width: 60%">

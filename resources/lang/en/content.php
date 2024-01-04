@@ -189,7 +189,7 @@ return [
     'amount' => 'Amount',
     'total_rating' => 'Total ratings',
     'avg_rating' => 'Average ratings',
-    'summery' => 'Summery',
+    'summary' => 'Summary',
     'testimonial' => 'Testimonial|Testimonials',
     
 ];

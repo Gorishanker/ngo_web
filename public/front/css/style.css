@@ -1585,7 +1585,7 @@ section{
 .search-box {
 	float:left;
     margin: 14px 14px 14px 0;
-    border: 2px solid #ddd;
+    /* border: 2px solid #ddd; */
     padding: 10px 10px;
     border-radius: 100%;
 	cursor: pointer;

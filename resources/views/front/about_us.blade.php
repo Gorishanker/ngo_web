@@ -36,7 +36,7 @@
     </section>
     <!-- End Page Header Section -->
 
-
+    @if(getSettingDataBySlug('about_1st_content'))
     <!-- Start About Greenforest Section -->
     <section class="bg-about-greenforest">
         <div class="container">
@@ -54,7 +54,7 @@
                         <!-- .col-lg-8 -->
                         <div class="col-lg-4">
                             <div class="about-greenforest-img">
-                                <img style="width:424px; height:473px;" src="{{ isset($global_setting_data['about_1st_image']) ? asset('files/settings/' . $global_setting_data['about_1st_image'] . '') : $about_1st_image }}"
+                                <img style="width:424px; height:473px;" src="{{ ($global_setting_data['about_1st_image']) ? asset('files/settings/' . $global_setting_data['about_1st_image'] . '') : $about_1st_image }}"
                                     alt="about-greenforet-img" class="img-responsive" />
                             </div>
                             <!-- .about-greenforest-img -->
@@ -69,7 +69,7 @@
         <!-- .container -->
     </section>
     <!-- End About Greenforest Section -->
-
+@endif
 
     <!-- Start Count Section -->
     <section class="bg-count2-section">
