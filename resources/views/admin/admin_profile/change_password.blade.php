@@ -34,7 +34,7 @@
                                         'placeholder' => __('placeholder.enter_old_password'),
                                     ]) !!}
                                     <i class="fa fa-eye" id="toggleOldPassword"
-                                        style="position: absolute;top: 38px;right: 20px;font-size: 19px;z-index:999;color:rgb(0, 0, 0);">
+                                        style="position: absolute;top: 38px;right: 20px;font-size: 19px;z-index:1;color:rgb(0, 0, 0);">
                                     </i>
                                     @if ($errors->has('old_password'))
                                         <span
@@ -49,7 +49,7 @@
                                         'placeholder' => __('placeholder.enter_new_password'),
                                     ]) !!}
                                     <i class="fa fa-eye" id="toggleNewPassword"
-                                        style="position: absolute;top: 38px;right: 20px;font-size: 19px;z-index:999;color:rgb(0, 0, 0);">
+                                        style="position: absolute;top: 38px;right: 20px;font-size: 19px;z-index:1;color:rgb(0, 0, 0);">
                                     </i>
                                     @if ($errors->has('password'))
                                         <span class="error invalid-feedback d-block">{{ $errors->first('password') }}</span>
@@ -67,7 +67,7 @@
                                         'placeholder' => __('placeholder.enter_confirm_password'),
                                     ]) !!}
                                     <i class="fa fa-eye" id="toggleConfirmPassword"
-                                        style="position: absolute;top: 38px;right: 20px;font-size: 19px;z-index:999;color:rgb(0, 0, 0);">
+                                        style="position: absolute;top: 38px;right: 20px;font-size: 19px;z-index:1;color:rgb(0, 0, 0);">
                                     </i>
                                     @if ($errors->has('confirm_password'))
                                         <span

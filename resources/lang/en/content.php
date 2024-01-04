@@ -55,7 +55,7 @@ return [
 
 
     //Table Title
-    'id_title' => 'Serial no.',
+    'id_title' => 'Serial No.',
     'social_login' => 'Social Login',
     'name_title' => 'Name|Names',
     'phone_title' => 'Phone Number|Phone Numbers',
@@ -113,7 +113,7 @@ return [
     'campaign' => 'Campaign|Campaigns',
     'blog' => 'Blog|Blogs',
     'please_select' => '--- Please select ---',
-    'brochure_doc' => 'Brochure doc',
+    'brochure_doc' => 'Brochure document',
     'brochure_pdf' => 'Brochure pdf',
     'client' => 'Client|Clients',
     'category' => 'Category|Categories',

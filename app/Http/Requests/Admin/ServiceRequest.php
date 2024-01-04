@@ -48,6 +48,10 @@ class ServiceRequest extends FormRequest
     {
         return [
             'is_active.required' => __('validation.required', ['attribute' => 'status']),
+            'brochure_doc.required' => __('validation.required', ['attribute' => 'brochure document']),
+            'brochure_doc.file' => __('validation.file', ['attribute' => 'brochure document']),
+            'brochure_doc.mimes' => __('validation.mimes', ['attribute' => 'brochure document']),
+            'brochure_doc.max' => __('validation.max', ['attribute' => 'brochure document']),
         ];
     }
 }

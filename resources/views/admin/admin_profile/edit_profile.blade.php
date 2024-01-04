@@ -50,7 +50,7 @@
                                         'class' => 'input w-full rounded-full border bg-gray-100 mt-2',
                                     ]) !!}
                                 </div>
-                                <div class="col-span-12 xl:col-span-4">
+                                <div class="col-span-12 xl:col-span-5">
                                     <label class="">Image</label>
                                     {!! Form::file('image', [
                                         'class' => 'input w-full border bg-gray-100 mt-2',
@@ -60,7 +60,7 @@
                                         'placeholder' => __('Upload Profile Image '),
                                     ]) !!}
                                 </div>
-                                <div class="col-span-12 xl:col-span-2 mt-4">
+                                <div class="col-span-12 xl:col-span-1 mt-4">
                                     @if (isset($auth_user->image))
                                         <img id="backImage_image" height="100px" width="100px"
                                             src="{{ $auth_user->image }}" title="Image">

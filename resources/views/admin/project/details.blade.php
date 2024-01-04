@@ -60,19 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="intro-y col-span-12 lg:col-span-6">
-            <div class="intro-y box p-5">
-                <div>
-                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.image', 1) }}
-                        : </label>
-                    <a href="{{ $project->image }}" target="_blank">
-                        <div class="font-medium whitespace-no-wrap">
-                            <img src="{{ $project->image }}" alt="Banner image">
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+       
 
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
@@ -110,6 +98,19 @@
             </div>
         </div>
         <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.image', 1) }}
+                        : </label>
+                    <a  href="{{ $project->image }}" target="_blank">
+                        <div class="font-medium whitespace-no-wrap">
+                            <img style="width: 100px; height: 70px;" src="{{ $project->image }}" alt="Banner image">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-12">
             <div class="intro-y box p-5">
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.content', 1) }}

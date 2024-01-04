@@ -26,13 +26,13 @@
         <!-- BEGIN: Login Info -->
         <div class="hidden xl:flex flex-col min-h-screen">
             <a href="{{ route('admin.login') }}" class="-intro-x flex items-center pt-5">
-                <img alt="Starrae" class="w-6"
+                <img alt="Starrae" style="max-width:230px; max-height:46px;" 
                     src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : 'dist/images/logo.svg' }}">
                 <span
                     class="text-white text-lg ml-3">{{ isset($global_setting_data['site_name']) ? $global_setting_data['site_name'] : 'na' }}</span>
             </a>
             <div class="my-auto">
-                <img alt="Starrae" class="-intro-x w-1/2 -mt-16" src="dist/images/illustration.svg">
+                <img alt="Starrae" src="dist/images/illustration.svg"  class="-intro-x w-1/2 -mt-16" style="width: 60%">
                 <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                     A few more clicks to
                     <br>

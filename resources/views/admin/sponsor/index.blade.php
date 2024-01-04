@@ -34,7 +34,6 @@
                 responsive: true,
                 searchDelay: 500,
                 processing: true,
-                bFilter: false,
                 serverSide: true,
                 order: [
                     [4, 'desc']
@@ -59,9 +58,9 @@
                         // d.name = $('input[name=name]').val();
                     },
                 },
-                dom: `<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                dom: `<'row datatable_header'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
                       "<'row'<'col-sm-12'tr>>" +
-                      "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
+                      "<'row datatable_footer'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
                 columnDefs: [{
                     targets: [0, 5],
                     orderable: false,

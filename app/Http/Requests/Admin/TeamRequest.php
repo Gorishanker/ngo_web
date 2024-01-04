@@ -25,9 +25,9 @@ class TeamRequest extends FormRequest
     {
         if (!request()->is('admin/teams/create')) {
             return [
-                'name' => 'required|alpha_spaces|max:150',
+                'name' => 'required|alpha_spaces|max:40',
                 'image' => 'nullable|image',
-                'position' => 'required|max:150',
+                'position' => 'required|max:70',
                 'description' => 'required|min:10',
                 'personal_statement' => 'nullable|min:10',
                 'email' => 'nullable|email|max:70',
@@ -39,9 +39,9 @@ class TeamRequest extends FormRequest
             ];
         } else {
             return [
-                'name' => 'required|alpha_spaces|max:150',
+                'name' => 'required|alpha_spaces|max:40',
                 'image' => 'required|image',
-                'position' => 'required|max:150',
+                'position' => 'required|max:70',
                 'description' => 'required|min:10',
                 'personal_statement' => 'nullable|min:10',
                 'email' => 'nullable|email|max:70',

@@ -33,7 +33,7 @@ class AdminChangePasswordRequest extends FormRequest
             }],
             'password' => ['required', function ($attribute, $value, $fail) {
                 if (Hash::check($value, $this->auth_user->password)) {
-                    return $fail(__('Please enter different to Old Password.'));
+                    return $fail(__('Please Enter Different To Old Password.'));
                 }
             },'strong_password'],
             'confirm_password' => 'required|same:password',

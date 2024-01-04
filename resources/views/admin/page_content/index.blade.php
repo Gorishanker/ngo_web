@@ -48,6 +48,7 @@
                 searchDelay: 500,
                 processing: true,
                 serverSide: true,
+                bFilter: false,
                 order: [
                     [4, 'desc']
                 ],

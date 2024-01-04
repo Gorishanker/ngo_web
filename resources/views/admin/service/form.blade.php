@@ -44,7 +44,7 @@
         {!! Form::file('brochure_doc', [
             'class' => 'input w-full border bg-gray-100 mt-2',
             'id' => 'brochure_doc',
-            'placeholder' => __('Upload Doc '),
+            'placeholder' => __('Upload Document '),
         ]) !!}
     </div>
     @if (isset($doc_url))

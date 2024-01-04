@@ -27,12 +27,12 @@
         <!-- BEGIN: Login Info -->
         <div class="hidden xl:flex flex-col min-h-screen">
             <a href="{{ route('admin.login') }}" class="-intro-x flex items-center pt-5">
-                <img alt="Starrae" class="w-6"
-                    src="{{ isset($global_setting_data['favicon']) ? asset('files/settings/' . $global_setting_data['favicon'] . '') : 'dist/images/logo.svg' }}">
+                <img alt="Starrae"  style="max-width:230px; max-height:46px;"
+                    src="{{ isset($global_setting_data['logo']) ? asset('files/settings/' . $global_setting_data['logo'] . '') : 'dist/images/logo.svg' }}">
                 <span class="text-white text-lg ml-3">{{ $global_setting_data['site_name'] }}</span>
             </a>
             <div class="my-auto">
-                <img alt="Starrae" class="-intro-x w-1/2 -mt-16" src="dist/images/illustration.svg">
+                <img alt="Starrae" src="dist/images/illustration.svg"  class="-intro-x w-1/2 -mt-16" style="width: 60%">
                 <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                     A few more clicks to
                     <br>
@@ -89,6 +89,16 @@
         </div>
     </div>
 @endsection
+@push('styles')
+<style>
+    #password-error{
+        width:400px;
+    }
+    #confirm_password-error{
+        width:400px;
+    }
+    </style>
+@endpush
 @push('scripts')
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
     <script>

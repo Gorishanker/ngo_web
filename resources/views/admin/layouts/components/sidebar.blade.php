@@ -22,63 +22,63 @@
             <a class="side-menu {{ checkActiveSideBar(['dashboard']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.dashboard') }}">
                 <div class="side-menu__icon"> <i data-feather="home"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.sidebar.dashboard', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.sidebar.dashboard', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['services']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.services.index') }}">
-                <div class="side-menu__icon"> <i class="fa-brands fa-servicestack"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.service', 1) }} </div>
+                <div class="side-menu__icon"> <i class="fa-solid fa-hands-holding-child"></i> </div>
+                <div class="side-menu__title"> {{ trans_choice('content.service', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['teams']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.teams.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-people-group"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.team', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.team', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['orders']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.orders.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-cart-shopping"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.orders', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.orders', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['payment_histories']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.payment_histories.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-money-bill"></i></div>
-                <div class="side-menu__title"> {{ trans_choice('content.payment_history', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.payment_history', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['projects']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.projects.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-diagram-project"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.project', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.project', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['products']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.products.index') }}">
                 <div class="side-menu__icon"><i class="fa-solid fa-bag-shopping"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.product', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.product', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['campaigns']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.campaigns.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-tree"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.campaign', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.campaign', 2) }} </div>
             </a>
         </li>
         <li>
             <a class="side-menu {{ checkActiveSideBar(['blogs']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.blogs.index') }}">
                 <div class="side-menu__icon"> <i class="fa-brands fa-microblog"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.blog', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.blog', 2) }} </div>
             </a>
         </li>
         <li>
@@ -186,7 +186,7 @@
             <a class="side-menu {{ checkActiveSideBar(['contact_us']) ? 'side-menu--active' : '' }}"
                 href="{{ route('admin.contact_us.index') }}">
                 <div class="side-menu__icon"> <i class="fa-solid fa-headset"></i> </div>
-                <div class="side-menu__title"> {{ trans_choice('content.contact_us', 1) }} </div>
+                <div class="side-menu__title"> {{ trans_choice('content.contact_us', 2) }} </div>
             </a>
         </li>
         {{-- Contact us  --}}
@@ -203,7 +203,7 @@
                     <a class="side-menu {{ request()->is('*admin/settings/general*') ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.settings.edit_general') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
-                        <div class="side-menu__title">{{ trans_choice('content.general', 1) }}</div>
+                        <div class="side-menu__title">{{ trans_choice('content.general', 2) }}</div>
                     </a>
                 </li>
             </ul>

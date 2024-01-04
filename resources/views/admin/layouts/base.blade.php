@@ -96,9 +96,6 @@
     $(window).on('load', function() {
         $(".loader").fadeOut(1000);
     })
-    // jQuery(document).ready(function() {
-    //     jQuery('.loader').fadeOut(3000);
-    // });
 </script>
 
 </html>

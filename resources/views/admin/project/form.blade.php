@@ -28,7 +28,7 @@
         <label class="required">{{ trans_choice('content.title', 1) }}</label>
         {!! Form::text('title', null, [
             'class' => 'input w-full border bg-gray-100 mt-2',
-            'placeholder' => trans_choice('content.content', 1),
+            'placeholder' => trans_choice('content.title', 1),
         ]) !!}
     </div>
     {{-- <div class="col-span-12 form-group xl:col-span-6">
