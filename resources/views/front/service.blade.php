@@ -80,8 +80,9 @@
     </section>
     @endif
     <!-- End Service Style2 Section -->
+    @if(getSettingDataBySlug('letest_campaign_video_url'))
     <!-- Start campaian video Section -->
-    {{-- <section class="bg-compaian-video">
+    <section class="bg-compaian-video">
         <div class="compaian-video-overlay">
             <div class="container">
                 <div class="row">
@@ -98,8 +99,9 @@
             <!-- .container -->
         </div>
         <!-- .compaian-video-overlay -->
-    </section> --}}
+    </section>
     <!-- End campaian video Section -->
+    @endif
     <!-- Start Recent Project Section -->
     <section class="bg-recent-project">
         <div class="container">
@@ -119,9 +121,12 @@
                                 <button data-id="{{ $category->id }}"
                                     class="single_category_projects button">{{ isset($category->category_name) ? $category->category_name : 'Na' }}</button>
                             @endforeach
-                        @endif
+                            @else
+                            <img src="{{asset('front/comming_soon.jpg')}}">
+                            @endif
                     </div>
-                        <img src="{{asset('front/comming_soon.jpg')}}">
+                    <div class="category_wise_projects portfolio-items">
+                    </div>
                     <!-- .isotope-items -->
                 </div>
                 <!-- .recent-project -->
