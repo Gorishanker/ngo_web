@@ -117,6 +117,9 @@
                     })
                     .done(function(response) {
                         $('.category_wise_projects').append(response.html);
+                        if(response.disable_btn){
+                            $('.load-more-option').css('display', 'none');
+                        }
                     });
             }
         </script>

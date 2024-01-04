@@ -92,7 +92,10 @@ class HomeController extends Controller
                 $projects = Project::where('is_active',  1)->select('title', 'image', 'slug');
         }
         if(isset($request->page)){
-            $projects = $projects->paginate(6);
+            $projects = $projects->paginate(2);
+            if($projects->currentPage() == $projects->lastPage()){
+                $disable_load_more_btn = true;
+            }
         }else{
             $projects = $projects->take(6)->get();
         }
@@ -101,6 +104,7 @@ class HomeController extends Controller
             return response()->json([
                 'status' => 1,
                 'html' => $html,
+                'disable_btn' => isset($disable_load_more_btn) ? true : null,
             ]);
         }
         return false;
