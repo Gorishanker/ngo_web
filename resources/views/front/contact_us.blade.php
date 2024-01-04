@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="page-header">
                         <div class="page-title">
-                            <h2>contact info</h2>
+                            <h2>contact us</h2>
                         </div>
                         <!-- .page-title -->
                         <div class="page-header-content">

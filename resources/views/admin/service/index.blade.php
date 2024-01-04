@@ -34,7 +34,6 @@
                 responsive: true,
                 searchDelay: 500,
                 processing: true,
-                bFilter: false,
                 serverSide: true,
                 order: [
                     [4, 'desc']

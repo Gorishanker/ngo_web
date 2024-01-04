@@ -9,6 +9,7 @@ use App\Models\Faq;
 use App\Services\FaqService;
 use App\Services\ManagerLanguageService;
 use App\Services\UtilityService;
+use App\Services\WebUtilityService;
 
 class FaqController extends Controller
 {
@@ -140,21 +141,7 @@ class FaqController extends Controller
     public function destroy(Faq $faq)
     {
         $result = $faq->delete();
-        if ($result) {
-            return response()->json([
-                'status' => 1,
-                'title' => $this->mls->onlyNameLanguage('deleted_title'),
-                'message' => $this->mls->onlyNameLanguage('faq'),
-                'status_name' => 'success'
-            ]);
-        } else {
-            return response()->json([
-                'status' => 0,
-                'title' => $this->mls->onlyNameLanguage('deleted_title'),
-                'message' => $this->mls->onlyNameLanguage('faq'),
-                'status_name' => 'error'
-            ]);
-        }
+        return WebUtilityService::swalWithTitleResponse($result, 'deleted', 'faq');
     }
 
     public function status($id, $status)

@@ -76,12 +76,12 @@
                 </div>
             </div>
         </div>
-        <div class="intro-y col-span-12 lg:col-span-6">
+        <div class="intro-y col-span-12 lg:col-span-12">
             <div class="intro-y box p-5">
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.content', 1) }}
                         : </label>
-                    {{ isset($banner->content) ? $banner->content : 'Na' }}
+                    {!! isset($banner->content) ? $banner->content : 'Na' !!}
                 </div>
             </div>
         </div>

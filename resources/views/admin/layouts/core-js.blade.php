@@ -29,6 +29,10 @@
         }
     }
 
+    $(document).on('click', '#btnClosePopupEdit', function(e) {
+        $("#editDataModal").modal('hide');
+    });
+
     function getDateByFormat(date) {
         const d = new Date(date);
         const ye = new Intl.DateTimeFormat('en', {

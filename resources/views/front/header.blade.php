@@ -128,7 +128,7 @@
                                             </li>
 
                                             <li><a href="{{ route('front.contactUs') }}"
-                                                    class="{{ request()->is('*contact-us*') ? 'active' : '' }}">contacts</a>
+                                                    class="{{ request()->is('*contact-us*') ? 'active' : '' }}">contact us</a>
                                             </li>
                                         </ul>
                                         <div class="menu-right-option pull-right">

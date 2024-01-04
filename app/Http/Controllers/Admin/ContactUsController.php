@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
 use App\Services\ManagerLanguageService;
 use App\Services\UtilityService;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -43,11 +44,14 @@ class ContactUsController extends Controller
             $items = ContactUs::query();
             if (isset($request->date_range)) {
                 list($startDate, $endDate) = explode(" - ", $request->date_range);
-                $items = $items->whereDate('contact_us.created_at', '>=', $startDate)
-                    ->whereDate('contact_us.created_at', '<=', $endDate);
+                // Define your start and end dates
+$startDate = Carbon::parse($startDate);
+$endDate = Carbon::parse($endDate);
+                $items = $items->whereDate('created_at', '>=', $startDate)
+                ->whereDate('created_at', '<=', $endDate);
             }
             if (isset($request->status_f)) {
-                    $items = $items->where('contact_us.status', $request->status_f);
+                    $items = $items->where('status', $request->status_f);
             }
             return dataTables()->eloquent($items)->toJson();
         } else {

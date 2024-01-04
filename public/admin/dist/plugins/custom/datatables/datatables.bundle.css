@@ -84,6 +84,8 @@ div.dataTables_wrapper div.dataTables_processing {
     padding: 1em 0
 }
 
+
+
 table.dataTable>thead>tr>td:active,
 table.dataTable>thead>tr>th:active {
     outline: 0

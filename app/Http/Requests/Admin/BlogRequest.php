@@ -26,7 +26,7 @@ class BlogRequest extends FormRequest
         if (!request()->is('admin/blogs/create')) {
             return [
                 'title' => 'required|alpha_spaces|min:10|max:150',
-                'meta_title' => 'required',
+                'meta_title' => 'required|max:150',
                 'meta_description' => 'required|min:10',
                 'image' => 'nullable|image',
                 'author' => 'required|alpha_spaces|max:150',
@@ -37,8 +37,8 @@ class BlogRequest extends FormRequest
         } else {
             return [
                 'title' => 'required|alpha_spaces|min:10|max:150',
-                'meta_title' => 'required',
-                'meta_description' => 'nullable|min:10',
+                'meta_title' => 'required|max:150',
+                'meta_description' => 'required|min:10',
                 'image' => 'required|image',
                 'author' => 'required|alpha_spaces|max:150',
                 'schedule_datetime' => 'nullable|after_or_equal:' . date('Y-m-d H:i:s'),

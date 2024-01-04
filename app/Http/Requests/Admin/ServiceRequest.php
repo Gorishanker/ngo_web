@@ -30,7 +30,7 @@ class ServiceRequest extends FormRequest
                 'is_active' => 'required',
                 'image' => 'nullable|image|max:3072',
                 'brochure_pdf' => 'nullable|file|mimes:pdf|max:3072',
-                'brochure_doc' => 'nullable|file|max:3072',
+                'brochure_doc' => 'nullable|file|mimes:jpg,png,jpeg,txt,doc,docx|max:3072',
             ];
         } else {
             return [
@@ -39,7 +39,7 @@ class ServiceRequest extends FormRequest
                 'is_active' => 'required',
                 'image' => 'required|image|max:3072',
                 'brochure_pdf' => 'required|file|mimes:pdf|max:3072',
-                'brochure_doc' => 'required|file|max:3072',
+                'brochure_doc' => 'required|file|mimes:jpg,png,jpeg,txt,doc,docx|max:3072',
             ];
         }
     }
