@@ -73,7 +73,7 @@
                             {{-- <input type="checkbox" class="input border mr-2" id="remember-me">
                             <label class="cursor-pointer select-none" for="remember-me">Remember me</label> --}}
                         </div>
-                        <a href="{{ route('admin.forgetPassword') }}">Forgot Password?</a>
+                        {{-- <a href="{{ route('admin.forgetPassword') }}">Forgot Password?</a> --}}
                     </div>
 
                     <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
