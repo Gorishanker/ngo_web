@@ -11,7 +11,7 @@
                             </ul>
                             <div class="donate-option">
                                 <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> donate now</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
