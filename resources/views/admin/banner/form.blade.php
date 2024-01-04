@@ -45,7 +45,7 @@
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-4">
-        <label class="required">{{ trans_choice('content.image', 1) }}</label>
+        <label class="required">{{ trans_choice('content.image', 1) }}(1765px * 776px)</label>
         {!! Form::file('image', [
             'class' => 'input w-full border bg-gray-100 mt-2',
             'id' => 'image',

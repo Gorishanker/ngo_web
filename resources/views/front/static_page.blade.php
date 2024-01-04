@@ -1,6 +1,19 @@
 @extends('front.base')
 @section('title')
-    <title>{{ webSiteTitleName() }} : Donate</title>
+    <title>{{ webSiteTitleName() }} : @if (request()->is('*terms-and-conditions*'))
+           Terms & Conditions
+        @elseif(request()->is('*privacy-policy*'))
+            Privacy Policy
+        @elseif(request()->is('*cancellations-policy*'))
+            Refund/Cancellation Policy
+        @elseif(request()->is('*shipping-policy*'))
+           Shipping Policy
+        @elseif(request()->is('*pricing-policy*'))
+           Pricing Policy
+        @else
+           Page
+        @endif
+    </title>
     {!! SEOMeta::generate() !!}
     {!! OpenGraph::generate() !!}
     {!! Twitter::generate() !!}
@@ -62,17 +75,17 @@
         <div class="container">
             <div class="row">
                 @if (request()->is('*terms-and-conditions*'))
-                   {!!getPageContentBySlug('terms-and-conditions')!!}
+                    {!! getPageContentBySlug('terms-and-conditions') !!}
                 @elseif(request()->is('*privacy-policy*'))
-                {!!getPageContentBySlug('privacy-policy')!!}
+                    {!! getPageContentBySlug('privacy-policy') !!}
                 @elseif(request()->is('*cancellations-policy*'))
-                {!!getPageContentBySlug('refunds-cancellations-policy')!!}
+                    {!! getPageContentBySlug('refunds-cancellations-policy') !!}
                 @elseif(request()->is('*shipping-policy*'))
-                {!!getPageContentBySlug('shipping-policy')!!}
+                    {!! getPageContentBySlug('shipping-policy') !!}
                 @elseif(request()->is('*pricing-policy*'))
-                {!!getPageContentBySlug('pricing-policy')!!}
+                    {!! getPageContentBySlug('pricing-policy') !!}
                 @else
-                   Page Not Found.
+                    Page Not Found.
                 @endif
             </div>
             <!-- .row -->

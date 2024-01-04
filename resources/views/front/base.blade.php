@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @yield('title')
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('front/images/favicon.ico') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{  ($global_setting_data['favicon']) ? asset('files/settings/' . $global_setting_data['favicon'] . '') : asset('admin/dist/images/logo.svg') }}" />
     <!-- Plugin css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('front/css/font-awesome.min.css') }}" media="all" />
     <link rel="stylesheet" type="text/css" href="{{ asset('front/fonts/flaticon.css') }}" media="all" />

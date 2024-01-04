@@ -49,6 +49,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'is_active.required' => __('validation.required', ['attribute' => 'status']),
+            'summery.required' => __('validation.required', ['attribute' => 'summery']),
+            'summery.max' => __('validation.max', ['attribute' => 'summery']),
         ];
     }
 }
