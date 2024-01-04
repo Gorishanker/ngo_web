@@ -119,8 +119,8 @@
                             @foreach ($project->project_docs as $project_doc)
                                 @if ($project_doc->type == 3)
                                     <a href="{{ $project_doc->file }}" target="_blank">
-                                        <a href="{{ $project->image }}" target="_blank">
-                                            <img style="width: 100px; height: 70px; margin: 5px;" src="{{ $project->image }}"
+                                        <a href="{{ $project_doc->file }}" target="_blank">
+                                            <img style="width: 100px; height: 70px; margin: 5px;" src="{{ $project_doc->file }}"
                                                 alt="Banner image">
                                         </a>
                                     @else
