@@ -70,7 +70,7 @@
     </section>
     <!-- End About Greenforest Section -->
     @else
-    <img src="{{asset('front/comming_soon.jpg')}}">
+    <img height="600px" src="{{asset('front/comming_soon.jpg')}}">
 @endif
 
     <!-- Start Count Section -->
