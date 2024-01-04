@@ -4,7 +4,7 @@
         'title' => __('messages.detail', ['name' => trans_choice('content.project', 1)]),
         'breadcrumbs' => Breadcrumbs::render('admin.projects.show'),
     ])
-        @php
+    @php
         $pdf_url = null;
         $doc_url = null;
         if (isset($project->project_docs)) {
@@ -25,7 +25,7 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.title', 1) }}
                         : </label>
-                  {{isset($project->title) ? $project->title : 'Na'}}
+                    {{ isset($project->title) ? $project->title : 'Na' }}
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.category', 1) }}
                         : </label>
-                  {{isset($project->category->category_name) ? $project->category->category_name : 'Na'}}
+                    {{ isset($project->category->category_name) ? $project->category->category_name : 'Na' }}
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-       
+
 
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
@@ -82,8 +82,7 @@
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
-                    <label
-                        class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.brochure_pdf', 1) }}
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.brochure_pdf', 1) }}
                         : </label>
                     @if (isset($pdf_url))
                         <a href="{{ $pdf_url }}" target="_blank">
@@ -102,11 +101,34 @@
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.image', 1) }}
                         : </label>
-                    <a  href="{{ $project->image }}" target="_blank">
+                    <a href="{{ $project->image }}" target="_blank">
                         <div class="font-medium whitespace-no-wrap">
                             <img style="width: 100px; height: 70px;" src="{{ $project->image }}" alt="Banner image">
                         </div>
                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.side_images', 1) }}
+                        : </label>
+                    @if (!empty($project->project_docs))
+                        <div style="display: flex;">
+                            @foreach ($project->project_docs as $project_doc)
+                                @if ($project_doc->type == 3)
+                                    <a href="{{ $project_doc->file }}" target="_blank">
+                                        <a href="{{ $project->image }}" target="_blank">
+                                            <img style="width: 100px; height: 70px; margin: 5px;" src="{{ $project->image }}"
+                                                alt="Banner image">
+                                        </a>
+                                    @else
+                                        @continue
+                                @endif
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -122,10 +144,9 @@
     </div>
     <div class="text-right mt-6">
         <div class="mr-6">
-            <a href="{{route('admin.projects.index')}}">
-            <button type="button"
-                class="button mr-2 bg-theme-1 text-white">
-                Back</button></a>
+            <a href="{{ route('admin.projects.index') }}">
+                <button type="button" class="button mr-2 bg-theme-1 text-white">
+                    Back</button></a>
         </div>
     </div>
 @endsection

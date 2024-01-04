@@ -36,42 +36,45 @@
     </section>
     <!-- End Page Header Section -->
 
-    @if(getSettingDataBySlug('about_1st_content'))
-    <!-- Start About Greenforest Section -->
-    <section class="bg-about-greenforest">
-        <div class="container">
-            <div class="row">
-                <div class="about-greenforest">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="about-greenforest-content">
-                               {!!getSettingDataBySlug('about_1st_content')!!}
-                                <a href="{{getSettingDataBySlug('about_1_btn_url')}}" class="btn btn-default">{{getSettingDataBySlug('about_1_btn_text')}}</a>
-                                <a href="{{getSettingDataBySlug('about_2_btn_url')}}" class="btn btn-default">{{getSettingDataBySlug('about_2_btn_text')}}</a>
+    @if (getSettingDataBySlug('about_1st_content'))
+        <!-- Start About Greenforest Section -->
+        <section class="bg-about-greenforest">
+            <div class="container">
+                <div class="row">
+                    <div class="about-greenforest">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="about-greenforest-content">
+                                    {!! getSettingDataBySlug('about_1st_content') !!}
+                                    <a href="{{ getSettingDataBySlug('about_1_btn_url') }}"
+                                        class="btn btn-default">{{ getSettingDataBySlug('about_1_btn_text') }}</a>
+                                    <a href="{{ getSettingDataBySlug('about_2_btn_url') }}"
+                                        class="btn btn-default">{{ getSettingDataBySlug('about_2_btn_text') }}</a>
+                                </div>
+                                <!-- .about-greenforest-content -->
                             </div>
-                            <!-- .about-greenforest-content -->
-                        </div>
-                        <!-- .col-lg-8 -->
-                        <div class="col-lg-4">
-                            <div class="about-greenforest-img">
-                                <img style="width:424px; height:473px;" src="{{ ($global_setting_data['about_1st_image']) ? asset('files/settings/' . $global_setting_data['about_1st_image'] . '') : $about_1st_image }}"
-                                    alt="about-greenforet-img" class="img-responsive" />
+                            <!-- .col-lg-8 -->
+                            <div class="col-lg-4">
+                                <div class="about-greenforest-img">
+                                    <img style="width:424px; height:473px;"
+                                        src="{{ $global_setting_data['about_1st_image'] ? asset('files/settings/' . $global_setting_data['about_1st_image'] . '') : $about_1st_image }}"
+                                        alt="about-greenforet-img" class="img-responsive" />
+                                </div>
+                                <!-- .about-greenforest-img -->
                             </div>
-                            <!-- .about-greenforest-img -->
+                            <!-- .col-md-4 -->
                         </div>
-                        <!-- .col-md-4 -->
                     </div>
+                    <!-- .about-greenforest -->
                 </div>
-                <!-- .about-greenforest -->
+                <!-- .row -->
             </div>
-            <!-- .row -->
-        </div>
-        <!-- .container -->
-    </section>
-    <!-- End About Greenforest Section -->
+            <!-- .container -->
+        </section>
+        <!-- End About Greenforest Section -->
     @else
-    <img height="600px" src="{{asset('front/comming_soon.jpg')}}">
-@endif
+        <img height="600px" src="{{ asset('front/comming_soon.jpg') }}">
+    @endif
 
     <!-- Start Count Section -->
     <section class="bg-count2-section">
@@ -83,7 +86,8 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-internet"></i>
-                                    <span class="counter" data-to="{{getSettingDataBySlug('total_globalization_work')}}" data-speed="1500"></span><span>+</span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_globalization_work') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>GLOBALIZATION WORK</h4>
                                 </div>
                                 <!-- .count-items -->
@@ -92,7 +96,8 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-man"></i>
-                                    <span class="counter" data-to="{{getSettingDataBySlug('total_happy_donator')}}" data-speed="1500"></span><span>+</span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_happy_donator') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>HAPPY DONATORS</h4>
                                 </div>
                                 <!-- .count-items -->
@@ -101,7 +106,8 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-rocket-launch"></i>
-                                    <span class="counter" data-to="{{getSettingDataBySlug('total_success_mission')}}" data-speed="1500"></span><span>+</span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_success_mission') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>SUCCESS MISSION</h4>
                                 </div>
                                 <!-- .count-items -->
@@ -110,7 +116,8 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-people"></i>
-                                    <span class="counter" data-to="{{getSettingDataBySlug('total_volunteer_reached')}}" data-speed="1500"></span><span>+</span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_volunteer_reached') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>VOLUNTEER REACHED</h4>
                                 </div>
                                 <!-- .count-items -->
@@ -134,8 +141,8 @@
                 <div class="row">
                     <div class="volunteers-option">
                         <div class="section-header">
-                            <h2>{{getSettingDataBySlug('volunteer_section_heading')}}</h2>
-                            <p>{{getSettingDataBySlug('volunteer_section_description')}}</p>
+                            <h2>{{ getSettingDataBySlug('volunteer_section_heading') }}</h2>
+                            <p>{{ getSettingDataBySlug('volunteer_section_description') }}</p>
                         </div>
                         <!-- .section-header -->
                         <div class="row">
@@ -246,8 +253,8 @@
                 <div class="row">
                     <div class="blog-section">
                         <div class="section-header">
-                            <h2>{{getSettingDataBySlug('blog_section_heading')}}</h2>
-                            <p>{{getSettingDataBySlug('blog_section_description')}}</p>
+                            <h2>{{ getSettingDataBySlug('blog_section_heading') }}</h2>
+                            <p>{{ getSettingDataBySlug('blog_section_description') }}</p>
                         </div>
                         <!-- .section-header -->
                         <div class="row">
@@ -309,8 +316,8 @@
                 <div class="row">
                     <div class="sponsors-option">
                         <div class="section-header">
-                            <h2>{{getSettingDataBySlug('sponsor_section_heading')}}</h2>
-                            <p>{{getSettingDataBySlug('sponsor_section_heading')}}</p>
+                            <h2>{{ getSettingDataBySlug('sponsor_section_heading') }}</h2>
+                            <p>{{ getSettingDataBySlug('sponsor_section_heading') }}</p>
                         </div>
                         <!-- .section-header -->
                         <div class="sponsors-container">
