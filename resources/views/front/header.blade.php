@@ -52,15 +52,15 @@
                                             </li>
                                             <li>
                                                 <a href="{{ route('front.services') }}"
-                                                    class="{{ request()->is('*services*') ? 'active' : '' }}">Services</a>
+                                                    class="{{ (request()->is('*services*') || request()->is('*service*')) ? 'active' : '' }}">Services</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('front.projectIndex') }}"
-                                                    class="{{ request()->is('*projects*') ? 'active' : '' }}">Projects</a>
+                                                    class="{{ (request()->is('*projects*') || request()->is('*project*')) ? 'active' : '' }}">Projects</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('front.products.index') }}"
-                                                    class="{{ request()->is('*products*') ? 'active' : '' }}">Products</a>
+                                                    class="{{ (request()->is('*products*') || request()->is('*project*')) ? 'active' : '' }}">Products</a>
                                             </li>
                                             {{-- @if (getSettingDataBySlug('site_mode') == 1)
                                                 <li>
@@ -120,11 +120,11 @@
                                             @endif --}}
                                             <li>
                                                 <a href="{{ route('front.blogs') }}"
-                                                    class="{{ request()->is('*blogs*') ? 'active' : '' }}">Blogs</a>
+                                                    class="{{ (request()->is('*blogs*')||request()->is('*blog*')) ? 'active' : '' }}">Blogs</a>
                                             </li>
                                             <li>
                                                 <a href="{{ route('front.campaigns.index') }}"
-                                                    class="{{ request()->is('*campaigns*') ? 'active' : '' }}">Campaigns</a>
+                                                    class="{{ (request()->is('*campaigns*')||request()->is('*campaign*')) ? 'active' : '' }}">Campaigns</a>
                                             </li>
 
                                             <li><a href="{{ route('front.contactUs') }}"
