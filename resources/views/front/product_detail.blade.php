@@ -130,8 +130,10 @@
                                             </div>
                                             <!-- .product-count -->
                                         </div>
+                                        @if (getSettingDataBySlug('site_mode') == 1)
                                         <!-- .product-counter-option -->
                                         <a href="{{ route('front.cart') }}" class="btn add-cart-btn">Donate Now</a>
+                                        @endif
                                     </div>
                                     <!-- .about-product-datails -->
                                 </div>

@@ -111,7 +111,9 @@
                                                 @endfor
                                                 ({{ $campaign->total_rating }})
                                             </span>
+                                            @if (getSettingDataBySlug('site_mode') == 1)
                                             <a href="{{route('front.donate')}}" data-id="{{ $campaign->id }}">Donate Now</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
