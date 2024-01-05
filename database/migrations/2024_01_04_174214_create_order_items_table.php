@@ -14,7 +14,7 @@ class CreateOrderItemsTable extends Migration
     public function up()
     {
         Schema::create('order_items', function (Blueprint $table) {
-            $table->bigInteger('id')->primary();
+            $table->id();
             $table->string('ip_address', 155);
             $table->bigInteger('order_id');
             $table->bigInteger('campagin_id')->nullable();

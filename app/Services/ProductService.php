@@ -117,7 +117,7 @@ class ProductService
         $ip_address = $request->ip();
         $order = Order::where(['ip_address' => $ip_address, 'status' => 0])->first();
         if (isset($order)) {
-            if ($request->qty <= 0) {
+            if ($request->qty == 'undefined'||$request->qty <= 0) {
                 $orderitemCount = OrderItem::where('order_id', $order->id)->count();
                 if($orderitemCount <=1){
                     OrderItem::where(['order_id' => $order->id, 'product_id' => $product->id])->delete();
@@ -140,7 +140,7 @@ class ProductService
                 $order->update(['total_price' =>  $total_amt]);
             }
         } else {
-            if ($request->qty <= 0) {
+            if ($request->qty == 'undefined'||$request->qty <= 0) {
                 return false;
             } else {
                 $order = Order::create(['ip_address' => $ip_address, 'total_price' => ($product->amount) * ($request->qty)]);

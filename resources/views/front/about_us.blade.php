@@ -281,12 +281,12 @@
                                                     <li><i class="fa fa-calendar" aria-hidden="true"></i>
                                                         {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
                                                     </li>
-                                                    <li><a href="#"><i class="fa fa-heart-o"
+                                                    {{-- <li><a href="#"><i class="fa fa-heart-o"
                                                                 aria-hidden="true"></i> 24
                                                             Like</a></li>
                                                     <li><a href="#"><i class="fa fa-commenting-o"
                                                                 aria-hidden="true"></i>
-                                                            24 Comment</a></li>
+                                                            24 Comment</a></li> --}}
                                                 </ul>
                                             </div>
                                             <!-- .meta-box -->

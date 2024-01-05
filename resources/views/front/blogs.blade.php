@@ -63,9 +63,9 @@
                                                     <li><i class="fa fa-calendar" aria-hidden="true"></i>
                                                         {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
                                                     </li>
-                                                    <li><a href="#"><i class="fa fa-commenting-o"
+                                                    {{-- <li><a href="#"><i class="fa fa-commenting-o"
                                                                 aria-hidden="true"></i> {{$blog->total_comments}}
-                                                            Comment</a></li>
+                                                            Comment</a></li> --}}
                                                 </ul>
                                             </div>
                                             <!-- .meta-box -->

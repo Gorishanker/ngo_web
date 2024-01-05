@@ -98,21 +98,21 @@
             <ul
                 class="{{ checkActiveSideBar(['categories', 'impact-stories', 'sponsors', 'banners', 'tags', 'occasions']) ? 'side-menu__sub-open' : '' }}">
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['categories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.categories.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-list"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.sidebar.category', 2) }}</div>
                     </a>
                 </li>
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['impact-stories']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['impact-stories']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.impact-stories.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-arrows-down-to-people"></i></div>
                         <div class="side-menu__title">Impact Stories</div>
                     </a>
                 </li>
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['sponsors']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['sponsors']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.sponsors.index') }}">
                         <div class="side-menu__icon"><i class="fa-regular fa-handshake"></i></div>
                         <div class="side-menu__title">{{ trans_choice('content.sponsor', 2) }}</div>
@@ -126,14 +126,14 @@
                     </a>
                 </li> --}}
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['banners']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['banners']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.banners.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-images"></i> </div>
                         <div class="side-menu__title">{{ trans_choice('content.banner', 2) }}</div>
                     </a>
                 </li>
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['occasions']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['occasions']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.occasions.index') }}">
                         <div class="side-menu__icon"><i class="fa-solid fa-calendar-days"></i></div>
                         <div class="side-menu__title">Occassions</div>
@@ -156,7 +156,7 @@
             </div>
             <ul class="{{ checkActiveSideBar(['page_contents', 'faqs','testimonials']) ? 'side-menu__sub-open' : '' }}">
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['page_contents']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['page_contents']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.page_contents.index') }}">
                         <div class="side-menu__icon"> <i class="fa-regular fa-file-lines"></i>
                         </div>
@@ -164,7 +164,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['faqs']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['faqs']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.faqs.index') }}">
                         <div class="side-menu__icon"><i class="fa-regular fa-comments"></i>
                         </div>
@@ -172,7 +172,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="side-menu {{ checkActiveSideBar(['testimonials']) ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ checkActiveSideBar(['testimonials']) ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.testimonials.index') }}">
                         <div class="side-menu__icon"><i class="fa-regular fa-comment"></i>
                         </div>
@@ -200,7 +200,7 @@
             <ul
                 class="{{ request()->is('*admin/settings/general*') || request()->is('*admin/settings/social-login*') ? 'side-menu__sub-open' : '' }}">
                 <li>
-                    <a class="side-menu {{ request()->is('*admin/settings/general*') ? 'side-menu--active' : '' }}"
+                    <a class="side-menu dropdown_sidebar_color_option {{ request()->is('*admin/settings/general*') ? 'side-menu--active' : '' }}"
                         href="{{ route('admin.settings.edit_general') }}">
                         <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
                         <div class="side-menu__title">{{ trans_choice('content.general', 2) }}</div>

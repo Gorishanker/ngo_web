@@ -29,6 +29,12 @@
             z-index: 9;
             background: url({{ asset('files/settings/loader.gif') }}) 50% 50% no-repeat rgb(249, 249, 249);
         }
+        .dropdown_sidebar_color_option {
+            /* color: red !importent; */
+        }
+        .side-menu.dropdown_sidebar_color_option.side-menu--active{
+            /* color: green; */
+        }
     </style>
 
     @stack('styles')

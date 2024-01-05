@@ -90,42 +90,43 @@
     </section>
     <!-- End Slider Section -->
 
-@if(getSettingDataBySlug('about_1st_content'))
-    <!-- Start About Greenforest Section -->
-    <section class="bg-about-greenforest">
-        <div class="container">
-            <div class="row">
-                <div class="about-greenforest">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <div class="about-greenforest-content">
-                                {!!getSettingDataBySlug('about_1st_content')!!}
-                                <a href="{{getSettingDataBySlug('about_1_btn_url')}}" class="btn btn-default">{{getSettingDataBySlug('about_1_btn_text')}}</a>
-                                <a href="{{getSettingDataBySlug('about_2_btn_url')}}" class="btn btn-default">{{getSettingDataBySlug('about_2_btn_text')}}</a>
+    @if (getSettingDataBySlug('about_1st_content'))
+        <!-- Start About Greenforest Section -->
+        <section class="bg-about-greenforest">
+            <div class="container">
+                <div class="row">
+                    <div class="about-greenforest">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="about-greenforest-content">
+                                    {!! getSettingDataBySlug('about_1st_content') !!}
+                                    <a href="{{ getSettingDataBySlug('about_1_btn_url') }}"
+                                        class="btn btn-default">{{ getSettingDataBySlug('about_1_btn_text') }}</a>
+                                    <a href="{{ getSettingDataBySlug('about_2_btn_url') }}"
+                                        class="btn btn-default">{{ getSettingDataBySlug('about_2_btn_text') }}</a>
+                                </div>
+                                <!-- .about-greenforest-content -->
                             </div>
-                            <!-- .about-greenforest-content -->
-                        </div>
-                        <!-- .col-lg-8 -->
-                        <div class="col-lg-4">
-                            <div class="about-greenforest-img">
-                                <img style="width: 424px; height: 473px;"
-                                    src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
-                                    alt="about-greenforet-img" class="img-responsive" />
+                            <!-- .col-lg-8 -->
+                            <div class="col-lg-4">
+                                <div class="about-greenforest-img">
+                                    <img style="width: 424px; height: 473px;"
+                                        src="{{ asset('front/images/home02/about-greenforet-img.jpg') }}"
+                                        alt="about-greenforet-img" class="img-responsive" />
+                                </div>
+                                <!-- .about-greenforest-img -->
                             </div>
-                            <!-- .about-greenforest-img -->
+                            <!-- .col-md-4 -->
                         </div>
-                        <!-- .col-md-4 -->
                     </div>
+                    <!-- .about-greenforest -->
                 </div>
-                <!-- .about-greenforest -->
+                <!-- .row -->
             </div>
-            <!-- .row -->
-        </div>
-        <!-- .container -->
-    </section>
-    <!-- End About Greenforest Section -->
-
-@endif
+            <!-- .container -->
+        </section>
+        <!-- End About Greenforest Section -->
+    @endif
 
     <!-- Start Recent Project Section -->
     <section class="bg-recent-project">
@@ -174,35 +175,51 @@
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-internet"></i>
-                                    <span class="counter" data-to="25" data-speed="1500"></span><span>+</span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_globalization_work') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>GLOBALIZATION WORK</h4>
                                 </div>
+                                <!-- .count-items -->
                             </div>
+                            <!-- .col-lg-3 -->
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-man"></i>
-                                    <span class="counter" data-to="750" data-speed="1500"></span><span>+</span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_happy_donator') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>HAPPY DONATORS</h4>
                                 </div>
+                                <!-- .count-items -->
                             </div>
+                            <!-- .col-lg-3 -->
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-rocket-launch"></i>
-                                    <span class="counter" data-to="250" data-speed="1500"></span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_success_mission') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>SUCCESS MISSION</h4>
                                 </div>
+                                <!-- .count-items -->
                             </div>
+                            <!-- .col-lg-3 -->
                             <div class="col-lg-3 col-sm-6 col-12">
                                 <div class="count-items">
                                     <i class="flaticon-people"></i>
-                                    <span class="counter" data-to="1000" data-speed="1500"></span>
+                                    <span class="counter" data-to="{{ getSettingDataBySlug('total_volunteer_reached') }}"
+                                        data-speed="1500"></span><span>+</span>
                                     <h4>VOLUNTEER REACHED</h4>
                                 </div>
+                                <!-- .count-items -->
                             </div>
+                            <!-- .col-lg-3 -->
                         </div>
+                        <!-- .row -->
                     </div>
+                    <!-- .count-section -->
                 </div>
+                <!-- .row -->
             </div>
+            <!-- .container -->
         </div>
     </section>
     <!-- End Count Section -->
@@ -328,7 +345,7 @@
                                                     @else
                                                         <p class="addToCartBTN" data-id="{{ $campaign->id }}"
                                                             style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
-                                                            Add</p>
+                                                            Add to cart</p>
                                                     @endif
                                                 </div>
                                             </div>
@@ -523,46 +540,46 @@
     @endif
 
     @if (testimonials()->count() > 0)
-    <!-- Start People Say Section -->
+        <!-- Start People Say Section -->
 
-    <section class="bg-people-say-section">
-        <div class="people-say-overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="people-say-section">
-                        <div class="people-say-container">
-                            <div class="swiper-wrapper">
-                                @foreach (testimonials() as $testimonial)
-                                    <div class="swiper-slide">
-                                        <div class="people-say-items">
-                                            <img src="{{ $testimonial->image }}"
-                                                style="width: 6rem; border-radius: 5rem;"
-                                                alt="{{ isset($testimonial->name) ? $testimonial->name : 'User Profile' }}">
-                                            <h3>{{ isset($testimonial->name) ? $testimonial->name : 'Guset User' }}
-                                            </h3>
-                                            <h4>{{ isset($testimonial->country) ? '(' . $testimonial->country . ')' : '' }}
-                                            </h4>
-                                            <p>{{ isset($testimonial->content) ? $testimonial->content : '' }}</p>
+        <section class="bg-people-say-section">
+            <div class="people-say-overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="people-say-section">
+                            <div class="people-say-container">
+                                <div class="swiper-wrapper">
+                                    @foreach (testimonials() as $testimonial)
+                                        <div class="swiper-slide">
+                                            <div class="people-say-items">
+                                                <img src="{{ $testimonial->image }}"
+                                                    style="width: 6rem; border-radius: 5rem;"
+                                                    alt="{{ isset($testimonial->name) ? $testimonial->name : 'User Profile' }}">
+                                                <h3>{{ isset($testimonial->name) ? $testimonial->name : 'Guset User' }}
+                                                </h3>
+                                                <h4>{{ isset($testimonial->country) ? '(' . $testimonial->country . ')' : '' }}
+                                                </h4>
+                                                <p>{{ isset($testimonial->content) ? $testimonial->content : '' }}</p>
+                                            </div>
+                                            <!-- .sponsors-items -->
                                         </div>
-                                        <!-- .sponsors-items -->
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
+                                <!-- .swiper-wrapper -->
                             </div>
-                            <!-- .swiper-wrapper -->
+                            <!-- .people-say-container -->
+                            <div class="swiper-pagination"></div>
                         </div>
-                        <!-- .people-say-container -->
-                        <div class="swiper-pagination"></div>
+                        <!-- .people-say-section -->
                     </div>
-                    <!-- .people-say-section -->
+                    <!-- .row -->
                 </div>
-                <!-- .row -->
+                <!-- .container -->
             </div>
-            <!-- .container -->
-        </div>
-        <!-- .people-say-overlay -->
-    </section>
-    <!-- End People Say Section -->
-@endif
+            <!-- .people-say-overlay -->
+        </section>
+        <!-- End People Say Section -->
+    @endif
     <!-- End Sponsors Section -->
     @push('styles')
         @include('front.capaigns_css')
@@ -604,7 +621,7 @@
             }
         </script>
         <script>
-            $('.addToCartBTN').click(function() {
+             $(document).on("click", ".addToCartBTN", function() {
                 var data_id = $(this).attr('data-id');
                 var html = ` <span data-id="${data_id}" class="minus cart_decrement">-</span>
                                                 <input type="text" data-id="${data_id}"
@@ -619,11 +636,15 @@
                 var data_id = $(this).attr('data-id');
                 var input_selector = `#cart_input${data_id}`;
                 var cart_val = $(input_selector).val();
-                if (Number(cart_val) <= 1) {
-                    return false;
-                }
                 var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
-                total_amt = total_amt * (Number(cart_val) - 1);
+                if (Number(cart_val) <= 1) {
+                    var html = `<p class="addToCartBTN" data-id="${data_id}"
+                                                            style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
+                                                            Add to cart</p>`;
+                    $('.addToCartBTNDiv' + data_id).html(html);
+                } else {
+                    total_amt = total_amt * (Number(cart_val) - 1);
+                }
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
                 $(`#cart_total_amount${data_id}`).html(total_amt_html);
                 $(input_selector).val(Number(cart_val) - 1);
