@@ -125,14 +125,14 @@
                                                 @else
                                                     <p class="addToCartBTN" data-id="{{ $product->id }}"
                                                         style="max-width: 110px; background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px; cursor: pointer;">
-                                                        Add to cart</p>
+                                                        Add to Cart</p>
                                                 @endif
                                             </div>
                                             <!-- .product-count -->
                                         </div>
                                         @if (getSettingDataBySlug('site_mode') == 1)
-                                        <!-- .product-counter-option -->
-                                        <a href="{{ route('front.cart') }}" class="btn add-cart-btn">Donate Now</a>
+                                            <!-- .product-counter-option -->
+                                            <a href="{{ route('front.cart') }}" class="btn add-cart-btn">DONATE NOW</a>
                                         @endif
                                     </div>
                                     <!-- .about-product-datails -->
@@ -253,12 +253,17 @@
                                                     </div>
                                                 </div>
                                                 <!-- .col-md-4 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        {!! Form::textarea('review', null, [
+                                                            'placeholder' => 'Type Here Message*',
+                                                            'class' => 'form-control comments-textarea',
+                                                        ]) !!}
+                                                        (Max length 250 character)
+                                                    </div>
+                                                </div>
                                             </div>
                                             <!-- .row -->
-                                            {!! Form::textarea('review', null, [
-                                                'placeholder' => 'Type Here Message*',
-                                                'class' => 'form-control comments-textarea',
-                                            ]) !!}
                                             <button type="submit" id="submit_review_form" class="btn btn-default">Submit
                                                 REVIEW</button>
                                             </form>
@@ -293,17 +298,19 @@
                                                     {{-- @dd($product) --}}
                                                     <p>{{ isset($product->amount) ? currencyIcon() . $product->amount : '' }}
                                                     </p>
-                                                    <ul class="star-icon">
-                                                        @for ($i = 1; $i <= $product->avg_rating; $i++)
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                        @endfor
-                                                        @php
-                                                            $blank_star = 5 - $product->avg_rating;
-                                                        @endphp
-                                                        @for ($i = 1; $i <= $blank_star; $i++)
-                                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                        @endfor
-                                                    </ul>
+                                                    @if ($product->avg_rating > 0)
+                                                        <ul class="star-icon">
+                                                            @for ($i = 1; $i <= $product->avg_rating; $i++)
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            @endfor
+                                                            @php
+                                                                $blank_star = 5 - $product->avg_rating;
+                                                            @endphp
+                                                            @for ($i = 1; $i <= $blank_star; $i++)
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            @endfor
+                                                        </ul>
+                                                    @endif
                                                 </div>
                                                 <!-- .small-product-content -->
                                             </div>
@@ -327,8 +334,8 @@
     </section>
     @push('styles')
         <style>
-             .fa.fa-star.rating_star{
-                color:#53a92c;
+            .fa.fa-star.rating_star {
+                color: #53a92c;
             }
         </style>
     @endpush
@@ -336,7 +343,7 @@
         <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
         {!! JsValidator::formRequest('App\Http\Requests\Front\ReviewRequest', '#ReviewForm') !!}
         <script>
-               $(document).on("click", ".rating_star", function() {
+            $(document).on("click", ".rating_star", function() {
                 var user_rating = $(this).attr('data-val');
                 $('.campaignReviewCount').html('');
                 $('#campaignReviewCount').val(user_rating);
@@ -346,14 +353,14 @@
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="2" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="3" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                        )
+                    )
                 } else if (user_rating == 2) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="3" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                        )
+                    )
                 } else if (user_rating == 3) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -361,7 +368,7 @@
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                        )
+                    )
                 } else if (user_rating == 4) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -418,7 +425,7 @@
             });
         </script>
         <script>
-                $(document).on("click", ".addToCartBTN", function() {
+            $(document).on("click", ".addToCartBTN", function() {
                 var data_id = $(this).attr('data-id');
                 var html = `  <input data-id="${data_id}" type="submit"
                                                         class="cart_decrement" name="remove" value="-">
@@ -437,11 +444,11 @@
                 var cart_val = $(input_selector).val();
                 var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
                 if (Number(cart_val) <= 1) {
-                 var html = ` <p class="addToCartBTN" data-id="${data_id}"
+                    var html = ` <p class="addToCartBTN" data-id="${data_id}"
                                                         style="max-width: 110px; background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px; cursor: pointer;">
-                                                        Add to cart</p>`;
-                                                        $('.addToCartBTNDiv' + data_id).html(html);
-                }else{
+                                                        Add to Cart</p>`;
+                    $('.addToCartBTNDiv' + data_id).html(html);
+                } else {
                     total_amt = total_amt * (Number(cart_val) - 1);
                 }
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;

@@ -202,6 +202,16 @@
                                 </div>
                                 <!-- .form-group -->
                             </div>
+                             <!-- .col-lg-6 -->
+                             <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label for="how_did_you_about_us">How did you about us</label>
+                                    <textarea class="form-control mb-2" rows="4" name="how_did_you_about_us" id="how_did_you_about_us"
+                                        placeholder="How did you about us"></textarea>
+                                </div>
+                                <!-- .form-group -->
+                            </div>
+                            <hr style="margin-top: 5px;padding-top: 3px;width: 97%;float: center;">
                             <!-- .col-lg-6 -->
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -220,20 +230,12 @@
                                 </div>
                                 <!-- .form-group -->
                             </div>
-                            <!-- .col-lg-6 -->
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label for="how_did_you_about_us">How did you about us</label>
-                                    <textarea class="form-control mb-2" name="how_did_you_about_us" id="how_did_you_about_us"
-                                        placeholder="How did you about us"></textarea>
-                                </div>
-                                <!-- .form-group -->
-                            </div>
+                           
                         </div>
                         <!-- .row -->
                     </div>
                     <!-- .paymeny-information -->
-                    <button type="submit" id="submit_form" class="btn btn-default">Donate Now</button>
+                    <button type="submit" id="submit_form" class="btn btn-default">DONATE NOW</button>
                     {!! Form::close() !!}
                 </div>
                 <!-- .donate-form -->
@@ -352,17 +354,17 @@
                             payAmountWithRazorpay(response.data.donation_amount, response.data.donate_id,
                                 response
                                 .data.pan_name, response.data.email, response.data.mobile_no)
-                            $('#submit_form').html('Donate Now');
+                            $('#submit_form').html('DONATE NOW');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
                         } else {
-                            $('#submit_form').html('Donate Now');
+                            $('#submit_form').html('DONATE NOW');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
                         }
                     },
                     error: function() {
-                        $('#submit_form').html('Donate Now');
+                        $('#submit_form').html('DONATE NOW');
                         $('#submit_form').removeClass('disabled');
                         $('#submit_form').attr('disabled', false);
                     },

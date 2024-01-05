@@ -26,18 +26,20 @@
 
                     <div class="details-poduct">
                         <h1>{{ isset($campaign_detail->title) ? $campaign_detail->title : 'Campaign title' }}</h1>
-                        <span class="rating">
-                            @for ($i = 1; $i <= $campaign_detail->average_rating; $i++)
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            @endfor
-                            @php
-                                $blank_star = 5 - $campaign_detail->average_rating;
-                            @endphp
-                            @for ($i = 1; $i <= $blank_star; $i++)
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            @endfor
-                            ({{ $campaign_detail->total_rating }}) reviews
-                        </span>
+                        @if ($campaign_detail->average_rating < 0)
+                            <span class="rating">
+                                @for ($i = 1; $i <= $campaign_detail->average_rating; $i++)
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                @endfor
+                                @php
+                                    $blank_star = 5 - $campaign_detail->average_rating;
+                                @endphp
+                                @for ($i = 1; $i <= $blank_star; $i++)
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                @endfor
+                                ({{ $campaign_detail->total_rating }}) reviews
+                            </span>
+                        @endif
                         <p class="mb-0 pay" id="getCampaignTotalAmount">
                             {{ currencyIcon() }}{{ isset($campaign_detail->order_item->total_amount) ? round($campaign_detail->order_item->total_amount) : $campaign_detail->campaign_combos[0]->price }}
                         </p>
@@ -100,7 +102,7 @@
                                 @else
                                     <p class="addToCartBTN" data-id="{{ $campaign_detail->id }}"
                                         style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px; cursor: pointer;">
-                                        Add to cart</p>
+                                        Add to Cart</p>
                                 @endif
                             </div>
                         </div>
@@ -137,7 +139,7 @@
 
                         <div class="add-card">
                             @if (getSettingDataBySlug('site_mode') == 1)
-                                <a href="{{ route('front.cart') }}">Donate now</a>
+                                <a href="{{ route('front.cart') }}">DONATE NOW</a>
                             @endif
                         </div>
 
@@ -178,7 +180,7 @@
                                 <div class="details-box">
                                     <div class="progress-tp-head">
                                         <div class="bar-value">
-                                            <span>Total Price:
+                                            <span>Ask Amount:
                                                 <b>{{ currencyIcon() }}{{ $campaign->target_amount }}</b></span>
                                             <span>Raised:
                                                 <b>{{ currencyIcon() }}{{ $campaign->raise_amount }}</b></span>
@@ -215,24 +217,25 @@
                                             @else
                                                 <p class="addToCartBTNLetest" data-id="{{ $campaign->id }}"
                                                     style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
-                                                    Add to cart</p>
+                                                    Add to Cart</p>
                                             @endif
                                         </div>
                                     </div>
 
                                     <div class="cart-btn">
-                                        <span>
-                                            @for ($i = 1; $i <= $campaign->average_rating; $i++)
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            @endfor
-                                            @php
-                                                $blank_star = 5 - $campaign->average_rating;
-                                            @endphp
-                                            @for ($i = 1; $i <= $blank_star; $i++)
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            @endfor
-                                            ({{ $campaign->total_rating }})
-                                        </span>
+                                        {{-- <span>
+                                                @for ($i = 1; $i <= $campaign->average_rating; $i++)
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                @endfor
+                                                @php
+                                                    $blank_star = 5 - $campaign->average_rating;
+                                                @endphp
+                                                @for ($i = 1; $i <= $blank_star; $i++)
+                                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                @endfor
+                                                ({{ $campaign->total_rating }})
+                                            </span> --}}
+
                                         @if (getSettingDataBySlug('site_mode') == 1)
                                             <a href="{{ route('front.donate') }}" data-id="{{ $campaign->id }}">Donate
                                                 Now</a>
@@ -364,12 +367,17 @@
                                                     </div>
                                                 </div>
                                                 <!-- .col-md-4 -->
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        {!! Form::textarea('review', null, [
+                                                            'placeholder' => 'Type Here Message*',
+                                                            'class' => 'form-control comments-textarea',
+                                                        ]) !!}
+                                                    (Max length 250 character)
+                                                    </div>
+                                                </div>
                                             </div>
                                             <!-- .row -->
-                                            {!! Form::textarea('review', null, [
-                                                'placeholder' => 'Type Here Message*',
-                                                'class' => 'form-control comments-textarea',
-                                            ]) !!}
                                             <button type="submit" id="submit_review_form"
                                                 class="btn btn-default mb-5">Submit
                                                 REVIEW</button>
@@ -502,8 +510,9 @@
             .gift-accasion a {
                 border: 2px #53a92c solid;
             }
-            .fa.fa-star.rating_star{
-                color:#53a92c;
+
+            .fa.fa-star.rating_star {
+                color: #53a92c;
             }
         </style>
         <link rel="stylesheet" type="text/css"
@@ -525,14 +534,14 @@
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="2" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="3" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                        )
+                    )
                 } else if (user_rating == 2) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="3" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                        )
+                    )
                 } else if (user_rating == 3) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -540,7 +549,7 @@
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                        )
+                    )
                 } else if (user_rating == 4) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -732,11 +741,11 @@
                 var combo_id = $('.nav-main.active.changeNavMain').attr('data-val');
                 var total_amt = Number($(`#cart_total_amount${data_id}`).attr('data-value'));
                 if (Number(cart_val) <= 1) {
-                 var html = `  <p class="addToCartBTN" data-id="${data_id}"
+                    var html = `  <p class="addToCartBTN" data-id="${data_id}"
                                         style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px; cursor: pointer;">
-                                        Add to cart</p>`;
-                                        $('.addToCartBTNDiv' + data_id).html(html);
-                }else{
+                                        Add to Cart</p>`;
+                    $('.addToCartBTNDiv' + data_id).html(html);
+                } else {
                     total_amt = total_amt * (Number(cart_val) - 1);
                 }
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
@@ -808,7 +817,7 @@
         </script>
 
         <script>
-                $(document).on("click", ".addToCartBTNLetest", function() {
+            $(document).on("click", ".addToCartBTNLetest", function() {
                 var data_id = $(this).attr('data-id');
                 var html = ` <span data-id="${data_id}" class="minus cart_decrementLetest">-</span>
                                         <input type="text" data-id="${data_id}"
@@ -825,14 +834,14 @@
                 var cart_val = $(input_selector).val();
                 var total_amt = Number($(`#cart_total_amountLetest${data_id}`).attr('data-value'));
                 if (Number(cart_val) <= 1) {
-                   html = `<p class="addToCartBTNLetest" data-id="${data_id}"
+                    html = `<p class="addToCartBTNLetest" data-id="${data_id}"
                                                     style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
-                                                    Add to cart</p>`;
-                                                    $('.addToCartBTNDivLetest' + data_id).html(html);
-                }else{
+                                                    Add to Cart</p>`;
+                    $('.addToCartBTNDivLetest' + data_id).html(html);
+                } else {
                     total_amt = total_amt * (Number(cart_val) - 1);
                 }
-                
+
                 var total_amt_html = `Amount {{ currencyIcon() }} ${total_amt}`;
                 $(`#cart_total_amountLetest${data_id}`).html(total_amt_html);
                 $(input_selector).val(Number(cart_val) - 1);

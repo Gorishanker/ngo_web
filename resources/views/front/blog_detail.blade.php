@@ -150,10 +150,15 @@
                                                 {!! Form::text('website', null, [ 'placeholder' => 'Website', 'class' => 'form-control']) !!}
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            {!! Form::textarea('comment', null, [ 'placeholder' => 'Comments*', 'class' => 'form-control comments-textarea']) !!}
+                                            (Max length 300 character)
+                                        </div>
+                                    </div>
                                     <!-- .col-md-4 -->
                                 </div>
                                 <!-- .row -->
-                                {!! Form::textarea('comment', null, [ 'placeholder' => 'Comments*', 'class' => 'form-control comments-textarea']) !!}
 
                                 <button type="submit" id="submit_form" class="btn btn-default">submit Comment</button>
                                 {!! Form::close() !!}

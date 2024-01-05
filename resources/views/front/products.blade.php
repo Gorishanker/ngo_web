@@ -81,7 +81,7 @@
                                                                     </h4>
                                                                     <h5>{{ isset($product->amount) ? currencyIcon() . $product->amount : '' }}
                                                                     </h5>
-                                                                    <ul class="star-icon">
+                                                                    {{-- <ul class="star-icon">
                                                                         @for ($i = 1; $i <= $product->avg_rating; $i++)
                                                                             <i class="fa fa-star" aria-hidden="true"></i>
                                                                         @endfor
@@ -91,7 +91,7 @@
                                                                         @for ($i = 1; $i <= $blank_star; $i++)
                                                                             <i class="fa fa-star-o" aria-hidden="true"></i>
                                                                         @endfor
-                                                                    </ul>
+                                                                    </ul> --}}
                                                                 </div>
                                                                 <!-- .collection-content -->
                                                             </div>
@@ -128,7 +128,7 @@
                                                                         </h4>
                                                                         <h5>{{ isset($product->amount) ? currencyIcon() . $product->amount : '' }}
                                                                         </h5>
-                                                                        <ul class="star-icon">
+                                                                        {{-- <ul class="star-icon">
                                                                             @for ($i = 1; $i <= $product->avg_rating; $i++)
                                                                                 <i class="fa fa-star"
                                                                                     aria-hidden="true"></i>
@@ -140,7 +140,7 @@
                                                                                 <i class="fa fa-star-o"
                                                                                     aria-hidden="true"></i>
                                                                             @endfor
-                                                                        </ul>
+                                                                        </ul> --}}
                                                                         <p>{{ isset($product->summery) ? $product->summery : 'Product Summery' }}
                                                                         </p>
                                                                     </div>

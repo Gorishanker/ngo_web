@@ -14,7 +14,7 @@
                             </ul>
                             <div class="donate-option">
                                 <a href="{{ getSettingDataBySlug('site_mode') == 0 ? '#' : route('front.donate') }}"><i
-                                        class="fa fa-heart" aria-hidden="true"></i> donate now</a>
+                                        class="fa fa-heart" aria-hidden="true"></i> DONATE NOW</a>
                             </div>
                         </div>
                     </div>

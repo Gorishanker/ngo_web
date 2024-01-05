@@ -198,7 +198,7 @@
                         <!-- .row -->
                     </div>
                     <!-- .paymeny-information -->
-                    <button type="submit" id="submit_form" class="btn btn-default">Donate Now</button>
+                    <button type="submit" id="submit_form" class="btn btn-default">DONATE NOW</button>
                     {!! Form::close() !!}
                 </div>
                 <!-- .donate-form -->
@@ -316,17 +316,17 @@
                         if (response.status == 1) {
                             payAmountWithRazorpay(response.data.donation_amount, response.data.donate_id, response
                                 .data.pan_name, response.data.email, response.data.mobile_no)
-                            $('#submit_form').html('Donate Now');
+                            $('#submit_form').html('DONATE NOW');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
                         } else {
-                            $('#submit_form').html('Donate Now');
+                            $('#submit_form').html('DONATE NOW');
                             $('#submit_form').removeClass('disabled');
                             $('#submit_form').attr('disabled', false);
                         }
                     },
                     error: function() {
-                        $('#submit_form').html('Donate Now');
+                        $('#submit_form').html('DONATE NOW');
                         $('#submit_form').removeClass('disabled');
                         $('#submit_form').attr('disabled', false);
                     },

@@ -64,7 +64,7 @@
                                                     <p>By Planting Tree Tomorrow!</p>
                                                     <div class="slider-btn">
                                                         <a href="#" class="btn btn-default">join now</a>
-                                                        <a href="#" class="btn btn-default">donate now</a>
+                                                        <a href="#" class="btn btn-default">DONATE NOW</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@
                                         <div class="details-box">
                                             <div class="progress-tp-head">
                                                 <div class="bar-value">
-                                                    <span>Total Price:
+                                                    <span>Ask Amount:
                                                         <b>{{ currencyIcon() }}{{ $campaign->target_amount }}</b></span>
                                                     <span>Raised:
                                                         <b>{{ currencyIcon() }}{{ $campaign->raise_amount }}</b></span>
@@ -345,13 +345,13 @@
                                                     @else
                                                         <p class="addToCartBTN" data-id="{{ $campaign->id }}"
                                                             style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
-                                                            Add to cart</p>
+                                                            Add to Cart</p>
                                                     @endif
                                                 </div>
                                             </div>
 
                                             <div class="cart-btn">
-                                                <span>
+                                                {{-- <span>
                                                     @for ($i = 1; $i <= $campaign->average_rating; $i++)
                                                         <i class="fa fa-star" aria-hidden="true"></i>
                                                     @endfor
@@ -362,7 +362,7 @@
                                                         <i class="fa fa-star-o" aria-hidden="true"></i>
                                                     @endfor
                                                     ({{ $campaign->total_rating }})
-                                                </span>
+                                                </span> --}}
                                                 <a href="{{ route('front.donate') }}"
                                                     data-id="{{ $campaign->id }}">Donate
                                                     Now</a>
@@ -640,7 +640,7 @@
                 if (Number(cart_val) <= 1) {
                     var html = `<p class="addToCartBTN" data-id="${data_id}"
                                                             style="background-color: #53a92c;color: #fff;font-size: 16px;padding: 4px 10px;border-radius: 5px; cursor: pointer;">
-                                                            Add to cart</p>`;
+                                                            Add to Cart</p>`;
                     $('.addToCartBTNDiv' + data_id).html(html);
                 } else {
                     total_amt = total_amt * (Number(cart_val) - 1);

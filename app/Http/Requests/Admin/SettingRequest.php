@@ -39,7 +39,7 @@ class SettingRequest extends FormRequest
             'data.twitter_url' => 'nullable|url|max:150',
             'data.about_company' => 'required|max:300',
             'data.contact_us_text' => 'required|max:200',
-            'data.address' => 'required|max:70',
+            'data.address' => 'required|max:50',
             'data.available_time' => 'required|max:50',
             'data.bank_name' => 'required|max:50',
             'data.ac_number' => 'required|max:50',
