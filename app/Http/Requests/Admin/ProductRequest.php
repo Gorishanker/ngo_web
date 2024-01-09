@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
     {
         if (!request()->is('admin/products/create')) {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:150|unique:products,title,' .request()->id,
+                'title' => 'required|alpha_spaces|min:10|max:50|unique:products,title,' .request()->id,
                 'amount' => 'required|integer|max:15000000',
                 'image' => 'nullable|image',
                 'summery' => 'required|max:250',
@@ -35,6 +35,7 @@ class ProductRequest extends FormRequest
             ];
         } else {
             return [
+                'title' => 'required|alpha_spaces|min:10|max:50|unique:products,title',
                 'amount' => 'required|integer|max:15000000',
                 'image' => 'required|image',
                 'summery' => 'required|max:250',
@@ -49,8 +50,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'is_active.required' => __('validation.required', ['attribute' => 'status']),
-            'summery.required' => __('validation.required', ['attribute' => 'summery']),
-            'summery.max' => __('validation.max', ['attribute' => 'summery']),
+            'summery.required' => __('validation.required', ['attribute' => 'summary']),
+            'summery.max' => __('validation.max', ['attribute' => 'summary']),
         ];
     }
 }

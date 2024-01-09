@@ -192,4 +192,5 @@ return [
     'summery' => 'Summary',
     'testimonial' => 'Testimonial|Testimonials',
     'icon' => 'Icon',
+    'auther_type' => 'Author type',
 ];

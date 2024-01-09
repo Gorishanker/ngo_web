@@ -67,7 +67,7 @@
                         {{ isset($gallery->category->category_name) ? $gallery->category->category_name : '' }}
                         <a href="{{ isset($gallery->file) ? $gallery->file : '' }}" target="_blank" class="w-3/5">
                             <div class="image-fit">
-                                <img alt="{{ isset($gallery->category->category_name) ? $gallery->category->category_name : '' }}"
+                                <img style="width: 230px; height: 230px;" alt="{{ isset($gallery->category->category_name) ? $gallery->category->category_name : '' }}"
                                     src="{{ isset($gallery->file) ? $gallery->file : '' }}">
                             </div>
                         </a>

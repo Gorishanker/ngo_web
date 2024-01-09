@@ -32,6 +32,15 @@
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.author_type', 1) }}
+                        : </label>
+                    {{ isset($project->author_type) ? $project->author_type : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.author', 1) }}
                         : </label>
                     {{ isset($project->author) ? $project->author : 'Na' }}
@@ -57,6 +66,24 @@
                     @else
                         Inactive
                     @endif
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">Start date
+                        : </label>
+                    {{ isset($project->start_date) ? get_default_format($project->start_date) : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">End date
+                        : </label>
+                    {{ isset($project->end_date) ? get_default_format($project->end_date) : 'Na' }}
                 </div>
             </div>
         </div>

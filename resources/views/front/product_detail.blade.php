@@ -241,14 +241,10 @@
                                                         id="campaignReviewCount">
                                                     <div class="form-group campaignReviewCount"> Your rating:
                                                         <i class="fa fa-star rating_star" data-val="1"
-                                                            aria-hidden="true"></i>
-                                                        <i class="fa fa-star rating_star" data-val="2"
-                                                            aria-hidden="true"></i>
-                                                        <i class="fa fa-star rating_star" data-val="3"
-                                                            aria-hidden="true"></i>
-                                                        <i class="fa fa-star rating_star" data-val="4"
-                                                            aria-hidden="true"></i>
-                                                        <i class="fa fa-star rating_star" data-val="5"
+                                                            aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
+                                                            aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="3"
+                                                            aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="4"
+                                                            aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="5"
                                                             aria-hidden="true"></i>
                                                     </div>
                                                 </div>
@@ -338,8 +334,10 @@
                 color: #53a92c;
             }
         </style>
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css" />
     @endpush
     @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
         <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
         {!! JsValidator::formRequest('App\Http\Requests\Front\ReviewRequest', '#ReviewForm') !!}
         <script>
@@ -353,14 +351,16 @@
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="2" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="3" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                    )
+                    );
+                    return true;
                 } else if (user_rating == 2) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="3" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                    )
+                    );
+                    return true;
                 } else if (user_rating == 3) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -368,7 +368,8 @@
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
                         `<i class="fa fa-star-o rating_star" data-val="4" aria-hidden="true"><i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`
-                    )
+                    );
+                    return true;
                 } else if (user_rating == 4) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -376,7 +377,8 @@
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="4"
                                                             aria-hidden="true"></i>`);
                     $('.campaignReviewCount').append(
-                        `<i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`)
+                        `<i class="fa fa-star-o rating_star" data-val="5" aria-hidden="true">`);
+                            return true;
                 } else if (user_rating == 5) {
                     $('.campaignReviewCount').append(`Your rating: <i class="fa fa-star rating_star" data-val="1"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="2"
@@ -384,6 +386,7 @@
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="4"
                                                             aria-hidden="true"></i><i class="fa fa-star rating_star" data-val="5"
                                                             aria-hidden="true"></i>`);
+                                                            return true;
                 }
 
             });
@@ -408,6 +411,8 @@
                     },
                     success: (response) => {
                         if (response.status == 1) {
+                            Swal.fire('Your review has been submit.');
+                            $('#ReviewForm').trigger("reset");
                             $('#submit_review_form').html('Submitted');
                             $('#submit_review_form').removeClass('disabled');
                         } else {

@@ -251,7 +251,7 @@
                 <h2 class="gmthdg-txt mb-4" style="color: #53a92b;">Simple Donations</h2>
             </div>
 
-            <div class="row row-cols-1 row-cols-sm-2 pt-2 pt-sm-3 pt-xl-2">
+            <div class="row">
 
                 <!-- Item -->
                 <div class="col-md-6">

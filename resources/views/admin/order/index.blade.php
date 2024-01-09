@@ -103,7 +103,7 @@
                         data: 'status',
                         name: 'status',
                         render: function(data, type, row, meta) {
-                            if (data) {
+                            if (data <=0) {
                                 if(data == 1){
                                     data = 'Compeletd';
                                     return `<span class="badge badge-success">${data}</span>`;

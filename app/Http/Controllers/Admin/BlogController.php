@@ -181,7 +181,7 @@ class BlogController extends Controller
         $result =$blog_comment->update(['is_active' => $status]);
         $blog = Blog::find($blog_comment->blog_id);
         if(isset($blog)){
-            $total_comment = Blog::where(['blog_id'=> $blog_comment->blog_id, 'is_active' => 1])->count();
+            $total_comment = Blog::where(['id'=> $blog_comment->blog_id, 'is_active' => 1])->count();
         }
         $blog->update(['total_comments' => $total_comment]);
         if ($result) {

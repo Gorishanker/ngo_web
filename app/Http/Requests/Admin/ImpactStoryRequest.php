@@ -25,7 +25,7 @@ class ImpactStoryRequest extends FormRequest
     {
         if (!request()->is('admin/impact-stories/create')) {
             return [
-                'title' => 'required|min:10|max:150|unique:impact_stories,title,' .request()->id,
+                'title' => 'required|min:10|max:50|unique:impact_stories,title,' .request()->id,
                 'image' => 'nullable|image',
                 'project_id' => 'nullable',
                 'is_active' => 'required',
@@ -34,7 +34,7 @@ class ImpactStoryRequest extends FormRequest
             ];
         } else {
             return [
-                'title' => 'required|min:10|max:150|unique:impact_stories,title',
+                'title' => 'required|min:10|max:50|unique:impact_stories,title',
                 'image' => 'required|image',
                 'project_id' => 'nullable',
                 'content' => 'required',

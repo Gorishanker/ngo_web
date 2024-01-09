@@ -123,7 +123,7 @@
         </div>
         <!-- .bg-footer-top -->
 
-        <div class="bg-footer-bottom">
+        <div class="bg-footer-bottom" style="margin-top: 30px;">
             <div class="container">
                 <div class="row">
                     <div class="footer-bottom">

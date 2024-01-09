@@ -1,11 +1,11 @@
 @if ($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
-        {{-- <ul>
+        <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul> --}}
+        </ul>
     </div>
 @endif
 @php
@@ -32,6 +32,20 @@
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">{{ trans_choice('content.is_active', 1) }}</label>
+        {!! Form::select('is_active', statusArray(), null, [
+            'placeholder' => trans_choice('content.please_select', 1),
+            'class' => 'input w-full border bg-gray-100 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">{{ trans_choice('content.auther_type', 1) }}</label>
+        {!! Form::select('author_type', ['Author' => 'Author', 'Client' => 'Client'], null, [
+            'placeholder' => trans_choice('content.please_select', 1),
+            'class' => 'input w-full border bg-gray-100 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.author', 1) }}</label>
         {!! Form::text('author', null, [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -46,10 +60,17 @@
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.is_active', 1) }}</label>
-        {!! Form::select('is_active', statusArray(), null, [
-            'placeholder' => trans_choice('content.please_select', 1),
-            'class' => 'input w-full border bg-gray-100 mt-2',
+        <label class="required">Start date</label>
+        {!! Form::date('start_date', null, [
+            'placeholder' => 'Start date',
+            'class' => 'input w-full border bg-gray-10 mt-2',
+        ]) !!}
+    </div>
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="">End date</label>
+        {!! Form::date('end_date', null, [
+            'placeholder' => 'End date',
+            'class' => 'input w-full border bg-gray-10 mt-2',
         ]) !!}
     </div>
     <div class="col-span-12 form-group xl:col-span-{{ isset($doc_url) ? 4 : 6 }}">

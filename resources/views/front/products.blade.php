@@ -165,7 +165,7 @@
                             <div class="col-lg-3">
                                 <div class="shop-sidebar">
 
-                                    <div class="widget">
+                                     {{-- <div class="widget">
                                         <div class="shop-widget-content">
                                             <h4 class="shop-widget-title">Filter by Price</h4>
                                             <div class="nstSlider"
@@ -178,7 +178,7 @@
                                                 <div class="rightGrip" tabindex="0" style="left: 181px;"></div>
                                             </div>
 
-                                            <div class="price-rang">
+                                           <div class="price-rang">
                                                 <span class="price">Price:</span>
                                                 <div class="low-price">
                                                     <span class="currency">{{ currencyIcon() }}</span>
@@ -196,7 +196,7 @@
 
                                         </div>
                                         <!-- .widget-content -->
-                                    </div>
+                                    </div> --}}
                                     <div class="widget">
                                         <div class="shop-widget-content">
                                             <h4 class="shop-widget-title">Recent product</h4>

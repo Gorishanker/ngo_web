@@ -228,9 +228,10 @@
                         data: '',
                     })
                     .done(function(response) {
-                            if($('#cartItemCounterValueDiv')){
+                            if($('#cartItemCounterValueDiv').val()){
                                 $('#cartItemCounterValueDiv').html(response.cartValue); 
                             }else{
+                                console.log('success');
                               $('.cartItemCounterValueDiv').append(`<div class="count-cart" id="cartItemCounterValueDiv">${response.cartValue}</div>`);
                             }
                     })

@@ -51,8 +51,12 @@
                                                 <p>{{isset($project_detail->title) ? $project_detail->title : 'Na'}}</p>
                                             </li>
                                             <li>
-                                                <h4>Date::</h4>
-                                                <p>{{isset($project_detail->created_at) ? get_default_format($project_detail->created_at) : 'Na'}}</p>
+                                                <h4>Date:</h4>
+                                                <p>{{isset($project_detail->start_date) ? get_default_format($project_detail->start_date, 'format', 'd M, Y') : get_default_format($project_detail->created_date, 'format', 'd M, Y')}} -- {{isset($project_detail->end_date) ? get_default_format($project_detail->end_date, 'format', 'd M, Y') : 'Continue..'}}</p>
+                                            </li>
+                                            <li>
+                                                <h4>{{isset($project_detail->atuhor_type) ? $project_detail->atuhor_type : 'Client'}}:</h4>
+                                                <p>{{isset($project_detail->author) ? $project_detail->author : 'Na'}}</p>
                                             </li>
                                             @if(isset($project_detail->category->category_name))
                                             <li>

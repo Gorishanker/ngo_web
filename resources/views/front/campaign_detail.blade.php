@@ -11,6 +11,162 @@
     @php
         $raised_percent = ($campaign_detail->raise_amount / $campaign_detail->target_amount) * 100;
     @endphp
+    <section class="bg-recent-project">
+        <div class="container">
+            <div class="row">
+                <div class="recent-project">
+                    <div class="section-header">
+                        <h2>recent project</h2>
+                        <p>Professionally mesh enterprise wide imperatives without world class paradigms.Dynamically deliver ubiquitous leadership awesome skills.</p>
+                    </div>
+                    <!-- .section-header -->
+
+                    <div id="filters" class="button-group ">
+                        <button class="button is-checked" data-filter="*">show all</button>
+                        <button class="button" data-filter=".cat-1">environment</button>
+                        <button class="button" data-filter=".cat-2">recycling</button>
+                        <button class="button" data-filter=".cat-3">ecology</button>
+                        <button class="button" data-filter=".cat-4">climate</button>
+                    </div>
+                    <div class="portfolio-items" style="position: relative; height: 877.938px;">
+                        <div class="item cat-1" data-category="transition" style="position: absolute; left: 0px; top: 0px;">
+                            <div class="item-inner">
+                                <div class="portfolio-img">
+                                    <div class="overlay-project"></div>
+                                    <!-- .overlay-project -->
+                                    <img src="assets/images/home02/recent-project-img-1.jpg" alt="recent-project-img-1">
+                                    <ul class="project-link-option">
+                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                        <li class="project-search"><a href="assets/images/home02/recent-project-img-1.jpg" data-rel="lightcase:myCollection"><i class="fa fa-search-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.portfolio-img -->
+                                <div class="recent-project-content">
+                                    <h4><a href="project_single.html">Sustainable Agriculture</a></h4>
+                                    <p>By : <span><a href="#">Green Forest</a></span></p>
+                                </div>
+                                <!-- .latest-port-content -->
+                            </div>
+                            <!-- .item-inner -->
+                        </div>
+                        <!-- .items -->
+
+                        <div class="item cat-2 " data-category="metalloid" style="position: absolute; left: 431px; top: 0px;">
+                            <div class="item-inner">
+                                <div class="portfolio-img">
+                                    <div class="overlay-project"></div>
+                                    <!-- .overlay-project -->
+                                    <img src="assets/images/home02/recent-project-img-2.jpg" alt="recent-project-img-2">
+                                    <ul class="project-link-option">
+                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                        <li class="project-search"><a href="assets/images/home02/recent-project-img-2.jpg" data-rel="lightcase:myCollection"><i class="fa fa-search-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.portfolio-img -->
+                                <div class="recent-project-content">
+                                    <h4><a href="project_single.html">Helping Young Planting</a></h4>
+                                    <p>By : <span><a href="#">Green Forest</a></span></p>
+                                </div>
+                                <!-- .latest-port-content -->
+                            </div>
+                            <!-- .item-inner -->
+                        </div>
+                        <!-- .items -->
+
+                        <div class="item cat-3 " data-category="post-transition" style="position: absolute; left: 863px; top: 0px;">
+                            <div class="item-inner">
+                                <div class="portfolio-img">
+                                    <div class="overlay-project"></div>
+                                    <!-- .overlay-project -->
+                                    <img src="assets/images/home02/recent-project-img-3.jpg" alt="recent-project-img-3">
+                                    <ul class="project-link-option">
+                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                        <li class="project-search"><a href="assets/images/home02/recent-project-img-3.jpg" data-rel="lightcase:myCollection"><i class="fa fa-search-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.portfolio-img -->
+                                <div class="recent-project-content">
+                                    <h4><a href="project_single.html">Need Solar Panels</a></h4>
+                                    <p>By : <span><a href="#">Green Forest</a></span></p>
+                                </div>
+                                <!-- .latest-port-content -->
+                            </div>
+                            <!-- .item-inner -->
+                        </div>
+                        <!-- .items -->
+
+                        <div class="item cat-2" data-category="post-transition" style="position: absolute; left: 0px; top: 438px;">
+                            <div class="item-inner">
+                                <div class="portfolio-img">
+                                    <div class="overlay-project"></div>
+                                    <!-- .overlay-project -->
+                                    <img src="assets/images/home02/recent-project-img-4.jpg" alt="recent-project-img-4">
+                                    <ul class="project-link-option">
+                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                        <li class="project-search"><a href="assets/images/home02/recent-project-img-4.jpg" data-rel="lightcase:myCollection"><i class="fa fa-search-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.portfolio-img -->
+                                <div class="recent-project-content">
+                                    <h4><a href="project_single.html">Save The Ozone Layer</a></h4>
+                                    <p>By : <span><a href="#">Green Forest</a></span></p>
+                                </div>
+                                <!-- .latest-port-content -->
+                            </div>
+                            <!-- .item-inner -->
+                        </div>
+                        <!-- .items -->
+                        <div class="item cat-4" data-category="transition" style="position: absolute; left: 431px; top: 438px;">
+                            <div class="item-inner">
+                                <div class="portfolio-img">
+                                    <div class="overlay-project"></div>
+                                    <!-- .overlay-project -->
+                                    <img src="assets/images/home02/recent-project-img-5.jpg" alt="recent-project-img-5">
+                                    <ul class="project-link-option">
+                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                        <li class="project-search"><a href="assets/images/home02/recent-project-img-5.jpg" data-rel="lightcase:myCollection"><i class="fa fa-search-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.portfolio-img -->
+                                <div class="recent-project-content">
+                                    <h4><a href="project_single.html">Save Water From Polution</a></h4>
+                                    <p>By : <span><a href="#">Green Forest</a></span></p>
+                                </div>
+                                <!-- .latest-port-content -->
+                            </div>
+                            <!-- .item-inner -->
+                        </div>
+                        <!-- .items -->
+                        <div class="item cat-1" data-category="alkali" style="position: absolute; left: 863px; top: 438px;">
+                            <div class="item-inner">
+                                <div class="portfolio-img">
+                                    <div class="overlay-project"></div>
+                                    <!-- .overlay-project -->
+                                    <img src="assets/images/home02/recent-project-img-6.jpg" alt="recent-project-img-6">
+                                    <ul class="project-link-option">
+                                        <li class="project-link"><a href="project_single.html"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                        <li class="project-search"><a href="assets/images/home02/recent-project-img-6.jpg" data-rel="lightcase:myCollection"><i class="fa fa-search-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!-- /.portfolio-img -->
+                                <div class="recent-project-content">
+                                    <h4><a href="project_single.html">Make Plants Alive</a></h4>
+                                    <p>By : <span><a href="#">Green Forest</a></span></p>
+                                </div>
+                                <!-- .latest-port-content -->
+                            </div>
+                            <!-- .item-inner -->
+                        </div>
+                        <!-- .items -->
+                    </div>
+                    <!-- .isotope-items -->
+                </div>
+                <!-- .recent-project -->
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+    </section>
     <section class="py-5 image-tab">
         <div class="container">
             <div class="row">

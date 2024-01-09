@@ -40,7 +40,7 @@ class SettingRequest extends FormRequest
             'data.about_company' => 'required|max:300',
             'data.contact_us_text' => 'required|max:200',
             'data.address' => 'required|max:50',
-            'data.available_time' => 'required|max:50',
+            'data.available_time' => 'required|max:30',
             'data.bank_name' => 'required|max:50',
             'data.ac_number' => 'required|max:50',
             'data.ifsc_code' => 'required|max:25',

@@ -25,9 +25,12 @@ class ProjectRequest extends FormRequest
     {
         if (!request()->is('admin/projects/create')) {
             return [
-                'title' => 'required|alpha_spaces|min:10|max:70|unique:projects,title,' .request()->id,
+                'title' => 'required|alpha_spaces|min:10|max:70|unique:projects,title,' . request()->id,
                 'image' => 'nullable|image',
                 'author' => 'required|max:30',
+                'author_type' => 'required',
+                'start_date' => 'required|date',
+                'end_date' => 'nullable|date|after:start_date',
                 'category_id' => 'nullable',
                 'is_active' => 'required',
                 'side_images' => 'nullable|max:3',
@@ -40,6 +43,9 @@ class ProjectRequest extends FormRequest
                 'title' => 'required|alpha_spaces|min:10|max:70|unique:projects,title,except,id',
                 'image' => 'required|image',
                 'author' => 'required|max:30',
+                'author_type' => 'required',
+                'start_date' => 'required|after:yesterday',
+                'end_date' => 'nullable|date|after:start_date',
                 'category_id' => 'required',
                 'is_active' => 'required',
                 'side_images' => 'required|max:3',
