@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('slug')->nullable();
             $table->text('content')->nullable();
             $table->string('image');
+            $table->string('icon');
             $table->boolean('is_active')->default(1)->comment("1 => Active, 0 => Inactive");
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
