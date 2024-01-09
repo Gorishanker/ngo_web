@@ -37,7 +37,7 @@ The Service Provider gets discovered automatically by Laravel.
 In your languages directory, add an extra translation in every `validation.php` language file:
 
 ```php
-'phone' => 'The :attribute field contains an invalid number.',
+'phone' => 'The :attribute field must be a valid number.',
 ```
 
 ## Validation
@@ -82,6 +82,13 @@ To specify constraints on the number type, just append the allowed types to the 
 // 'phonefield'    => (new Phone)->type('mobile')
 ```
 The most common types are `mobile` and `fixed_line`, but feel free to use any of the types defined [here](https://github.com/giggsey/libphonenumber-for-php/blob/master/src/PhoneNumberType.php).
+
+Prepend a type with an exclamation mark to blacklist it instead. Note that you can never use whitelisted *and* blacklisted types at the same time.
+
+```php
+'phonefield'       => 'phone:!mobile',
+// 'phonefield'    => (new Phone)->notType('mobile')
+```
 
 You can also enable lenient validation by using the `LENIENT` parameter.
 With leniency enabled, only the length of the number is checked instead of actual carrier patterns.
@@ -132,7 +139,7 @@ public $casts = [
 ];
 ```
 
-In order to not encounter any unexpected issues when using these casts, please always validate any input using the [validation](#validation) rules previously described.
+**Important note:** Both casts expect __valid__ phone numbers in order to smoothly convert from/to PhoneNumber objects. Please validate phone numbers before setting them on a model. Refer to the [validation documentation](#validation) to learn how to validate phone numbers.
 
 #### ⚠️ Attribute assignment and `E164PhoneNumberCast`
 Due to the nature of `E164PhoneNumberCast` a valid country attribute is expected if the number is not passed in international format. Since casts are applied in the order of the given values, be sure to set the country attribute _before_ setting the phone number attribute. Otherwise `E164PhoneNumberCast` will encounter an empty country value and throw an unexpected exception.
