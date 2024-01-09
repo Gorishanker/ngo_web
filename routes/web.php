@@ -89,16 +89,15 @@ Route::view('/shipping-policy', 'front.static_page');
 Route::view('/pricing-policy', 'front.static_page');
 
 
-Route::get('/home', function () {
+Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
-
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::controller(LoginController::class)->group(function () {
-        Route::get('/', 'showLoginForm');
-        Route::post('/', 'login')->name('login');
+        Route::get('/login', 'showLoginForm');
+        Route::post('/login', 'login')->name('login');
         Route::get('/logout', 'logout')->name('logout');
         Route::get('/forget-password', 'forgetPassword')->name('forgetPassword');
         Route::post('/create-otp', 'createOtp')->name('createOtp');
