@@ -32,7 +32,7 @@
                     class="text-white text-lg ml-3">{{ isset($global_setting_data['site_name']) ? $global_setting_data['site_name'] : 'na' }}</span> --}}
             </a>
             <div class="my-auto">
-                <img alt="Starrae" src="dist/images/illustration.svg"  class="-intro-x w-1/2 -mt-16" style="width: 60%">
+                <img alt="{{getSettingDataBySlug('site_name')}}" src="{{asset('admin/dist/images/illustration.svg')}}"  class="-intro-x w-1/2 -mt-16" style="width: 60%">
                 <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                     A few more clicks to
                     <br>
