@@ -17,7 +17,8 @@
     @include('admin.layouts.components.datatable_header', [
         'data' => [
             ['classname' => '', 'title' => trans_choice('content.id_title', 1)],
-            ['classname' => 'min-w-125px', 'title' => trans_choice('content.content', 1)],
+            ['classname' => 'min-w-125px', 'title' => trans_choice('content.title', 1)],
+            ['classname' => 'min-w-125px', 'title' => trans_choice('content.author', 1)],
             ['classname' => 'min-w-125px', 'title' => trans_choice('content.image', 1)],
             ['classname' => 'min-w-125px', 'title' => trans_choice('content.status_title', 1)],
             ['classname' => 'min-w-125px', 'title' => trans_choice('content.created_at', 1)],
@@ -36,7 +37,7 @@
                 processing: true,
                 serverSide: true,
                 order: [
-                    [4, 'desc']
+                    [5, 'desc']
                 ],
                 language: {
                     search: "_INPUT_",
@@ -62,7 +63,7 @@
                       "<'row'<'col-sm-12'tr>>" +
                       "<'row datatable_footer'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>`,
                 columnDefs: [{
-                    targets: [0, 5],
+                    targets: [0, 6],
                     orderable: false,
                     searchable: false,
                     // className: 'mdl-data-table__cell--non-numeric'
@@ -77,6 +78,17 @@
                     {
                         data: 'title',
                         name: 'title',
+                        render: function(data, type, row, meta) {
+                            if (data) {
+                                return `<span class="badge badge-primary">${setStringLength(data)}</span>`;
+                            } else {
+                                return `<div class="font-medium whitespace-no-wrap">Na</div>`;
+                            }
+                        }
+                    },
+                    {
+                        data: 'author',
+                        name: 'author',
                         render: function(data, type, row, meta) {
                             if (data) {
                                 return `<span class="badge badge-primary">${setStringLength(data)}</span>`;

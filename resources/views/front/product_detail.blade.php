@@ -505,6 +505,7 @@
                         data: 'qty=' + cart_val,
                     })
                     .done(function(response) {
+                        updateCartCounter();
                         console.log('success');
                     })
                     .fail(function() {

@@ -32,6 +32,15 @@
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.author', 1) }}
+                        : </label>
+                    {{ isset($project->author) ? $project->author : 'Na' }}
+                </div>
+            </div>
+        </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.category', 1) }}
                         : </label>
                     {{ isset($project->category->category_name) ? $project->category->category_name : 'Na' }}

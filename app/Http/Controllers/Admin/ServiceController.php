@@ -82,6 +82,10 @@ class ServiceController extends Controller
         if ($image != null) {
             $input['image'] = $image;
         }
+        $icon = FileService::imageUploader($request, 'icon', $this->image_directory);
+        if ($icon != null) {
+            $input['icon'] = $icon;
+        }
         $service =  $this->serviceService->create($input);
         $brochure_pdf = FileService::imageUploader($request, 'brochure_pdf', $this->image_directory);
         if ($brochure_pdf != null) {
@@ -135,6 +139,14 @@ class ServiceController extends Controller
             }
         } else {
             $input = Arr::except($input, array('image'));
+        }
+        if (!empty($input['icon'])) {
+            $icon = FileService::imageUploader($request, 'icon', $this->image_directory);
+            if ($icon != null) {
+                $input['icon'] = $icon;
+            }
+        } else {
+            $input = Arr::except($input, array('icon'));
         }
         $service->update($input);
 

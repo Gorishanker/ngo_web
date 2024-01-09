@@ -20,7 +20,7 @@ class Project extends Model
         'title',
         'slug',
         'content',
-        'client_id',
+        'author',
         'category_id',
         'image',
         'is_active',

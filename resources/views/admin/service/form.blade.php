@@ -74,7 +74,7 @@
             </a>
         </div>
     @endif
-    <div class="col-span-12 form-group xl:col-span-6">
+    <div class="col-span-12 form-group xl:col-span-4">
         <label class="required">{{ trans_choice('content.image', 1) }}</label>
         {!! Form::file('image', [
             'class' => 'input w-full border bg-gray-100 mt-2',
@@ -84,11 +84,28 @@
             'placeholder' => __('Upload Image '),
         ]) !!}
     </div>
-    <div class="col-span-12 xl:col-span-6 mt-4">
+    <div class="col-span-12 xl:col-span-2 mt-4">
         @if (isset($service->image))
             <img id="backImage_image" width="80px" height="80px" src="{{ $service->image }}" title="Image">
         @else
             <img id="backImage_image" src="{{ blankImageUrl() }}" width="80px" height="80px" title="Image">
+        @endif
+    </div>
+    <div class="col-span-12 form-group xl:col-span-4">
+        <label class="required">{{ trans_choice('content.icon', 1) }}</label>
+        {!! Form::file('icon', [
+            'class' => 'input w-full border bg-gray-100 mt-2',
+            'id' => 'icon',
+            'onchange' => 'readURL(this, icon);',
+            'accept' => 'image/x-png,image/jpg,image/jpeg,image/png',
+            'placeholder' => __('Upload Icon '),
+        ]) !!}
+    </div>
+    <div class="col-span-12 xl:col-span-2 mt-4">
+        @if (isset($service->icon))
+            <img id="backImage_icon" width="80px" height="80px" src="{{ $service->icon }}" title="Icon">
+        @else
+            <img id="backImage_icon" src="{{ blankImageUrl() }}" width="80px" height="80px" title="Icon">
         @endif
     </div>
     <div class="col-span-12 form-group xl:col-span-12">

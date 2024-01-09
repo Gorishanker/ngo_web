@@ -17,7 +17,7 @@
         <!-- /.portfolio-img -->
         <div class="recent-project-content">
             <h4><a href="{{route('front.projectView', $project->slug)}}">{{isset($project->title) ? $project->title : 'Na'}}</a></h4>
-            {{-- <p>By : <span><a href="#">Green Forest</a></span></p> --}}
+            <p>By : <span><a href="javascript:void(0);">{{isset($project->author) ? $project->author : 'Na'}}</a></span></p>
         </div>
         <!-- .latest-port-content -->
     </div>

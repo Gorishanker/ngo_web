@@ -139,7 +139,7 @@
 
     @push('scripts')
         <script>
-                $(document).on("click", ".addToCartBTN", function() {
+            $(document).on("click", ".addToCartBTN", function() {
                 var data_id = $(this).attr('data-id');
                 var html = ` <span data-id="${data_id}" class="minus cart_decrement">-</span>
                                                 <input type="text" data-id="${data_id}"
@@ -218,7 +218,7 @@
                         data: 'qty=' + cart_val,
                     })
                     .done(function(response) {
-                        console.log('success');
+                        updateCartCounter();
                     })
                     .fail(function() {
                         console.log('failed');

@@ -13,6 +13,8 @@ use App\Models\Category;
 use App\Models\ContactUs;
 use App\Models\Faq;
 use App\Models\Gallery;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\PageContent;
 use App\Models\Project;
 use App\Models\Service;
@@ -47,7 +49,7 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::where('is_active', 1)->get();
-        $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug')->take(6)->get();
+        $services = Service::where('is_active', 1)->select('title', 'content', 'image', 'slug','icon')->take(6)->get();
         $categories = Category::where('is_active', 1)->select('category_name', 'id')->get();
         $blogs = Blog::where(['is_active' => 1, 'schedule_datetime' => null])->orWhere('schedule_datetime', '<=', now())->take(3)->orderBy('id', 'desc')->get();
         $campaigns  = Campaign::where('is_active', 1)->take(3)->get();
@@ -82,14 +84,14 @@ class HomeController extends Controller
     {
         if (isset($category_id)) {
             if (request()->is('*services*'))
-                $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug')->get();
+                $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug','author')->get();
             else
-                $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug');
+                $projects = Project::where(['is_active' =>  1, 'category_id' => $category_id])->select('title', 'image', 'slug','author');
         } else {
             if (request()->is('*services*'))
-                $projects = Project::where('is_active',  1)->select('title', 'image', 'slug')->get();
+                $projects = Project::where('is_active',  1)->select('title', 'image', 'slug','author')->get();
             else
-                $projects = Project::where('is_active',  1)->select('title', 'image', 'slug');
+                $projects = Project::where('is_active',  1)->select('title', 'image', 'slug','author');
         }
         if(isset($request->page)){
             $projects = $projects->paginate(6);
@@ -315,11 +317,15 @@ class HomeController extends Controller
         } else {
             $images = Gallery::paginate(9);
         }
+        if($images->currentPage() == $images->lastPage()){
+            $disable_load_more_btn = true;
+        }
         if (isset($images) && $images->count() > 0) {
             $html = view('front.add_images', compact('images'))->render();
             return response()->json([
                 'status' => 1,
                 'html' => $html,
+                'disable_btn' => isset($disable_load_more_btn) ? true : null,
             ]);
         }
         return false;
@@ -340,6 +346,22 @@ class HomeController extends Controller
         if(!isset($team_detail))
         abort(404);
         return view($this->team_detail_view, compact('team_detail'));
+    }
+
+    public function cartCounter(){
+        $order = Order::where(['ip_address'=> request()->ip(), 'status' => 0])->select('id')->first();
+        if(isset($order)){
+            $total_cart = OrderItem::where('order_id', $order->id)->count();
+            return response()->json([
+                'cartValue' => $total_cart,
+                'status' => true,
+            ]);
+        }else{
+            return response()->json([
+                'cartValue' => 0,
+                'status' => true,
+            ]);
+        }
     }
 
 }

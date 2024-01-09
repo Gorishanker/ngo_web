@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('title', 250);
             $table->string('slug', 250)->nullable();
-            $table->integer('client_id')->nullable();
+            $table->string('author', 250)->nullable();
             $table->integer('category_id')->nullable();
             $table->longText('content');
             $table->string('image', 250);

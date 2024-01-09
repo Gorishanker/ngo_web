@@ -109,6 +109,19 @@
                 </div>
             </div>
         </div>
+        <div class="intro-y col-span-12 lg:col-span-6">
+            <div class="intro-y box p-5">
+                <div>
+                    <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.icon', 1) }}
+                        : </label>
+                    <a href="{{ $service->icon }}" target="_blank">
+                        <div class="font-medium whitespace-no-wrap">
+                            <img style="width: 100px; height: 70px;" src="{{ $service->icon }}" alt="Service icon">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="text-right mt-6">
         <div class="mr-6">

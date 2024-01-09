@@ -12,7 +12,7 @@
                         aria-hidden="true"></i></a>
             </div>
             <div class="recent-project-content">
-                <p><a href="#">{{isset($image->category->category_name) ? $image->category->category_name : 'Image'}}</a></p>
+                <p><a href="javascript:void(0);">{{isset($image->category->category_name) ? $image->category->category_name : 'Image'}}</a></p>
             </div>
         </div>
         <!-- .latest-port-content -->

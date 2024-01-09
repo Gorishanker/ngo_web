@@ -191,5 +191,5 @@ return [
     'avg_rating' => 'Average ratings',
     'summery' => 'Summary',
     'testimonial' => 'Testimonial|Testimonials',
-    
+    'icon' => 'Icon',
 ];

@@ -31,13 +31,13 @@
             'placeholder' => trans_choice('content.title', 1),
         ]) !!}
     </div>
-    {{-- <div class="col-span-12 form-group xl:col-span-6">
-        <label class="required">{{ trans_choice('content.client', 1) }}</label>
-         {!! Form::select('client_id', $clients, null, [
-            'placeholder' => trans_choice('content.please_select', 1),
+    <div class="col-span-12 form-group xl:col-span-6">
+        <label class="required">{{ trans_choice('content.author', 1) }}</label>
+        {!! Form::text('author', null, [
             'class' => 'input w-full border bg-gray-100 mt-2',
+            'placeholder' => trans_choice('content.author', 1),
         ]) !!}
-    </div> --}}
+    </div>
     <div class="col-span-12 form-group xl:col-span-6">
         <label class="required">{{ trans_choice('content.category', 1) }}</label>
         {!! Form::select('category_id', $categories, null, [

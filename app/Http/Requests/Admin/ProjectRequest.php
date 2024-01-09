@@ -27,7 +27,7 @@ class ProjectRequest extends FormRequest
             return [
                 'title' => 'required|alpha_spaces|min:10|max:70|unique:projects,title,' .request()->id,
                 'image' => 'nullable|image',
-                'client_id' => 'nullable',
+                'author' => 'required|max:30',
                 'category_id' => 'nullable',
                 'is_active' => 'required',
                 'side_images' => 'nullable|max:3',
@@ -39,7 +39,7 @@ class ProjectRequest extends FormRequest
             return [
                 'title' => 'required|alpha_spaces|min:10|max:70|unique:projects,title,except,id',
                 'image' => 'required|image',
-                'client_id' => 'nullable',
+                'author' => 'required|max:30',
                 'category_id' => 'required',
                 'is_active' => 'required',
                 'side_images' => 'required|max:3',

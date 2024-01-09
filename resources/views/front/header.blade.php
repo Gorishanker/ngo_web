@@ -135,10 +135,10 @@
                                             <div class="cart-option">
                                                 @if (getSettingDataBySlug('site_mode') == 1)
                                                     <a href="{{ route('front.cart') }}">
-                                                        <div class="cart-icon">
+                                                        <div class="cart-icon cartItemCounterValueDiv">
                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                             @if (cartItemCounter() > 0)
-                                                                <div class="count-cart">{{ cartItemCounter() }}</div>
+                                                                <div class="count-cart" id="cartItemCounterValueDiv">{{ cartItemCounter() }}</div>
                                                             @endif
                                                         </div>
                                                     </a>

@@ -21,10 +21,20 @@ class Service extends Model
         'slug',
         'content',
         'image',
+        'icon',
         'is_active',
     ];
 
     public function getImageAttribute($value)
+    {
+        if ($value) {
+            return  FileService::getFileUrl('files/services/', $value);
+        } else {
+            return null;
+        }
+    }
+
+    public function getIconAttribute($value)
     {
         if ($value) {
             return  FileService::getFileUrl('files/services/', $value);

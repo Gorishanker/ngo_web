@@ -185,6 +185,7 @@
                                                     <li><a href="{{ $team->instagram_url }}" target="_blank"><i
                                                                 class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                                 @endif
+                                                <li></li>
                                             </ul>
                                         </div>
                                         <!-- .volunteers-social-icon -->
@@ -281,10 +282,10 @@
                                                     <li><i class="fa fa-calendar" aria-hidden="true"></i>
                                                         {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
                                                     </li>
-                                                    {{-- <li><a href="#"><i class="fa fa-heart-o"
+                                                    {{-- <li><a href="javascript:void(0);"><i class="fa fa-heart-o"
                                                                 aria-hidden="true"></i> 24
                                                             Like</a></li>
-                                                    <li><a href="#"><i class="fa fa-commenting-o"
+                                                    <li><a href="javascript:void(0);"><i class="fa fa-commenting-o"
                                                                 aria-hidden="true"></i>
                                                             24 Comment</a></li> --}}
                                                 </ul>
@@ -325,7 +326,7 @@
                                 @foreach (sponsors() as $sponsor)
                                     <div class="swiper-slide" style="display: flex;">
                                         <div class="sopnsors-items">
-                                            <a href="#"><img style="width: 309px; height: 137px"
+                                            <a href="javascript:void(0);"><img style="width: 309px; height: 137px"
                                                     src="{{ $sponsor->image }}" alt="{{ $sponsor->name }}"
                                                     class="img-responsive" /></a>
                                         </div>

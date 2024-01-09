@@ -52,7 +52,7 @@
                                             <div class="event-author-option">
                                                 <!-- .author-img -->
                                                 <div class="event-author-name">
-                                                    <p>Posted by : <a href="#"> {{ $blog_detail->author }}</a></p>
+                                                    <p>Posted by : <a href="javascript:void(0);"> {{ $blog_detail->author }}</a></p>
                                                 </div>
                                                 <!-- .author-name -->
                                             </div>
@@ -62,8 +62,8 @@
                                             <li><i class="fa fa-calendar" aria-hidden="true"></i>
                                                 {{ isset($blog_detail->schedule_datetime) ? get_default_format($blog_detail->schedule_datetime) : get_default_format($blog_detail->created_at) }}
                                             </li>
-                                            {{-- <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 24 Like</a></li> --}}
-                                            <li><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                            {{-- <li><a href="javascript:void(0);"><i class="fa fa-heart-o" aria-hidden="true"></i> 24 Like</a></li> --}}
+                                            <li><a href="javascript:void(0);"><i class="fa fa-commenting-o" aria-hidden="true"></i>
                                                     {{ isset($blog_detail->total_comments) ? $blog_detail->total_comments : 0 }}
                                                     Comment</a></li>
                                         </ul>
@@ -108,7 +108,7 @@
                                             <div class="comments-content">
                                                 <div class="comments-author-title">
                                                     <div class="comments-author-name">
-                                                        <h4><a href="#">{{ $comment->name }}</a> -
+                                                        <h4><a href="javascript:void(0);">{{ $comment->name }}</a> -
                                                             <small>{{ diffForHumans($comment->created_at) }}</small>
                                                         </h4>
                                                     </div>
@@ -177,7 +177,7 @@
                                                 @foreach ($blogs as $blog)
                                                     <li>
                                                         <div class="popular-news-img">
-                                                            <a href="#"><img style="width: 75px; height: 75px;"
+                                                            <a href="javascript:void(0);"><img style="width: 75px; height: 75px;"
                                                                     src="{{ $blog->image }}"
                                                                     alt="{{ isset($blog->title) ? $blog->title : 'Blog Image' }}"></a>
                                                         </div>

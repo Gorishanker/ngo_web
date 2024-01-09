@@ -413,7 +413,7 @@
                         <h2>GIVE THE GIFT OF TREES!</h2>
                         <p class="mb-0">Scroll to the right of the carousel below to select from more card options.</p>
                         <b>A Tree Certificate will be sent to the recipient with the e-card.</b>
-                        {{-- <p>Need help gifting? <a href="#">Click here</a> for our guide!</p> --}}
+                        {{-- <p>Need help gifting? <a href="javascript:void(0);">Click here</a> for our guide!</p> --}}
                     </div>
                     {!! Form::open([
                         'id' => 'GiftTreeFormForm',
@@ -896,6 +896,7 @@
                         data: 'qty=' + cart_val,
                     })
                     .done(function(response) {
+                        updateCartCounter();
                         console.log('success');
                     })
                     .fail(function() {

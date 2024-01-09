@@ -23,7 +23,7 @@
                             @endphp
                             <div class="carousel-item {{ $active }}">
                                 <div class="slider-item">
-                                    <img style="width: 1765px; height: 776px;"
+                                    <img style="max-width: 1765px; height: auto;"
                                         src="{{ isset($banner->image) ? $banner->image : asset('front/images/home02/slider-img-1.jpg') }}"
                                         alt="Slider Image">
                                     <div class="slider-content-area">
@@ -244,8 +244,8 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="our-services-box">
                                         <div class="our-services-items">
-                                            <img style="width: 150px; height: 100px;"
-                                                src="{{ isset($service->image) ? $service->image : null }}"
+                                            <img style="max-width: 50px; height: auto;"
+                                                src="{{ isset($service->icon) ? $service->icon : blankImageUrl() }}"
                                                 alt="{{ isset($service->title) ? $service->title : 'Na' }}">
                                             <div class="our-services-content">
                                                 <h4><a
@@ -445,10 +445,10 @@
                                                                 <li><i class="fa fa-calendar" aria-hidden="true"></i>
                                                                     {{ isset($blog->schedule_datetime) ? get_default_format($blog->schedule_datetime) : get_default_format($blog->created_at) }}
                                                                 </li>
-                                                                {{-- <li><a href="#"><i data-id="{{$blog->id}}" class="blog_like fa fa-heart-o" aria-hidden="true"></i>
+                                                                {{-- <li><a href="javascript:void(0);"><i data-id="{{$blog->id}}" class="blog_like fa fa-heart-o" aria-hidden="true"></i>
                                                                     24
                                                                     Like</a></li> --}}
-                                                                <li><a href="#"><i class="fa fa-commenting-o"
+                                                                <li><a href="javascript:void(0);"><i class="fa fa-commenting-o"
                                                                             aria-hidden="true"></i> 24
                                                                         Comment</a></li>
                                                             </ul>
@@ -469,11 +469,11 @@
                                                             <i class="fa fa-angle-double-left" aria-hidden="true"></i>
                                                         </a>
                                                     </li>
-                                                    <li><a href="#">1</a></li>
-                                                    <li class="active"><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">...</a></li>
-                                                    <li><a href="#">5</a></li>
+                                                    <li><a href="javascript:void(0);">1</a></li>
+                                                    <li class="active"><a href="javascript:void(0);">2</a></li>
+                                                    <li><a href="javascript:void(0);">3</a></li>
+                                                    <li><a href="javascript:void(0);">...</a></li>
+                                                    <li><a href="javascript:void(0);">5</a></li>
                                                     <li>
                                                         <a href="#" aria-label="Next">
                                                             <i class="fa fa-angle-double-right" aria-hidden="true"></i>
@@ -518,7 +518,7 @@
                                 @foreach (sponsors() as $sponsor)
                                     <div class="swiper-slide">
                                         <div class="sopnsors-items">
-                                            <a href="#"><img style="width: 309px; height: 137px"
+                                            <a href="javascript:void(0);"><img style="width: 309px; height: 137px"
                                                     src="{{ $sponsor->image }}" alt="{{ $sponsor->name }}"
                                                     class="img-responsive" /></a>
                                         </div>
@@ -699,6 +699,7 @@
                         data: 'qty=' + cart_val,
                     })
                     .done(function(response) {
+                        updateCartCounter();
                         console.log('success');
                     })
                     .fail(function() {

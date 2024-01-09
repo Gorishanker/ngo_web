@@ -52,7 +52,7 @@
                                 <div class="col-lg-4 col-sm-6 col-12">
                                     <div class="our-services-box">
                                         <div class="our-services-items">
-                                            <img style="width: 402px; height: 304px;" src="{{ isset($service->image) ? $service->image : null }}"
+                                            <img style="width: 50px; height: auto;" src="{{ isset($service->icon) ? $service->icon : blankImageUrl() }}"
                                                 alt="{{ isset($service->title) ? $service->title : 'Na' }}">
                                             <div class="our-services-content">
                                                 <h4><a

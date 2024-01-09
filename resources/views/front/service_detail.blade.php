@@ -44,15 +44,17 @@
                                 @if (isset($services) && $services->count() > 0)
                                     <ul class="nav nav-tabs" role="tablist">
                                         @foreach ($services as $service)
-                                        <li role="presentation">
-                                        @if($service->id == $service_detail->id)
-                                                <a
-                                                    href="{{ route('front.serviceView', $service->slug) }}" style="color: #53a92b">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
-                                                   @else
-                                                   <a
-                                                   href="{{ route('front.serviceView', $service->slug) }}">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
-                                                    @endif
-                                                </li>
+                                            <li role="presentation">
+                                                @if ($service->id == $service_detail->id)
+                                                    <a href="{{ route('front.serviceView', $service->slug) }}"
+                                                        style="color: #53a92b"> <img style="width: 23px; height: auto; padding-right: 5px;" src="{{ isset($service_detail->icon) ? $service_detail->icon : blankImageUrl() }}"
+                                                        alt="{{ isset($service_detail->title) ? $service_detail->title : 'Na' }}">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
+                                                @else
+                                                    <a
+                                                        href="{{ route('front.serviceView', $service->slug) }}"><img style="width: 23px; height: auto; padding-right: 5px;" src="{{ isset($service_detail->icon) ? $service_detail->icon : blankImageUrl() }}"
+                                                        alt="{{ isset($service_detail->title) ? $service_detail->title : 'Na' }}">{{ isset($service->title) ? setStringLength($service->title, 60) : 'Na' }}</a>
+                                                @endif
+                                            </li>
                                         @endforeach
                                     </ul>
                                 @endif
@@ -79,10 +81,11 @@
                             <div class="tab-content">
                                 <div>
                                     <div class="single-services-content">
-                                        <img src="{{$service_detail->image}}"
-                                            alt="{{ isset($service_detail->title) ? $service_detail->title : 'Service Image' }}" style="width: 1000px; height:500px;" class="img-responsive">
+                                        <img src="{{ $service_detail->image }}"
+                                            alt="{{ isset($service_detail->title) ? $service_detail->title : 'Service Image' }}"
+                                            style="width: 1000px; height:500px;" class="img-responsive">
                                         <h3>{{ isset($service_detail->title) ? $service_detail->title : 'Na' }}</h3>
-                                        {!!$service_detail->content!!}
+                                        {!! $service_detail->content !!}
                                     </div>
                                     <!-- .single-services-content -->
                                 </div>

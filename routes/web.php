@@ -42,6 +42,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/service/{slug}', 'serviceView')->name('front.serviceView');
     Route::get('/gallery', 'gallery')->name('front.gallery');
     Route::get('/faqs', 'faqs')->name('front.faqs');
+    Route::get('/update-cart-counter', 'cartCounter');
     Route::get('/terms-and-conditions', 'termAndConditions')->name('termAndConditions');
 });
 
@@ -89,14 +90,14 @@ Route::view('/pricing-policy', 'front.static_page');
 
 
 Route::get('/home', function () {
-    return redirect()->route('admin.dashboard');
+    return redirect()->route('home');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::controller(LoginController::class)->group(function () {
-        Route::get('/login', 'showLoginForm');
-        Route::post('/login', 'login')->name('login');
+        Route::get('/', 'showLoginForm');
+        Route::post('/', 'login')->name('login');
         Route::get('/logout', 'logout')->name('logout');
         Route::get('/forget-password', 'forgetPassword')->name('forgetPassword');
         Route::post('/create-otp', 'createOtp')->name('createOtp');

@@ -69,7 +69,7 @@
 <body>
     <div class="box-style">
         <div class="color-btn">
-            <a href="#"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></a>
+            <a href="javascript:void(0);"><i class="fa fa-cog fa-spin" aria-hidden="true"></i></a>
         </div>
         <div class="box-style-inner">
             <h3>Box Layout</h3>
@@ -215,6 +215,29 @@
                 }
                 return true;
             });
+
+            function updateCartCounter() {
+                var url = `{{ url('/') }}/update-cart-counter`;
+                $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': `{{ csrf_token() }}`,
+                        },
+                        url: url,
+                        type: 'GET',
+                        dataType: 'json',
+                        data: '',
+                    })
+                    .done(function(response) {
+                            if($('#cartItemCounterValueDiv')){
+                                $('#cartItemCounterValueDiv').html(response.cartValue); 
+                            }else{
+                              $('.cartItemCounterValueDiv').append(`<div class="count-cart" id="cartItemCounterValueDiv">${response.cartValue}</div>`);
+                            }
+                    })
+                    .fail(function() {
+                        console.log('failed');
+                    });
+            }
         </script>
         @stack('scripts')
     </div>

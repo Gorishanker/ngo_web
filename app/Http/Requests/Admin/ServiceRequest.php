@@ -29,6 +29,7 @@ class ServiceRequest extends FormRequest
                 'content' => 'required|min:50',
                 'is_active' => 'required',
                 'image' => 'nullable|image|max:3072',
+                'icon' => 'nullable|image|max:1024',
                 'brochure_pdf' => 'nullable|file|mimes:pdf|max:3072',
                 'brochure_doc' => 'nullable|file|mimes:jpg,png,jpeg,txt,doc,docx|max:3072',
             ];
@@ -38,6 +39,7 @@ class ServiceRequest extends FormRequest
                 'content' => 'required|min:50',
                 'is_active' => 'required',
                 'image' => 'required|image|max:3072',
+                'icon' => 'required|image|max:1024',
                 'brochure_pdf' => 'required|file|mimes:pdf|max:3072',
                 'brochure_doc' => 'required|file|mimes:jpg,png,jpeg,txt,doc,docx|max:3072',
             ];
