@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="intro-y col-span-12 lg:col-span-6">
+        {{-- <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>
                     <label class="text-gray-500 font-medium leading-none mt-3">{{ trans_choice('content.address', 1) }}
@@ -40,7 +40,7 @@
                     {{ isset($team->address) ? $team->address : 'Na' }}
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="intro-y col-span-12 lg:col-span-6">
             <div class="intro-y box p-5">
                 <div>

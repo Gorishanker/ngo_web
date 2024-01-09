@@ -89,7 +89,7 @@ Route::view('/shipping-policy', 'front.static_page');
 Route::view('/pricing-policy', 'front.static_page');
 
 
-Route::get('/admin/', function () {
+Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
 });
 

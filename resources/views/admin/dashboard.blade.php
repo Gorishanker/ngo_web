@@ -99,7 +99,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                {{-- <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                     <a href="{{ route('admin.tags.index') }}">
                         <div class="report-box zoom-in">
                             <div class="box p-5">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> --}}
                 <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                     <a href="{{ route('admin.banners.index') }}">
                         <div class="report-box zoom-in">
@@ -178,7 +178,7 @@
                     $('.total_campaigns').text(response.data.total_campaigns);
                     $('.total_blogs').text(response.data.total_blogs);
                     $('.total_categories').text(response.data.total_categories);
-                    $('.total_tags').text(response.data.total_tags);
+                    // $('.total_tags').text(response.data.total_tags);
                     $('.total_banners').text(response.data.total_banners);
                     $('.total_faqs').text(response.data.total_faqs);
                     $('.total_contact_us').text(response.data.total_contact_us);

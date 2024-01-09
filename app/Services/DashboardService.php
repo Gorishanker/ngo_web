@@ -38,7 +38,7 @@ class DashboardService
         $data['total_campaigns'] = Campaign::count();
         $data['total_blogs'] = Blog::count();
         $data['total_categories'] = Category::count();
-        $data['total_tags'] = Tag::count();
+        // $data['total_tags'] = Tag::count();
         $data['total_banners'] = Banner::count();
         $data['total_faqs'] = Faq::count();
         $data['total_contact_us'] = ContactUs::count();
